@@ -1,0 +1,45 @@
+$black: rgba(0, 0, 0, 0.7);
+$white: rgba(255, 255, 255, 0.75);
+
+.button,
+.button-input {
+  // base styles
+  @apply relative;
+  @apply cursor-pointer;
+  @apply inline-block;
+  @apply overflow-hidden;
+  @apply select-none;
+  @apply border;
+  @apply text-center;
+
+  // button styles
+  @apply px-5 py-3;
+  @apply rounded;
+
+  // text styles
+  @apply leading-none;
+}
+
+.button {
+  // variations
+  @apply bg-ovalGreen border-ovalGreen;
+  color: $black;
+
+  &.white {
+    @apply bg-white border-white;
+    color: $black;
+  }
+
+  &.dark {
+    @apply bg-gray-800 border-gray-800;
+    @apply text-white;
+  }
+
+  &:hover {
+    @apply opacity-75;
+  }
+
+  &:active {
+    @apply opacity-100;
+  }
+}

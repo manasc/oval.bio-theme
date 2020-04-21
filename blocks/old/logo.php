@@ -1,0 +1,1 @@
+<span class="text-ovalGreen font-bold text-2xl">oval.bio</span>
