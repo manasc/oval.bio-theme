@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import apiFetch from "@wordpress/api-fetch";
 
 class Header extends React.Component {
 	constructor(props) {
@@ -67,6 +68,10 @@ class Header extends React.Component {
 
 	componentDidMount() {
 		this.updateHeight();
+
+		apiFetch({ path: "/wp/v2/posts" }).then((posts) => {
+			console.log(posts);
+		});
 	}
 
 	componentDidUpdate() {
@@ -96,8 +101,14 @@ class Header extends React.Component {
 							<div className="w-1/3 left-menu hidden lg:block">
 								<ul className="flex items-center -mx-2">
 									{menu.map((x) => (
-										<li key={x.name} className="px-2 opacity-75 hover:opacity-100">
-											<a href={x.url} className="font-medium">
+										<li
+											key={x.name}
+											className="px-2 opacity-75 hover:opacity-100"
+										>
+											<a
+												href={x.url}
+												className="font-medium"
+											>
 												{x.name}
 											</a>
 										</li>

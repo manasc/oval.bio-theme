@@ -35,7 +35,7 @@
                 "description" => "Everything we do",
                 "coming_soon" => false
             ],
-        ]
+        ];
 
         $images = json_decode(file_get_contents("/source/temp/images.json"));
         ?>

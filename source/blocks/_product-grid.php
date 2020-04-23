@@ -27,7 +27,7 @@
 		],
 	];
 
-	$images = json_decode(file_get_contents("../../source/temp/images.json"));
+	$images = get_fake_images();
 ?>
 
 <div class="flex flex-wrap">

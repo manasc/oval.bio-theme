@@ -11,7 +11,7 @@ class Vision extends React.Component {
           "text-white text-xs lg:text-sm font-bold uppercase tracking-wider",
         tabActive: "tab bg-ovalGreen w-1/6 text-center py-3 leading-none",
         tabActiveText:
-          "text-gray-800 text-xs lg:text-sm font-bold uppercase tracking-wider",
+          "text-gray-800 text-xs lg:text-sm font-bold uppercase tracking-wider"
       },
       styles: {
         positions: [
@@ -20,8 +20,8 @@ class Vision extends React.Component {
           { transform: "translate(4em,10em)" },
           { transform: "translate(5em,2em)" },
           { transform: "translate(6em,5em)" },
-          { transform: "translate(7em,2em)" },
-        ],
+          { transform: "translate(7em,2em)" }
+        ]
       },
       selectedTab: "LunaPatch",
       detailPosition: 0,
@@ -31,8 +31,8 @@ class Vision extends React.Component {
         "Hydrogen Water",
         "Noomino",
         "Balding Grey",
-        "Bactose",
-      ],
+        "Bactose"
+      ]
     };
 
     // bind state
@@ -57,7 +57,7 @@ class Vision extends React.Component {
 
     this.setState(() => ({
       selectedTab: product,
-      detailPosition: index,
+      detailPosition: index
     }));
   }
 
@@ -68,7 +68,7 @@ class Vision extends React.Component {
       styles,
       detailPosition,
       classes,
-      selectedTab,
+      selectedTab
     } = this.state;
     return (
       <div className="p-0 md:p-5">
@@ -87,21 +87,24 @@ class Vision extends React.Component {
                 ))}
               </h1>
               <p className="mb-8 text-lg text-gray-700">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Luctus a
-                amet volutpat vel.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Luctus
+                a amet volutpat vel.
               </p>
               <a className="button white">All Products</a>
             </div>
             <div className="picture w-full block md:w-3/5 h-64 md:h-full relative md:absolute top-0 right-0 overflow-hidden">
               <div
                 className="w-full h-full bg-cover bg-center bg-no-repeat absolute top-0 right-0"
-                style={{ backgroundImage: "url('../../source/images/Pod.png')" }}
+                style={{
+                  backgroundImage:
+                    "url(https://oval.nimaroh.test/app/themes/oval.bio-theme/source/images/Pod.png)"
+                }}
               />
               <div
                 className="h-32 w-32 rounded-full absolute bg-white shadow top-0 left-0"
                 style={{
                   ...styles.positions[detailPosition],
-                  transitionDuration: "300ms",
+                  transitionDuration: "300ms"
                 }}
               />
             </div>

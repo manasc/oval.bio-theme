@@ -1,60 +1,91 @@
-<?php
-/**
- * The header for our theme
- *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package oval.bio
- */
-
-?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
-<head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="https://gmpg.org/xfn/11">
 
-	<?php wp_head(); ?>
+<head>
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+
+    <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'oval-bio' ); ?></a>
-
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$oval_bio_description = get_bloginfo( 'description', 'display' );
-			if ( $oval_bio_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $oval_bio_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'oval-bio' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
-	<div id="main-header" data-navigation='[{"name":"Our Products","url":"\/pages\/all-products"},{"name":"Technology","url":"\/pages\/all-products"},{"name":"Blog","url":"\/pages\/all-products"},{"name":"About Us","url":"\/pages\/all-products"},{"name":"Events","url":"\/pages\/all-products"}]'></div>
+    <?php wp_body_open(); ?>
+    <div id="page" class="site">
+        <header id="main-header" class="fixed top-0 left-0 w-full z-50" ref={this.mainHeader}>
+            <div id="header-banner" class="banner bg-ovalGreen hover:bg-ovalGreenLight cursor-pointer text-sm text-gray-800 py-3 text md:py-2 px-6">
+                <div class="container mx-auto">
+                    <div class="flex -mx-2">
+                        <span class="w-full truncate">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate sequi error reiciendis magnam eligendi, repudiandae dolor perspiciatis. Deserunt cum sequi veritatis labore cumque, modi qui.
+                        </span>
+                        <div id="close-header-banner" class="close px-2 text-gray-700 hover:text-gray-800">
+                            <div class="fas fa-times-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="header-navbar" class="bg-gray-800 text-sm text-sm text-white py-3 md:py-2 px-6">
+                <div class="flex items-center">
+                    <div class="w-1/3 left-menu hidden lg:block">
+                        <?php
+                        wp_nav_menu(
+                            array(
+                                'theme_location' => 'menu-1',
+                                "container" => "ul",
+                                "menu_class" => "flex items-center -mx-2",
+                                "items_wrap" => "",
+                                'walker' => new Header_Nav
+                            )
+                        );
+                        ?>
+                    </div>
+                    <div class="w-1/3 left-menu-mobile block lg:hidden">
+                        <ul class="flex items-center -mx-1">
+                            <li class="px-1 leading-none">
+                                <a class="font-medium text-ovalGreen" href="#"><i class="fas fa-bars text-lg"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="w-1/3 text-center">
+                        <span class="text-ovalGreen font-bold text-2xl">oval.bio</span>
+                    </div>
+                    <div class="w-1/3 right-menu text-right hidden lg:block">
+                        <ul class="flex items-center justify-end -mx-1">
+                            <li class="px-1 leading-none">
+                                <div class="badge bg-ovalGreen h-8 w-8 rounded-full relative text-gray-700 font-bold flex items-center justify-center">
+                                    <span id="initials" class="absolute"><i class="fas fa-user"></i></span>
+                                </div>
+                            </li>
+                            <li class="px-1 leading-none">
+                                <div class="badge bg-white h-8 w-8 rounded-full relative text-gray-700 font-bold flex items-center justify-center">
+                                    <span id="cartCount" class="absolute">2</span>
+                                </div>
+                            </li>
+                            <li class="px-1 leading-none">
+                                <div class="badge bg-ovalGreen h-8 px-5 w-auto rounded-full relative text-gray-700 font-bold flex items-center justify-center">
+                                    <span class="leading-inherit">Shop</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="w-1/3 right-menu text-right block lg:hidden">
+                        <ul class="flex items-center justify-end -mx-1">
+                            <li class="px-1 leading-none">
+                                <div class="badge bg-white h-8 w-8 rounded-full relative text-gray-700 font-bold flex items-center justify-center">
+                                    <span id="cartCount" class="absolute">2</span>
+                                </div>
+                            </li>
+                            <li class="px-1 leading-none">
+                                <a class="font-medium text-ovalGreen" href="#"><i class="fas fa-shopping-cart text-lg"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div id="faux-header" class="relative"></div>
+        <div class="mobile-menu"></div>
+        <div class="pt-24">
+        </div>
