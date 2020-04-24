@@ -25,7 +25,7 @@
                 <?php if ($key < 1) : ?>
                     <div class="grid-item grid-width-1 w-full md:w-2/3 lg:w-1/2 px-2 mb-8 bg-white">
                         <div class="overflow-hidden">
-                            <img class="rounded w-full" src="<?php echo get_fake_images()[rand(1, 24)]->urls->full ?>" alt="Sunset in the mountains">
+                            <img class="rounded w-full" src="<?php echo get_fake_images()[rand(1, 24)]->urls->small ?>" alt="Sunset in the mountains">
                             <div class="px-1 py-2">
                                 <div class="text-2xs uppercase font-bold mb-1 leadning-none text-ovalGreen"><?php echo $post->date ?></div>
                                 <div class="text-xl mb-2 capitalize"><?php echo $post->title ?></div>
@@ -43,7 +43,7 @@
                 <?php else : ?>
                     <div class="grid-item grid-width-2 w-1/2 md:w-1/3 lg:w-1/4 px-2 mb-8 bg-white">
                         <div class="overflow-hidden">
-                            <img class="rounded w-full" src="<?php echo get_fake_images()[rand(1, 24)]->urls->full ?>" alt="Sunset in the mountains">
+                            <img class="rounded w-full" src="<?php echo get_fake_images()[rand(1, 24)]->urls->small ?>" alt="Sunset in the mountains">
                             <div class="px-1 py-2">
                                 <div class="text-2xs uppercase font-bold mb-1 leadning-none text-ovalGreen"><?php echo $post->date ?></div>
                                 <div class="text-xl mb-2 capitalize"><?php echo $post->title ?></div>
