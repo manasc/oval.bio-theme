@@ -45,7 +45,11 @@
   &::after {
     content: "";
     @apply block;
-    padding-top: 60%;
+    padding-top: 100%;
+
+    @screen md {
+      padding-top: 60%;
+    }
   }
 
   .title {
@@ -83,10 +87,8 @@
   }
 }
 
-
 .label {
   @apply cursor-default;
-  @apply inline-block;
   @apply bg-ovalGreen px-2 py-1 leading-none;
   @apply border border-ovalGreen;
 
@@ -177,6 +179,6 @@
   .text {
     transition-duration: 200ms;
     @apply block absolute top-0 left-0;
-    line-height: theme('spacing.16')
+    line-height: theme("spacing.16");
   }
 }

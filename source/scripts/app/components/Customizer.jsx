@@ -1,6 +1,6 @@
 import React from "react";
 import ContextProvider, {
-  CustomizerContext,
+  CustomizerContext
 } from "../context/CustomizerContext";
 import { Tooltip } from "react-tippy";
 
@@ -12,12 +12,12 @@ class Customizer extends React.Component {
   render() {
     return (
       <ContextProvider>
-        <div className="container mx-auto">
-          <div className="flex flex-wrap -mx-5">
+        <div className="container max-w-4xl mx-auto">
+          <div className="flex flex-wrap mx-0 md:-mx-5">
             <div className="w-full md:w-3/5 px-5">
               <div className="customizer-product-box">
                 <CustomizerContext.Consumer>
-                  {(context) => {
+                  {context => {
                     const { options, chosenImage } = context.state;
                     const { updateChosenImage } = context;
 
@@ -25,16 +25,16 @@ class Customizer extends React.Component {
                       <React.Fragment>
                         <div
                           id="display-image"
-                          className="square-image mb-2"
+                          className="square-image mb-px md:mb-2"
                           style={{
-                            backgroundImage: "url(" + chosenImage + ")",
+                            backgroundImage: "url(" + chosenImage + ")"
                           }}
                         />
                         <div id="other-images" className="flex flex-wrap -mx-1">
                           {options.images.map((imageURL, i) => {
                             return (
                               <div
-                                className="w-1/5 px-1"
+                                className="w-1/4 px-px md:px-1"
                                 key={i}
                                 onClick={() => {
                                   updateChosenImage(imageURL);
@@ -47,7 +47,7 @@ class Customizer extends React.Component {
                                       : "square-image cursor-pointer shadow-md border hover:opacity-75"
                                   }
                                   style={{
-                                    backgroundImage: "url(" + imageURL + ")",
+                                    backgroundImage: "url(" + imageURL + ")"
                                   }}
                                 />
                               </div>
@@ -61,32 +61,31 @@ class Customizer extends React.Component {
               </div>
             </div>
             <div className="w-full md:w-2/5 px-5">
-              <div className="p-5">
-                <div className="title font-bold text-3xl">Heliopatch</div>
-                <div className="desc text-base font-light leading-tight">
+              <div className="py-5">
+                <div className="hidden md:block title font-bold text-3xl">Heliopatch</div>
+                <div className="hidden md:block desc text-sm font-light leading-tight">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Corporis magnam laborum, quas voluptates sapiente est
                   aspernatur itaque quod, voluptatibus iusto nulla illum. Qui,
                   explicabo quasi consectetur tenetur reprehenderit aliquam
                   temporibus.
                 </div>
-                <div className="options my-10">
+                <div className="options my-5">
                   <div className="font-bold text-base mb-2">
                     Choose pack size:
                   </div>
                   <div className="flex">
                     <CustomizerContext.Consumer>
-                      {(context) => {
+                      {context => {
                         const { chosenPackSize, options } = context.state;
                         const { updatePackSize } = context;
 
-                        return options.packSizes.map((size) => (
+                        return options.packSizes.map(size => (
                           <label
                             key={size.quantity}
                             className={
-                              size.quantity == chosenPackSize
-                                ? "pack-option active mr-2"
-                                : "pack-option mr-2"
+                              "pack-option mr-3 " +
+                              (size.quantity == chosenPackSize ? "active" : "")
                             }
                             onClick={() => {
                               updatePackSize(size.quantity);
@@ -109,14 +108,14 @@ class Customizer extends React.Component {
                   </div>
                 </div>
                 <div className="options my-5">
-                  <div className="text-base mb-2">
+                  <div className="text-sm mb-2">
                     Subscribe and Save{" "}
                     <span className="text-ovalGreen font-bold">save 20%</span>{" "}
                     more:
                   </div>
                   <div className="flex">
                     <CustomizerContext.Consumer>
-                      {(context) => {
+                      {context => {
                         const { subscription } = context.state;
                         const { updateSubscription } = context;
 
@@ -152,14 +151,14 @@ class Customizer extends React.Component {
                 </div>
                 <div className="options mt-5 mb-10">
                   <CustomizerContext.Consumer>
-                    {(context) => {
+                    {context => {
                       const { subscription, renewal } = context.state;
                       const { updateRenewal } = context;
 
                       if (subscription) {
                         return (
                           <React.Fragment>
-                            <div className="text-base mb-2">
+                            <div className="text-sm mb-2">
                               Choose a renewal frequency
                             </div>
                             <div className="flex">
@@ -195,12 +194,12 @@ class Customizer extends React.Component {
                 <div className="options my-5">
                   <div className="font-bold text-base">Total</div>
                   <CustomizerContext.Consumer>
-                    {(context) => {
+                    {context => {
                       const { subscription } = context.state;
 
                       if (subscription) {
                         return (
-                          <div className="title font-bold text-4xl">
+                          <div className="title font-bold text-3xl">
                             <span className="line-through text-gray-400">
                               $30.00
                             </span>
@@ -209,7 +208,7 @@ class Customizer extends React.Component {
                         );
                       } else {
                         return (
-                          <div className="title font-bold text-4xl">
+                          <div className="title font-bold text-3xl">
                             <span className="text-ovalGreen">$30.00</span>
                           </div>
                         );
@@ -219,7 +218,7 @@ class Customizer extends React.Component {
                 </div>
                 <div className="options my-5">
                   {/* <!-- TODO: popup prompting to read further info if necessary --> */}
-                  <div className="mb-2 text-base leading-snug">
+                  <div className="mb-2 text-sm leading-snug">
                     Purchase this product now and earn{" "}
                     <span className="text-ovalGreen font-bold mr-2">
                       40 points toward the Pod

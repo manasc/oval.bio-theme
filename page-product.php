@@ -33,22 +33,29 @@ $tabs = [
 	],
 ]
 ?>
-<pre>
-<?php var_dump(new Walker_Nav_Menu) ?>
-</pre>
-<div id="product-customizer" class="py-24"></div>
-<?php include '../../blocks/_icons.php' ?>
+<div class="block md:hidden p-5">
+	<div class="title font-bold text-3xl mb-2">Heliopatch</div>
+	<div class="desc text-sm font-light leading-tight">
+		Lorem ipsum dolor sit amet consectetur adipisicing elit.
+		Corporis magnam laborum, quas voluptates sapiente est
+		aspernatur itaque quod, voluptatibus iusto nulla illum. Qui,
+		explicabo quasi consectetur tenetur reprehenderit aliquam
+		temporibus.
+	</div>
+</div>
+<div id="product-customizer" class="py-5 md:py-10"></div>
+<?php get_template_part('source/blocks/_icons') ?>
 <div class="flex flex-wrap md:flex-no-wrap justify-end bg-gray-200">
 	<div class="w-full md:w-1/2 bg-cover bg-no-repeat bg-center" style="background-image:url(https://source.unsplash.com/random/800x602/?running)">
 		<div class="block md:hidden w-full" style="padding-top: 100%"></div>
 	</div>
-	<div class="w-full md:w-1/2 flex items-center justify-center py-32">
-		<div class="content max-w-lg">
-			<h1 class="text-4xl font-light mb-3 leading-tight">There's something to say about the this product, introduce it here.</h1>
-			<p class="mb-8 text-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui in mollitia, eaque magnam. Adipisci ipsam ducimus, enim! Eius pariatur voluptatibus dolor, inventore voluptatem? Quia, ducimus!</p>
+	<div class="w-full md:w-1/2 flex items-center justify-center py-10">
+		<div class="content p-5 max-w-lg">
+			<h1 class="text-3xl md:text-4xl font-light mb-5 leading-tight">There's something to say about the this product, introduce it here.</h1>
+			<p class="text-base leading-snug">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui in mollitia, eaque magnam. Adipisci ipsam ducimus, enim! Eius pariatur voluptatibus dolor, inventore voluptatem? Quia, ducimus!</p>
 		</div>
 	</div>
 </div>
 <div id="tabs" data-content="<?php echo htmlspecialchars(json_encode($tabs), ENT_QUOTES, 'UTF-8') ?>"></div>
-<section id="vision" class="p-5"></section>
+<section id="vision"></section>
 <?php get_footer() ?>

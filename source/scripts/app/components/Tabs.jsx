@@ -16,8 +16,8 @@ class Vision extends React.Component {
             "tab cursor-pointer leading-none rounded-t border border-b-0 text-xs font-bold uppercase tracking-wider px-5 py-3 -mr-px relative",
           dead:
             "bg-transparent text-gray-500 border-gray-300 hover:text-gray-700 relative z-0",
-          active: "bg-white border-gray-500 text-gray-800 z-10",
-        },
+          active: "bg-white border-gray-500 text-gray-800 z-10"
+        }
       },
       styles: {
         positions: [
@@ -26,12 +26,12 @@ class Vision extends React.Component {
           { transform: "translate(4em,10em)" },
           { transform: "translate(5em,2em)" },
           { transform: "translate(6em,5em)" },
-          { transform: "translate(7em,2em)" },
-        ],
+          { transform: "translate(7em,2em)" }
+        ]
       },
       selectedTab: content[0].name,
       detailPosition: 0,
-      content: content,
+      content: content
     };
 
     // bind state
@@ -57,7 +57,7 @@ class Vision extends React.Component {
     this.setState(() => ({
       selectedTab: product,
       detailPosition: index,
-      active: false,
+      active: false
     }));
   }
 
@@ -69,7 +69,7 @@ class Vision extends React.Component {
     const { content, classes, selectedTab } = this.state;
 
     return (
-      <div className="py-24">
+      <div className="py-10 md:py-24">
         <div className="container mx-auto flex flex-wrap overflow-hidden">
           <div className="px-2 relative flex flex-wrap justify-start w-full z-20 -mb-px">
             {content.map(({ name }, i) => (
@@ -102,7 +102,7 @@ class Vision extends React.Component {
                   </h1>
                   <p
                     className="mb-8 text-lg text-gray-700"
-                    style={{ columnCount: 2 }}
+                    style={{ columnCount: window.innerWidth > 480 ? 2 : 1 }}
                   >
                     {description}
                   </p>
@@ -118,7 +118,7 @@ class Vision extends React.Component {
 }
 
 Vision.propTypes = {
-  content: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  content: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
 export default Vision;

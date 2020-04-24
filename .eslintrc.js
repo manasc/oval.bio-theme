@@ -36,15 +36,15 @@ module.exports = {
   'rules': {
     'no-console': 0,
     'quotes': ['warn', 'double'],
-    'comma-dangle': [
-      'error',
-      {
-        'arrays': 'always-multiline',
-        'objects': 'always-multiline',
-        'imports': 'always-multiline',
-        'exports': 'always-multiline',
-        'functions': 'ignore',
-      },
-    ],
+    // 'comma-dangle': [
+    //   'error',
+    //   {
+    //     'arrays': 'always-multiline',
+    //     'objects': 'always-multiline',
+    //     'imports': 'always-multiline',
+    //     'exports': 'always-multiline',
+    //     'functions': 'ignore',
+    //   },
+    // ],
   },
 };

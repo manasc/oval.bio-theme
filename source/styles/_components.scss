@@ -20,6 +20,10 @@ $white: rgba(255, 255, 255, 0.75);
   @apply leading-none;
 }
 
+.button-input {
+  @apply px-4 py-2;
+}
+
 .button {
   // variations
   @apply bg-ovalGreen border-ovalGreen;

@@ -150,7 +150,8 @@ function oval_bio_scripts()
 {
     $styles_assets  = include get_template_directory() . '/dist/styles.asset.php';
     $blocks_assets  = include get_template_directory() . '/dist/blocks.asset.php';
-    $scripts_assets = include get_template_directory() . '/dist/scripts.asset.php';
+    $scripts_assets = include get_template_directory() . '/dist/app.asset.php';
+    $general_assets = include get_template_directory() . '/dist/general.asset.php';
 
     wp_enqueue_style(
         'oval-bio-styles',
@@ -158,6 +159,14 @@ function oval_bio_scripts()
         [], // no deps for css
         $styles_assets['version'],
         null
+    );
+
+    wp_enqueue_script(
+        'font-awesome',
+        'https://kit.fontawesome.com/2f39459834.js',
+        [],
+        [],
+        false
     );
 
     wp_enqueue_script(
@@ -169,10 +178,18 @@ function oval_bio_scripts()
     );
 
     wp_enqueue_script(
-        'oval-bio-scripts',
-        get_template_directory_uri() . '/dist/scripts.js',
+        'oval-bio-app',
+        get_template_directory_uri() . '/dist/app.js',
         $scripts_assets['dependencies'],
         $scripts_assets['version'],
+        true
+    );
+
+    wp_enqueue_script(
+        'oval-bio-general',
+        get_template_directory_uri() . '/dist/general.js',
+        $general_assets['dependencies'],
+        $general_assets['version'],
         true
     );
 }
@@ -216,11 +233,31 @@ function get_fake_images()
     return $images;
 }
 
+function get_fake_posts()
+{
+    $posts = json_decode(file_get_contents(get_template_directory() . "/source/temp/posts.json"));
+
+    return $posts;
+}
+
+function get_logo()
+{
+    return '<span class="text-ovalGreen font-bold text-2xl">oval.bio</span>';
+}
+
 class Header_Nav extends Walker_Nav_Menu
 {
     public function start_el(&$output, $item, $depth = 0, $args = null, $id = 0)
     {
         $classes = is_page($item->post_title) ? 'text-ovalGreen' : 'opacity-75 hover:opacity-100';
-        $output .= "<li class=\"px-2 $classes\"><a href=\"$item->guid\">$item->post_title</a></li>";
+        $output .= "<li class=\"px-2 truncate $classes\"><a href=\"$item->guid\">$item->post_title</a></li>";
+    }
+}
+class Mobile_Nav extends Walker_Nav_Menu
+{
+    public function start_el(&$output, $item, $depth = 0, $args = null, $id = 0)
+    {
+        $classes = is_page($item->post_title) ? 'text-ovalGreen' : 'opacity-75 hover:opacity-100';
+        $output .= "<li class=\"px-2 truncate $classes\"><a href=\"$item->guid\">$item->post_title</a></li>";
     }
 }

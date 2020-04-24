@@ -33,14 +33,6 @@ if (tabs) {
   ReactDOM.render(<Tabs {...tabs.dataset} />, tabs);
 }
 
-// multiple
-// window.addEventListener("DOMContentLoaded", () => {
-//   const choosers = document.querySelectorAll(".chooser");
-//   choosers.forEach((x) => {
-//     ReactDOM.render(<Choices />, x);
-//   });
-// });
-
 // general js
 Waves.attach(".button:not(.dark)");
 Waves.attach(".button.dark", ["waves-light"]);

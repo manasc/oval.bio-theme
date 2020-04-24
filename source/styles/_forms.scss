@@ -1,17 +1,17 @@
 // pack selectors
 .pack-option {
-  @apply w-20;
+  @apply w-16;
   @apply text-gray-400;
   @apply font-bold text-center uppercase;
 
   .pack-option-box {
     @apply cursor-pointer;
     @apply border-2 border-gray-400 rounded;
-    @apply w-full h-20 flex flex-col justify-center;
+    @apply w-full h-16 flex flex-col justify-center;
   }
 
   .pack-option-number {
-    @apply text-4xl font-bold leading-none;
+    @apply text-3xl font-bold leading-none;
   }
 
   .pack-option-text,
@@ -42,8 +42,6 @@
 
 // option states
 label {
-  @apply block;
-  
   .button-input {
     @apply border-ovalGreen text-ovalGreen;
     @apply bg-transparent;

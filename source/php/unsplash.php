@@ -11,7 +11,7 @@ $filters = [
 	'featured' => true,
 	'query' => 'exercise',
 	'count' => 25,
-	"ortientation" => 'landscape',
+	"orientation" => 'landscape',
 ];
 
 $photos = Crew\Unsplash\Photo::random($filters)->toArray();
