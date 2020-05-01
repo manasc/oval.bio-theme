@@ -92,6 +92,10 @@
   @apply bg-ovalGreen px-2 py-1 leading-none;
   @apply border border-ovalGreen;
 
+  &.label-blue {
+    @apply bg-skyBlue border-skyBlue;
+  }
+
   .label-text {
     @apply uppercase font-medium;
     @apply text-xs text-gray-800 leading-none;

@@ -101,4 +101,4 @@
             ?>
         </div>
     </div>
-    <div id="page" class="site">
+    <div id="page" class="site overflow-hidden">

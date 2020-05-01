@@ -13,6 +13,8 @@
 ?>
 
 <?php $footer_images = get_fake_images() ?>
+
+<?php if (!is_page('all-blogs')) : ?>
 <div class="bg-gray-800">
 	<div class="container mx-auto">
 		<div class="px-4 sm:px-6 lg:px-8 py-24 w-full relative">
@@ -69,6 +71,7 @@
 		</div>
 	</div>
 </div>
+<?php endif; ?>
 
 <div class="bg-ovalGreen">
 	<div class="container mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
@@ -79,6 +82,7 @@
 		<div class="mt-8 md:mt-0 flex-none">
 			<div class="input-field flex">
 				<input placeholder="yourname@example.com" type="text" class="outline-none w-full max-w-xs text-gray-800 px-5 py-2 mr-2 rounded">
+				<!-- FIXME: does not produce wave effect ANYWHERE -->
 				<a class="button dark waves-effect waves-light w-32">Submit</a>
 			</div>
 		</div>

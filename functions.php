@@ -233,11 +233,14 @@ function get_fake_images()
     return $images;
 }
 
-function get_fake_posts()
+function get_fake_posts($limit = -1)
 {
-    $posts = json_decode(file_get_contents(get_template_directory() . "/source/temp/posts.json"));
+    $query = new WP_Query([
+        'post_type' => 'post',
+        'posts_per_page' => $limit,
+    ]);
 
-    return $posts;
+    return $query->posts;
 }
 
 function get_logo()
