@@ -1,7 +1,11 @@
 <?php get_header(); ?>
-<section id="vision"></section>
-<?php get_template_part('source/blocks/_icons', NULL) ?>
-<?php get_template_part('source/blocks/_product-grid', NULL) ?>
+<div class="container mx-auto">
+    <div class="-mx-5">
+        <section id="vision"></section>
+    </div>
+</div>
+<?php get_template_part('source/blocks/icons', NULL) ?>
+<?php get_template_part('source/blocks/product-grid', NULL) ?>
 
 <div id="tabs"></div>
 <?php $products = [
@@ -30,7 +34,7 @@
         "phase" => 5,
     ],
 ] ?>
-<div class="bg-gray-800 py-24">
+<div class="bg-gray-800 px-5 py-24">
     <div class="container mx-auto py-12">
         <div class="max-w-md">
             <div class="text-3xl text-ovalGreen font-light mb-5">Product Phases</div>

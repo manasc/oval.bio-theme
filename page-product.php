@@ -44,7 +44,7 @@ $tabs = [
 	</div>
 </div>
 <div id="product-customizer" class="py-5 md:py-10"></div>
-<?php get_template_part('source/blocks/_icons') ?>
+<?php get_template_part('source/blocks/icons') ?>
 <div class="flex flex-wrap md:flex-no-wrap justify-end bg-gray-200">
 	<div class="w-full md:w-1/2 bg-cover bg-no-repeat bg-center" style="background-image:url(https://source.unsplash.com/random/800x602/?running)">
 		<div class="block md:hidden w-full" style="padding-top: 100%"></div>

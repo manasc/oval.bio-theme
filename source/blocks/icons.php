@@ -17,9 +17,9 @@
     ]
 ];
 ?>
-<div class="icons border-t md:border-none">
-    <div class="container mx-auto p-5">
-        <div class="py-10 md:py-20 flex flex-wrap items-center">
+<section class="my-20 icons border-t md:border-none">
+    <div class="max-w-5xl mx-auto p-5">
+        <div class="flex flex-wrap items-center">
             <div class="relative content w-full md:w-1/3 mr-10 mb-10 md:mb-0">
                 <h1 class="text-2xl font-light mb-5 leading-tight">Buy now and invest in your future.</h1>
                 <p class="mb-8 text-base text-slateBlue">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Luctus a amet volutpat vel.</p>
@@ -35,4 +35,4 @@
             </div>
         </div>
     </div>
-</div>
+</section>

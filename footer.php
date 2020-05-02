@@ -16,8 +16,8 @@
 
 <?php if (!is_page('all-blogs')) : ?>
 <div class="bg-gray-800">
-	<div class="container mx-auto">
-		<div class="px-4 sm:px-6 lg:px-8 py-24 w-full relative">
+	<div class="container px-5 mx-auto">
+		<div class="py-24 w-full relative">
 			<div class="mb-10 max-w-lg">
 				<h1 class="text-4xl text-ovalGreen font-light ">Lorem ipsum dolor sit amet.</h1>
 				<!-- <h5 class="text-base text-gray-200">Quibusdam minus voluptates dignissimos, labore eum recusandae. Molestias iusto, magni minus non reprehenderit sint eius in inventore, cumque quos similique atque sunt!</h5> -->
@@ -74,7 +74,7 @@
 <?php endif; ?>
 
 <div class="bg-ovalGreen">
-	<div class="container mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+	<div class="container mx-auto py-12 px-5 lg:py-16 lg:flex lg:items-center lg:justify-between">
 		<h2 class="text-3xl leading-9 font-light tracking-tight text-gray-800 sm:text-4xl sm:leading-10 mr-0 md:mr-4">
 			Sign up for the <span class="font-bold font-sans">oval.bio</span> newsletter for news, information and updates on the medical industry
 			<br>
@@ -89,9 +89,9 @@
 	</div>
 </div>
 
-<footer class="bg-gray-900 py-10 text-white">
-	<div class="container py-10 px-4 sm:px-6 lg:px-8 mx-auto">
-		<div class="flex flex-wrap -mx-5">
+<footer class="bg-gray-900 text-white">
+	<div class="container px-5 mx-auto">
+		<div class="flex flex-wrap -mx-5 py-10">
 			<div class="w-full lg:w-2/6 px-5">
 				<?php echo get_logo() ?>
 				<p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores soluta dicta dolorem neque quas, sequi deserunt dolores qui debitis velit obcaecati, quae consectetur. Earum, atque.</p>
@@ -130,7 +130,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="container border-t py-10 px-4 sm:px-6 lg:px-8 mx-auto flex flex-wrap">
+	<div class="container px-5 py-5 border-t border-gray-700 mx-auto flex flex-wrap">
 		<div class="w-full md:w-1/2 text-center md:text-left">
 			<i class="fas fa-copyright mr-1"></i> <?php echo date('Y') ?>. All rights reserved.
 		</div>

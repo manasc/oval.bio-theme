@@ -25,59 +25,61 @@
             </div>
         </div>
         <div id="header-navbar" class="bg-gray-800 text-sm text-sm text-white py-3 md:py-2 px-6">
-            <div class="flex items-center">
-                <div class="w-1/3 left-menu hidden lg:block">
-                    <?php
-                    wp_nav_menu(
-                        array(
-                            'theme_location' => 'menu-1',
-                            "container" => "ul",
-                            "menu_class" => "flex items-center -mx-2",
-                            "items_wrap" => "",
-                            'walker' => new Header_Nav
-                        )
-                    );
-                    ?>
-                </div>
-                <div class="w-1/3 left-menu-mobile block lg:hidden">
-                    <ul class="flex items-center -mx-1">
-                        <li id="open-mobile-menu" class="px-1 leading-none">
-                            <a class="font-medium text-ovalGreen" href="#"><i class="fas fa-bars text-lg"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="w-1/3 text-center"><?php echo get_logo() ?></div>
-                <div class="w-1/3 right-menu text-right hidden lg:block">
-                    <ul class="flex items-center justify-end -mx-1">
-                        <li class="px-1 leading-none">
-                            <div class="badge bg-ovalGreen h-8 w-8 rounded-full relative text-gray-700 font-bold flex items-center justify-center">
-                                <span id="initials" class="absolute"><i class="fas fa-user"></i></span>
-                            </div>
-                        </li>
-                        <li class="px-1 leading-none">
-                            <div class="badge bg-white h-8 w-8 rounded-full relative text-gray-700 font-bold flex items-center justify-center">
-                                <span id="cartCount" class="absolute">2</span>
-                            </div>
-                        </li>
-                        <li class="px-1 leading-none">
-                            <div class="badge bg-ovalGreen h-8 px-5 w-auto rounded-full relative text-gray-700 font-bold flex items-center justify-center">
-                                <span class="leading-inherit">Shop</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="w-1/3 right-menu text-right block lg:hidden">
-                    <ul class="flex items-center justify-end -mx-1">
-                        <li class="px-1 leading-none">
-                            <div class="badge bg-white h-8 w-8 rounded-full relative text-gray-700 font-bold flex items-center justify-center">
-                                <span id="cartCount" class="absolute">2</span>
-                            </div>
-                        </li>
-                        <li class="px-1 leading-none">
-                            <a class="font-medium text-ovalGreen" href="#"><i class="fas fa-shopping-cart text-lg"></i></a>
-                        </li>
-                    </ul>
+            <div class="container mx-auto">
+                <div class="flex items-center">
+                    <div class="w-1/3 left-menu hidden lg:block">
+                        <?php
+                        wp_nav_menu(
+                            array(
+                                'theme_location' => 'menu-1',
+                                "container" => "ul",
+                                "menu_class" => "flex items-center -mx-2",
+                                "items_wrap" => "",
+                                'walker' => new Header_Nav
+                            )
+                        );
+                        ?>
+                    </div>
+                    <div class="w-1/3 left-menu-mobile block lg:hidden">
+                        <ul class="flex items-center -mx-1">
+                            <li id="open-mobile-menu" class="px-1 leading-none">
+                                <a class="font-medium text-ovalGreen" href="#"><i class="fas fa-bars text-lg"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="w-1/3 text-center"><?php echo get_logo() ?></div>
+                    <div class="w-1/3 right-menu text-right hidden lg:block">
+                        <ul class="flex items-center justify-end -mx-1">
+                            <li class="px-1 leading-none">
+                                <div class="badge bg-ovalGreen h-8 w-8 rounded-full relative text-gray-700 font-bold flex items-center justify-center">
+                                    <span id="initials" class="absolute"><i class="fas fa-user"></i></span>
+                                </div>
+                            </li>
+                            <li class="px-1 leading-none">
+                                <div class="badge bg-white h-8 w-8 rounded-full relative text-gray-700 font-bold flex items-center justify-center">
+                                    <span id="cartCount" class="absolute">2</span>
+                                </div>
+                            </li>
+                            <li class="px-1 leading-none">
+                                <div class="badge bg-ovalGreen h-8 px-5 w-auto rounded-full relative text-gray-700 font-bold flex items-center justify-center">
+                                    <span class="leading-inherit">Shop</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="w-1/3 right-menu text-right block lg:hidden">
+                        <ul class="flex items-center justify-end -mx-1">
+                            <li class="px-1 leading-none">
+                                <div class="badge bg-white h-8 w-8 rounded-full relative text-gray-700 font-bold flex items-center justify-center">
+                                    <span id="cartCount" class="absolute">2</span>
+                                </div>
+                            </li>
+                            <li class="px-1 leading-none">
+                                <a class="font-medium text-ovalGreen" href="#"><i class="fas fa-shopping-cart text-lg"></i></a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
