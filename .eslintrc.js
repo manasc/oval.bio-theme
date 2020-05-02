@@ -1,6 +1,6 @@
 module.exports = {
   'root': true,
-  'extends': 'eslint:recommended',
+  'extends': ['eslint:recommended','plugin:react/recommended'],
   'globals': {
     'wp': true,
   },
@@ -13,6 +13,7 @@ module.exports = {
   },
   'parserOptions': {
     'ecmaFeatures': {
+      'jsx': true,
       'globalReturn': true,
       'generators': false,
       'objectLiteralDuplicateProperties': false,
@@ -23,6 +24,7 @@ module.exports = {
   },
   'plugins': [
     'import',
+    'react'
   ],
   'settings': {
     'import/core-modules': [],
@@ -33,16 +35,16 @@ module.exports = {
   },
   'rules': {
     'no-console': 0,
-    'quotes': ['error', 'single'],
-    'comma-dangle': [
-      'error',
-      {
-        'arrays': 'always-multiline',
-        'objects': 'always-multiline',
-        'imports': 'always-multiline',
-        'exports': 'always-multiline',
-        'functions': 'ignore',
-      },
-    ],
+    'quotes': ['warn', 'double'],
+    // 'comma-dangle': [
+    //   'error',
+    //   {
+    //     'arrays': 'always-multiline',
+    //     'objects': 'always-multiline',
+    //     'imports': 'always-multiline',
+    //     'exports': 'always-multiline',
+    //     'functions': 'ignore',
+    //   },
+    // ],
   },
 };

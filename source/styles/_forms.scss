@@ -1,0 +1,57 @@
+// pack selectors
+.pack-option {
+  @apply w-16;
+  @apply text-gray-400;
+  @apply font-bold text-center uppercase;
+
+  .pack-option-box {
+    @apply cursor-pointer;
+    @apply border-2 border-gray-400 rounded;
+    @apply w-full h-16 flex flex-col justify-center;
+  }
+
+  .pack-option-number {
+    @apply text-3xl font-bold leading-none;
+  }
+
+  .pack-option-text,
+  .pack-option-meta {
+    @apply text-xs tracking-wider;
+  }
+
+  &:hover,
+  &.active {
+    @apply text-ovalGreen;
+
+    .pack-option-box {
+      @apply border-ovalGreen;
+    }
+  }
+
+  &.active {
+    .pack-option-box {
+      @apply bg-ovalGreen;
+      @apply text-white;
+    }
+  }
+}
+
+.flex label {
+  @apply mr-2;
+}
+
+// option states
+label {
+  .button-input {
+    @apply border-ovalGreen text-ovalGreen;
+    @apply bg-transparent;
+  }
+
+
+  // active states
+  &.active {
+    .button-input {
+      @apply bg-ovalGreen text-white;
+    }
+  }
+}
