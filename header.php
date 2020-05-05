@@ -13,7 +13,7 @@
     <?php wp_body_open(); ?>
     <header id="main-header" class="fixed top-0 left-0 w-full z-50" ref={this.mainHeader}>
         <div id="header-banner" class="banner bg-ovalGreen hover:bg-ovalGreenLight cursor-pointer text-sm text-gray-800 py-3 text md:py-2 px-6">
-            <div class="container mx-auto">
+            <div class="container mx-auto px-5">
                 <div class="flex -mx-2">
                     <span class="w-full truncate">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate sequi error reiciendis magnam eligendi, repudiandae dolor perspiciatis. Deserunt cum sequi veritatis labore cumque, modi qui.
@@ -25,7 +25,7 @@
             </div>
         </div>
         <div id="header-navbar" class="bg-gray-800 text-sm text-sm text-white py-3 md:py-2 px-6">
-            <div class="container mx-auto">
+            <div class="container mx-auto px-5">
                 <div class="flex items-center">
                     <div class="w-1/3 left-menu hidden lg:block">
                         <?php

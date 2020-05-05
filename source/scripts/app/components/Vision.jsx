@@ -5,13 +5,8 @@ class Vision extends React.Component {
     super(props);
     this.state = {
       classes: {
-        tab:
-          "tab cursor-pointer bg-gray-800 hover:bg-gray-700 w-1/6 text-center py-3 leading-none",
-        tabText:
-          "text-white text-xs lg:text-sm font-bold uppercase tracking-wider",
-        tabActive: "tab bg-ovalGreen w-1/6 text-center py-3 leading-none",
-        tabActiveText:
-          "text-gray-800 text-xs lg:text-sm font-bold uppercase tracking-wider"
+        tab: "tab cursor-pointer w-full md:w-1/6 text-center py-3 leading-none",
+        tabText: "text-xs lg:text-sm font-bold uppercase tracking-wider",
       },
       styles: {
         positions: [
@@ -20,8 +15,8 @@ class Vision extends React.Component {
           { transform: "translate(4em,10em)" },
           { transform: "translate(5em,2em)" },
           { transform: "translate(6em,5em)" },
-          { transform: "translate(7em,2em)" }
-        ]
+          { transform: "translate(7em,2em)" },
+        ],
       },
       selectedTab: "LunaPatch",
       detailPosition: 0,
@@ -31,9 +26,13 @@ class Vision extends React.Component {
         "Hydrogen Water",
         "Noomino",
         "Balding Grey",
-        "Bactose"
-      ]
+        "Bactose",
+      ],
+      el: null,
     };
+
+    // refs
+    this.visionHero = React.createRef();
 
     // bind state
     this.updateSelected = this.updateSelected.bind(this);
@@ -57,8 +56,24 @@ class Vision extends React.Component {
 
     this.setState(() => ({
       selectedTab: product,
-      detailPosition: index
+      detailPosition: index,
     }));
+  }
+
+  componentDidMount() {
+    // var slider = setInterval(() => {
+    //   console.log("It's goiiiiing");
+    //   // this.state.selectedTab;
+    //   // find index of current product in product arr
+    //   // set "selectedTab" to next one in arr
+    // }, 1000);
+
+    // console.log(this.visionHero.current);
+
+    // this.visionHero.current.addEventListener("mouseover", () => {
+    //   console.log("Stufffffff");
+    //   clearInterval(slider);
+    // });
   }
 
   render() {
@@ -68,10 +83,10 @@ class Vision extends React.Component {
       styles,
       detailPosition,
       classes,
-      selectedTab
+      selectedTab,
     } = this.state;
     return (
-      <div className="p-0 md:p-5">
+      <div ref={this.visionHero} className="p-0 md:p-5">
         <div className="flex flex-wrap rounded-none md:rounded-md overflow-hidden">
           <div className="p-0 md:px-24 md:py-48 bg-ovalGreen w-full relative">
             <div className="content p-5 md:p-0 max-w-sm">
@@ -97,14 +112,14 @@ class Vision extends React.Component {
                 className="w-full h-full bg-cover bg-center bg-no-repeat absolute top-0 right-0"
                 style={{
                   backgroundImage:
-                    "url(https://oval.nimaroh.test/app/themes/oval.bio-theme/source/images/Pod.png)"
+                    "url(https://oval.bio.test/app/themes/oval.bio-theme/source/images/Pod.png)",
                 }}
               />
               <div
                 className="h-32 w-32 rounded-full absolute bg-white shadow top-0 left-0"
                 style={{
                   ...styles.positions[detailPosition],
-                  transitionDuration: "300ms"
+                  transitionDuration: "300ms",
                 }}
               />
             </div>
@@ -114,7 +129,11 @@ class Vision extends React.Component {
               <div
                 onClick={updateSelected}
                 className={
-                  selectedTab == product ? classes.tabActive : classes.tab
+                  classes.tab +
+                  " " +
+                  (selectedTab == product
+                    ? "bg-ovalGreen"
+                    : "bg-gray-800  hover:bg-gray-700")
                 }
                 key={product}
                 data-product={product}
@@ -122,9 +141,9 @@ class Vision extends React.Component {
               >
                 <span
                   className={
-                    selectedTab == product
-                      ? classes.tabActiveText
-                      : classes.tabText
+                    classes.tabText +
+                    " " +
+                    (selectedTab == product ? "text-gray-800" : "text-white")
                   }
                 >
                   {product}

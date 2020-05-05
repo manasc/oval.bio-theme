@@ -12,3 +12,14 @@ var Isotope = require("isotope-layout");
 //     }
 //   });
 // });
+
+document.addEventListener("DOMContentLoaded", function () {
+  var tagBoxToggler = document.getElementById("openTags");
+  var tagBox = document.getElementById("tagsBox");
+
+  function toggleTagBox() {
+    tagBox.classList.toggle("hidden");
+  }
+
+  tagBoxToggler.addEventListener("click", toggleTagBox);
+});

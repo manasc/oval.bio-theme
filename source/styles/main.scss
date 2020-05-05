@@ -94,6 +94,11 @@
 
   &.label-blue {
     @apply bg-skyBlue border-skyBlue;
+    @apply cursor-pointer;
+
+    &:hover {
+      @apply bg-blue-500 border-blue-500;
+    }
   }
 
   .label-text {

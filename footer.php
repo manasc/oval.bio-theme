@@ -23,7 +23,7 @@
 				<!-- <h5 class="text-base text-gray-200">Quibusdam minus voluptates dignissimos, labore eum recusandae. Molestias iusto, magni minus non reprehenderit sint eius in inventore, cumque quos similique atque sunt!</h5> -->
 			</div>
 			<div class="blog-items flex flex-wrap -mx-2">
-				<div class="blog-item cursor-pointer mb-5 md:mb-0 w-full md:w-1/4 px-2 flex flex-wrap">
+				<div class="blog-item cursor-pointer mb-5 md:mb-0 w-full md:w-1/4 px-2 flex flex-wrap items-center">
 					<div class="image-box product-box overflow-hidden relative w-1/3 md:w-full">
 						<div class="image absolute w-full h-full top-0 left-0 bg-cover bg-center bg-no-repeat" style="background-image:url(<?php echo $footer_images[10]->urls->small ?>)"></div>
 						<div class="label hidden md:block absolute top-0 right-0"><span class="label-text">Excercise</span></div>
@@ -34,7 +34,7 @@
 						<div class="meta text-xs font-bold uppercase tracking-wider text-ovalGreen">April 5</div>
 					</div>
 				</div>
-				<div class="blog-item cursor-pointer mb-5 md:mb-0 w-full md:w-1/4 px-2 flex flex-wrap">
+				<div class="blog-item cursor-pointer mb-5 md:mb-0 w-full md:w-1/4 px-2 flex flex-wrap items-center">
 					<div class="image-box product-box overflow-hidden relative w-1/3 md:w-full">
 						<div class="image absolute w-full h-full top-0 left-0 bg-cover bg-center bg-no-repeat" style="background-image:url(<?php echo $footer_images[11]->urls->small ?>)"></div>
 						<div class="label hidden md:block absolute top-0 right-0"><span class="label-text">Neuroscience</span></div>
@@ -45,7 +45,7 @@
 						<div class="meta text-xs font-bold uppercase tracking-wider text-ovalGreen">June 10</div>
 					</div>
 				</div>
-				<div class="blog-item cursor-pointer mb-5 md:mb-0 w-full md:w-1/4 px-2 flex flex-wrap">
+				<div class="blog-item cursor-pointer mb-5 md:mb-0 w-full md:w-1/4 px-2 flex flex-wrap items-center">
 					<div class="image-box product-box overflow-hidden relative w-1/3 md:w-full">
 						<div class="image absolute w-full h-full top-0 left-0 bg-cover bg-center bg-no-repeat" style="background-image:url(<?php echo $footer_images[12]->urls->small ?>)"></div>
 						<div class="label hidden md:block absolute top-0 right-0"><span class="label-text">Hello</span></div>
@@ -56,7 +56,7 @@
 						<div class="meta text-xs font-bold uppercase tracking-wider text-ovalGreen">March 10</div>
 					</div>
 				</div>
-				<div class="blog-item cursor-pointer mb-5 md:mb-0 w-full md:w-1/4 px-2 flex flex-wrap">
+				<div class="blog-item cursor-pointer mb-5 md:mb-0 w-full md:w-1/4 px-2 flex flex-wrap items-center">
 					<div class="image-box product-box overflow-hidden relative w-1/3 md:w-full">
 						<div class="image absolute w-full h-full top-0 left-0 bg-cover bg-center bg-no-repeat" style="background-image:url(<?php echo $footer_images[13]->urls->small ?>)"></div>
 						<div class="label hidden md:block absolute top-0 right-0"><span class="label-text">Hello</span></div>
@@ -75,7 +75,7 @@
 
 <div class="bg-ovalGreen">
 	<div class="container mx-auto py-12 px-5 lg:py-16 lg:flex lg:items-center lg:justify-between">
-		<h2 class="text-3xl leading-9 font-light tracking-tight text-gray-800 sm:text-4xl sm:leading-10 mr-0 md:mr-4">
+		<h2 class="text-2xl md:text-3xl leading-snug font-light tracking-tight text-gray-800 sm:text-4xl sm:leading-10 mr-0 md:mr-4">
 			Sign up for the <span class="font-bold font-sans">oval.bio</span> newsletter for news, information and updates on the medical industry
 			<br>
 		</h2>
