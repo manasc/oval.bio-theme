@@ -8,7 +8,7 @@
                 <div class="bg-black opacity-50 absolute top-0 left-0 h-full w-full"></div>
                 <!-- <div class="label hidden md:block absolute top-0 left-0"><span class="label-text leading-none"><?php echo get_the_category($all_posts[0]->ID)[0]->name ?></span></div> -->
                 <div class="absolute top-0 right-0 flex">
-                    <div class="label label-blue"><span class="label-text"><?php echo get_the_category($all_posts[4]->ID)[0]->name ?></span></div>
+                    <div class="label label-blue"><span class="label-text"><?php echo get_the_category($all_posts[0]->ID)[0]->name ?></span></div>
                     <div class="label" style="background-color: #ecc94b; border-color: #ecc94b"><span class="label-text"><i class="fas fa-star mr-1"></i>Featured</div>
                 </div>
                 <div class="main-everything absolute p-5 md:p-10 top-0 left-0 content h-full w-full flex flex-col items-start justify-end">
@@ -21,11 +21,13 @@
                         <?php endforeach; ?>
                     </div>
                     <div class="hidden md:block">
-                        <a class="button inline-block">Read More <i class="fas fa-arrow-right"></i></a>
+                        <a href="<?php echo get_permalink($all_posts[0]->ID) ?>" class="button inline-block">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
 
                     <div class="block md:hidden">
-                        <div class="label rounded inline-block"><span class="label-text inline-block leading-none">Read More<i class="fas fa-arrow-right ml-1"></i></span></div>
+                        <a href="<?php echo get_permalink($all_posts[0]->ID) ?>">
+                            <div class="label rounded inline-block"><span class="label-text inline-block leading-none">Read More<i class="fas fa-arrow-right ml-1"></i></span></div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -39,7 +41,7 @@
                             <div class="w-2/3 pl-4">
                                 <h6 class="text-lg mb-2 truncate"><?php echo $all_posts[$i]->post_title ?></h6>
                                 <div class="label inline-block"><span class="label-text inline-block leading-none"><?php echo get_the_category($all_posts[$i]->ID)[0]->name ?></span></div>
-                                <div class="label label-blue inline-block"><span class="label-text inline-block leading-none">MK</span></div>
+                                <div class="label label-blue inline-block"><span class="label-text inline-block leading-none"><?php echo date('M j', strtotime($all_posts[$i]->post_date)); ?></span></div>
                             </div>
                         </div>
                     </div>
@@ -89,7 +91,7 @@
                 </div>
 
                 <div class="w-full md:w-1/4 px-1">
-                    <div class="blog-item cursor-pointer w-full mb-0 md:mb-2 flex flex-wrap">
+                    <a href="<?php echo get_permalink($all_posts[5]->ID) ?>" class="blog-item cursor-pointer w-full mb-0 md:mb-2 flex flex-wrap">
                         <div class="image-box product-box overflow-hidden relative w-full">
                             <div class="image absolute w-full h-full top-0 left-0 bg-cover bg-center bg-no-repeat bg-gray-200" style="background-image:url(<?php echo get_the_post_thumbnail_url($all_posts[5]->ID) ?>)"></div>
                             <div class="absolute flex flex-col justify-end top-0 left-0 w-full h-full" style="background-color: rgba(0,0,0,0.5)">
@@ -105,8 +107,8 @@
                                 <div class="label label-blue"><span class="label-text"><?php echo get_the_category($all_posts[5]->ID)[0]->name ?></span></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="blog-item cursor-pointer w-full mb-0 md:mb-2 flex flex-wrap">
+                    </a>
+                    <a href="hp echo get_permalink($all_posts[6]->ID) ?> c"lass="blog-item cursor-pointer w-full mb-0 md:mb-2 flex flex-wrap">
                         <div class="image-box product-box overflow-hidden relative w-full">
                             <div class="image absolute w-full h-full top-0 left-0 bg-cover bg-center bg-no-repeat bg-gray-200" style="background-image:url(<?php echo get_the_post_thumbnail_url($all_posts[6]->ID) ?>)"></div>
                             <div class="absolute flex flex-col justify-end top-0 left-0 w-full h-full" style="background-color: rgba(0,0,0,0.5)">
@@ -122,8 +124,8 @@
                                 <div class="label label-blue"><span class="label-text"><?php echo get_the_category($all_posts[6]->ID)[0]->name ?></span></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="blog-item cursor-pointer w-full flex flex-wrap">
+                    </a>
+                    <a href="<?php echo get_permalink($all_posts[7]->ID) ?>" class="blog-item cursor-pointer w-full flex flex-wrap">
                         <div class="image-box product-box overflow-hidden relative w-full">
                             <div class="image absolute w-full h-full top-0 left-0 bg-cover bg-center bg-no-repeat bg-gray-200" style="background-image:url(<?php echo get_the_post_thumbnail_url($all_posts[7]->ID) ?>)"></div>
                             <div class="absolute flex flex-col justify-end top-0 left-0 w-full h-full" style="background-color: rgba(0,0,0,0.5)">
@@ -139,7 +141,7 @@
                                 <div class="label label-blue"><span class="label-text"><?php echo get_the_category($all_posts[7]->ID)[0]->name ?></span></div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -180,9 +182,9 @@
                     <?php
                     $post_tags = get_the_tags($all_posts[$x]->ID)
                     ?>
-                    <div class="blog-item cursor-pointer w-full sm:w-1/2 md:w-1/3 px-1 mb-0 md:mb-2 flex flex-wrap <?php echo get_the_category($all_posts[$x]->ID)[0]->slug ?> <?php foreach ($post_tags as $post_tag) : echo $post_tag->slug . ' ';
-                                                                                                                                                                                endforeach; ?>">
-                        <div class="image-box product-box overflow-hidden relative w-full">
+                    <a href="<?php echo get_permalink($all_posts[$x]->ID) ?>" class="blog-item block cursor-pointer w-full sm:w-1/2 md:w-1/3 px-1 mb-0 md:mb-2 flex flex-wrap <?php echo get_the_category($all_posts[$x]->ID)[0]->slug ?> <?php foreach ($post_tags as $post_tag) : echo $post_tag->slug . ' ';
+                                                                                                                                                                                                                                            endforeach; ?>">
+                        <div class="hidden md:block image-box product-box overflow-hidden relative w-full">
                             <div class="image absolute w-full h-full top-0 left-0 bg-gray-200 bg-cover bg-center bg-no-repeat" style="background-image:url(<?php echo get_the_post_thumbnail_url($all_posts[$x]->ID) ?>)"></div>
 
                             <div class="absolute flex flex-col justify-end top-0 left-0 w-full h-full" style="background-color: rgba(0,0,0,0.5)">
@@ -194,7 +196,19 @@
                             </div>
                             <div class="label hidden md:block absolute top-0 right-0"><span class="label-text"><?php echo get_the_category($all_posts[$x]->ID)[0]->name ?></span></span></div>
                         </div>
-                    </div>
+                        <div class="block md:hidden p-3 cursor-pointer hover:bg-gray-300 w-full">
+                            <div class="flex items-center">
+                                <div class="w-1/3">
+                                    <div class="h-24 w-full bg-gray-400 bg-cover bg-center bg-no-repeat bg-gray-200" style="background-image:url(<?php echo get_the_post_thumbnail_url($all_posts[$x]->ID) ?>)"></div>
+                                </div>
+                                <div class="w-2/3 pl-4">
+                                    <h6 class="text-lg mb-2 truncate"><?php echo $all_posts[$x]->post_title ?></h6>
+                                    <div class="label inline-block"><span class="label-text inline-block leading-none"><?php echo get_the_category($all_posts[$x]->ID)[0]->name ?></span></div>
+                                    <div class="label label-blue inline-block"><span class="label-text inline-block leading-none"><?php echo date('M j', strtotime($all_posts[$x]->post_date)) ?></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 <?php endfor ?>
             </div>
         </div>
