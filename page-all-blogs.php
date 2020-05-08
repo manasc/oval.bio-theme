@@ -108,7 +108,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="hp echo get_permalink($all_posts[6]->ID) ?> c"lass="blog-item cursor-pointer w-full mb-0 md:mb-2 flex flex-wrap">
+                    <a href="<?php echo get_permalink($all_posts[6]->ID) ?>" class="blog-item cursor-pointer w-full mb-0 md:mb-2 flex flex-wrap">
                         <div class="image-box product-box overflow-hidden relative w-full">
                             <div class="image absolute w-full h-full top-0 left-0 bg-cover bg-center bg-no-repeat bg-gray-200" style="background-image:url(<?php echo get_the_post_thumbnail_url($all_posts[6]->ID) ?>)"></div>
                             <div class="absolute flex flex-col justify-end top-0 left-0 w-full h-full" style="background-color: rgba(0,0,0,0.5)">
