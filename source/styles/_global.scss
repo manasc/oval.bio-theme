@@ -16,9 +16,9 @@ input[type="checkbox"] {
   background-color: transparentize($color: #ffffff, $amount: 1);
 }
 
-.button,
-.tab {
-  * {
-    @apply pointer-events-none;
-  }
-}
+// .button,
+// .tab {
+//   * {
+//     @apply pointer-events-none;
+//   }
+// }

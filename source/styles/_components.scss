@@ -25,25 +25,32 @@ $white: rgba(255, 255, 255, 0.75);
 }
 
 .button {
-  // variations
   @apply bg-ovalGreen border-ovalGreen;
   color: $black;
 
   &.white {
     @apply bg-white border-white;
     color: $black;
+
+    &:hover {
+      @apply bg-gray-100;
+    }
   }
 
   &.dark {
     @apply bg-gray-800 border-gray-800;
     @apply text-white;
+
+    &:hover {
+      @apply bg-gray-700;
+    }
   }
 
   &:hover {
-    @apply opacity-75;
+    @apply bg-ovalGreenLight;
   }
 
-  &:active {
-    @apply opacity-100;
-  }
+  // &:active {
+  //   @apply opacity-100;
+  // }
 }

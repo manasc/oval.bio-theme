@@ -6,7 +6,7 @@
 
   .pack-option-box {
     @apply cursor-pointer;
-    @apply border-2 border-gray-400 rounded;
+    @apply border-2 border-gray-400;
     @apply w-full h-16 flex flex-col justify-center;
   }
 
@@ -43,15 +43,58 @@
 // option states
 label {
   .button-input {
-    @apply border-ovalGreen text-ovalGreen;
-    @apply bg-transparent;
-  }
+    @apply border-gray-400 text-gray-400;
+    @apply border-2;
+    @apply bg-white;
 
+    &:hover {
+      @apply border-ovalGreen text-ovalGreen;
+    }
+  }
 
   // active states
   &.active {
     .button-input {
+      @apply border-ovalGreen;
       @apply bg-ovalGreen text-white;
     }
+  }
+}
+
+.filter {
+  @apply leading-none inline-block px-2 py-1;
+  @apply border;
+  @apply text-xs font-medium uppercase tracking-wider;
+  @apply text-gray-600 border-gray-600;
+  @apply cursor-pointer;
+
+  &.filter-cat {
+    &:hover {
+      @apply border-ovalGreen text-ovalGreen;
+    }
+
+    &.mixitup-control-active {
+      @apply border-ovalGreen text-gray-800 bg-ovalGreen;
+      @apply cursor-default;
+    }
+  }
+
+  &.filter-tag {
+    &:hover {
+      @apply border-slateBlue text-slateBlue;
+    }
+
+    &.mixitup-control-active {
+      @apply border-slateBlue text-gray-800 bg-slateBlue;
+      @apply cursor-default;
+    }
+  }
+}
+
+.filters {
+  @apply flex flex-wrap;
+
+  .filter {
+    @apply mr-2 my-1;
   }
 }
