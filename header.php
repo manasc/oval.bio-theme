@@ -12,20 +12,20 @@
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
     <header id="main-header" class="fixed top-0 left-0 w-full z-50" ref={this.mainHeader}>
-        <div id="header-banner" class="banner bg-ovalGreen hover:bg-ovalGreenLight cursor-pointer text-sm text-gray-800 py-3 text md:py-2 px-6">
-            <div class="container mx-auto px-5">
-                <div class="flex -mx-2">
+        <div id="header-banner" class="banner bg-ovalGreen hover:bg-ovalGreenLight cursor-pointer text-sm text-gray-800 py-3 text md:py-2 px-5">
+            <div class="container mx-auto">
+                <div class="flex ">
                     <span class="w-full truncate">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate sequi error reiciendis magnam eligendi, repudiandae dolor perspiciatis. Deserunt cum sequi veritatis labore cumque, modi qui.
                     </span>
-                    <div id="close-header-banner" class="close px-2 text-gray-700 hover:text-gray-800">
+                    <div id="close-header-banner" class="close pl-2 text-gray-700 hover:text-gray-800">
                         <div class="fas fa-times-circle"></div>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="header-navbar" class="bg-gray-800 text-sm text-sm text-white py-3 md:py-2 px-6">
-            <div class="container mx-auto px-5">
+        <div id="header-navbar" class="bg-gray-800 text-sm text-sm text-white py-3 md:py-2 px-5">
+            <div class="container mx-auto">
                 <div class="flex items-center">
                     <div class="w-1/3 left-menu hidden lg:block">
                         <?php
