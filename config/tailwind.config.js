@@ -1,14 +1,6 @@
 module.exports = {
   prefix: "",
-  purge: {
-    mode: "all",
-    enabled: true,
-    contents: [
-      "./*.php",
-      "./source/blocks/*.php",
-      "./source/scripts/app/**/*.jsx",
-    ],
-  },
+  purge: ["./*.php", "./source/blocks/*.php", "./source/scripts/app/**/*.jsx"],
   important: false,
   separator: ":",
   theme: {
@@ -17,7 +9,7 @@ module.exports = {
       md: "768px",
       lg: "1024px",
       xl: "1280px",
-      '2xl': "1440px",
+      "2xl": "1440px",
     },
     colors: {
       transparent: "transparent",
