@@ -1,6 +1,6 @@
 import React from "react";
 import ContextProvider, {
-  CustomizerContext
+  CustomizerContext,
 } from "../context/CustomizerContext";
 import { Tooltip } from "react-tippy";
 
@@ -17,7 +17,7 @@ class Customizer extends React.Component {
             <div className="w-full md:w-3/5 px-5">
               <div className="customizer-product-box">
                 <CustomizerContext.Consumer>
-                  {context => {
+                  {(context) => {
                     const { options, chosenImage } = context.state;
                     const { updateChosenImage } = context;
 
@@ -27,7 +27,7 @@ class Customizer extends React.Component {
                           id="display-image"
                           className="square-image mb-px md:mb-2"
                           style={{
-                            backgroundImage: "url(" + chosenImage + ")"
+                            backgroundImage: "url(" + chosenImage + ")",
                           }}
                         />
                         <div id="other-images" className="flex flex-wrap -mx-1">
@@ -47,7 +47,7 @@ class Customizer extends React.Component {
                                       : "square-image cursor-pointer shadow-md border hover:opacity-75"
                                   }
                                   style={{
-                                    backgroundImage: "url(" + imageURL + ")"
+                                    backgroundImage: "url(" + imageURL + ")",
                                   }}
                                 />
                               </div>
@@ -62,7 +62,9 @@ class Customizer extends React.Component {
             </div>
             <div className="w-full md:w-2/5 px-5">
               <div className="py-5">
-                <div className="hidden md:block title font-bold text-3xl">Heliopatch</div>
+                <div className="hidden md:block title font-bold text-3xl">
+                  Heliopatch
+                </div>
                 <div className="hidden md:block desc text-sm font-light leading-tight">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Corporis magnam laborum, quas voluptates sapiente est
@@ -71,20 +73,20 @@ class Customizer extends React.Component {
                   temporibus.
                 </div>
                 <div className="options my-5">
-                  <div className="font-bold text-base mb-2">
+                  <div className="font-bold text-base mb-5">
                     Choose pack size:
                   </div>
                   <div className="flex">
                     <CustomizerContext.Consumer>
-                      {context => {
+                      {(context) => {
                         const { chosenPackSize, options } = context.state;
                         const { updatePackSize } = context;
 
-                        return options.packSizes.map(size => (
+                        return options.packSizes.map((size) => (
                           <label
                             key={size.quantity}
                             className={
-                              "pack-option mr-3 " +
+                              "pack-option mr-4 " +
                               (size.quantity == chosenPackSize ? "active" : "")
                             }
                             onClick={() => {
@@ -115,7 +117,7 @@ class Customizer extends React.Component {
                   </div>
                   <div className="flex">
                     <CustomizerContext.Consumer>
-                      {context => {
+                      {(context) => {
                         const { subscription } = context.state;
                         const { updateSubscription } = context;
 
@@ -142,6 +144,9 @@ class Customizer extends React.Component {
                                 <span className="label-text">Subscription</span>
                               </div>
                               <input type="radio" name="subscription" />
+                              <div className="text-2xs text-gray-500 -mt-2 italic">
+                                Renews every 30 days
+                              </div>
                             </label>
                           </React.Fragment>
                         );
@@ -149,61 +154,27 @@ class Customizer extends React.Component {
                     </CustomizerContext.Consumer>
                   </div>
                 </div>
-                <div className="options mt-5 mb-10">
-                  <CustomizerContext.Consumer>
-                    {context => {
-                      const { subscription, renewal } = context.state;
-                      const { updateRenewal } = context;
-
-                      if (subscription) {
-                        return (
-                          <React.Fragment>
-                            <div className="text-sm mb-2">
-                              Choose a renewal frequency
-                            </div>
-                            <div className="flex">
-                              <label
-                                onClick={() => {
-                                  updateRenewal(30);
-                                }}
-                                className={renewal == 30 ? "active" : ""}
-                              >
-                                <div className="button-input">
-                                  <span className="label-text">30-Day</span>
-                                </div>
-                                <input type="radio" name="renewal" />
-                              </label>
-                              <label
-                                onClick={() => {
-                                  updateRenewal(60);
-                                }}
-                                className={renewal == 60 ? "active" : ""}
-                              >
-                                <div className="button-input">
-                                  <span className="label-text">60-Day</span>
-                                </div>
-                                <input type="radio" name="renewal" />
-                              </label>
-                            </div>
-                          </React.Fragment>
-                        );
-                      }
-                    }}
-                  </CustomizerContext.Consumer>
-                </div>
                 <div className="options my-5">
                   <div className="font-bold text-base">Total</div>
                   <CustomizerContext.Consumer>
-                    {context => {
+                    {(context) => {
                       const { subscription } = context.state;
 
                       if (subscription) {
                         return (
                           <div className="title font-bold text-3xl">
-                            <span className="line-through text-gray-400">
+                            <span className="line-through text-gray-400 inline-block">
                               $30.00
                             </span>
-                            <span className="ml-2 text-ovalGreen">$24.00</span>
+                            <span className="ml-2 text-ovalGreen relative inline-block">
+                              $24.00
+                              <span
+                                className="absolute w-full left-0 block pt-2 text-2xs text-gray-500 font-normal text-right"
+                                style={{ bottom: "-7px" }}
+                              >
+                                per month
+                              </span>
+                            </span>
                           </div>
                         );
                       } else {

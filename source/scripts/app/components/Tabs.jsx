@@ -13,7 +13,7 @@ class Vision extends React.Component {
       classes: {
         tab: {
           default:
-            "tab cursor-pointer leading-none rounded-t border border-b-0 text-xs font-bold uppercase tracking-wider px-5 py-3 -mr-px relative",
+            "tab cursor-pointer w-full md:w-auto text-center leading-none rounded-t border border-b-0 text-xs font-bold uppercase tracking-wider px-5 py-3 -mr-px relative",
           dead:
             "bg-transparent text-gray-500 border-gray-300 hover:text-gray-700 relative z-0",
           active: "bg-white border-gray-500 text-gray-800 z-10"
@@ -71,7 +71,7 @@ class Vision extends React.Component {
     return (
       <div className="py-10 md:py-24">
         <div className="container mx-auto flex flex-wrap overflow-hidden">
-          <div className="px-2 relative flex flex-wrap justify-start w-full z-20 -mb-px">
+          <div className="px-0 md:px-2 relative flex flex-wrap justify-start w-full z-20 -mb-px">
             {content.map(({ name }, i) => (
               <div
                 onClick={updateSelected}
@@ -88,7 +88,7 @@ class Vision extends React.Component {
               </div>
             ))}
           </div>
-          <div className="p-0 md:py-10 md:pl-10 border border-gray-500 rounded-md bg-white w-full relative flex items-center">
+          <div className="p-0 md:py-10 md:pl-10 border border-gray-500 rounded-none md:rounded-md bg-white w-full relative flex items-center">
             {content.map(({ name, description, cta }, i) => {
               return (
                 <div
