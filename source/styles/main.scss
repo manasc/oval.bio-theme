@@ -21,6 +21,7 @@
 @import "forms";
 @import "components";
 @import "article";
+@import "../../node_modules/node-waves/dist/waves.min.css";
 
 .card::after {
   content: "";

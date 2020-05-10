@@ -1,5 +1,5 @@
 import "./general/navbarFunc";
-var Isotope = require("isotope-layout");
+const Waves = require("node-waves");
 
 // document.addEventListener("DOMContentLoaded", function() {
 //   var grid = document.querySelector(".grid");
@@ -21,5 +21,12 @@ document.addEventListener("DOMContentLoaded", function () {
     tagBox.classList.toggle("hidden");
   }
 
-  tagBoxToggler.addEventListener("click", toggleTagBox);
+  if (tagBoxToggler) {
+    tagBoxToggler.addEventListener("click", toggleTagBox);
+  }
+
+  // waves
+  Waves.attach(".button:not(.dark)", ["waves-dark"]);
+  Waves.attach(".button.dark", ["waves-light"]);
+  Waves.init();
 });

@@ -1,9 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-// waves
-import Waves from "node-waves";
-
 // render each component
 import Vision from "./app/components/Vision";
 // import Choices from "./app/components/Choices";
@@ -32,9 +29,3 @@ const tabs = document.querySelector("#tabs");
 if (tabs) {
   ReactDOM.render(<Tabs {...tabs.dataset} />, tabs);
 }
-
-// general js
-Waves.attach(".button:not(.dark)");
-Waves.attach(".button.dark", ["waves-light"]);
-Waves.attach(".clickable.label");
-Waves.init();
