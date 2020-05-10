@@ -18,7 +18,7 @@
 ];
 ?>
 <section class="py-10 md:py-10 my-0 md:my-20 icons border-t md:border-none">
-    <div class="max-w-5xl mx-auto p-5">
+    <div class="max-w-6xl mx-auto p-5">
         <div class="flex flex-wrap items-center">
             <div class="relative content w-full md:w-1/3 mr-10 mb-10 md:mb-0">
                 <h1 class="text-2xl font-light mb-5 leading-tight">Buy now and invest in your future.</h1>
@@ -27,8 +27,8 @@
             </div>
             <div class="flex-1 flex flex-wrap -mx-5">
                 <?php foreach ($icons as $icon) : ?>
-                    <div class="w-1/2 md:w-1/4 p-10">
-                        <div class="square-image rounded-full overflow-hidden w-full bg-transparent bg-contain bg-center bg-no-repeat" style="background-image: url(<?php echo $icon['icon'] ?>); background-color: white;"></div>
+                    <div class="w-1/2 md:w-1/4 p-5">
+                        <img class="h-32 w-auto mx-auto" src="<?php echo $icon['icon'] ?>" />
                         <p class="text-center text-sm mt-4"><?php echo $icon['name'] ?></p>
                     </div>
                 <?php endforeach; ?>
