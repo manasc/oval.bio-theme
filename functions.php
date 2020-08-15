@@ -148,14 +148,18 @@ add_action('widgets_init', 'oval_bio_widgets_init');
  */
 function oval_bio_scripts()
 {
-    $styles_assets  = include get_template_directory() . '/dist/styles.asset.php';
-    $blocks_assets  = include get_template_directory() . '/dist/blocks.asset.php';
-    $scripts_assets = include get_template_directory() . '/dist/app.asset.php';
-    $general_assets = include get_template_directory() . '/dist/general.asset.php';
 
     wp_enqueue_style(
         'oval-bio-styles',
         get_template_directory_uri() . '/dist/styles.css',
+        [], // no deps for css
+        $styles_assets['version'],
+        null
+    );
+
+    wp_enqueue_style(
+        'rubik-google-font-styles',
+        'https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap',
         [], // no deps for css
         $styles_assets['version'],
         null
@@ -172,24 +176,24 @@ function oval_bio_scripts()
     wp_enqueue_script(
         'oval-bio-blocks',
         get_template_directory_uri() . '/dist/blocks.js',
-        $blocks_assets['dependencies'],
-        $blocks_assets['version'],
+        [],
+        [],
         true
     );
 
     wp_enqueue_script(
         'oval-bio-app',
         get_template_directory_uri() . '/dist/app.js',
-        $scripts_assets['dependencies'],
-        $scripts_assets['version'],
+        [],
+        [],
         true
     );
 
     wp_enqueue_script(
         'oval-bio-general',
         get_template_directory_uri() . '/dist/general.js',
-        $general_assets['dependencies'],
-        $general_assets['version'],
+        [],
+        [],
         true
     );
 }

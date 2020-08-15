@@ -1,8 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-// import ProductTimeline from "./ProductTimeline";
-
 class Vision extends React.Component {
   constructor(props) {
     super(props);
@@ -16,8 +14,8 @@ class Vision extends React.Component {
             "tab cursor-pointer w-full md:w-auto text-center leading-none rounded-t border border-b-0 text-xs font-bold uppercase tracking-wider px-5 py-3 -mr-px relative",
           dead:
             "bg-transparent text-gray-500 border-gray-300 hover:text-gray-700 relative z-0",
-          active: "bg-white border-gray-500 text-gray-800 z-10"
-        }
+          active: "bg-white border-gray-500 text-gray-800 z-10",
+        },
       },
       styles: {
         positions: [
@@ -26,29 +24,18 @@ class Vision extends React.Component {
           { transform: "translate(4em,10em)" },
           { transform: "translate(5em,2em)" },
           { transform: "translate(6em,5em)" },
-          { transform: "translate(7em,2em)" }
-        ]
+          { transform: "translate(7em,2em)" },
+        ],
       },
       selectedTab: content[0].name,
       detailPosition: 0,
-      content: content
+      content: content,
     };
 
     // bind state
     this.updateSelected = this.updateSelected.bind(this);
     // this.changeActiveText = this.changeActiveText.bind(this);
   }
-
-  // changeActiveText(i) {
-  //   const { detailPosition } = this.state;
-  //   let str;
-
-  //   if (i < parseInt(detailPosition)) str = "translateY(-110%)";
-  //   if (i == parseInt(detailPosition)) str = "translateY(0)";
-  //   if (i > parseInt(detailPosition)) str = "translateY(110%)";
-
-  //   return str;
-  // }
 
   updateSelected() {
     const product = event.target.getAttribute("data-product");
@@ -57,7 +44,7 @@ class Vision extends React.Component {
     this.setState(() => ({
       selectedTab: product,
       detailPosition: index,
-      active: false
+      active: false,
     }));
   }
 
@@ -118,7 +105,7 @@ class Vision extends React.Component {
 }
 
 Vision.propTypes = {
-  content: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  content: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 export default Vision;

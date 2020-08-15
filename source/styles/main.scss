@@ -1,15 +1,13 @@
 @charset "utf-8";
 
-@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap");
-
 // var overrides
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -25,8 +23,9 @@
 
 .card::after {
   content: "";
-  @apply block rounded;
   padding-top: 130%;
+
+  @apply block rounded;
 }
 
 .product-box {
@@ -35,19 +34,22 @@
   .cover-image {
     transition-duration: 300ms;
     background: center center/cover no-repeat;
+
     @apply absolute h-full w-full top-0 left-0;
   }
 
   .cover {
     transition-duration: 300ms;
     background: rgba(0, 0, 0, 0.41);
+
     @apply absolute w-full h-full top-0 left-0 right-0 bottom-0;
   }
 
   &::after {
     content: "";
-    @apply block;
     padding-top: 100%;
+
+    @apply block;
 
     @screen md {
       padding-top: 60%;
@@ -64,13 +66,10 @@
     font-style: normal;
     font-weight: bold;
     line-height: 143%;
-    /* identical to box height, or 23px */
-
     display: flex;
     align-items: center;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-
     color: #77e0a1;
   }
 
@@ -139,6 +138,7 @@
 
 .labels {
   @apply -mb-2;
+
   .label {
     @apply mb-2;
   }
@@ -176,11 +176,12 @@
 }
 
 .square-image {
+  padding-top: 100%;
+
   @apply block w-full;
   @apply rounded;
   @apply bg-cover bg-center bg-no-repeat;
   @apply bg-green-200;
-  padding-top: 100%;
 }
 
 .text-slide-animation {
@@ -189,7 +190,8 @@
 
   .text {
     transition-duration: 200ms;
-    @apply block absolute top-0 left-0;
     line-height: theme("spacing.16");
+
+    @apply block absolute top-0 left-0;
   }
 }

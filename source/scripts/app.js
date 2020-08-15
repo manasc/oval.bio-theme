@@ -5,7 +5,7 @@ import ReactDOM from "react-dom";
 import Vision from "./app/components/Vision";
 // import Choices from "./app/components/Choices";
 import Customizer from "./app/components/Customizer";
-import Header from "./app/components/Header";
+// import Header from "./app/components/Header";
 import Tabs from "./app/components/Tabs";
 
 // single components
