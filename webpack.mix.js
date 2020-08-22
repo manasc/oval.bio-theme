@@ -12,7 +12,10 @@ mix
   })
   .options({
     processCssUrls: false,
-    postCss: [tailwindcss("./config/tailwind.config.js"), require("autoprefixer")],
+    postCss: [
+      tailwindcss("./config/tailwind.config.js"),
+      require("autoprefixer"),
+    ],
   })
   .copy("source/images/**/*.*", "dist/images/")
   .browserSync({
@@ -20,11 +23,9 @@ mix
     host: "oval.bio.test",
     open: "external",
     https: {
-      key:
-        "/Users/manas/.config/valet/Certificates/oval.bio.test.key",
-      cert:
-        "/Users/manas/.config/valet/Certificates/oval.bio.test.crt",
+      key: "/Users/manas/.config/valet/Certificates/oval.bio.test.key",
+      cert: "/Users/manas/.config/valet/Certificates/oval.bio.test.crt",
     },
-    files: ["**/*.php", "dist/main.css", "dist/*.js"],
-  });
-// .disableSuccessNotifications();
+    files: ["**/*.php", "dist/*.css", "dist/*.js"],
+  })
+  .disableSuccessNotifications();

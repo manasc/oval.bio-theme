@@ -1,13 +1,14 @@
 // pack selectors
 .pack-option {
-  @apply w-16;
+  @apply w-20;
   @apply text-gray-400;
   @apply font-bold text-center uppercase;
 
   .pack-option-box {
     @apply cursor-pointer;
     @apply border-2 border-gray-400;
-    @apply w-full h-16 flex flex-col justify-center;
+    @apply w-full h-20;
+    @apply flex flex-col justify-center;
   }
 
   .pack-option-number {
@@ -17,6 +18,10 @@
   .pack-option-text,
   .pack-option-meta {
     @apply text-xs tracking-wider;
+  }
+
+  .pack-option-meta {
+    @apply font-normal pt-1;
   }
 
   &:hover,
@@ -68,6 +73,11 @@ label {
   @apply text-gray-600 border-gray-600;
   @apply cursor-pointer;
 
+  &.active {
+    @apply border-ovalGreen text-gray-800 bg-ovalGreen;
+    @apply cursor-default;
+  }
+
   &.filter-cat {
     &:hover {
       @apply border-ovalGreen text-ovalGreen;
@@ -89,12 +99,46 @@ label {
       @apply cursor-default;
     }
   }
+
+  .filter-icon {
+    @apply ml-px;
+
+    &-icon {
+      @extend .filter-icon;
+      @apply mx-0;
+    }
+  }
+
+  &.dead {
+    @apply hidden;
+  }
 }
 
 .filters {
+  @apply relative;
   @apply flex flex-wrap;
 
   .filter {
     @apply mr-2 my-1;
+  }
+}
+
+#tagsBox {
+  transform: translateY(0);
+  transition-duration: 200ms;
+  @apply max-w-2xl;
+  @apply overflow-hidden rounded-r rounded-bl;
+
+  @apply z-20 mt-5;
+  @apply absolute top-0 left-0;
+  @apply shadow;
+
+  @apply opacity-0;
+  @apply invisible;
+
+  &.active {
+    transform: translateY(10px);
+    @apply opacity-100;
+    @apply visible;
   }
 }

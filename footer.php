@@ -18,7 +18,7 @@
     <div class="bg-gray-800">
         <div class="container px-5 mx-auto">
             <div class="py-24 w-full relative">
-                 <div class="mb-10 max-w-lg">
+                <div class="mb-10 max-w-lg">
                     <h1 class="text-4xl text-ovalGreen leading-tight font-light ">Lorem ipsum dolor sit amet.</h1>
                     <!-- <h5 class="text-base text-gray-200">Quibusdam minus voluptates dignissimos, labore eum recusandae. Molestias iusto, magni minus non reprehenderit sint eius in inventore, cumque quos similique atque sunt!</h5> -->
                 </div>
@@ -30,7 +30,7 @@
                         </div>
                         <div class="content w-2/3 md:w-full pl-2 md:pl-0">
                             <div class="label inline-block md:hidden"><span class="label-text">Excercise</span></div>
-                            <div class="title text-lg text-white leading-snug mt-2 mb-3">Lorem ipsum dolor sit, amet consectetur adipisicing.</div>
+                            <div class="title text-lg text-white leading-snug mt-2 mb-3 pr-1">Lorem ipsum dolor sit, amet consectetur adipisicing.</div>
                             <div class="meta text-xs font-bold uppercase tracking-wider text-ovalGreen">April 5</div>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                         </div>
                         <div class="content w-2/3 md:w-full pl-2 md:pl-0">
                             <div class="label inline-block md:hidden"><span class="label-text">Neuroscience</span></div>
-                            <div class="title text-lg text-white leading-snug mt-2 mb-3">Lorem ipsum dolor sit, amet consectetur adipisicing.</div>
+                            <div class="title text-lg text-white leading-snug mt-2 mb-3 pr-1">Lorem ipsum dolor sit, amet consectetur adipisicing.</div>
                             <div class="meta text-xs font-bold uppercase tracking-wider text-ovalGreen">June 10</div>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                         </div>
                         <div class="content w-2/3 md:w-full pl-2 md:pl-0">
                             <div class="label inline-block md:hidden"><span class="label-text">Hello</span></div>
-                            <div class="title text-lg text-white leading-snug mt-2 mb-3">Lorem ipsum dolor sit, amet consectetur adipisicing.</div>
+                            <div class="title text-lg text-white leading-snug mt-2 mb-3 pr-1">Lorem ipsum dolor sit, amet consectetur adipisicing.</div>
                             <div class="meta text-xs font-bold uppercase tracking-wider text-ovalGreen">March 10</div>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                         </div>
                         <div class="content w-2/3 md:w-full pl-2 md:pl-0">
                             <div class="label inline-block md:hidden"><span class="label-text">Hello</span></div>
-                            <div class="title text-lg text-white leading-snug mt-2 mb-3">Lorem ipsum dolor sit, amet consectetur adipisicing.</div>
+                            <div class="title text-lg text-white leading-snug mt-2 mb-3 pr-1">Lorem ipsum dolor sit, amet consectetur adipisicing.</div>
                             <div class="meta text-xs font-bold uppercase tracking-wider text-ovalGreen">March 12</div>
                         </div>
                     </div>
@@ -83,7 +83,10 @@
             <div class="input-field flex">
                 <input placeholder="yourname@example.com" type="text" class="outline-none w-full max-w-xs text-gray-800 px-5 py-2 mr-2 rounded">
                 <!-- FIXME: does not produce wave effect ANYWHERE -->
-                <a class="button waves-effect waves-light dark w-32">Submit</a>
+                <a href="#" class="button dark w-48">
+                    Submit
+                    <i class="button-icon fas fa-paper-plane"></i>
+                </a>
             </div>
         </div>
     </div>

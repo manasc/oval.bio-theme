@@ -12,7 +12,7 @@ class Customizer extends React.Component {
   render() {
     return (
       <ContextProvider>
-        <div className="container max-w-4xl mx-auto">
+        <div className="container mx-auto">
           <div className="flex flex-wrap mx-0 md:-mx-5">
             <div className="w-full md:w-3/5 px-5">
               <div className="customizer-product-box">
@@ -63,7 +63,7 @@ class Customizer extends React.Component {
             <div className="w-full md:w-2/5 px-5">
               <div className="py-5">
                 <div className="hidden md:block title font-bold text-3xl">
-                  Heliopatch
+                  { this.props.title }
                 </div>
                 <div className="hidden md:block desc text-sm font-light leading-tight">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -172,7 +172,7 @@ class Customizer extends React.Component {
                                 className="absolute w-full left-0 block pt-2 text-2xs text-gray-500 font-normal text-right"
                                 style={{ bottom: "-7px" }}
                               >
-                                per month
+                                / per month
                               </span>
                             </span>
                           </div>
@@ -199,7 +199,10 @@ class Customizer extends React.Component {
                     </Tooltip>
                   </div>
                 </div>
-                <a className="button w-full">Purchase</a>
+                <a className="button">
+                  <i className="fas fa-dollar-sign mr-2"></i>
+                  Purchase
+                </a>
               </div>
             </div>
           </div>

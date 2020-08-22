@@ -31,7 +31,7 @@
                         <?php
                         wp_nav_menu(
                             array(
-                                'theme_location' => 'menu-1',
+                                'theme_location' => 'main-menu',
                                 "container" => "ul",
                                 "menu_class" => "flex items-center -mx-2",
                                 "items_wrap" => "",

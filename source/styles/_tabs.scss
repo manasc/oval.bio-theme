@@ -1,0 +1,164 @@
+$activeGray: 500;
+$deadGray: 300;
+
+.tabs-section {
+  @apply my-10;
+  @apply relative;
+
+  @screen md {
+    @apply my-24;
+  }
+
+  .tabs-section-container {
+    @apply mx-auto relative;
+  }
+
+  .tabs-section-title {
+    @apply relative inline-block;
+    @apply cursor-default;
+    @apply bg-ovalGreen px-2 py-1 leading-none;
+    @apply border border-ovalGreen;
+    @apply text-2xs #{!important};
+
+    @extend .label-text;
+  }
+
+  .tab-box-title {
+    @apply text-3xl mb-8 font-light;
+  }
+
+  .tabs-meta,
+  .tabs {
+    @apply flex flex-wrap justify-start;
+    @apply px-0;
+
+    @screen md {
+      @apply px-2;
+    }
+  }
+
+  .tabs {
+    @apply relative;
+    @apply w-full z-10 -mb-px;
+
+    .tab {
+      @apply cursor-pointer;
+      @apply w-full text-center leading-none;
+      @apply rounded-t border border-b-0 text-xs font-bold;
+      @apply uppercase tracking-wider px-5 py-3 -mr-px relative;
+
+      @screen md {
+        @apply w-auto;
+      }
+
+      &.active {
+        @apply bg-white border-gray-500 text-gray-800 z-10;
+      }
+
+      &.dead {
+        z-index: -1;
+        @apply bg-transparent text-gray-500 border-gray-300 relative;
+
+        &:hover {
+          @apply text-gray-700;
+        }
+      }
+    }
+  }
+
+  .tabs-box {
+    @apply border border-gray-500 bg-white;
+    @apply w-full relative;
+    @apply z-0;
+    @apply p-10;
+    @apply rounded-md;
+
+    .tabs-box-content {
+      &.active {
+        @apply block;
+      }
+
+      &.dead {
+        @apply hidden;
+      }
+    }
+  }
+}
+
+.content-box {
+  @apply bg-gray-100;
+  @apply p-5;
+
+  &-px-none {
+    @extend .content-box;
+    @apply px-0;
+  }
+
+  &-p-none {
+    @extend .content-box;
+    @apply p-0;
+  }
+}
+
+// faq
+.faq-box {
+  .faq {
+    @apply cursor-pointer;
+
+    &:not(:last-child) {
+      @apply border-b;
+    }
+
+    .faq-header {
+      @apply relative;
+      @apply pl-8 pr-2 py-5;
+
+      .faq-icon {
+        @apply absolute left-0 top-0;
+        @apply text-base;
+        @apply text-gray-600;
+
+        transform: translateX(-150%) translateY(1px);
+
+        i {
+          transition: all $animationSpeed;
+        }
+      }
+
+      .faq-question {
+        @apply relative;
+        @apply text-lg;
+        @apply font-light;
+      }
+    }
+
+    .faq-content {
+      @apply pl-8 pr-2;
+      @apply pb-0;
+      @apply overflow-hidden;
+
+      transition: all $animationSpeed;
+      max-height: 0;
+    }
+
+    &.active {
+      .faq-header {
+        .faq-icon {
+          @apply text-ovalGreen;
+
+          i {
+            transform: rotate(45deg);
+          }
+        }
+      }
+
+      .faq-content {
+        max-height: 500px;
+        @apply pb-5;
+      }
+    }
+
+    &.dead {
+    }
+  }
+}

@@ -32,6 +32,8 @@ $images = get_fake_images();
 
 <section class="md:my-20">
 	<div class="container mx-auto">
+	<h1 class="text-4xl mb-8">Products</h1>
+
 		<div class="flex flex-wrap p-0 md:p-px">
 			<div class="relative w-full md:w-1/2 relative p-0 md:p-px">
 				<div class="product-box relative">

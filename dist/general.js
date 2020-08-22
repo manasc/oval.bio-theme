@@ -734,38 +734,97 @@ module.exports = g;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _general_navbarFunc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./general/navbarFunc */ "./source/scripts/general/navbarFunc.js");
 /* harmony import */ var _general_navbarFunc__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_general_navbarFunc__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _general_wavesAnimation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./general/wavesAnimation */ "./source/scripts/general/wavesAnimation.js");
+/* harmony import */ var _general_wavesAnimation__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_general_wavesAnimation__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _general_filterBox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./general/filterBox */ "./source/scripts/general/filterBox.js");
+/* harmony import */ var _general_filterBox__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_general_filterBox__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _general_tabBox__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./general/tabBox */ "./source/scripts/general/tabBox.js");
+/* harmony import */ var _general_tabBox__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_general_tabBox__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _general_faq__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./general/faq */ "./source/scripts/general/faq.js");
+/* harmony import */ var _general_faq__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_general_faq__WEBPACK_IMPORTED_MODULE_4__);
 
 
-var Waves = __webpack_require__(/*! node-waves */ "./node_modules/node-waves/src/js/waves.js"); // document.addEventListener("DOMContentLoaded", function() {
-//   var grid = document.querySelector(".grid");
-//   var iso = new Isotope(grid, {
-//     // options...
-//     percentPosition: true,
-//     itemSelector: ".grid-item",
-//     masonry: {
-//       columnWidth: ".grid-width-2"
-//     }
-//   });
-// });
+
+ // modules
 
 
-document.addEventListener("DOMContentLoaded", function () {
+
+/***/ }),
+
+/***/ "./source/scripts/general/faq.js":
+/*!***************************************!*\
+  !*** ./source/scripts/general/faq.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function faqAccordian() {
+  var faqBoxes = document.querySelectorAll(".faq-box");
+  faqBoxes.forEach(function (box) {
+    var faqs = box.querySelectorAll(".faq");
+    faqs.forEach(function (faq) {
+      faq.addEventListener("click", function () {
+        // set box state
+        if (this.classList.contains("dead")) {
+          this.classList.replace("dead", "active"); // set header
+        } else {
+          this.classList.replace("active", "dead");
+        }
+      });
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", faqAccordian);
+
+/***/ }),
+
+/***/ "./source/scripts/general/filterBox.js":
+/*!*********************************************!*\
+  !*** ./source/scripts/general/filterBox.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function filterBox() {
   var tagBoxToggler = document.getElementById("openTags");
   var tagBox = document.getElementById("tagsBox");
 
   function toggleTagBox() {
-    tagBox.classList.toggle("hidden");
+    var icon = this.querySelector(".filter-icon");
+
+    if (icon.classList.contains("fa-caret-down")) {
+      icon.classList.remove("fa-caret-down");
+      icon.classList.add("fa-times-circle");
+    } else {
+      icon.classList.remove("fa-times-circle");
+      icon.classList.add("fa-caret-down");
+    }
+
+    tagBox.classList.toggle("active");
   }
+
+  var showMoreFilters = document.querySelectorAll(".showMoreFilters");
+  console.log(showMoreFilters);
+  showMoreFilters.forEach(function (button) {
+    button.addEventListener("click", function () {
+      var deadFilters = this.parentNode.querySelectorAll(".filter.dead");
+      deadFilters.forEach(function (filter) {
+        filter.classList.remove("dead");
+        filter.classList.add("alive");
+      }); // hide add button
+
+      this.classList.remove("alive");
+      this.classList.add("dead");
+    });
+  });
 
   if (tagBoxToggler) {
     tagBoxToggler.addEventListener("click", toggleTagBox);
-  } // waves
+  }
+}
 
-
-  Waves.attach(".button:not(.dark)", ["waves-dark"]);
-  Waves.attach(".button.dark", ["waves-light"]);
-  Waves.init();
-});
+document.addEventListener("DOMContentLoaded", filterBox);
 
 /***/ }),
 
@@ -809,6 +868,68 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /***/ }),
 
+/***/ "./source/scripts/general/tabBox.js":
+/*!******************************************!*\
+  !*** ./source/scripts/general/tabBox.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function tabBox() {
+  var tabBoxes = document.querySelectorAll(".tabs-section"); // get all tab instances
+
+  tabBoxes.forEach(function (tabBox) {
+    // get all
+    var tabs = tabBox.querySelectorAll(".tabs .tab");
+    var tabContents = tabBox.querySelectorAll(".tabs-box .tabs-box-content"); // the actual magic
+    // get current
+
+    var tabCurrent = tabBox.querySelector(".tabs .tab.active");
+    var tabContentCurrent = tabBox.querySelector(".tabs-box .tabs-box-content.active"); // click trigger for tabs
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        // the way the php rendering works --
+        // the key param is also the array index
+        var id = this.getAttribute("key"); // change previous state
+
+        tabCurrent.classList.replace("active", "dead");
+        tabContentCurrent.classList.replace("active", "dead"); // changed clicked tabs state
+
+        this.classList.replace("dead", "active");
+        tabContents[id].classList.replace("dead", "active"); // set clicked tabs as old state
+
+        tabCurrent = this;
+        tabContentCurrent = tabContents[id];
+      });
+    });
+    console.log(tabs, tabContents);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", tabBox);
+
+/***/ }),
+
+/***/ "./source/scripts/general/wavesAnimation.js":
+/*!**************************************************!*\
+  !*** ./source/scripts/general/wavesAnimation.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Waves = __webpack_require__(/*! node-waves */ "./node_modules/node-waves/src/js/waves.js");
+
+function wavesAnimation() {
+  Waves.attach(".button:not(.dark)", ["waves-dark"]);
+  Waves.attach(".button.dark", ["waves-light"]);
+  Waves.init();
+}
+
+document.addEventListener("DOMContentLoaded", wavesAnimation);
+
+/***/ }),
+
 /***/ "./source/styles/main.scss":
 /*!*********************************!*\
   !*** ./source/styles/main.scss ***!
@@ -816,7 +937,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed (from ./node_modules/css-loader/dist/cjs.js):\nModuleBuildError: Module build failed (from ./node_modules/postcss-loader/src/index.js):\nSyntaxError\n\n(246:5) `@apply` cannot be used with `.text-2xs` because `.text-2xs` either cannot be found, or its actual definition includes a pseudo-selector like :hover, :active, etc. If you're sure that `.text-2xs` exists, make sure that any `@import` statements are being properly processed *before* Tailwind CSS sees your CSS, as `@apply` can only be used for classes in the same CSS tree.\n\n \u001b[90m 244 | \u001b[39m    \u001b[36m@apply\u001b[39m bg-ovalGreen px-2 py-1 leading-none\u001b[33m;\u001b[39m\n \u001b[90m 245 | \u001b[39m    \u001b[36m@apply\u001b[39m border border-ovalGreen\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 246 | \u001b[39m    \u001b[36m@apply\u001b[39m text-2xs !important\u001b[33m;\u001b[39m \u001b[33m}\u001b[39m\n \u001b[90m     | \u001b[39m    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 247 | \u001b[39m  \u001b[33m.tabs-section\u001b[39m \u001b[33m.tab-box-title\u001b[39m \u001b[33m{\u001b[39m\n \u001b[90m 248 | \u001b[39m    \u001b[36m@apply\u001b[39m text-3xl mb-8 font-light\u001b[33m;\u001b[39m \u001b[33m}\u001b[39m\n\n    at /Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/node_modules/webpack/lib/NormalModule.js:316:20\n    at /Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/node_modules/loader-runner/lib/LoaderRunner.js:367:11\n    at /Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/node_modules/loader-runner/lib/LoaderRunner.js:233:18\n    at context.callback (/Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\n    at /Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/node_modules/postcss-loader/src/index.js:207:9");
 
 /***/ }),
 

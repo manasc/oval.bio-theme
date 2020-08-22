@@ -34,7 +34,7 @@ $all_posts = $query->posts;
                                     <?php endforeach; ?>
                                 <?php endif; ?> -->
                             </div>
-                            
+
                             <div class="hidden md:block">
                                 <a href="<?php echo get_permalink($all_posts[0]->ID) ?>" class="button inline-block">Read More <i class="fas fa-arrow-right"></i></a>
                             </div>
@@ -88,26 +88,25 @@ $all_posts = $query->posts;
 <?php $tags = get_tags(array('hide_empty' => true)) ?>
 <?php $cats = get_categories(array('hide_empty' => true)) ?>
 <div class="pb-10">
-    <div class="container px-2 mx-auto">
+    <div class="container px-2 mx-auto relative">
         <h1 class="text-3xl">All Articles</h1>
         <hr class="mb-10">
         <p class="mb-2">Categories:</p>
         <div class="filters">
-            <div class="filter filter-cat" data-filter="all"><span class="label-text">All</span></div>
+            <div class="filter filter-cat" data-filter="all">All</div>
             <?php foreach ($cats as $key => $cat) : ?>
                 <div class="filter filter-cat" data-filter=".<?php echo $cat->slug ?>"><?php echo $cat->name ?></div>
             <?php endforeach; ?>
-            <div id="openTags" class="filter filter-tag">Filters <i class="fas fa-caret-down"></i></div>
-        </div>
-        <div id="tagsBox" class="flex mt-2 hidden">
-            <div class="w-2 bg-ovalGreen">
-                <!-- <p class="my-2">Tags:</p> -->
-            </div>
-            <div class="filters bg-gray-100 py-4 px-5">
-                <?php foreach ($tags as $key => $tag) : ?>
-                    <div class="filter filter-tag" data-filter=".<?php echo $tag->slug ?>"><?php echo $tag->name ?></div>
-                <?php endforeach; ?>
-                <!-- <div class="label simple clickable inline-block"><span class="label-text">Hello</span></div> -->
+            <div id="openTags" class="filter filter-tag">Filters <i class="filter-icon fas fa-caret-down"></i></div>
+            <div id="tagsBox" class="flex">
+                <div class="left-border w-2 bg-ovalGreen"></div>
+                <div class="filters bg-gray-100 py-4 px-5">
+                    <?php foreach ($tags as $key => $tag) : ?>
+                        <div class="filter filter-tag <?php echo $key > 20 ? "dead" : "" ?>" data-filter=".<?php echo $tag->slug ?>"><?php echo $tag->name ?></div>
+                    <?php endforeach; ?>
+                    <!-- <div class="label simple clickable inline-block"><span class="label-text">Hello</span></div> -->
+                    <a class="filter active showMoreFilters alive">Show More <i class="filter-icon fas fa-plus-circle"></i></a>
+                </div>
             </div>
         </div>
     </div>
@@ -162,7 +161,7 @@ $all_posts = $query->posts;
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
-<!-- <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script> -->
+
 <script type="text/javascript">
     var mixer = mixitup('.mixer', {
         selectors: {
@@ -170,6 +169,7 @@ $all_posts = $query->posts;
         }
     });
 </script>
+
 <style type="text/css">
     /* .main-labels {
         overflow: hidden;

@@ -35131,7 +35131,7 @@ var Customizer = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_context_CustomizerContext__WEBPACK_IMPORTED_MODULE_1__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container max-w-4xl mx-auto"
+        className: "container mx-auto"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "flex flex-wrap mx-0 md:-mx-5"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -35172,7 +35172,7 @@ var Customizer = /*#__PURE__*/function (_React$Component) {
         className: "py-5"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "hidden md:block title font-bold text-3xl"
-      }, "Heliopatch"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "hidden md:block desc text-sm font-light leading-tight"
       }, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis magnam laborum, quas voluptates sapiente est aspernatur itaque quod, voluptatibus iusto nulla illum. Qui, explicabo quasi consectetur tenetur reprehenderit aliquam temporibus."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "options my-5"
@@ -35263,7 +35263,7 @@ var Customizer = /*#__PURE__*/function (_React$Component) {
             style: {
               bottom: "-7px"
             }
-          }, "per month")));
+          }, "/ per month")));
         } else {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "title font-bold text-3xl"
@@ -35283,8 +35283,10 @@ var Customizer = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-question-circle cursor-pointer"
       })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "button w-full"
-      }, "Purchase"))))));
+        className: "button"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-dollar-sign mr-2"
+      }), "Purchase"))))));
     }
   }]);
 

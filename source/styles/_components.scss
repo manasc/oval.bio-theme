@@ -18,6 +18,21 @@ $white: rgba(255, 255, 255, 0.75);
 
   // text styles
   @apply leading-none;
+
+  // TODO: replace with a class for the future
+  & > .button-icon,
+  & > i {
+    transition-duration: 300ms;
+    transform: translateX(0);
+    @apply ml-1;
+  }
+
+  & > .button-icon,
+  &:hover {
+    & > i {
+      transform: translateX(3px);
+    }
+  }
 }
 
 .button-input {

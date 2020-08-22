@@ -44,8 +44,7 @@ $tabs = [
     </div>
 </div>
 <div id="product-customizer" class="py-5 md:py-10"></div>
-<?php get_template_part('source/blocks/icons') ?>
-<div class="flex flex-wrap md:flex-no-wrap justify-end bg-gray-200">
+<!-- <div class="flex flex-wrap md:flex-no-wrap justify-end bg-gray-200">
     <div class="w-full md:w-1/2 bg-cover bg-no-repeat bg-center" style="background-image:url(https://source.unsplash.com/random/800x602/?running)">
         <div class="block md:hidden w-full" style="padding-top: 100%"></div>
     </div>
@@ -55,7 +54,9 @@ $tabs = [
             <p class="text-base leading-snug">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui in mollitia, eaque magnam. Adipisci ipsam ducimus, enim! Eius pariatur voluptatibus dolor, inventore voluptatem? Quia, ducimus!</p>
         </div>
     </div>
-</div>
-<div id="tabs" data-content="<?php echo htmlspecialchars(json_encode($tabs), ENT_QUOTES, 'UTF-8') ?>"></div>
+</div> -->
+<!-- <div id="tabs" data-content="<?php echo htmlspecialchars(json_encode($tabs), ENT_QUOTES, 'UTF-8') ?>"></div> -->
 <!-- <section id="vision"></section> -->
+
+<?php get_template_part( 'template-parts/module', "all" ) ?>
 <?php get_footer() ?>
