@@ -1,20 +1,3 @@
-<!-- Directions For Use -->
-<?php
-$stepsArr = [
-    [
-        "step" => "sed iusto corporis",
-        "description" => "Molestiae et perferendis deserunt et voluptatum incidunt omnis. Aliquam velit qui et porro ullam. Eos amet fugit consequatur. Sed sint pariatur quidem rem autem inventore."
-    ],
-    [
-        "step" => "et quisquam tenetur",
-        "description" => "Molestiae et perferendis deserunt et voluptatum incidunt omnis. Aliquam velit qui et porro ullam. Eos amet fugit consequatur. Sed sint pariatur quidem rem autem inventore."
-    ],
-    [
-        "step" => "beatae qui quaerat",
-        "description" => "Molestiae et perferendis deserunt et voluptatum incidunt omnis. Aliquam velit qui et porro ullam. Eos amet fugit consequatur. Sed sint pariatur quidem rem autem inventore."
-    ],
-]
-?>
 <section>
     <div class="mb-10">
         <h1 class="text-3xl mb-8 font-light">Directions For Use</h1>
@@ -41,14 +24,13 @@ $stepsArr = [
             <div class="flex flex-wrap">
                 <div class="w-full lg:w-1/2 flex items-center justify-center">
                     <div class="content max-w-lg px-5 py-12">
-                        <?php foreach ($stepsArr as $key => $step) : ?>
-                            <div class="flex flex-wrap -mx-2">
+                        <?php foreach ($args["fields"]["instructions"] as $key => $step) : ?>
+                            <div class="flex flex-wrap -mx-2 mb-5">
                                 <div class="flex-none px-2">
                                     <div class="round-full w-5 h-5 bg-ovalGreen text-xs flex items-center justify-center"><?php echo $key + 1 ?></div>
                                 </div>
                                 <div class="content flex-1 px-2">
-                                    <h6 class="text-lg font-bold mb-2"><?php echo $step['step'] ?></h6>
-                                    <p class="mb-5"><?php echo $step['description'] ?></p>
+                                    <div class="text-lg mb-5"><?php echo $step['description'] ?></div>
                                 </div>
                             </div>
                         <?php endforeach ?>
@@ -78,7 +60,7 @@ $stepsArr = [
         return ID;
     }
 
-    var videoId = YouTubeGetID("https://www.youtube.com/watch?v=mLJVvjqMjbo");
+    var videoId = YouTubeGetID("<?php echo $args["fields"]["instructional_video"] ?>");
 
     // 2. This code loads the IFrame Player API code asynchronously.
     var tag = document.createElement('script');

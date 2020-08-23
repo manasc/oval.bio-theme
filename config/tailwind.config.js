@@ -4,6 +4,9 @@ module.exports = {
       screens: {
         "2xl": "1440px",
       },
+      fontSize: {
+        "2xs": "0.675rem",
+      },
       colors: {
         ovalGreen: "#77e0a1",
         ovalGreenDark: "#38b795",

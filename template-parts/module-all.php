@@ -6,22 +6,26 @@ $productTabBoxes = [
         "active" => true,
         "modules" => [
             [
-                "active" => true,
+                "active" => in_array("key_benefits", $args["fields"]["sections_needed"]),
+                "slug" => "key_benefits",
                 "title" => "Key Benefits",
                 "module" => "key-benefits"
             ],
             [
-                "active" => true,
+                "active" => in_array("nutrition_ingredients", $args["fields"]["sections_needed"]),
+                "slug" => "nutrition_ingredients",
                 "title" => "Nutrition & Ingredients",
                 "module" => "nutrition-and-ingredients"
             ],
             [
-                "active" => true,
+                "active" => in_array("components", $args["fields"]["sections_needed"]),
+                "slug" => "components",
                 "title" => "Components",
                 "module" => "components"
             ],
             [
-                "active" => true,
+                "active" => in_array("faq", $args["fields"]["sections_needed"]),
+                "slug" => "faq",
                 "title" => "FAQ",
                 "module" => "faq"
             ],
@@ -32,22 +36,26 @@ $productTabBoxes = [
         "active" => true,
         "modules" => [
             [
-                "active" => true,
+                "active" => in_array("pipeline", $args["fields"]["sections_needed"]),
+                "slug" => "pipeline",
                 "title" => "Pipeline (Phases)",
                 "module" => "pipeline"
             ],
             [
-                "active" => true,
+                "active" => in_array("research_and_development", $args["fields"]["sections_needed"]),
+                "slug" => "research_and_development",
                 "title" => "Research & Development",
                 "module" => "research-and-development"
             ],
             [
-                "active" => true,
+                "active" => in_array("testing", $args["fields"]["sections_needed"]),
+                "slug" => "experiments",
                 "title" => "Tests & Experiments",
                 "module" => "tests-and-experiments"
             ],
             [
-                "active" => true,
+                "active" => in_array("clinical_trials", $args["fields"]["sections_needed"]),
+                "slug" => "clinical_trials",
                 "title" => "Clinical Trials",
                 "module" => "clinical-trials"
             ],
@@ -58,27 +66,32 @@ $productTabBoxes = [
         "active" => true,
         "modules" => [
             [
-                "active" => true,
+                "active" => in_array("how_it_works", $args["fields"]["sections_needed"]),
+                "slug" => "how_it_works",
                 "title" => "How it Works",
                 "module" => "how-it-works"
             ],
             [
-                "active" => true,
-                "title" => "Life Extension",
-                "module" => "life-extension"
+                "active" => in_array("product_future", $args["fields"]["sections_needed"]),
+                "slug" => "future_of_product",
+                "title" => "Future of Product",
+                "module" => "future-of-product"
             ],
             [
-                "active" => true,
+                "active" => in_array("directions_for_use", $args["fields"]["sections_needed"]),
+                "slug" => "directions_for_use",
                 "title" => "Directions For Use",
                 "module" => "directions-for-use"
             ],
             [
-                "active" => true,
+                "active" => in_array("instructable", $args["fields"]["sections_needed"]),
+                "slug" => "instructable",
                 "title" => "Instructables",
                 "module" => "instructables"
             ],
             [
-                "active" => true,
+                "active" => in_array("side_effects", $args["fields"]["sections_needed"]),
+                "slug" => "side_effects",
                 "title" => "Side Effects",
                 "module" => "side-effects"
             ],
@@ -89,24 +102,34 @@ $productTabBoxes = [
         "active" => true,
         "modules" => [
             [
-                "active" => true,
+                "active" => in_array("cost_of_goods", $args["fields"]["sections_needed"]),
+                "slug" => "cost_of_goods",
                 "title" => "Cost of Goods",
                 "module" => "cost-of-goods"
             ],
             [
-                "active" => true,
+                "active" => in_array("quality_control", $args["fields"]["sections_needed"]),
+                "slug" => "quality_control",
                 "title" => "Quality Control",
                 "module" => "quality-control"
             ],
             [
-                "active" => true,
+                "active" => in_array("manufacturing_challenges", $args["fields"]["sections_needed"]),
+                "slug" => "manufacturing_challenges",
                 "title" => "Manufacturing Challenges",
                 "module" => "manufacturing-challenges"
             ],
             [
-                "active" => true,
+                "active" => in_array("competitors", $args["fields"]["sections_needed"]),
+                "slug" => "competitors",
                 "title" => "Competitive Comparison",
                 "module" => "competitive-comparison"
+            ],
+            [
+                "active" => in_array("help_needed", $args["fields"]["sections_needed"]),
+                "slug" => "help_needed",
+                "title" => "Help Needed",
+                "module" => "help-needed"
             ],
         ],
     ],
@@ -115,17 +138,14 @@ $productTabBoxes = [
         "active" => true,
         "modules" => [
             [
-                "active" => true,
-                "title" => "Future of Product",
-                "module" => "future-of-product"
-            ],
-            [
-                "active" => true,
+                "active" => in_array("important_dates", $args["fields"]["sections_needed"]),
+                "slug" => "important_dates",
                 "title" => "Important Dates",
                 "module" => "important-dates"
             ],
             [
-                "active" => true,
+                "active" => in_array("opportunities", $args["fields"]["sections_needed"]),
+                "slug" => "opportunities",
                 "title" => "Opportunities",
                 "module" => "opportunities"
             ],
@@ -134,6 +154,7 @@ $productTabBoxes = [
 ];
 ?>
 
+<!-- <pre><?php print_r($args["fields"]["sections_needed"]) ?></pre> -->
 
 <?php foreach ($productTabBoxes as $key => $tabBox) : ?>
     <?php if ($tabBox['active']) : ?>
@@ -163,7 +184,9 @@ $productTabBoxes = [
                     <?php foreach ($modArr as $i => $tab) : ?>
                         <?php if ($tab["active"]) : ?>
                             <div key="<?php echo $i ?>" class="tabs-box-content <?php echo $i === 0 ? "active" : "dead" ?>">
-                                <?php get_template_part("template-parts/module", $tab["module"]); ?>
+                                <?php get_template_part("template-parts/module", $tab["module"], [
+                                    "fields" => $args["fields"][$tab["slug"]]
+                                ]); ?>
                             </div>
                         <?php endif; ?>
                     <?php endforeach; ?>

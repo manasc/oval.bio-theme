@@ -106,6 +106,16 @@ if (!function_exists('oval_bio_setup')) :
 endif;
 add_action('after_setup_theme', 'oval_bio_setup');
 
+function dequeue_styles_woo($enqueue_styles)
+{
+    unset($enqueue_styles['woocommerce-general']);    // Remove the gloss
+    unset($enqueue_styles['woocommerce-layout']);        // Remove the layout
+    unset($enqueue_styles['woocommerce-smallscreen']);    // Remove the smallscreen optimisation
+    return $enqueue_styles;
+}
+add_filter('woocommerce_enqueue_styles', 'dequeue_styles_woo');
+
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
@@ -198,6 +208,46 @@ function oval_bio_scripts()
     );
 }
 add_action('wp_enqueue_scripts', 'oval_bio_scripts');
+
+add_filter('wp_check_filetype_and_ext', function ($data, $file, $filename, $mimes) {
+
+    global $wp_version;
+    if ($wp_version !== '4.7.1') {
+        return $data;
+    }
+
+    $filetype = wp_check_filetype($filename, $mimes);
+
+    return [
+        'ext'             => $filetype['ext'],
+        'type'            => $filetype['type'],
+        'proper_filename' => $data['proper_filename']
+    ];
+}, 10, 4);
+
+function cc_mime_types($mimes)
+{
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter('upload_mimes', 'cc_mime_types');
+
+
+function nmr_button($atts)
+{
+    $a = shortcode_atts(array(
+        'text' => 'This is your button text',
+        'url' => '#'
+    ), $atts);
+
+    return "<a class='button' href=" . $a["url"] . ">" . $a["text"] . "<i class='button-icon fas fa-arrow-circle-right'></i></a>";
+}
+add_shortcode('nmrbutton', 'nmr_button');
+
+/*
+ * Include ACF Custom fields code
+ */
+// include get_template_directory() . '/functions/custom-fields.php';
 
 /**
  * Implement the Custom Header feature.

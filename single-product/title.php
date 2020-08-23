@@ -21,6 +21,7 @@ if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
-the_title('<h1 itemprop="name" class="product_title entry-title">', '</h1>');
+// the_title('<h1 itemprop="name" class="product_title entry-title">', '</h1>');
 ?>
-<div id="product-customizer" title="<?php the_title() ?>" class="py-5 md:py-10"></div>
+<!-- <div id="product-customizer" title="<?php the_title() ?>" class="py-5 md:py-10"></div> -->
+Hello

@@ -1,47 +1,25 @@
 <!-- Nutrition & Ingredients -->
 <?php
-$ingredientsArr = [
-    [
-        "name" => "five-spice powder",
-        "image" => "http://lorempixel.com/640/480/technics",
-        "description" => "Quae dicta nostrum. Harum molestiae qui. Deleniti odit quia sit illo esse placeat."
-    ], [
-        "name" => "garlic",
-        "image" => "http://lorempixel.com/640/480/animals",
-        "description" => "Quae dicta nostrum. Harum molestiae qui. Deleniti odit quia sit illo esse placeat."
-    ], [
-        "name" => "pico de gallo",
-        "image" => "http://lorempixel.com/640/480/technics",
-        "description" => "Quae dicta nostrum. Harum molestiae qui. Deleniti odit quia sit illo esse placeat."
-    ], [
-        "name" => "barley sugar",
-        "image" => "http://lorempixel.com/640/480/technics",
-        "description" => "Quae dicta nostrum. Harum molestiae qui. Deleniti odit quia sit illo esse placeat."
-    ]
-];
-$ingredientsList = [
-    "cocoa powder",
-    "pumpkin seeds",
-    "peanut butter",
-    "sushi",
-    "tofu",
-    "rice wine",
-    "water",
-    "squash",
-    "ham",
-    "bagels",
-];
+$ingredientsArr;
+$ingredientsList = [];
+
+// filter array
+$ingredientsArr = array_values(array_filter($args['fields']['ingredients'], function ($ingredient) {
+    return !empty($ingredient["image"]) && !empty($ingredient["description"]);
+}));
+$arrCount = count($ingredientsArr) - 1;
+$ingredientsList = array_values(array_filter($args['fields']['ingredients'], function ($ingredient) {
+    return empty($ingredient["image"]) || empty($ingredient["description"]);
+}));
+$listCount = count($ingredientsArr) - 1;
+
 ?>
 <section>
     <div class="flex flex-wrap -mx-10">
         <div class="px-10 w-full md:w-1/2">
             <h1 class="tab-box-title">Nutrition & Ingredients</h1>
             <div class="text-lg">
-                <p class="mb-5">Est quo omnis. Quis tenetur architecto quidem aliquid sed. Ex est enim quos accusantium non doloremque atque ut.</p>
-                <p class="mb-5">Impedit eligendi aut debitis. Magni soluta et officia mollitia natus. Porro iste et inventore.</p>
-                <p class="mb-5">
-                    Dolorem blanditiis adipisci recusandae pariatur ipsam. Vero qui totam placeat id et sunt mollitia est aut. Qui molestiae expedita consequatur excepturi deserunt. Harum quis quia odio rerum sed laboriosam.
-                </p>
+                <?php echo $args["fields"]["nutrition_explanation"] ?>
             </div>
         </div>
         <div class="px-10 w-full md:w-1/2 ">
@@ -60,13 +38,14 @@ $ingredientsList = [
                                 <div class="round-full w-5 h-5 bg-ovalGreen text-xs flex items-center justify-center"><?php echo $i + 1 ?></div>
                             </div>
                             <div class="image-box bg-cover hidden md:block w-1/3 pr-2">
-                                <div class="w-full bg-cover bg-center bg-no-repeat" style="padding-top: 100%; background-image: url(<?php echo $ingredient['image'] ?>)"></div>
+                                <div class="w-full bg-cover bg-center bg-no-repeat" style="padding-top: 100%; background-image: url(<?php echo $ingredient["image"]["url"] ?>)"></div>
                             </div>
                             <div class="content flex-1 px-2 py-0 md:py-2 text-sm">
-                                <p class="mb-1"><strong><?php echo $ingredient['name'] ?></strong></p>
+                                <p class="mb-1"><strong><?php echo $ingredient['ingredient'] ?></strong></p>
                                 <p class="text-sm"><?php echo $ingredient['description'] ?></p>
                             </div>
                         </div>
+
                     <?php endforeach; ?>
                 </div>
             </div>
@@ -78,7 +57,11 @@ $ingredientsList = [
                 </div>
 
                 <div class="content-box">
-                    <?php echo join(", ", $ingredientsList) ?>
+                    <?php foreach ($ingredientsList as $key => $ingredient) : ?>
+                        <span>
+                            <?php echo $ingredient["ingredient"] . ", " ?>
+                        </span>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>

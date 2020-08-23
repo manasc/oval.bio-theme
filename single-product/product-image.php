@@ -41,4 +41,3 @@ global $post, $product, $woocommerce;
 	do_action('woocommerce_product_thumbnails');
 	?>
 </div> -->
-<div id="product-customizer" class="py-5 md:py-10"></div>
