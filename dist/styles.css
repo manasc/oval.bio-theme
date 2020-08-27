@@ -18928,6 +18928,7 @@ input[type="checkbox"] {
   color: rgba(255, 255, 255, var(--text-opacity));
 }
 
+#openTags,
 .filter {
   line-height: 1;
   display: inline-block;
@@ -18949,13 +18950,15 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
-.filter:hover {
+#openTags:hover,
+  .filter:hover {
   --bg-opacity: 1;
   background-color: #cbd5e0;
   background-color: rgba(203, 213, 224, var(--bg-opacity));
 }
 
-.filter.active {
+#openTags.active,
+  .filter.active {
   --border-opacity: 1;
   border-color: #77e0a1;
   border-color: rgba(119, 224, 161, var(--border-opacity));
@@ -18968,16 +18971,22 @@ input[type="checkbox"] {
   cursor: default;
 }
 
-.filter .filter-icon, .filter .filter-icon-icon {
+#openTags .filter-icon, #openTags .filter-icon-icon,
+  .filter .filter-icon,
+  .filter #openTags .filter-icon-icon,
+  #openTags .filter .filter-icon-icon,
+  .filter .filter-icon-icon {
   margin-left: 1px;
 }
 
-.filter .filter-icon-icon {
+#openTags .filter-icon-icon,
+    .filter .filter-icon-icon {
   margin-left: 0;
   margin-right: 0;
 }
 
-.filter.dead {
+#openTags.dead,
+  .filter.dead {
   display: none;
 }
 
@@ -18987,7 +18996,8 @@ input[type="checkbox"] {
   flex-wrap: wrap;
 }
 
-.filters .filter {
+.filters #openTags,
+  .filters .filter {
   margin-right: 0.25rem;
   margin-bottom: 0.25rem;
 }

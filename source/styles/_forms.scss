@@ -66,8 +66,8 @@
   }
 }
 
-
-.filter {
+#openTags,
+.filter, {
   @apply leading-none inline-block px-2 py-1;
   @apply border;
   @apply text-sm;
@@ -102,6 +102,7 @@
   @apply relative;
   @apply flex flex-wrap;
 
+  #openTags,
   .filter {
     @apply mr-1 mb-1;
   }

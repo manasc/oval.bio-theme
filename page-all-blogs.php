@@ -1,13 +1,13 @@
 <?php get_header() ?>
 <?php
-$query_args = [
+
+$all_blogs = new WP_Query([
     'post_type' => ['post'],
     'posts_per_page' => -1
-];
+]);
 
-$query = new WP_Query($query_args);
+$all_posts = $all_blogs->posts;
 
-$all_posts = $query->posts;
 ?>
 
 <div>
@@ -91,112 +91,57 @@ $all_posts = $query->posts;
     <div class="container px-2 mx-auto relative">
         <h1 class="text-3xl">All Articles</h1>
         <hr class="mb-10">
-        <p class="mb-2">Categories:</p>
-        <div class="filters">
-            <div class="filter filter-cat" data-filter="all">All</div>
-            <?php foreach ($cats as $key => $cat) : ?>
-                <div class="filter filter-cat" data-filter=".<?php echo $cat->slug ?>"><?php echo $cat->name ?></div>
-            <?php endforeach; ?>
-            <div id="openTags" class="filter filter-tag">Filters <i class="filter-icon fas fa-caret-down"></i></div>
-            <div id="tagsBox" class="flex">
-                <div class="left-border w-2 bg-ovalGreen"></div>
-                <div class="filters bg-gray-100 py-4 px-5">
-                    <?php foreach ($tags as $key => $tag) : ?>
-                        <div class="filter filter-tag <?php echo $key > 20 ? "dead" : "" ?>" data-filter=".<?php echo $tag->slug ?>"><?php echo $tag->name ?></div>
-                    <?php endforeach; ?>
-                    <!-- <div class="label simple clickable inline-block"><span class="label-text">Hello</span></div> -->
-                    <a class="filter active showMoreFilters alive">Show More <i class="filter-icon fas fa-plus-circle"></i></a>
+        <!-- <p class="mb-2">Categories:</p> -->
+        <div class="filter-box">
+            <div class="filters">
+                <div class="filter filter-cat" data-filter="*">All</div>
+                <?php foreach ($cats as $key => $cat) : ?>
+                    <div class="filter filter-cat" data-filter=".<?php echo $cat->slug ?>"><?php echo $cat->name ?></div>
+                <?php endforeach; ?>
+                <div id="openTags">Filters <i class="filter-icon fas fa-caret-down"></i></div>
+                <div id="tagsBox" class="flex">
+                    <div class="left-border w-2 bg-ovalGreen"></div>
+                    <div class="flex flex-wrap bg-gray-100 py-4 px-5">
+                        <?php foreach ($tags as $key => $tag) : ?>
+                            <div class="filter filter-tag <?php echo $key > 20 ? "dead" : "" ?>" data-filter=".<?php echo $tag->slug ?>"><?php echo $tag->name ?></div>
+                        <?php endforeach; ?>
+                        <!-- <div class="label simple clickable inline-block"><span class="label-text">Hello</span></div> -->
+                        <a class="filter active showMoreFilters alive">Show More <i class="filter-icon fas fa-plus-circle"></i></a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="container px-2 mx-auto">
-        <div class="py-5 w-full relative">
-            <div class="blog-items mixer flex flex-wrap -mx-px">
-                <?php for ($x = 0; $x < count($all_posts); $x++) : ?>
+            <div class="filter-grid py-5 w-full flex flex-wrap -mx-px">
+                <?php if ($all_blogs->have_posts()) : ?>
+                    <?php while ($all_blogs->have_posts()) : $all_blogs->the_post(); ?>
 
-                    <?php
-                    $post_tags = get_the_tags($all_posts[$x]->ID)
-                    ?>
-                    <a href="<?php echo get_permalink($all_posts[$x]->ID) ?>" class="blog-item block cursor-pointer w-full sm:w-1/2 md:w-1/3 px-px py-0 md:py-px flex flex-wrap <?php echo get_the_category($all_posts[$x]->ID)[0]->slug ?> <?php foreach ($post_tags as $post_tag) : echo $post_tag->slug . ' ';
-                                                                                                                                                                                                                                            endforeach; ?>">
-                        <div class="hidden md:block image-box product-box overflow-hidden relative w-full">
-                            <div class="image absolute w-full h-full top-0 left-0 bg-gray-200 bg-cover bg-center bg-no-repeat" style="background-image:url(<?php echo get_the_post_thumbnail_url($all_posts[$x]->ID) ?>)"></div>
+                        <?php
+                        $post_cats = get_the_category();
+                        $post_tags = get_the_tags();
 
-                            <div class="main-everything absolute flex flex-col justify-end top-0 left-0 w-full h-full" style="background-color: rgba(0,0,0,0.5)">
-                                <div class="p-5">
-                                    <!-- <div class="label label-blue inline-block md:hidden"><span class="label-text"><?php echo get_the_category($all_posts[$x]->ID)[0]->name ?></span></div> -->
-                                    <div class="main-title title text-lg leading-tight text-white mb-2 capitalize"><?php echo $all_posts[$x]->post_title ?></div>
-                                    <div class="flex flex-wrap main-labels">
-                                        <!-- <?php if (!empty($post_tags)) : ?>
-                                            <?php foreach ($post_tags as $key => $post_tag) : ?>
-                                                <?php if ($key < 3) : ?>
-                                                    <div class="main-label label label-blue mr-2" style="transition-delay: <?php echo $key * 100 ?>ms"><span class="label-text"><?php echo $post_tag->name ?></span></div>
-                                                <?php endif; ?>
-                                            <?php endforeach; ?>
-                                        <?php endif; ?> -->
-                                    </div>
-                                    <div class="meta text-xs font-bold uppercase tracking-wider text-ovalGreen"><?php echo date('M j', strtotime($all_posts[$x]->post_date)) ?></div>
-                                </div>
+                        $cats_list = "";
+                        $tags_list = "";
 
-                            </div>
-                            <div class="label hidden md:block absolute top-0 right-0"><span class="label-text"><?php echo get_the_category($all_posts[$x]->ID)[0]->name ?></span></span></div>
+                        if (!empty($post_cats)) {
+                            foreach ($post_cats as $cat) {
+                                $cats_list .= "$cat->slug ";
+                            }
+                        }
+
+                        if (!empty($post_tags)) {
+                            foreach ($post_tags as $tag) {
+                                $tags_list .= "$tag->slug ";
+                            }
+                        }
+
+                        ?>
+                        <div class="filter-grid-item relative w-full sm:w-1/2 md:w-1/3 px-px py-0 md:py-px <?php echo "$cats_list $tags_list" ?>">
+                            <?php get_template_part("template-parts/element", "post-block") ?>
                         </div>
-                        <div class="block md:hidden p-3 cursor-pointer hover:bg-gray-300 w-full">
-                            <div class="flex items-center">
-                                <div class="w-1/3">
-                                    <div class="h-24 w-full bg-gray-400 bg-cover bg-center bg-no-repeat bg-gray-200" style="background-image:url(<?php echo get_the_post_thumbnail_url($all_posts[$x]->ID) ?>)"></div>
-                                </div>
-                                <div class="w-2/3 pl-4">
-                                    <h6 class="text-lg mb-2 leading-tight"><?php echo $all_posts[$x]->post_title ?></h6>
-                                    <div class="label inline-block"><span class="label-text inline-block leading-none"><?php echo get_the_category($all_posts[$x]->ID)[0]->name ?></span></div>
-                                    <div class="label label-blue inline-block"><span class="label-text inline-block leading-none"><?php echo date('M j', strtotime($all_posts[$x]->post_date)) ?></span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                <?php endfor ?>
+                    <?php endwhile; ?>
+                <?php endif; ?>
+
             </div>
         </div>
     </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
-
-<script type="text/javascript">
-    var mixer = mixitup('.mixer', {
-        selectors: {
-            target: '.blog-item'
-        }
-    });
-</script>
-
-<style type="text/css">
-    /* .main-labels {
-        overflow: hidden;
-    }
-
-    .main-title {
-        transform: translateY(100%)
-    }
-
-    .main-title,
-    .main-labels {
-        transition-duration: 300ms;
-    }
-
-    .main-labels .main-label {
-        transition-duration: 300ms;
-        transform: translateY(200%)
-    }
-
-    .main-title {}
-
-    .main-everything:hover .main-label {
-        transform: translateY(0);
-    }
-
-    .main-everything:hover .main-title {
-        transform: translateY(0);
-    } */
-</style>
 <?php get_footer() ?>

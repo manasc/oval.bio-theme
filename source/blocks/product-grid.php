@@ -80,13 +80,3 @@ $products = new WP_Query([
 		<?php endif; ?>
 	</div>
 </section>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
-
-<script type="text/javascript">
-	var mixer = mixitup('.mixer', {
-		selectors: {
-			target: '.blog-item'
-		}
-	});
-</script>

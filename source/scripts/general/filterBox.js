@@ -33,7 +33,6 @@ function filterFunc() {
 
       currentFilter.addEventListener("click", () => {
         // TODO: add ability to use multiple filters
-
         // trigger layout change
         iso.arrange({ filter: currentFilter.getAttribute("data-filter") });
 
