@@ -163,7 +163,8 @@ function oval_bio_scripts()
         'oval-bio-styles',
         get_template_directory_uri() . '/dist/styles.css',
         [], // no deps for css
-        $styles_assets['version'],
+        // $styles_assets['version'],
+        date('h:i:s'),
         null
     );
 
@@ -171,7 +172,8 @@ function oval_bio_scripts()
         'rubik-google-font-styles',
         'https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap',
         [], // no deps for css
-        $styles_assets['version'],
+        // $styles_assets['version'],
+        date('h:i:s'),
         null
     );
 
@@ -195,7 +197,7 @@ function oval_bio_scripts()
         'oval-bio-app',
         get_template_directory_uri() . '/dist/app.js',
         [],
-        [],
+        date('h:i:s'),
         true
     );
 
@@ -203,7 +205,7 @@ function oval_bio_scripts()
         'oval-bio-general',
         get_template_directory_uri() . '/dist/general.js',
         [],
-        [],
+        date('h:i:s'),
         true
     );
 }

@@ -46,7 +46,7 @@
 }
 
 // option states
-label {
+.label {
   .button-input {
     @apply border-gray-400 text-gray-400;
     @apply border-2;
@@ -66,38 +66,22 @@ label {
   }
 }
 
+
 .filter {
   @apply leading-none inline-block px-2 py-1;
   @apply border;
-  @apply text-xs font-medium uppercase tracking-wider;
-  @apply text-gray-600 border-gray-600;
+  @apply text-sm;
+  @apply bg-gray-300 border-gray-300;
+  @apply text-gray-700;
   @apply cursor-pointer;
+
+  &:hover {
+    @apply bg-gray-400;
+  }
 
   &.active {
     @apply border-ovalGreen text-gray-800 bg-ovalGreen;
     @apply cursor-default;
-  }
-
-  &.filter-cat {
-    &:hover {
-      @apply border-ovalGreen text-ovalGreen;
-    }
-
-    &.mixitup-control-active {
-      @apply border-ovalGreen text-gray-800 bg-ovalGreen;
-      @apply cursor-default;
-    }
-  }
-
-  &.filter-tag {
-    &:hover {
-      @apply border-slateBlue text-slateBlue;
-    }
-
-    &.mixitup-control-active {
-      @apply border-slateBlue text-gray-800 bg-slateBlue;
-      @apply cursor-default;
-    }
   }
 
   .filter-icon {
@@ -119,7 +103,7 @@ label {
   @apply flex flex-wrap;
 
   .filter {
-    @apply mr-2 my-1;
+    @apply mr-1 mb-1;
   }
 }
 

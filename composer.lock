@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a29a4f9a87874030221bd51e0286df5d",
+    "content-hash": "7458b1d37d11b99f37f8e0971708d0c9",
     "packages": [
         {
             "name": "php-stubs/wordpress-stubs",
@@ -787,16 +787,16 @@
         },
         {
             "name": "php-stubs/woocommerce-stubs",
-            "version": "v4.0.1",
+            "version": "v4.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-stubs/woocommerce-stubs.git",
-                "reference": "c3a67654201d7d0446ec0bb953f83c0288edfe6c"
+                "reference": "4e369097d03462732515ad9f78008ee6bf822fcb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-stubs/woocommerce-stubs/zipball/c3a67654201d7d0446ec0bb953f83c0288edfe6c",
-                "reference": "c3a67654201d7d0446ec0bb953f83c0288edfe6c",
+                "url": "https://api.github.com/repos/php-stubs/woocommerce-stubs/zipball/4e369097d03462732515ad9f78008ee6bf822fcb",
+                "reference": "4e369097d03462732515ad9f78008ee6bf822fcb",
                 "shasum": ""
             },
             "require": {
@@ -823,7 +823,7 @@
                 "woocommerce",
                 "wordpress"
             ],
-            "time": "2020-03-18T21:41:04+00:00"
+            "time": "2020-08-19T23:16:00+00:00"
         },
         {
             "name": "phpcompatibility/php-compatibility",

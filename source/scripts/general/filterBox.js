@@ -1,3 +1,52 @@
+import Isotope from "isotope-layout";
+
+function filterFunc() {
+  const boxes = document.querySelectorAll(".filter-box");
+
+  boxes.forEach((box) => {
+    // store active filters
+    let activeFilters = "*";
+
+    // get filters and filter0box
+    const filtersBox = box.querySelector(".filters");
+    const filterGrid = box.querySelector(".filter-grid");
+
+    // trigger isotope
+    const iso = new Isotope(filterGrid, {
+      itemSelector: ".filter-grid-item",
+      category: "[data-category]",
+      percentPosition: true,
+      masonry: {
+        gutter: 0,
+        columnWidth: ".filter-grid-item",
+        horizontalOrder: true,
+      },
+    });
+
+    // set filter triggers
+    const filters = filtersBox.querySelectorAll(".filter");
+
+    filters.forEach((currentFilter) => {
+      // init
+      filters[0].classList.add("active");
+      iso.arrange({ filter: filters[0].getAttribute("data-filter") });
+
+      currentFilter.addEventListener("click", () => {
+        // TODO: add ability to use multiple filters
+
+        // trigger layout change
+        iso.arrange({ filter: currentFilter.getAttribute("data-filter") });
+
+        // update active filters
+        filters.forEach((otherFilter) => {
+          otherFilter.classList.remove("active");
+        });
+        currentFilter.classList.add("active");
+      });
+    });
+  });
+}
+
 function filterBox() {
   var tagBoxToggler = document.getElementById("openTags");
   var tagBox = document.getElementById("tagsBox");
@@ -39,4 +88,5 @@ function filterBox() {
   }
 }
 
+document.addEventListener("DOMContentLoaded", filterFunc);
 document.addEventListener("DOMContentLoaded", filterBox);

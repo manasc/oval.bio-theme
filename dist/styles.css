@@ -6437,6 +6437,10 @@ video {
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+.font-brand{
+  font-family: Rubik, sans-serif;
+}
+
 .font-hairline{
   font-weight: 100;
 }
@@ -18890,7 +18894,7 @@ input[type="checkbox"] {
   margin-right: 0.5rem;
 }
 
-label .button-input {
+.label .button-input {
   --border-opacity: 1;
   border-color: #cbd5e0;
   border-color: rgba(203, 213, 224, var(--border-opacity));
@@ -18903,7 +18907,7 @@ label .button-input {
   background-color: rgba(255, 255, 255, var(--bg-opacity));
 }
 
-label .button-input:hover {
+.label .button-input:hover {
   --border-opacity: 1;
   border-color: #77e0a1;
   border-color: rgba(119, 224, 161, var(--border-opacity));
@@ -18912,7 +18916,7 @@ label .button-input:hover {
   color: rgba(119, 224, 161, var(--text-opacity));
 }
 
-label.active .button-input {
+.label.active .button-input {
   --border-opacity: 1;
   border-color: #77e0a1;
   border-color: rgba(119, 224, 161, var(--border-opacity));
@@ -18932,17 +18936,23 @@ label.active .button-input {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   border-width: 1px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  --text-opacity: 1;
-  color: #718096;
-  color: rgba(113, 128, 150, var(--text-opacity));
+  font-size: 0.875rem;
+  --bg-opacity: 1;
+  background-color: #e2e8f0;
+  background-color: rgba(226, 232, 240, var(--bg-opacity));
   --border-opacity: 1;
-  border-color: #718096;
-  border-color: rgba(113, 128, 150, var(--border-opacity));
+  border-color: #e2e8f0;
+  border-color: rgba(226, 232, 240, var(--border-opacity));
+  --text-opacity: 1;
+  color: #4a5568;
+  color: rgba(74, 85, 104, var(--text-opacity));
   cursor: pointer;
+}
+
+.filter:hover {
+  --bg-opacity: 1;
+  background-color: #cbd5e0;
+  background-color: rgba(203, 213, 224, var(--bg-opacity));
 }
 
 .filter.active {
@@ -18955,50 +18965,6 @@ label.active .button-input {
   --bg-opacity: 1;
   background-color: #77e0a1;
   background-color: rgba(119, 224, 161, var(--bg-opacity));
-  cursor: default;
-}
-
-.filter.filter-cat:hover {
-  --border-opacity: 1;
-  border-color: #77e0a1;
-  border-color: rgba(119, 224, 161, var(--border-opacity));
-  --text-opacity: 1;
-  color: #77e0a1;
-  color: rgba(119, 224, 161, var(--text-opacity));
-}
-
-.filter.filter-cat.mixitup-control-active {
-  --border-opacity: 1;
-  border-color: #77e0a1;
-  border-color: rgba(119, 224, 161, var(--border-opacity));
-  --text-opacity: 1;
-  color: #2d3748;
-  color: rgba(45, 55, 72, var(--text-opacity));
-  --bg-opacity: 1;
-  background-color: #77e0a1;
-  background-color: rgba(119, 224, 161, var(--bg-opacity));
-  cursor: default;
-}
-
-.filter.filter-tag:hover {
-  --border-opacity: 1;
-  border-color: #8fb1bf;
-  border-color: rgba(143, 177, 191, var(--border-opacity));
-  --text-opacity: 1;
-  color: #8fb1bf;
-  color: rgba(143, 177, 191, var(--text-opacity));
-}
-
-.filter.filter-tag.mixitup-control-active {
-  --border-opacity: 1;
-  border-color: #8fb1bf;
-  border-color: rgba(143, 177, 191, var(--border-opacity));
-  --text-opacity: 1;
-  color: #2d3748;
-  color: rgba(45, 55, 72, var(--text-opacity));
-  --bg-opacity: 1;
-  background-color: #8fb1bf;
-  background-color: rgba(143, 177, 191, var(--bg-opacity));
   cursor: default;
 }
 
@@ -19022,8 +18988,7 @@ label.active .button-input {
 }
 
 .filters .filter {
-  margin-right: 0.5rem;
-  margin-top: 0.25rem;
+  margin-right: 0.25rem;
   margin-bottom: 0.25rem;
 }
 
@@ -19317,6 +19282,11 @@ label.active .button-input {
   border-color: #76b9d6;
   border-color: rgba(118, 185, 214, var(--border-opacity));
   cursor: pointer;
+}
+
+html,
+body {
+  font-family: Rubik, sans-serif;
 }
 
 .tabs-section {
@@ -25508,6 +25478,10 @@ label.active .button-input {
 
   .sm\:font-mono{
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .sm\:font-brand{
+    font-family: Rubik, sans-serif;
   }
 
   .sm\:font-hairline{
@@ -43525,6 +43499,10 @@ label.active .button-input {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
+  .md\:font-brand{
+    font-family: Rubik, sans-serif;
+  }
+
   .md\:font-hairline{
     font-weight: 100;
   }
@@ -61538,6 +61516,10 @@ label.active .button-input {
 
   .lg\:font-mono{
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .lg\:font-brand{
+    font-family: Rubik, sans-serif;
   }
 
   .lg\:font-hairline{
@@ -79555,6 +79537,10 @@ label.active .button-input {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
+  .xl\:font-brand{
+    font-family: Rubik, sans-serif;
+  }
+
   .xl\:font-hairline{
     font-weight: 100;
   }
@@ -97568,6 +97554,10 @@ label.active .button-input {
 
   .\32xl\:font-mono{
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .\32xl\:font-brand{
+    font-family: Rubik, sans-serif;
   }
 
   .\32xl\:font-hairline{

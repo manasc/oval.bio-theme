@@ -12,10 +12,7 @@ mix
   })
   .options({
     processCssUrls: false,
-    postCss: [
-      tailwindcss("./config/tailwind.config.js"),
-      require("autoprefixer"),
-    ],
+    postCss: [tailwindcss, require("autoprefixer")],
   })
   .copy("source/images/**/*.*", "dist/images/")
   .browserSync({

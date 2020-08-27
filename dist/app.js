@@ -34955,29 +34955,23 @@ __webpack_require__.r(__webpack_exports__);
  // import Header from "./app/components/Header";
 
  // single components
-
-var vision = document.querySelector("#vision");
-
-if (vision) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_app_components_Vision__WEBPACK_IMPORTED_MODULE_2__["default"], null), vision);
-}
-
-var productCustomizer = document.querySelector("#product-customizer");
-
-if (productCustomizer) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_app_components_Customizer__WEBPACK_IMPORTED_MODULE_3__["default"], null), productCustomizer);
-} // const header = document.querySelector("#main-header");
+// const vision = document.querySelector("#vision");
+// if (vision) {
+//   ReactDOM.render(<Vision />, vision);
+// }
+// const productCustomizer = document.querySelector("#product-customizer");
+// if (productCustomizer) {
+//   ReactDOM.render(<Customizer />, productCustomizer);
+// }
+// const header = document.querySelector("#main-header");
 // if (header) {
 //   console.log(header);
 //   ReactDOM.render(<Header {...header.dataset} />, header);
 // }
-
-
-var tabs = document.querySelector("#tabs");
-
-if (tabs) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_app_components_Tabs__WEBPACK_IMPORTED_MODULE_4__["default"], tabs.dataset), tabs);
-}
+// const tabs = document.querySelector("#tabs");
+// if (tabs) {
+//   ReactDOM.render(<Tabs {...tabs.dataset} />, tabs);
+// }
 
 /***/ }),
 
