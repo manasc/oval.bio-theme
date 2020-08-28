@@ -1,6 +1,6 @@
-document.addEventListener("DOMContentLoaded", function() {
+function navbarFunc() {
   var header = document.querySelector("#main-header");
-  var body = document.querySelector("body");
+  var faux = document.querySelector("#faux-header");
   var banner = document.querySelector("#header-banner");
   var closeBanner = document.querySelector("#close-header-banner");
   var mobileMenu = document.querySelector("#mobile-menu");
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var openMenu = document.querySelector("#open-mobile-menu");
 
   function navbarFunc() {
-    body.style.paddingTop = header.offsetHeight + "px";
+    faux.style.height = header.clientHeight + "px";
   }
 
   function toggleMobileMenu() {
@@ -19,15 +19,18 @@ document.addEventListener("DOMContentLoaded", function() {
   navbarFunc();
 
   //  add listeners
-  closeBanner.addEventListener("click", function() {
+  // TODO: animate
+  closeBanner.addEventListener("click", function () {
     banner.style.display = "none";
     navbarFunc();
   });
 
-  window.addEventListener("resize", function() {
+  window.addEventListener("resize", function () {
     navbarFunc();
   });
 
   closeMenu.addEventListener("click", toggleMobileMenu);
   openMenu.addEventListener("click", toggleMobileMenu);
-});
+}
+
+document.addEventListener("DOMContentLoaded", navbarFunc);

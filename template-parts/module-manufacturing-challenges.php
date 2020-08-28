@@ -1,6 +1,6 @@
 <section>
-    <div class="tab-box-title">Manufacturing Challenges</div>
-    <div class="tab-content max-w-md"><?php echo $args["fields"]["description"] ?></div>
+    <div class="subtitle">Manufacturing Challenges</div>
+    <div class="anchor-content columned"><?php echo $args["fields"]["description"] ?></div>
     <!-- <div class="cta mt-5">
         <a href="" class="button">
             Read More

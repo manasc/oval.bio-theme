@@ -1,5 +1,5 @@
 <section>
-    <div class="tab-box-title">Cost of Goods</div>
+    <div class="subtitle">Cost of Goods</div>
 
     <?php if (!empty($args["fields"]["goods_tiers"])) : ?>
         <?php foreach ($args["fields"]["goods_tiers"] as $key => $tier) : ?>

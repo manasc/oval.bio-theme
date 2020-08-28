@@ -24,7 +24,7 @@ $deadGray: 300;
   }
 
   .tab-box-title {
-    @apply text-3xl mb-8 font-light;
+    @extend .subtitle;
   }
 
   .tabs-meta,
@@ -86,7 +86,7 @@ $deadGray: 300;
 }
 
 .content-box {
-  @apply bg-gray-100;
+  @apply bg-gray-200;
   @apply p-5;
 
   &-px-none {
@@ -160,5 +160,152 @@ $deadGray: 300;
 
     &.dead {
     }
+  }
+}
+
+.anchor-box {
+  @apply py-10;
+  @apply px-5;
+  @apply relative;
+
+  @screen xl {
+    @apply px-0;
+  }
+
+  .anchor-box-wrapper {
+    @apply mx-auto;
+
+    .anchors {
+      @extend .filters;
+      @apply w-full py-5;
+
+      transition-duration: 500ms;
+
+      @apply z-20 bg-white;
+      @apply fixed top-0 left-0;
+      @apply border-r;
+      @apply pt-24 px-5;
+      @apply h-full block;
+      @apply w-48;
+
+      transform: translate(-100%, 0);
+      &.active {
+        transform: translate(0, 0);
+      }
+
+      .anchor {
+        @extend .filter;
+      }
+    }
+
+    .anchor-box-content {
+      // @apply py-10 relative;
+
+      .anchor-box-content-wrapper {
+        @apply flex flex-wrap -mx-2;
+
+        .anchor-box-sections {
+          @apply px-2 flex-1;
+
+          .anchor-section {
+            @apply mt-10 mb-24 relative;
+
+            .subtitle::before {
+              content: "#";
+
+              @apply text-ovalGreen absolute;
+              @apply hidden;
+
+              &:hover {
+                @apply text-ovalGreenDark;
+              }
+
+              @screen xl {
+                @apply block;
+                transform: translateX(-110%);
+              }
+            }
+
+            &#competitive_comparison,
+            &#instructable {
+              @apply rounded;
+              @apply border p-10;
+            }
+          }
+        }
+
+        .anchor-box-sidebar {
+          @apply hidden;
+          @apply relative;
+          @apply px-2 w-64;
+          @apply flex-none;
+
+          .anchors-wrapper {
+            .anchors {
+              transition-duration: 200ms;
+              transform: translate(0, 0);
+
+              @apply pt-0 p-2;
+              @apply border;
+              @apply h-auto;
+
+              // calculate px-2 from parent container into width
+              width: calc(theme("width.64") - theme("padding.2") * 2);
+
+              @apply relative;
+
+              // restyle anchors
+              .anchor {
+                @apply bg-transparent border-none;
+                @apply flex items-center;
+                @apply px-3 py-0 my-3;
+                @apply leading-none;
+
+                &:hover {
+                  @apply text-ovalGreen;
+                }
+
+                &.active {
+                  @apply font-bold text-ovalGreen;
+                }
+              }
+            }
+
+            &.stuck {
+              @apply fixed left-auto;
+              @apply top-0 mt-24 pt-5;
+            }
+          }
+        }
+
+        @screen md {
+          .anchor-box-sections {
+            @apply flex-1;
+          }
+
+          .anchor-box-sidebar {
+            @apply block;
+          }
+        }
+      }
+    }
+  }
+}
+
+.anchor-content {
+  &.columned {
+    column-count: 1;
+
+    @screen md {
+      column-count: 2;
+    }
+
+    @screen xl {
+      column-count: 3;
+    }
+  }
+
+  p {
+    @apply mb-5;
   }
 }

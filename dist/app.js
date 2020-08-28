@@ -34959,11 +34959,12 @@ __webpack_require__.r(__webpack_exports__);
 // if (vision) {
 //   ReactDOM.render(<Vision />, vision);
 // }
-// const productCustomizer = document.querySelector("#product-customizer");
-// if (productCustomizer) {
-//   ReactDOM.render(<Customizer />, productCustomizer);
-// }
-// const header = document.querySelector("#main-header");
+
+var productCustomizer = document.querySelector("#product-customizer");
+
+if (productCustomizer) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_app_components_Customizer__WEBPACK_IMPORTED_MODULE_3__["default"], null), productCustomizer);
+} // const header = document.querySelector("#main-header");
 // if (header) {
 //   console.log(header);
 //   ReactDOM.render(<Header {...header.dataset} />, header);
@@ -35125,7 +35126,7 @@ var Customizer = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_context_CustomizerContext__WEBPACK_IMPORTED_MODULE_1__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container mx-auto"
+        className: "max-w-6xl mx-auto"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "flex flex-wrap mx-0 md:-mx-5"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

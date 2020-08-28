@@ -1,4 +1,6 @@
 <section>
+    <h1 class="subtitle">Research & Development</h1>
+
     <div class="labels">
         <div class="label">
             <span class="label-text">Articles</span>

@@ -11,7 +11,7 @@
 
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
-    <header id="main-header" class="fixed top-0 left-0 w-full z-50" ref={this.mainHeader}>
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50">
         <div id="header-banner" class="banner bg-ovalGreen hover:bg-ovalGreenLight cursor-pointer text-sm text-gray-800 py-3 text md:py-2 px-5">
             <div class="container mx-auto">
                 <div class="flex ">
@@ -25,7 +25,7 @@
             </div>
         </div>
         <div id="header-navbar" class="bg-gray-800 text-sm text-sm text-white py-3 md:py-2 px-5">
-            <div class="container mx-auto">
+            <div class="container-fluid mx-auto">
                 <div class="flex items-center">
                     <div class="w-1/3 left-menu hidden lg:block">
                         <?php
@@ -84,7 +84,7 @@
             </div>
         </div>
     </header>
-    <div id="faux-header" class="relative"></div>
+    <div id="faux-header"></div>
     <div id="mobile-menu" class="flex cursor-pointer items-center justify-center hidden lg:hidden bg-white h-screen w-full fixed top-0 z-50">
         <div id="close-mobile-menu" class="absolute top-0 left-0 py-3 px-6 text-base">
             <i class="fas fa-times text-ovalGreen mr-2"></i> Close

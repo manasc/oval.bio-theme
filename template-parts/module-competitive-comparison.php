@@ -1,15 +1,36 @@
+<?php $compArticle = $args["fields"]["articles"]; ?>
+
 <section>
-    <div class="tab-box-title">Competitive Comparison</div>
-    <div class="max-w-md">
-        <p class="mb-5">Eaque eaque sed id cumque. Quo aut est corporis qui quam voluptatem. Et tempora fuga sit voluptatum voluptates et tempore nulla dolore. Sunt totam incidunt accusantium inventore ipsam laudantium incidunt. Magnam consequatur voluptates dolore eaque. Quia autem necessitatibus eaque.</p>
-        <p class="mb-5">Molestias quos eos voluptatem iste adipisci rerum fugit. A quisquam incidunt itaque. Necessitatibus odio non quos odio. Aut harum autem. Enim quasi ratione culpa eos.</p>
-        <p class="mb-5">Sed ea amet quod expedita officiis atque. Veritatis molestias harum qui sequi possimus odio aut iure voluptatum. Vero accusantium est sit quia pariatur. Eos facilis optio iste praesentium. Non qui tempora est dolorem aut et. Praesentium qui et illo eos.</p>
-        <p class="mb-5">Nam tempora nihil qui est autem numquam dolore qui. Et iste incidunt. Nihil architecto ea exercitationem eos voluptatem aut quis nam perspiciatis. Sed quae eaque eveniet. Tempora odit excepturi eum vel consequatur tenetur. Iusto sint dolore.</p>
-    </div>
-    <div class="cta mt-5">
-        <a href="" class="button">
-            Read More
-            <i class="button-icon fas fa-arrow-circle-right"></i>
-        </a>
-    </div>
+    <div class="subtitle">Competitive Comparison</div>
+
+    <?php if (!empty($compArticle)) :  ?>
+        <div class="cover absolute top-0 left-0 w-full h-full z-10 rounded overflow-hidden bg-white-gradient">
+            <div class="w-full absolute bottom-0 py-12 px-5">
+                <div class="flex flex-wrap items-center justify-center -mx-4">
+                    <div class="message px-4">
+                        <p>The full article is available on our Blogs.</p>
+                    </div>
+                    <div class="cta flex-none px-4">
+                        <div class="button">
+                            Full Article
+                            <i class="button-icon fas fa-glasses"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-wrap -mx-2 relative overflow-hidden" style="max-height: 400px;">
+            <?php if (has_post_thumbnail($compArticle->ID)) : ?>
+                <div class="w-full md:w-1/2 px-2">
+                    <div class="bg-gray-500 bg-cover bg-center bg-no-repeat" style="padding-top: 100%; background-image: <?php echo get_the_post_thumbnail_url($compArticle->ID); ?>"></div>
+                </div>
+            <?php endif; ?>
+            <div class="w-full md:w-1/2 px-2">
+                <div class="anchor-content">
+                    <h1 class="text-3xl mb-5 leading-snug"><?php echo $compArticle->post_title ?></h1>
+                    <?php echo $compArticle->post_content ?>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
 </section>

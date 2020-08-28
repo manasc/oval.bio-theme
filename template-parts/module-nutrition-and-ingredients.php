@@ -17,7 +17,7 @@ $listCount = count($ingredientsArr) - 1;
 <section>
     <div class="flex flex-wrap -mx-10">
         <div class="px-10 w-full md:w-1/2">
-            <h1 class="tab-box-title">Nutrition & Ingredients</h1>
+            <h1 class="subtitle">Nutrition & Ingredients</h1>
             <div class="text-lg">
                 <?php echo $args["fields"]["nutrition_explanation"] ?>
             </div>

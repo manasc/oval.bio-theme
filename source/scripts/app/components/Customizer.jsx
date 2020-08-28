@@ -12,7 +12,7 @@ class Customizer extends React.Component {
   render() {
     return (
       <ContextProvider>
-        <div className="container mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="flex flex-wrap mx-0 md:-mx-5">
             <div className="w-full md:w-3/5 px-5">
               <div className="customizer-product-box">

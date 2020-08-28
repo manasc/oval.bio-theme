@@ -1,5 +1,5 @@
 <section>
-    <h1 class="text-3xl mb-8 font-light">Key Benefits</h1>
+    <h1 class="subtitle">Key Benefits</h1>
     <div class="mb-10">
         <div class="labels">
             <div class="label">

@@ -1,12 +1,14 @@
 <section>
+    <h1 class="subtitle">Clinical Trials</h1>
+
     <div class="labels">
         <div class="label">
             <span class="label-text">Tests & Experiments</span>
         </div>
     </div>
     <div class="content-box">
-        <div class="blog-items flex flex-wrap -mx-2">
-            <?php foreach ($args["fields"]["trial_articles"] as $key => $article) : ?>
+        <div class="blog-items items-start flex flex-wrap -mx-2">
+            <?php foreach ($args["fields"]["articles"] as $key => $article) : ?>
 
 
                 <a href="<?php echo get_permalink($article->ID) ?>" class="blog-item block cursor-pointer mb-5 md:mb-0 w-full md:w-1/4 px-2 flex flex-wrap items-center">

@@ -4,7 +4,7 @@ $currentPhase = 0;
 ?>
 
 <section>
-    <h1 class="tab-box-title">Product Pipeline</h1>
+    <h1 class="subtitle">Product Pipeline</h1>
 
     <!-- Product Pipeline -->
     <div class="labels">
@@ -15,7 +15,7 @@ $currentPhase = 0;
     <div class="content-box-px-none">
         <div class="wrapper flex items-center py-8 relative">
             <?php foreach ($args["fields"]["phases"] as $key => $phase) : ?>
-                <div class="phase w-1/<?php echo $phaseCount ?> border-r">
+                <div class="phase w-1/<?php echo $phaseCount ?> border-r border-gray-400">
                     <div class="phase-text h-32 relative">
                         <div class="label leading-none absolute right-0 bottom-0">
                             <span class="label-text"><?php echo $phase["name"] ?></span>
@@ -29,7 +29,7 @@ $currentPhase = 0;
             <?php endforeach; ?>
 
             <!-- phase style -->
-            <div class="phase-full border-b w-full absolute"></div>
+            <div class="phase-full border-b border-gray-400 w-full absolute"></div>
             <div class="phase-current bg-ovalGreen h-2 rounded-r-full absolute" style="width:<?php echo $currentPhase / ($phaseCount) * 100 ?>%"></div>
         </div>
     </div>

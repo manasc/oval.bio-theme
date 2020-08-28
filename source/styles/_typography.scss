@@ -1,4 +1,8 @@
 html,
 body {
-  @apply font-brand;
+  @apply font-brand font-light;
+}
+
+.subtitle {
+  @apply text-3xl mb-8 font-light;
 }

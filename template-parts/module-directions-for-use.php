@@ -1,6 +1,6 @@
 <section>
     <div class="mb-10">
-        <h1 class="text-3xl mb-8 font-light">Directions For Use</h1>
+        <h1 class="subtitle">Directions For Use</h1>
     </div>
     <div class="mb-10">
         <div class="labels">

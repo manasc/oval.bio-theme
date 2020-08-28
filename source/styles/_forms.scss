@@ -46,10 +46,12 @@
 }
 
 // option states
-.label {
+label {
+  @apply block;
+
   .button-input {
     @apply border-gray-400 text-gray-400;
-    @apply border-2;
+    @apply border;
     @apply bg-white;
 
     &:hover {
@@ -66,8 +68,8 @@
   }
 }
 
-#openTags,
-.filter, {
+.filter,
+#openTags {
   @apply leading-none inline-block px-2 py-1;
   @apply border;
   @apply text-sm;

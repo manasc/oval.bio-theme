@@ -14,10 +14,10 @@ import Tabs from "./app/components/Tabs";
 //   ReactDOM.render(<Vision />, vision);
 // }
 
-// const productCustomizer = document.querySelector("#product-customizer");
-// if (productCustomizer) {
-//   ReactDOM.render(<Customizer />, productCustomizer);
-// }
+const productCustomizer = document.querySelector("#product-customizer");
+if (productCustomizer) {
+  ReactDOM.render(<Customizer />, productCustomizer);
+}
 
 // const header = document.querySelector("#main-header");
 // if (header) {

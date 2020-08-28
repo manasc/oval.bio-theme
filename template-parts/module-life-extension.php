@@ -33,7 +33,7 @@ $icons = [
 ?>
 <section>
     <div class="mb-10">
-        <h1 class="text-3xl mb-8 font-light">Life Extension</h1>
+        <h1 class="subtitle">Life Extension</h1>
     </div>
     <div class="mb-10">
         <div class="labels">

@@ -1,5 +1,5 @@
 <section>
-    <div class="tab-box-title">How it Works</div>
+    <div class="subtitle">How it Works</div>
     <div class="flex flex-wrap -mx-5 relative overflow-hidden">
         <?php if (!empty($args["fields"]["image"])) : ?>
             <div class="w-full md:w-1/2 px-5">

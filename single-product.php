@@ -14,9 +14,11 @@
 			</div>
 		</div>
 		<div id="product-customizer" class="py-5 md:py-10"></div>
-		<?php get_template_part('template-parts/module', "all", [
+		<?php
+		get_template_part('template-parts/module', "all", [
 			"fields" => get_fields()
-		]) ?>
+		])
+		?>
 	<?php endwhile; ?>
 <?php endif; ?>
 

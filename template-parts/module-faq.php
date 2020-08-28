@@ -1,7 +1,7 @@
 <!-- FAQ -->
 <section>
     <div class="max-w-2xl">
-        <h1 class="tab-box-title">Frequently Asked Questions</h1>
+        <h1 class="subtitle">Frequently Asked Questions</h1>
         <div class="faq-box">
             <?php foreach ($args['fields']['faqs'] as $x => $faq) : ?>
                 <div class="faq <?php echo $x === 0 ? "active" : "dead" ?>">
