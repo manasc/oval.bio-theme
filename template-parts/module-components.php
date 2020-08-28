@@ -19,7 +19,7 @@ $listCount = count($componentsArr) - 1;
     <div class="flex flex-wrap -mx-10">
         <div class="px-10 w-full md:w-1/2">
             <h1 class="subtitle">Components</h1>
-            <div class="text-lg">
+            <div class="anchor-content text-lg">
                 <?php echo $args["fields"]["components_introduction"] ?>
             </div>
         </div>

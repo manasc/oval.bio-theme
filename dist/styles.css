@@ -19471,7 +19471,15 @@ body {
   padding: 0;
 }
 
+.faq-box {
+  -moz-column-count: 2;
+       column-count: 2;
+}
+
 .faq-box .faq {
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
+  page-break-inside: avoid;
   cursor: pointer;
 }
 
@@ -19634,6 +19642,10 @@ body {
   flex: none;
 }
 
+.anchor-box .anchor-box-wrapper .anchor-box-content .anchor-box-content-wrapper .anchor-box-sidebar .anchors-wrapper {
+  transition-duration: 200ms;
+}
+
 .anchor-box .anchor-box-wrapper .anchor-box-content .anchor-box-content-wrapper .anchor-box-sidebar .anchors-wrapper .anchors {
   transition-duration: 200ms;
   transform: translate(0, 0);
@@ -19690,12 +19702,14 @@ body {
   }
 }
 
+.tab-content.columned,
 .anchor-content.columned {
   -moz-column-count: 1;
        column-count: 1;
 }
 
 @media (min-width: 768px) {
+  .tab-content.columned,
   .anchor-content.columned {
     -moz-column-count: 2;
          column-count: 2;
@@ -19703,13 +19717,18 @@ body {
 }
 
 @media (min-width: 1280px) {
+  .tab-content.columned,
   .anchor-content.columned {
     -moz-column-count: 3;
          column-count: 3;
   }
 }
 
+.tab-content p,
 .anchor-content p {
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
+  page-break-inside: avoid;
   margin-bottom: 1.25rem;
 }
 

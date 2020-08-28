@@ -22,9 +22,9 @@
         </div>
         <div class="content-box">
             <div class="flex flex-wrap">
-                <div class="w-full lg:w-1/2 flex items-center justify-center">
-                    <div class="content max-w-lg px-5 py-12">
-                        <?php foreach ($args["fields"]["instructions"] as $key => $step) : ?>
+                <?php foreach ($args["fields"]["instructions"] as $key => $step) : ?>
+                    <div class="w-full lg:w-1/2 flex items-center justify-center order-<?php echo $key % 2 ? "2" : "1" ?>">
+                        <div class="content max-w-lg px-5 py-12">
                             <div class="flex flex-wrap -mx-2 mb-5">
                                 <div class="flex-none px-2">
                                     <div class="round-full w-5 h-5 bg-ovalGreen text-xs flex items-center justify-center"><?php echo $key + 1 ?></div>
@@ -33,12 +33,13 @@
                                     <div class="text-lg mb-5"><?php echo $step['description'] ?></div>
                                 </div>
                             </div>
-                        <?php endforeach ?>
+                        </div>
                     </div>
-                </div>
-                <div class="w-full lg:w-1/2">
-                    <div class="bg-gray-200 h-64 lg:h-full" style=""></div>
-                </div>
+                    <div class="w-full lg:w-1/2 order-<?php echo $key % 2 ? "1" : "2" ?>">
+                        <div class="bg-gray-200 h-64 lg:h-full bg-cover bg-center bg-no-repeat" style="background-image:url(<?php echo $step["image"]["sizes"]["large"] ?>)"></div>
+                    </div>
+                <?php endforeach ?>
+
             </div>
         </div>
         <div class="meta py-10 max-w-md">

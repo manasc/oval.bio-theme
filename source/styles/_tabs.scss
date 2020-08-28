@@ -102,7 +102,13 @@ $deadGray: 300;
 
 // faq
 .faq-box {
+  column-count: 2;
+
   .faq {
+    -webkit-column-break-inside: avoid;
+    break-inside: avoid;
+    page-break-inside: avoid;
+
     @apply cursor-pointer;
 
     &:not(:last-child) {
@@ -241,6 +247,8 @@ $deadGray: 300;
           @apply flex-none;
 
           .anchors-wrapper {
+            transition-duration: 200ms;
+            
             .anchors {
               transition-duration: 200ms;
               transform: translate(0, 0);
@@ -292,6 +300,7 @@ $deadGray: 300;
   }
 }
 
+.tab-content,
 .anchor-content {
   &.columned {
     column-count: 1;
@@ -306,6 +315,10 @@ $deadGray: 300;
   }
 
   p {
+    -webkit-column-break-inside: avoid;
+    break-inside: avoid;
+    page-break-inside: avoid;
+
     @apply mb-5;
   }
 }

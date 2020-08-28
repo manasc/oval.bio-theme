@@ -30,7 +30,7 @@ $icons = [
 ?>
 <section>
     <div class="mb-10">
-        <h1 class="subtitle">Life Extension</h1>
+        <h1 class="subtitle">Future of Product</h1>
     </div>
     <div class="mb-10">
         <div class="labels">
@@ -39,9 +39,9 @@ $icons = [
             </div>
         </div>
         <div class="content-box">
-            <div class="flex-1 flex flex-wrap -mx-10">
+            <div class="flex-1 flex flex-wrap items-start">
                 <?php foreach ($icons as $icon) : ?>
-                    <div class="w-1/2 md:w-1/5 px-10 py -5">
+                    <div class="w-1/2 md:w-1/5 px-5 py-5">
                         <div class="rounded-full w-full mx-auto <?php echo $icon['selected'] ? "bg-ovalGreen" : "bg-gray-300" ?> " style="padding-top: 100%;"></div>
                         <p class="text-center text-sm mt-4"><?php echo $icon['name'] ?></p>
                     </div>
@@ -56,7 +56,7 @@ $icons = [
             </div>
         </div>
         <div class="content-box">
-        <div class="blog-items flex flex-wrap -mx-2">
+        <div class="blog-items flex flex-wrap items-start -mx-2">
             <?php foreach ($args["fields"]["articles"] as $key => $article) : ?>
 
 

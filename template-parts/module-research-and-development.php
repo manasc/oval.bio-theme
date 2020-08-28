@@ -7,7 +7,7 @@
         </div>
     </div>
     <div class="content-box">
-        <div class="blog-items flex flex-wrap -mx-2">
+        <div class="blog-items flex flex-wrap items-start -mx-2">
 
             <?php foreach ($args["fields"]["articles"] as $key => $article) : ?>
 
