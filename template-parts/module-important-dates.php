@@ -1,4 +1,4 @@
-<pre><?php print_r($args["fields"]) ?></pre>
+<!-- <pre><?php print_r($args["fields"]) ?></pre>
 <section>
     <div class="subtitle">Important Dates</div>
     <div class="flex flex-wrap -mx-3">
@@ -22,4 +22,4 @@
 
         <?php endforeach; ?>
     </div>
-</section>
+</section> -->

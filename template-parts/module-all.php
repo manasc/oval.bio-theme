@@ -28,6 +28,12 @@
     $important_dates = in_array("important_dates", $args["fields"]["sections_needed"]);
     $opportunities = in_array("opportunities", $args["fields"]["sections_needed"]);
 
+    $general = false;
+    $product_state = false;
+    $user_info = false;
+    $business_info = false;
+    $upcoming_info = false;
+
     // modules
     if ($key_benefits || $nutrition_ingredients || $components || $faq) {
         $general = true;
