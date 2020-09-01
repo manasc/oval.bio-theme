@@ -234,7 +234,7 @@ function cc_mime_types($mimes)
 }
 add_filter('upload_mimes', 'cc_mime_types');
 
-
+// TODO: remove
 function nmr_button($atts)
 {
     $a = shortcode_atts(array(
@@ -246,10 +246,14 @@ function nmr_button($atts)
 }
 add_shortcode('nmrbutton', 'nmr_button');
 
+// TODO: create shortcode for miro embeds
+function embed_miro() {}
+add_shortcode('nmrbutton', 'nmr_button');
+
 /*
  * Include ACF Custom fields code
  */
-// include get_template_directory() . '/functions/custom-fields.php';
+include get_template_directory() . '/functions/custom-fields.php';
 
 /**
  * Implement the Custom Header feature.
