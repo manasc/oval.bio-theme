@@ -34,177 +34,126 @@
     $business_info = false;
     $upcoming_info = false;
 
-    // modules
-    if ($key_benefits || $nutrition_ingredients || $components || $faq) {
-        $general = true;
-    }
-
-    if ($pipeline || $research_and_development || $testing || $clinical_trials) {
-        $product_state = true;
-    }
-
-    if ($how_it_works || $product_future || $directions_for_use || $instructable || $side_effects) {
-        $user_info = true;
-    }
-
-    if ($pipeline || $research_and_development || $testing || $clinical_trials) {
-        $business_info = true;
-    }
-
-    if ($help_needed || $important_dates || $opportunities) {
-        $upcoming_info = true;
-    }
-
     $productTabBoxes = [
-        "general" => [
-            "title" => "General Information",
-            "active" => $general,
-            "modules" => [
-                [
-                    "active" => $key_benefits,
-                    "slug" => "key_benefits",
-                    "title" => "Key Benefits",
-                    "module" => "key-benefits"
-                ],
-                [
-                    "active" => $nutrition_ingredients,
-                    "slug" => "nutrition_ingredients",
-                    "title" => "Nutrition & Ingredients",
-                    "module" => "nutrition-and-ingredients"
-                ],
-                [
-                    "active" => $components,
-                    "slug" => "components",
-                    "title" => "Components",
-                    "module" => "components"
-                ],
-                [
-                    "active" => $faq,
-                    "slug" => "faq",
-                    "title" => "FAQ",
-                    "module" => "faq"
-                ],
-            ],
+        [
+            "active" => $key_benefits,
+            "slug" => "key_benefits",
+            "title" => "Key Benefits",
+            "module" => "key-benefits"
         ],
-        "product-state" => [
-            "title" => "Product Information",
-            "active" => $product_state,
-            "modules" => [
-                [
-                    "active" => $pipeline,
-                    "slug" => "pipeline",
-                    "title" => "Pipeline (Phases)",
-                    "module" => "pipeline"
-                ],
-                [
-                    "active" => $research_and_development,
-                    "slug" => "research_and_development",
-                    "title" => "Research & Development",
-                    "module" => "research-and-development"
-                ],
-                [
-                    "active" => $testing,
-                    "slug" => "experiments",
-                    "title" => "Tests & Experiments",
-                    "module" => "tests-and-experiments"
-                ],
-                [
-                    "active" => $clinical_trials,
-                    "slug" => "clinical_trials",
-                    "title" => "Clinical Trials",
-                    "module" => "clinical-trials"
-                ],
-            ],
+        [
+            "active" => $nutrition_ingredients,
+            "slug" => "nutrition_ingredients",
+            "title" => "Nutrition & Ingredients",
+            "module" => "nutrition-and-ingredients"
         ],
-        "user-info" => [
-            "title" => "User Information",
-            "active" => $user_info,
-            "modules" => [
-                [
-                    "active" => $how_it_works,
-                    "slug" => "how_it_works",
-                    "title" => "How it Works",
-                    "module" => "how-it-works"
-                ],
-                [
-                    "active" => $product_future,
-                    "slug" => "future_of_product",
-                    "title" => "Future of Product",
-                    "module" => "future-of-product"
-                ],
-                [
-                    "active" => $directions_for_use,
-                    "slug" => "directions_for_use",
-                    "title" => "Directions For Use",
-                    "module" => "directions-for-use"
-                ],
-                [
-                    "active" => $instructable,
-                    "slug" => "instructable",
-                    "title" => "Instructables",
-                    "module" => "instructables"
-                ],
-                [
-                    "active" => $side_effects,
-                    "slug" => "side_effects",
-                    "title" => "Side Effects",
-                    "module" => "side-effects"
-                ],
-            ],
+        [
+            "active" => $components,
+            "slug" => "components",
+            "title" => "Components",
+            "module" => "components"
         ],
-        "business-info" => [
-            "title" => "Business Information",
-            "active" => $business_info,
-            "modules" => [
-                [
-                    "active" => $cost_of_goods,
-                    "slug" => "cost_of_goods",
-                    "title" => "Cost of Goods",
-                    "module" => "cost-of-goods"
-                ],
-                [
-                    "active" => $quality_control,
-                    "slug" => "quality_control",
-                    "title" => "Quality Control",
-                    "module" => "quality-control"
-                ],
-                [
-                    "active" => $manufacturing_challenges,
-                    "slug" => "manufacturing_challenges",
-                    "title" => "Manufacturing Challenges",
-                    "module" => "manufacturing-challenges"
-                ],
-                [
-                    "active" => $competitors,
-                    "slug" => "competitive_comparison",
-                    "title" => "Competitive Comparison",
-                    "module" => "competitive-comparison"
-                ],
-            ],
+        [
+            "active" => $faq,
+            "slug" => "faq",
+            "title" => "FAQ",
+            "module" => "faq"
         ],
-        "upcoming-info" => [
-            "title" => "Upcoming Info",
-            "active" => $upcoming_info,
-            "modules" => [
-                [
-                    "active" => $help_needed,
-                    "slug" => "help_needed",
-                    "title" => "Help Needed",
-                    "module" => "help-needed"
-                ],
-                [
-                    "active" => $important_dates,
-                    "slug" => "important_dates",
-                    "title" => "Important Dates",
-                    "module" => "important-dates"
-                ],
-                [
-                    "active" => $opportunities,
-                    "slug" => "opportunities",
-                    "title" => "Opportunities",
-                    "module" => "opportunities"
-                ],
-            ],
+        [
+            "active" => $pipeline,
+            "slug" => "pipeline",
+            "title" => "Pipeline (Phases)",
+            "module" => "pipeline"
+        ],
+        [
+            "active" => $research_and_development,
+            "slug" => "research_and_development",
+            "title" => "Research & Development",
+            "module" => "research-and-development"
+        ],
+        [
+            "active" => $testing,
+            "slug" => "experiments",
+            "title" => "Tests & Experiments",
+            "module" => "tests-and-experiments"
+        ],
+        [
+            "active" => $clinical_trials,
+            "slug" => "clinical_trials",
+            "title" => "Clinical Trials",
+            "module" => "clinical-trials"
+        ],
+        [
+            "active" => $how_it_works,
+            "slug" => "how_it_works",
+            "title" => "How it Works",
+            "module" => "how-it-works"
+        ],
+        [
+            "active" => $product_future,
+            "slug" => "future_of_product",
+            "title" => "Future of Product",
+            "module" => "future-of-product"
+        ],
+        [
+            "active" => $directions_for_use,
+            "slug" => "directions_for_use",
+            "title" => "Directions For Use",
+            "module" => "directions-for-use"
+        ],
+        [
+            "active" => $instructable,
+            "slug" => "instructable",
+            "title" => "Instructables",
+            "module" => "instructables"
+        ],
+        [
+            "active" => $side_effects,
+            "slug" => "side_effects",
+            "title" => "Side Effects",
+            "module" => "side-effects"
+        ],
+        [
+            "active" => $cost_of_goods,
+            "slug" => "cost_of_goods",
+            "title" => "Cost of Goods",
+            "module" => "cost-of-goods"
+        ],
+        [
+            "active" => $quality_control,
+            "slug" => "quality_control",
+            "title" => "Quality Control",
+            "module" => "quality-control"
+        ],
+        [
+            "active" => $manufacturing_challenges,
+            "slug" => "manufacturing_challenges",
+            "title" => "Manufacturing Challenges",
+            "module" => "manufacturing-challenges"
+        ],
+        [
+            "active" => $competitors,
+            "slug" => "competitive_comparison",
+            "title" => "Competitive Comparison",
+            "module" => "competitive-comparison"
+        ],
+        [
+            "active" => $help_needed,
+            "slug" => "help_needed",
+            "title" => "Help Needed",
+            "module" => "help-needed"
+        ],
+        [
+            "active" => $important_dates,
+            "slug" => "important_dates",
+            "title" => "Important Dates",
+            "module" => "important-dates"
+        ],
+        [
+            "active" => $opportunities,
+            "slug" => "opportunities",
+            "title" => "Opportunities",
+            "module" => "opportunities"
         ],
     ];
     ?>
@@ -218,22 +167,8 @@
                 <div class="anchors-wrapper mx-auto max-w-6xl">
                     <?php
                     foreach ($productTabBoxes as $key => $tabBox) {
-
-                        if ($tabBox['active']) {
-
-                            // get active tabs
-                            $modules = array_filter($tabBox["modules"], function ($tab) {
-                                return $tab["active"];
-                            });
-
-                            // re-index anchor arr
-                            $modArr = array_values($modules);
-
-                            foreach ($modArr as $i => $tab) {
-                                if ($tab["active"]) {
-                                    echo '<a href="#' . $tab["slug"] . '" class="anchor">' . $tab["title"] . '</a>';
-                                }
-                            }
+                        if ($tabBox["active"]) {
+                            echo '<a href="#' . $tabBox["slug"] . '" class="anchor">' . $tabBox["title"] . '</a>';
                         }
                     }
                     ?>
@@ -248,28 +183,14 @@
                         <?php
                         foreach ($productTabBoxes as $key => $tabBox) {
 
-                            if ($tabBox['active']) {
+                            if ($tabBox["active"]) {
 
-                                // get active tabs
-                                $modules = array_filter($tabBox["modules"], function ($tab) {
-                                    return $tab["active"];
-                                });
-
-                                // re-index anchor arr
-                                $modArr = array_values($modules);
-
-
-                                foreach ($modArr as $i => $tab) {
-                                    if ($tab["active"]) {
-
-                                        // echo anchor content
-                                        echo "<div id='" . $tab["slug"] . "' class='anchor-section'>";
-                                        get_template_part("template-parts/module", $tab["module"], [
-                                            "fields" => $args["fields"][$tab["slug"]]
-                                        ]);
-                                        echo "</div>";
-                                    }
-                                }
+                                // echo anchor content
+                                echo "<div id='" . $tabBox["slug"] . "' class='anchor-section'>";
+                                get_template_part("template-parts/module", $tabBox["module"], [
+                                    "fields" => $args["fields"][$tabBox["slug"]]
+                                ]);
+                                echo "</div>";
                             }
                         }
                         ?>
@@ -284,22 +205,8 @@
                             <div class="anchors">
                                 <?php
                                 foreach ($productTabBoxes as $key => $tabBox) {
-
-                                    if ($tabBox['active']) {
-
-                                        // get active tabs
-                                        $modules = array_filter($tabBox["modules"], function ($tab) {
-                                            return $tab["active"];
-                                        });
-
-                                        // re-index anchor arr
-                                        $modArr = array_values($modules);
-
-                                        foreach ($modArr as $i => $tab) {
-                                            if ($tab["active"]) {
-                                                echo '<a href="#' . $tab["slug"] . '" class="anchor">' . $tab["title"] . '</a>';
-                                            }
-                                        }
+                                    if ($tabBox["active"]) {
+                                        echo '<a href="#' . $tabBox["slug"] . '" class="anchor">' . $tabBox["title"] . '</a>';
                                     }
                                 }
                                 ?>
