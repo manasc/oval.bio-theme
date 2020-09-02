@@ -1,0 +1,44 @@
+div#TB_window .tbl_buttons {
+	display: -webkit-inline-box;
+}
+div#TB_window .tb_footer {
+	text-align: center;
+}
+div#TB_window .tbl_btn_left {
+	margin-right: 15px;
+}
+div#TB_ajaxContent {
+   height: auto !important;
+	width: 100% !important;
+}
+div#TB_window .tb_footer {
+	margin-top: 30px;
+}
+div#TB_window {
+	position: fixed !important;
+	top: 5% !important;
+	left: 10% !important;
+	right: 10% !important;
+	margin: 0 auto !important;
+	width: 50% !important;
+	max-height: 90%;
+	overflow-x: hidden;
+}
+#TB_ajaxContent .mycred_socialshare_notice{
+	display:none;
+}
+#TB_closeWindowButton span.screen-reader-text {
+    display: none;
+}
+#TB_closeWindowButton{
+	display: none!important;
+}
+div#wped_variation_disclaimer {
+    display: none;
+}
+@media screen and (max-width: 700px){
+  div#TB_window {
+	 width: 80% !important;
+   
+  }
+}

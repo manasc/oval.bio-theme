@@ -1,0 +1,49 @@
+*** WooCommerce Product Disclaimer Changelog ***
+
+2020-03-11 - version 2.0
+ * Improvement | Category wise disclaimer 
+ * Improvement | Code Optimization
+
+2020-01-22 - version 1.8
+ * Added | Sitewide Disclaimer
+ * Added | Compatible With WooCommerce Subscription and WooCommerce Booking
+ * Fix | Enable Dislaimer Tab on Booking and Subscription product
+ * Improvement | Code Optimization
+
+2019-10-07 - version 1.7.4
+ * Fix | Recirect to cart after the add to cart
+ * Fix | Disclaimer cookies issue
+
+2019-09-27 - version 1.7.3
+ * Fix | Settings not saving issue
+ * Fix | Recirect to cart after the add to cart
+ * Fix | Single Product page issue for subscription products
+ 
+2019-08-05 - version 1.7.2
+ * Fix | Modal popup duplicate content issue 
+ * Fix | Modal popup content appearing in footer
+ * Fix | Add to cart Button ajax loader
+ * Fix | Shop page Add to cart Button issue 
+
+2019-07-01 - version 1.7.1
+ * Fix | Unable to upload plugin from WooCommerce.com repository
+
+2019-07-01 - version 1.7
+ * Fix | Variation Product disclaimer settings issue
+ * Fix | Add to cart issue
+ * Improvement | Support of custom HTML in global disclaimer setting's message field
+
+2019-04-22 - version 1.6
+ * Improvement | Added Field to manage Title of disclaimer
+ * Improvement | Added Field to manage Label for Accept Button
+ * Improvement | Added Field to manage Label for Decline Button
+ * Improvement | Now you can use it for the purpose of Age Verification 
+
+2019-02-21 - version 1.5
+ * Improvement | Added Text Domain in Plugin Header.
+ * Fix | Remove multiple text domain for string translations.
+ * Tested upto WordPress 5.0.3
+ * Tested upto WooCommerce 3.5.5
+ 
+2018-12-04 - version 1.0.0
+ * First Release.

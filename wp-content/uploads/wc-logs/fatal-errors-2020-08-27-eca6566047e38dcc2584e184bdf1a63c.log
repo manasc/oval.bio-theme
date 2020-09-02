@@ -1,0 +1,15 @@
+2020-08-27T02:51:58+00:00 CRITICAL Uncaught Error: Object of class WP_Term could not be converted to string in /Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/page-all-blogs.php:121
+Stack trace:
+#0 /Users/manas/Sites/oval.bio/wp-includes/template-loader.php(106): include()
+#1 /Users/manas/Sites/oval.bio/wp-blog-header.php(19): require_once('/Users/manas/Si...')
+#2 /Users/manas/Sites/oval.bio/index.php(17): require('/Users/manas/Si...')
+#3 /Users/manas/.composer/vendor/laravel/valet/server.php(191): require('/Users/manas/Si...')
+#4 {main}
+  thrown in /Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/page-all-blogs.php on line 121
+
+2020-08-27T14:19:46+00:00 CRITICAL syntax error, unexpected 'endforeach' (T_ENDFOREACH), expecting elseif (T_ELSEIF) or else (T_ELSE) or endif (T_ENDIF) in /Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/template-parts/module-all.php on line 243
+
+2020-08-27T14:35:35+00:00 CRITICAL syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting '-' or identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/template-parts/module-all.php on line 236
+
+2020-08-27T14:35:37+00:00 CRITICAL syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting '-' or identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/template-parts/module-all.php on line 236
+
