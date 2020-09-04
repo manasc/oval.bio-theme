@@ -11,7 +11,7 @@
             <div class="meta text-xs lg:text-sm"><?= !empty($category) ? $category : get_the_terms(get_the_ID(), 'product_cat')[0]->name ?></div>
         </div>
 
-        <?php if (!empty($isFeatured) && $isFeatured === 0) : ?>
+        <?php if ($hasFeatured && $currentIndex === 0) : ?>
             <div class="absolute top-0 right-0 flex">
                 <div class="label label-blue"><span class="label-text"><i class="fas fa-map-pin"></i></div>
                 <div class="label"><span class="label-text">Featured</span></div>

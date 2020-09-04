@@ -1,3 +1,5 @@
+const pxToRem = (px, base = 16) => `${px / base}rem`;
+
 module.exports = {
   purge: {
     enabled: process.env.NODE_ENV === "production",
@@ -5,6 +7,9 @@ module.exports = {
   },
   theme: {
     extend: {
+      height: {
+        72: pxToRem(340),
+      },
       fontFamily: {
         brand: ["Rubik", "sans-serif"],
       },

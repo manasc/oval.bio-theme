@@ -1,62 +1,86 @@
 .product-box {
-    overflow: hidden;
-  
+  overflow: hidden;
+
+  .cover-image {
+    transition-duration: 300ms;
+    background: center center/cover no-repeat;
+
+    @apply absolute h-full w-full top-0 left-0;
+  }
+
+  .cover {
+    transition-duration: 300ms;
+    background: rgba(0, 0, 0, 0.41);
+
+    @apply absolute w-full h-full top-0 left-0 right-0 bottom-0;
+  }
+
+  .title {
+    transition-duration: 300ms;
+    bottom: theme("spacing.5");
+    left: theme("spacing.5");
+  }
+
+  .meta {
+    font-style: normal;
+    font-weight: bold;
+    line-height: 143%;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #77e0a1;
+  }
+
+  &:hover {
     .cover-image {
-      transition-duration: 300ms;
-      background: center center/cover no-repeat;
-  
-      @apply absolute h-full w-full top-0 left-0;
+      transform: scale(1.05);
     }
-  
+
     .cover {
-      transition-duration: 300ms;
-      background: rgba(0, 0, 0, 0.41);
-  
-      @apply absolute w-full h-full top-0 left-0 right-0 bottom-0;
+      background: rgba(0, 0, 0, 0.675);
     }
-  
+
+    .title {
+      bottom: theme("spacing.6");
+    }
+  }
+}
+
+// product box heights
+
+.product-box {
+  &::after {
+    content: "";
+
+    @apply h-64;
+    @apply block;
+
+    @screen md {
+      @apply h-64;
+    }
+
+    @screen xl {
+      @apply h-64;
+    }
+  }
+}
+.filter-grid-feature {
+  .product-box {
     &::after {
       content: "";
-        @apply h-64;
+
+      @apply h-64;
       @apply block;
-  
+
       @screen md {
-          @apply h-48;
+        height: calc((theme("spacing.64") + theme("spacing.px")) * 2);
       }
-  
-      @screen md {
-          @apply h-64;
-      }
-    }
-  
-    .title {
-      transition-duration: 300ms;
-      bottom: theme("spacing.5");
-      left: theme("spacing.5");
-    }
-  
-    .meta {
-      font-style: normal;
-      font-weight: bold;
-      line-height: 143%;
-      display: flex;
-      align-items: center;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #77e0a1;
-    }
-  
-    &:hover {
-      .cover-image {
-        transform: scale(1.05);
-      }
-  
-      .cover {
-        background: rgba(0, 0, 0, 0.675);
-      }
-  
-      .title {
-        bottom: theme("spacing.6");
+
+      @screen xl {
+        height: calc((theme("spacing.64") + theme("spacing.px")) * 2);
       }
     }
   }
+}
+

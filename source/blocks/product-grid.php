@@ -39,30 +39,38 @@ $isAllProducts =  is_page("all-products");
 <?php $cats = get_terms('product_cat'); ?>
 
 <section class="py-10">
-	<div class="filter-box container mx-auto relative">
-		<h1 class="text-4xl mb-2">All Products</h1>
-		<!-- <p class="mb-2">Categories:</p> -->
+	<div class="filter-box container">
+		<div class="container nmr-container">
+			<h1 class="text-4xl mb-2">All Products</h1>
+			<!-- <p class="mb-2">Categories:</p> -->
+		</div>
+
 
 		<?php if ($products->have_posts()) : ?>
-			<div class="filters">
-				<div class="filter filter-cat" data-filter="*">All</div>
-				<?php foreach ($cats as $key => $cat) : ?>
-					<?php if ($cat->slug != "uncategorized") : ?>
-						<div class="filter filter-cat" data-filter=".<?= $cat->slug ?>"><?= $cat->name ?></div>
-					<?php endif; ?>
-				<?php endforeach; ?>
+			<div class="container nmr-container">
+				<div class="filters">
+					<div class="filter filter-cat" data-filter="*">All</div>
+					<?php foreach ($cats as $key => $cat) : ?>
+						<?php if ($cat->slug != "uncategorized") : ?>
+							<div class="filter filter-cat" data-filter=".<?= $cat->slug ?>"><?= $cat->name ?></div>
+						<?php endif; ?>
+					<?php endforeach; ?>
+				</div>
 			</div>
 
 
 			<div class="filter-grid">
-				<?php while ($products->have_posts()) : $products->the_post(); ?>
+				<?php $counter = 0; while ($products->have_posts()) : $products->the_post(); ?>
 					<?php
 					$cat = get_the_terms(get_the_ID(), 'product_cat')[0];
-					set_query_var("category", $cat->name)
+					set_query_var("currentIndex", $counter);
+					set_query_var("category", $cat->name);
+					set_query_var("hasFeatured", 1);
 					?>
 					<div class="filter-grid-item filter-grid-<?= $products->current_post === 0 ? "feature" : "regular" ?> relative  <?= $cat->slug ?>">
 						<?php get_template_part("template-parts/element", "product-box"); ?>
 					</div>
+					<?php $counter++ ?>
 				<?php endwhile; ?>
 			</div>
 		<?php else : ?>

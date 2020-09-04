@@ -159,7 +159,31 @@
     ?>
 
     <div class="anchor-box">
-        <div class="anchor-box-wrapper container">
+        <div class="anchor-box-wrapper container nmr-container">
+
+            <div class="mobile-anchor-button">
+                <div class="mobile-anchor-button-icon">
+                    <i class="fas fa-filter"></i>
+                </div>
+            </div>
+
+            <div class="mobile-anchor-box">
+                <div class="anchors-wrapper">
+                    <h1 class="w-full text-xs label-text px-2 mb-5">
+                        <span class="text-ovalGreen">#</span>Anchors
+                    </h1>
+                    <div class="anchors">
+                        <?php
+                        foreach ($productTabBoxes as $key => $tabBox) {
+                            if ($tabBox["active"]) {
+                                echo '<a href="#' . $tabBox["slug"] . '" class="anchor"><span class="anchor-text">' . $tabBox["title"]  . '</span></a>';
+                            }
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
+
 
             <!-- ALL ANCHORED SECTIONS -->
             <div class="anchor-box-content">
@@ -199,9 +223,10 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
+
         </div>
     </div>
 <?php endif; ?>

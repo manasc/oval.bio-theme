@@ -5368,8 +5368,17 @@ function filterBox() {
   }
 }
 
+function mobileFilterBox() {
+  var butt = document.querySelector(".mobile-anchor-button-icon");
+  butt.addEventListener("click", function () {
+    var anchorBox = document.querySelector(".mobile-anchor-box");
+    anchorBox.classList.toggle("active");
+  });
+}
+
 document.addEventListener("DOMContentLoaded", filterFunc);
 document.addEventListener("DOMContentLoaded", filterBox);
+document.addEventListener("DOMContentLoaded", mobileFilterBox);
 
 /***/ }),
 
@@ -5493,6 +5502,7 @@ document.addEventListener("DOMContentLoaded", tabBox);
 var Waves = __webpack_require__(/*! node-waves */ "./node_modules/node-waves/src/js/waves.js");
 
 function wavesAnimation() {
+  Waves.attach(".mobile-anchor-button", ["waves-dark"]);
   Waves.attach(".button:not(.dark)", ["waves-dark"]);
   Waves.attach(".button.dark", ["waves-light"]);
   Waves.init();

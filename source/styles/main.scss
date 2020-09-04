@@ -152,4 +152,12 @@
   );
 }
 
-@import "tailwindcss/utilities"
+.container {
+  @apply mx-auto;
+}
+.nmr-container {
+  @apply px-5;
+  @apply mx-auto;
+}
+
+@import "tailwindcss/utilities";

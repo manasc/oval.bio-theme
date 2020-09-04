@@ -230,7 +230,7 @@ $deadGray: 300;
             .anchors {
               transition-duration: 200ms;
               transform: translate(0, 0);
-              
+
               @apply py-2;
               @apply border;
               @apply h-auto;
@@ -269,12 +269,102 @@ $deadGray: 300;
           .anchor-box-sections {
             @apply flex-1;
           }
+        }
 
+        @screen xl {
           .anchor-box-sidebar {
             @apply block;
           }
         }
       }
+    }
+  }
+}
+
+.mobile-anchor-button {
+  @apply fixed bottom-0 right-0;
+  @apply m-8;
+  @apply rounded-full overflow-hidden;
+  @apply z-50;
+
+  .mobile-anchor-button-icon {
+    @apply rounded-full overflow-hidden;
+    @apply flex items-center justify-center;
+    @apply h-10 w-10;
+    @apply shadow-xl;
+    @apply border border-gray-300;
+    @apply text-sm;
+    @apply bg-ovalGreen;
+  }
+
+  // @screen lg {
+  //   @apply hidden;
+  // }
+}
+
+.mobile-anchor-box {
+  @apply fixed w-full h-full z-40;
+  @apply top-0 left-0;
+  transition-duration: 300ms;
+  transform: translateY(100%);
+
+  &::before {
+    content: "";
+    transition-duration: 300ms;
+    @apply block absolute top-0 left-0;
+    @apply w-full h-full;
+    // @apply bg-gray-900;
+    @apply opacity-0;
+  }
+
+  .anchors-wrapper {
+    transition-duration: 200ms;
+
+    @apply border-0;
+    @apply absolute bottom-0 left-0 w-full h-auto;
+    @apply p-5 bg-white;
+    @apply shadow-md;
+    @apply border-t;
+
+    .anchors {
+      transition-duration: 200ms;
+      // transform: translate(0, 0);
+      
+      @apply flex flex-wrap;
+
+      // restyle anchors
+      .anchor {
+        @apply cursor-default block;
+        @apply px-2 py-1 leading-none;
+        @apply border border-ovalGreen;
+        @apply mx-1 mb-2;
+
+        @apply bg-gray-300 border-gray-200;
+        @apply text-gray-600;
+
+        .anchor-text {
+          @apply text-sm;
+          @apply uppercase font-medium;
+          @apply leading-none;
+        }
+
+        &:hover {
+          @apply text-gray-700;
+        }
+
+        &.active {
+          @apply bg-ovalGreen border-ovalGreen;
+          @apply text-gray-800;
+        }
+      }
+    }
+  }
+
+  &.active {
+    transform: translateY(0);
+
+    &::before {
+      @apply opacity-75;
     }
   }
 }

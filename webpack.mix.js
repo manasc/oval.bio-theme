@@ -1,5 +1,4 @@
 const mix = require("laravel-mix");
-const tailwindcss = require("tailwindcss");
 
 mix
   .js("source/scripts/general.js", "dist/")
@@ -12,7 +11,11 @@ mix
   })
   .options({
     processCssUrls: false,
-    postCss: [tailwindcss, require("autoprefixer"), require("cssnano")],
+    postCss: [
+      require("tailwindcss"),
+      require("autoprefixer"),
+      // require("cssnano")
+    ],
   })
   .copy("source/images/**/*.*", "dist/images/")
   .browserSync({
