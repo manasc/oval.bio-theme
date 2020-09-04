@@ -1,6 +1,0 @@
-2020-08-21T05:23:09+00:00 CRITICAL Cannot use [] for reading in /Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/template-parts/module-all.php on line 149
-
-2020-08-21T05:30:36+00:00 CRITICAL syntax error, unexpected ')' in /Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/template-parts/module-all.php on line 150
-
-2020-08-21T05:33:04+00:00 CRITICAL syntax error, unexpected '<', expecting end of file in /Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/template-parts/module-nutrition-and-ingredients.php on line 35
-

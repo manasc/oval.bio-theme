@@ -1,4 +1,0 @@
-2020-08-23T12:51:09+00:00 CRITICAL syntax error, unexpected 'bg' (T_STRING) in /Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/template-parts/module-key-benefits.php on line 17
-
-2020-08-23T12:55:06+00:00 CRITICAL syntax error, unexpected 'echo' (T_ECHO) in /Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/template-parts/module-key-benefits.php on line 18
-
