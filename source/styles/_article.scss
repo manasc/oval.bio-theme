@@ -7,7 +7,7 @@
 }
 
 .entry-title {
-  @apply text-4xl leading-none mb-3 font-light;
+  @apply text-4xl leading-none mb-3 font-medium;
   @apply capitalize;
   @apply my-20;
 }
@@ -18,24 +18,32 @@
 
 .post-thumbnail {
   @apply my-5;
-  @apply max-w-6xl mx-auto;
+  @apply max-w-6xl mx-64;
 
   img {
-    @apply w-full;
+    @apply w-full mb-10 mt-5;
   }
 }
 
 .entry-content {
-  h1,
+  h1 {
+    @apply mb-5 font-medium;
+  }
+
   h2 {
     @apply text-xl;
     @apply font-light leading-tight;
     @apply my-5;
   }
 
-  h3,
-  h4,
+  h3 {
+    @apply font-normal;
+  }
+  h4 {
+    @apply font-normal;
+  }
   h5 {
+    @apply font-normal;
     @apply text-lg;
     @apply leading-normal;
     @apply my-5;
@@ -45,6 +53,7 @@
     @apply text-lg;
     @apply leading-normal;
     @apply my-5;
+    @apply pl-0;
   }
 
   blockquote {
@@ -66,14 +75,15 @@
     @apply my-5;
   }
 
-  p img {
-  }
-
   ol,
   ul {
-    list-style-type: circle;
+    list-style-type: disc;
     @apply pl-5;
-    @apply my-5;
+    @apply my-10;
+    @apply list-inside;
+  }
+  img {
+    @apply w-full my-20;
   }
 }
 
@@ -83,38 +93,35 @@
     @apply my-5;
   }
 
-  .cat-links .post-categories,
-  .tags-links {
-    @apply flex flex-wrap;
-  }
-
   .cat-links {
-    @apply flex flex-wrap;
-
     .post-categories {
+      @apply flex flex-wrap;
       @apply ml-2;
-    }
-  }
 
-  .cat-links .post-categories {
-    li {
-      @apply cursor-default;
-      @apply bg-ovalGreen px-2 py-1 leading-none;
-      @apply border border-ovalGreen;
-      @apply uppercase font-medium;
-      @apply text-xs text-gray-800 leading-none;
+      li {
+        @apply pr-px;
+
+        a {
+          @apply ml-1;
+          @apply cursor-default;
+          @apply bg-ovalGreen px-2 py-1 leading-none;
+          @apply border border-ovalGreen;
+          @apply uppercase font-medium;
+          @apply text-xs text-gray-800 leading-none;
+        }
+      }
     }
   }
 
   .tags-links {
+    @apply flex flex-wrap;
+
     a[rel="tag"] {
       @apply cursor-default;
       @apply bg-ovalGreen px-2 py-1 leading-none;
       @apply border border-ovalGreen;
       @apply uppercase font-medium;
       @apply text-xs text-gray-800;
-
-      @apply mx-1 mb-2;
 
       @apply bg-skyBlue border-skyBlue;
       @apply cursor-pointer;
