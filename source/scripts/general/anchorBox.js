@@ -61,4 +61,16 @@ function anchorBoxFunc() {
   });
 }
 
+function mobileAnchorBox() {
+  const butt = document.querySelector(".mobile-anchor-button-icon");
+
+  if (butt) {
+    butt.addEventListener("click", function () {
+      const anchorBox = document.querySelector(".mobile-anchor-box");
+      anchorBox.classList.toggle("active");
+    });
+  }
+}
+
 document.addEventListener("DOMContentLoaded", anchorBoxFunc);
+document.addEventListener("DOMContentLoaded", mobileAnchorBox);

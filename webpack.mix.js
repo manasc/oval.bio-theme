@@ -1,5 +1,27 @@
 const mix = require("laravel-mix");
 
+let mixOptions;
+
+if (process.env.NODE_ENV === "development") {
+  // if in dev mode
+  mixOptions = {
+    processCssUrls: false,
+    purifyCss: false,
+    postCss: [require("tailwindcss"), require("autoprefixer")],
+    cssNano: false,
+  };
+} else {
+  // if in production mode
+  mixOptions = {
+    processCssUrls: false,
+    purifyCss: false,
+    postCss: [require("tailwindcss"), require("autoprefixer")],
+    cssNano: {
+      discardComments: true,
+    },
+  };
+}
+
 mix
   .js("source/scripts/general.js", "dist/")
   .react("source/scripts/app.js", "dist/")
@@ -9,14 +31,7 @@ mix
     },
     implementation: require("node-sass"),
   })
-  .options({
-    processCssUrls: false,
-    postCss: [
-      require("tailwindcss"),
-      require("autoprefixer"),
-      // require("cssnano")
-    ],
-  })
+  .options(mixOptions)
   .copy("source/images/**/*.*", "dist/images/")
   .browserSync({
     proxy: "https://oval.bio.test",

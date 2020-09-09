@@ -70,17 +70,17 @@
     &::after {
       content: "";
 
-      @apply h-64;
       @apply block;
 
-      @screen md {
-        height: calc((theme("spacing.64") + theme("spacing.px")) * 2);
-      }
+      // @apply h-64;
 
-      @screen xl {
-        height: calc((theme("spacing.64") + theme("spacing.px")) * 2);
-      }
+      // @screen md {
+      //   height: calc((theme("spacing.64") + theme("spacing.px")) * 2);
+      // }
+
+      // @screen xl {
+      //   height: calc((theme("spacing.64") + theme("spacing.px")) * 2);
+      // }
     }
   }
 }
-

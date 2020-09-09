@@ -16,24 +16,11 @@ $all_posts = $all_blogs->posts;
             <div class="label inline-block"><span class="label-text"><i class="fas fa-map-pin mr-1"></i>Featured</span></div>
             <div class="blog-items flex flex-wrap -mx-px">
                 <div class="hidden md:block w-full md:w-3/4 px-px">
-                    <div class="blog-item relative mb-5 md:mb-0 w-full h-full flex flex-wrap bg-cover bg-center bg-no-repeat" style="background-image:url(<?= get_the_post_thumbnail_url($all_posts[0]->ID) ?>)">
+                    <div onclick="goToLink()" class="blog-item cursor-pointer relative mb-5 md:mb-0 w-full h-full flex flex-wrap bg-cover bg-center bg-no-repeat nmr-lazyload" data-bg="<?= get_the_post_thumbnail_url($all_posts[0]->ID, "large") ?>">
                         <div class="main-everything absolute p-5 md:p-10 top-0 left-0 content h-full w-full flex flex-col items-start justify-end">
                             <h1 class="main-title text-xl md:text-4xl text-white font-light leading-tight mb-3 w-full capitalize pr-20">
                                 <?= $all_posts[0]->post_title ?>
                             </h1>
-                            <div class="flex flex-wrap mb-2 md:mb-4 main-labels">
-                                <!-- <?php
-                                        $tags = get_the_tags($all_posts[$z]->ID);
-                                        ?>
-
-                                <?php if (!empty($tags)) : ?>
-                                    <?php foreach (get_the_tags($all_posts[0]->ID) as $key => $post_tag) : ?>
-                                        <?php if ($key < 5) : ?>
-                                            <div class="main-label label label-blue mr-2" style="transition-delay: <?= $key * 100 ?>ms"><span class="label-text"><?= $post_tag->name ?></span></div>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
-                                <?php endif; ?> -->
-                            </div>
 
                             <div class="hidden md:block">
                                 <a href="<?= get_permalink($all_posts[0]->ID) ?>" class="button inline-block">Read More <i class="fas fa-arrow-right"></i></a>
@@ -46,11 +33,17 @@ $all_posts = $all_blogs->posts;
                     </div>
                 </div>
 
+                <script>
+                    function goToLink() {
+                        location.href = '<?php echo get_permalink($all_posts[0]->ID) ?>'
+                    }
+                </script>
+
                 <div class="w-full md:w-1/4 px-px -my-px">
                     <?php for ($z = 1; $z <= 3; $z++) : ?>
                         <a href="<?= get_permalink($all_posts[$z]->ID) ?>" class="blog-item cursor-pointer w-full mb-0 md:py-px flex flex-wrap">
                             <div class="image-box product-box overflow-hidden relative w-full">
-                                <div class="image absolute w-full h-full top-0 left-0 bg-cover bg-center bg-no-repeat bg-gray-200" style="background-image:url(<?= get_the_post_thumbnail_url($all_posts[$z]->ID) ?>)"></div>
+                                <div class="image absolute w-full h-full top-0 left-0 bg-cover bg-center bg-no-repeat bg-gray-200 nmr-lazyload" data-bg="<?= get_the_post_thumbnail_url($all_posts[$z]->ID, "shop_single") ?>"></div>
                                 <div class="main-everything absolute flex flex-col justify-end top-0 left-0 w-full h-full" style="background-color: rgba(0,0,0,0.5)">
                                     <div class="p-4">
                                         <!-- <div class="label label-blue inline-block md:hidden"><span class="label-text"><?= get_the_category($all_posts[$z]->ID)[0]->name ?></span></div> -->
@@ -110,7 +103,7 @@ $all_posts = $all_blogs->posts;
                     </div>
                 </div>
             </div>
-            <div class="filter-grid py-5 w-full flex flex-wrap -mx-px">
+            <div class="filter-grid">
                 <?php if ($all_blogs->have_posts()) : ?>
                     <?php while ($all_blogs->have_posts()) : $all_blogs->the_post(); ?>
 
@@ -134,7 +127,7 @@ $all_posts = $all_blogs->posts;
                         }
 
                         ?>
-                        <div class="filter-grid-item relative w-full sm:w-1/2 md:w-1/3 px-px py-0 md:py-px <?= "$cats_list $tags_list" ?>">
+                        <div class="filter-grid-item filter-grid-regular <?= "$cats_list $tags_list" ?>">
                             <?php get_template_part("template-parts/element", "post-block") ?>
                         </div>
                     <?php endwhile; ?>

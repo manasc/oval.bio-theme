@@ -3,7 +3,7 @@ import LazyLoad from "vanilla-lazyload";
 function lazyloadInit() {
   new LazyLoad({
     container: document,
-    elements_selector: "nmr-lazyload",
+    elements_selector: ".nmr-lazyload",
   });
 }
 

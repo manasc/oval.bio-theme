@@ -23,13 +23,13 @@ function filterFunc() {
       },
     });
 
-    iso.on("arrangeComplete", function (filter) {
-      if (filter === "*") {
-        document.querySelector(".filter-grid-feature").classList.replace();
-      } else {
-        document.querySelector(".filter-grid-feature").classList.replace();
-      }
-    });
+    // iso.on("arrangeComplete", function (filter) {
+    //   if (filter === "*") {
+    //     document.querySelector(".filter-grid-feature").classList.replace();
+    //   } else {
+    //     document.querySelector(".filter-grid-feature").classList.replace();
+    //   }
+    // });
 
     // set filter triggers
     const filters = filtersBox.querySelectorAll(".filter");
@@ -96,15 +96,5 @@ function filterBox() {
   }
 }
 
-function mobileFilterBox() {
-  const butt = document.querySelector(".mobile-anchor-button-icon");
-
-  butt.addEventListener("click", function () {
-    const anchorBox = document.querySelector(".mobile-anchor-box");
-    anchorBox.classList.toggle("active");
-  });
-}
-
 document.addEventListener("DOMContentLoaded", filterFunc);
 document.addEventListener("DOMContentLoaded", filterBox);
-document.addEventListener("DOMContentLoaded", mobileFilterBox);

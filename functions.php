@@ -310,7 +310,7 @@ class Header_Nav extends Walker_Nav_Menu
     public function start_el(&$output, $item, $depth = 0, $args = null, $id = 0)
     {
         $classes = is_page($item->post_title) ? 'text-ovalGreen' : 'opacity-75 hover:opacity-100';
-        $output .= "<li class=\"px-2 truncate $classes\"><a href=\"$item->guid\">$item->post_title</a></li>";
+        $output .= "<li class=\"px-2 truncate $classes\"><a href=\"$item->url\">$item->post_title</a></li>";
     }
 
 }
@@ -320,6 +320,6 @@ class Mobile_Nav extends Walker_Nav_Menu
     public function start_el(&$output, $item, $depth = 0, $args = null, $id = 0)
     {
         $classes = is_page($item->post_title) ? 'text-ovalGreen' : 'opacity-75 hover:opacity-100';
-        $output .= "<li class=\"px-2 truncate $classes\"><a href=\"$item->guid\">$item->post_title</a></li>";
+        $output .= "<li class=\"px-2 truncate $classes\"><a href=\"$item->url\">$item->post_title</a></li>";
     }
 }

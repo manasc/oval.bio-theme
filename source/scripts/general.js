@@ -6,4 +6,4 @@ import "./general/anchorBox";
 import "./general/lazyload";
 
 // modules
-import "./general/faq"
+import "./general/faq";

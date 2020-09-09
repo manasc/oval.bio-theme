@@ -16,6 +16,10 @@ module.exports = {
       screens: {
         "2xl": "1440px",
       },
+      maxWidth: {
+        "2xs": "16rem",
+        "3xs": "12rem",
+      },
       fontSize: {
         "2xs": "0.675rem",
       },

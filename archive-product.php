@@ -1,108 +1,101 @@
+<?php get_header(); ?>
+<!-- <div class="container mx-auto">
+    <section id="vision"></section>
+</div> -->
+
+<?php get_template_part('source/blocks/product-grid', NULL) ?>
+
+<div id="tabs"></div>
+
 <?php
-/**
- * The Template for displaying product archives, including the main shop page which is a post type archive
- *
- * This template can be overridden by copying it to yourtheme/woocommerce/archive-product.php.
- *
- * HOWEVER, on occasion WooCommerce will need to update template files and you
- * (the theme developer) will need to copy the new files to your theme to
- * maintain compatibility. We try to do this as little as possible, but it does
- * happen. When this occurs the version of the template file will be bumped and
- * the readme will list any important changes.
- *
- * @see 	    https://docs.woothemes.com/document/template-structure/
- * @author 		WooThemes
- * @package 	WooCommerce/Templates
- * @version     2.0.0
- */
+$products = [
+    [
+        "name" => "LunaPatch",
+        "type" => "Women's Period Relief",
+        "phase" => 1,
+    ],
+    [
+        "name" => "HelioPatch",
+        "type" => "Pain Releif",
+        "phase" => 4,
+    ],
+    [
+        "name" => "Hydrogen Water",
+        "type" => "Nutrients",
+        "phase" => 2,
+    ],
+    [
+        "name" => "Noomino",
+        "type" => "Nootropic",
+        "phase" => 3,
+    ],
+    [
+        "name" => "Balding Grey",
+        "type" => "Hair Restoration",
+        "phase" => 1,
+    ],
+    [
+        "name" => "Bactose",
+        "type" => "Probiotic",
+        "phase" => 5,
+    ],
+];
+?>
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+<div class="bg-gray-700 px-5 py-10">
+    <div class="container mx-auto py-12">
+        <div class="max-w-md">
+            <div class="text-4xl text-ovalGreen font-light mb-5">Product Phases</div>
+            <p class="text-sm text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci voluptatum velit vitae, earum corporis molestias quidem praesentium quasi tempore tenetur asperiores minima facilis, voluptate esse accusamus veniam quas est ipsum.</p>
+        </div>
+    </div>
+    <?php foreach ($products as $i => $product) : ?>
+        <div class="container py-10 mx-auto md:border border-gray-600 md:-mb-px overflow-hidden md:px-5">
+            <div class="wrapper flex flex-wrap items-center -mx-10">
+                <div class="product flex items-center mb-5 md:mb-0 w-full md:w-3/12 px-10">
+                    <div class="flex-none pr-5">
+                        <div class="h-12 w-12 bg-white rounded-full"></div>
+                    </div>
+                    <div class="flex-1">
+                        <h2 class="text-2xl leading-none text-ovalGreen text-white mr-3"><?= $product["name"] ?></h2>
+                        <div class="label plain"><span class="label-text text-2xs" style="color: white;"><?= $product["type"] ?></span></div>
+                    </div>
+                </div>
+                <div class="product-timeline px-5 flex-1">
+                    <div class="relative flex items-center">
+                        <div class="phase w-1/5 md:border-l border-gray-600">
+                            <div class="phase-text px-3 md:px-2 pt-12">
+                                <div class="label plain leading-none"><span class="label-text text-2xs" style="color: rgba(255,255,255, <?= (1 <= $product['phase']) ? '1' : '0.25' ?>);">R<span class="hidden md:inline">esearch</span></span></div>
+                            </div>
+                        </div>
+                        <div class="phase w-1/5 border-l border-gray-600">
+                            <div class="phase-text px-3 md:px-2 pt-12">
+                                <div class="label plain leading-none"><span class="label-text text-2xs" style="color: rgba(255,255,255, <?= (2 <= $product['phase']) ? '1' : '0.25' ?>);">P<span class="hidden md:inline">hase </span>1</span></div>
+                            </div>
+                        </div>
+                        <div class="phase w-1/5 border-l border-gray-600">
+                            <div class="phase-text px-3 md:px-2 pt-12">
+                                <div class="label plain leading-none"><span class="label-text text-2xs" style="color: rgba(255,255,255, <?= (3 <= $product['phase']) ? '1' : '0.25' ?>);">P<span class="hidden md:inline">hase </span>2</span></div>
+                            </div>
+                        </div>
+                        <div class="phase w-1/5 border-l border-gray-600">
+                            <div class="phase-text px-3 md:px-2 pt-12">
+                                <div class="label plain leading-none"><span class="label-text text-2xs" style="color: rgba(255,255,255, <?= (4 <= $product['phase']) ? '1' : '0.25' ?>);">P<span class="hidden md:inline">hase </span>3</span></div>
+                            </div>
+                        </div>
+                        <div class="phase w-1/5 border-l border-gray-600">
+                            <div class="phase-text px-3 md:px-2 pt-12">
+                                <div class="label plain leading-none"><span class="label-text text-2xs" style="color: rgba(255,255,255, <?= (5 <= $product['phase']) ? '1' : '0.25' ?>);">P<span class="hidden md:inline">hase </span>4</span></div>
+                            </div>
+                        </div>
 
-get_header( 'shop' ); ?>
-
-	<?php
-		/**
-		 * woocommerce_before_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-		 * @hooked woocommerce_breadcrumb - 20
-		 */
-		do_action( 'woocommerce_before_main_content' );
-	?>
-
-		<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-
-			<h1 class="page-title"><?php woocommerce_page_title(); ?></h1>
-
-		<?php endif; ?>
-
-		<?php
-			/**
-			 * woocommerce_archive_description hook.
-			 *
-			 * @hooked woocommerce_taxonomy_archive_description - 10
-			 * @hooked woocommerce_product_archive_description - 10
-			 */
-			do_action( 'woocommerce_archive_description' );
-		?>
-
-		<?php if ( have_posts() ) : ?>
-
-			<?php
-				/**
-				 * woocommerce_before_shop_loop hook.
-				 *
-				 * @hooked woocommerce_result_count - 20
-				 * @hooked woocommerce_catalog_ordering - 30
-				 */
-				do_action( 'woocommerce_before_shop_loop' );
-			?>
-
-			<?php woocommerce_product_loop_start(); ?>
-
-				<?php woocommerce_product_subcategories(); ?>
-
-				<?php while ( have_posts() ) : the_post(); ?>
-
-					<?php wc_get_template_part( 'content', 'product' ); ?>
-
-				<?php endwhile; // end of the loop. ?>
-
-			<?php woocommerce_product_loop_end(); ?>
-
-			<?php
-				/**
-				 * woocommerce_after_shop_loop hook.
-				 *
-				 * @hooked woocommerce_pagination - 10
-				 */
-				do_action( 'woocommerce_after_shop_loop' );
-			?>
-
-		<?php elseif ( ! woocommerce_product_subcategories( array( 'before' => woocommerce_product_loop_start( false ), 'after' => woocommerce_product_loop_end( false ) ) ) ) : ?>
-
-			<?php wc_get_template( 'loop/no-products-found.php' ); ?>
-
-		<?php endif; ?>
-
-	<?php
-		/**
-		 * woocommerce_after_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
-		 */
-		do_action( 'woocommerce_after_main_content' );
-	?>
-
-	<?php
-		/**
-		 * woocommerce_sidebar hook.
-		 *
-		 * @hooked woocommerce_get_sidebar - 10
-		 */
-		do_action( 'woocommerce_sidebar' );
-	?>
-
-<?php get_footer( 'shop' ); ?>
+                        <!-- phase style -->
+                        <div class="phase-full border-b border-gray-600 w-full absolute"></div>
+                        <div class="phase-current bg-slateBlue h-2 absolute" style="width: <?= $product['phase'] * 20 ?>%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</div>
+<?php get_footer() ?>

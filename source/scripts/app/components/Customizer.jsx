@@ -12,7 +12,7 @@ class Customizer extends React.Component {
   render() {
     return (
       <ContextProvider>
-        <div className="max-w-6xl mx-auto">
+        <div className="py-5 md:py-10 max-w-5xl mx-auto">
           <div className="flex flex-wrap mx-0 md:-mx-5">
             <div className="w-full md:w-3/5 px-5">
               <div className="customizer-product-box">
@@ -62,8 +62,8 @@ class Customizer extends React.Component {
             </div>
             <div className="w-full md:w-2/5 px-5">
               <div className="py-5">
-                <div className="hidden md:block title font-bold text-3xl">
-                  { this.props.title }
+                <div className="hidden md:block title font-bold text-3xl mb-5">
+                  H2 Probiotic
                 </div>
                 <div className="hidden md:block desc text-sm font-light leading-tight">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -200,8 +200,7 @@ class Customizer extends React.Component {
                   </div>
                 </div>
                 <a className="button">
-                  <i className="fas fa-dollar-sign mr-2"></i>
-                  Purchase
+                  <span className="label-text">Purchase</span>
                 </a>
               </div>
             </div>
