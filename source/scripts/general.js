@@ -14,47 +14,49 @@ document.addEventListener("DOMContentLoaded", function () {
   const testDiscount = 0.2;
   const productBox = document.querySelector("#productBox");
 
-  const priceBox = productBox.querySelector("#price");
-  const priceValue = productBox.querySelector("#price #priceValue");
-  const subPriceBox = productBox.querySelector("#subPrice");
-  const subPriceValue = productBox.querySelector("#subPrice #subPriceValue");
+  if (productBox) {
+    const priceBox = productBox.querySelector("#price");
+    const priceValue = productBox.querySelector("#price #priceValue");
+    const subPriceBox = productBox.querySelector("#subPrice");
+    const subPriceValue = productBox.querySelector("#subPrice #subPriceValue");
 
-  // get subscription input
+    // get subscription input
 
-  document.productBox.packSize.forEach((size) => {
-    size.addEventListener("change", function () {
-      console.log(document.productBox.packSize.value);
+    document.productBox.packSize.forEach((size) => {
+      size.addEventListener("change", function () {
+        console.log(document.productBox.packSize.value);
+        changeTotal();
+      });
+    });
+
+    document.productBox.subscription.addEventListener("change", function () {
       changeTotal();
     });
-  });
 
-  document.productBox.subscription.addEventListener("change", function () {
-    changeTotal();
-  });
+    // get pack-size input
+    function changeTotal() {
+      const { packSize, subscription } = document.productBox;
 
-  // get pack-size input
-  function changeTotal() {
-    const { packSize, subscription } = document.productBox;
+      priceValue.innerText = `$${packSize.value * testUnitPrice}.00`;
 
-    priceValue.innerText = `$${packSize.value * testUnitPrice}.00`;
+      console.log(subscription.checked);
 
-    console.log(subscription.checked);
+      if (subscription.checked) {
+        // value changes
+        subPriceValue.innerText = `$${Math.floor(
+          packSize.value * testUnitPrice * (1 - testDiscount)
+        )}.00`;
 
-    if (subscription.checked) {
-      // value changes
-      subPriceValue.innerText = `$${Math.floor(
-        packSize.value * testUnitPrice * (1 - testDiscount)
-      )}.00`;
-
-      // visual changes
-      subPriceBox.classList.remove("hidden");
-      priceBox.classList.add("line-through");
-      priceBox.classList.replace("text-ovalGreen", "text-gray-400");
-    } else {
-      // visual changes
-      subPriceBox.classList.add("hidden");
-      priceBox.classList.remove("line-through");
-      priceBox.classList.replace("text-gray-400", "text-ovalGreen");
+        // visual changes
+        subPriceBox.classList.remove("hidden");
+        priceBox.classList.add("line-through");
+        priceBox.classList.replace("text-ovalGreen", "text-gray-400");
+      } else {
+        // visual changes
+        subPriceBox.classList.add("hidden");
+        priceBox.classList.remove("line-through");
+        priceBox.classList.replace("text-gray-400", "text-ovalGreen");
+      }
     }
   }
 });
