@@ -34,7 +34,7 @@
                                 'theme_location' => 'main-menu',
                                 'walker' => new Header_Nav(),
                                 'menu_class' => 'flex flex-wrap -mx-2',
-                                'container' => ''
+                                'container' => false
                             )
                         );
                         ?>
@@ -95,7 +95,7 @@
                     'theme_location' => 'menu-1',
                     "container" => "ul",
                     "menu_class" => "text-4xl",
-                    "items_wrap" => "",
+                    "items_wrap" => false,
                     'walker' => new Mobile_Nav
                 )
             );

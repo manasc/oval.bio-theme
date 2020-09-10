@@ -35,29 +35,39 @@ $productArr = [
 
 <!-- <pre class="w-full text-2xs leading-none bg-gray-300 p-5"><?php print_r($product) ?></pre> -->
 
-<div class="py-5 md:py-10 max-w-5xl mx-auto">
-	<div class="flex flex-wrap mx-0 md:-mx-5">
-		<div class="flex-1 px-0 md:px-5">
-			<div class="customizer-product-box">
-				<div id="display-image" class="square-image mb-px md:mb-2 nmr-lazyload" data-bg="<?php echo wp_get_attachment_image_url($product->image_id, 'full', false) ?>"></div>
-
-				<?php if (!empty($product->gallery_image_ids)) : ?>
-					<div id="other-images" class="flex flex-wrap -mx-px md:-mx-1">
-						<div data-key="<?php echo $product->image_id ?>" class="w-1/5 px-px mb-1 md:px-1 md:mb-2">
-							<div class="square-image cursor-pointer shadow-md border border-red-700 nmr-lazyload" data-bg="<?php echo wp_get_attachment_image_url($product->image_id, 'thumbnail', false) ?>"></div>
+<form id="productBox" name="productBox" class="py-5 md:py-10 max-w-5xl mx-auto">
+	<div class="flex flex-wrap -mx-5">
+		<div class="w-2/3 px-5">
+			<?php if (!empty($product->gallery_image_ids)) : ?>
+				<div class="nmr-image-gallery-box">
+					<div class="nmr-image-gallery">
+						<div data-key="<?php echo $product->image_id ?>" class="nmr-image">
+							<div class="square-image nmr-lazyload" data-bg="<?php echo wp_get_attachment_image_url($product->image_id, 'large', false) ?>"></div>
 						</div>
 
 						<?php foreach ($product->gallery_image_ids as $key => $id) : ?>
-
-							<div data-key="< ?php echo $id ?>" class="w-1/5 px-px mb-1 md:px-1 md:mb-2">
-								<div class="square-image cursor-pointer shadow-md border border-red-700 nmr-lazyload" data-bg="<?php echo wp_get_attachment_image_url($id, 'thumbnail', false) ?>"></div>
+							<div data-key="<?php echo $id ?>" class="nmr-image">
+								<div class="square-image nmr-lazyload" data-bg="<?php echo wp_get_attachment_image_url($id, 'large', false) ?>"></div>
 							</div>
 						<?php endforeach; ?>
 					</div>
-				<?php endif; ?>
-			</div>
+					<div class="nmr-image-gallery-nav">
+						<div class="flex flex-wrap -mx-px my-px py-px">
+							<div data-key="<?php echo $product->image_id ?>" class="w-1/5 px-px py-px nmr-image">
+								<div class="square-image nmr-lazyload" data-bg="<?php echo wp_get_attachment_image_url($product->image_id, 'large', false) ?>"></div>
+							</div>
+
+							<?php foreach ($product->gallery_image_ids as $key => $id) : ?>
+								<div data-key="<?php echo $id ?>" class="w-1/5 px-px py-px nmr-image">
+									<div class="square-image nmr-lazyload" data-bg="<?php echo wp_get_attachment_image_url($id, 'large', false) ?>"></div>
+								</div>
+							<?php endforeach; ?>
+						</div>
+					</div>
+				</div>
+			<?php endif; ?>
 		</div>
-		<div class="w-full md:max-w-sm md:flex-none px-0 md:px-5">
+		<div class="w-1/3 px-5">
 			<div>
 				<div class="hidden md:block title font-bold text-3xl mb-1">
 					<?php echo $product->name ?>
@@ -80,7 +90,7 @@ $productArr = [
 					<div class="pack-options">
 						<?php foreach ($productArr["options"]["packSizes"] as $key => $size) : ?>
 							<label class="pack-option mr-4">
-								<input type="radio" <?php echo $key === 0 ? "checked" : "" ?> name="pack-size" value="<?php echo $size["quantity"] ?>" />
+								<input type="radio" <?php echo $key === 0 ? "checked" : "" ?> name="packSize" value="<?php echo $size["quantity"] ?>" />
 								<div class="pack-option-box">
 									<div class="pack-option-number"><?php echo $size["quantity"] ?></div>
 									<div class="pack-option-text">Pack</div>
@@ -97,9 +107,9 @@ $productArr = [
 					</div>
 					<div class="block">
 
-						<label class="nmr-checkbox flex flex-wrap items-start">
+						<label id="subCheck" class="nmr-checkbox flex flex-wrap items-start">
 							<div class="nmr-checkbox-icon mr-2 flex-none">
-								<input type="checkbox" name="subscription" />
+								<input type="checkbox" name="subscription" checked />
 								<i class="checked-icon fas fa-check-square"></i>
 								<i class="unchecked-icon far fa-square"></i>
 							</div>
@@ -127,16 +137,21 @@ $productArr = [
 						</div>
 					</div>
 					<div class="px-3 py-4 bg-gray-200">
-						<div class="title font-light text-4xl leading-none">
-							<div class="relative block">
-								<span class="line-through text-gray-400 inline-block">
-									$30.00
+						<div class="title text-4xl leading-none">
+							<input type="text" name="total" class="hidden">
+							<div class="relative flex items-start font-normal tracking-tight">
+								<span id="price" class="line-through text-gray-400 inline-block">
+									<span id="priceValue">
+										$30.00
+									</span>
 								</span>
-								<span class="ml-1 text-ovalGreen relative inline-block">
-									$24.00
+								<span id="subPrice" class="ml-1 text-ovalGreen relative inline-block">
+									<span id="subPriceValue">
+										$24.00
+									</span>
+									<div class="relative block text-2xs text-gray-600 uppercase text-right tracking-normal">per month</div>
 								</span>
 							</div>
-							<div class="relative block text-2xs text-gray-600 pt-2">/ per month</div>
 						</div>
 					</div>
 				</div>
@@ -155,7 +170,7 @@ $productArr = [
 			</div>
 		</div>
 	</div>
-</div>
+</form>
 <?php
 get_template_part('template-parts/module', "all", [
 	"fields" => get_fields()
