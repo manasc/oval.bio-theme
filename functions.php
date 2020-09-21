@@ -249,7 +249,10 @@ add_shortcode('nmrbutton', 'nmr_button');
 /*
  * Include ACF Custom fields code
  */
-include get_template_directory() . '/functions/custom-fields.php';
+include get_template_directory() . '/source/functions/custom-fields.php';
+
+// Register Gutenberg Blocks
+include get_template_directory() . '/source/functions/custom-blocks.php';
 
 /**
  * Implement the Custom Header feature.
