@@ -1616,6 +1616,8 @@ body {
 .faq-box {
   -moz-column-count: 2;
        column-count: 2;
+  -moz-column-gap: 3rem;
+       column-gap: 3rem;
 }
 
 .faq-box .faq {
@@ -2248,6 +2250,21 @@ body {
   padding-right: 1.25rem;
   margin-left: auto;
   margin-right: auto;
+}
+
+.accordion .accordion-item .accordion-item-title,
+.accordion .accordion-item .accordion-item-description {
+  transition-duration: 300ms;
+}
+
+.accordion .accordion-item .accordion-item-description {
+  overflow: hidden;
+  max-height: 0;
+}
+
+.accordion .accordion-item.active .accordion-item-title {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .space-y-0 > :not(template) ~ :not(template){

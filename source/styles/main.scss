@@ -195,4 +195,31 @@
   @apply mx-auto;
 }
 
+// accordion
+.accordion {
+  .accordion-item {
+    .accordion-item-title,
+    .accordion-item-description {
+      transition-duration: 300ms;
+    }
+
+    .accordion-item-title {
+    }
+
+    .accordion-item-description {
+      overflow: hidden;
+      max-height: 0;
+    }
+
+    &.active {
+      .accordion-item-title {
+        @apply py-2;
+      }
+
+      .accordion-item-description {
+      }
+    }
+  }
+}
+
 @import "tailwindcss/utilities";

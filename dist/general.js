@@ -5220,6 +5220,27 @@ document.addEventListener("DOMContentLoaded", function () {
     document.productBox.subscription.addEventListener("change", function () {
       changeTotal();
     });
+  } // accordions
+
+
+  var accordions = document.querySelectorAll(".accordion");
+  console.log(accordions);
+
+  if (accordions) {
+    accordions.forEach(function (accordion) {
+      var items = accordion.querySelectorAll(".accordion-item");
+      items.forEach(function (item) {
+        item.addEventListener("click", function () {
+          var desc = item.querySelector(".accordion-item-description");
+          accordion.querySelectorAll(".accordion-item.active").forEach(function (item) {
+            item.classList.remove("active");
+            item.querySelector(".accordion-item-description").style.maxHeight = null;
+          });
+          item.classList.toggle("active");
+          desc.style.maxHeight = desc.scrollHeight + "px";
+        });
+      });
+    });
   }
 });
 
@@ -5323,7 +5344,7 @@ function faqAccordian() {
       faq.addEventListener("click", function () {
         // set box state
         if (this.classList.contains("dead")) {
-          this.classList.replace("dead", "active"); // set header
+          this.classList.replace("dead", "active");
         } else {
           this.classList.replace("active", "dead");
         }

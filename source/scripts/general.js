@@ -59,4 +59,33 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   }
+
+  // accordions
+  const accordions = document.querySelectorAll(".accordion");
+
+  console.log(accordions);
+
+  if (accordions) {
+    accordions.forEach((accordion) => {
+      const items = accordion.querySelectorAll(".accordion-item");
+
+      items.forEach((item) => {
+        item.addEventListener("click", () => {
+          const desc = item.querySelector(".accordion-item-description");
+
+          accordion
+            .querySelectorAll(".accordion-item.active")
+            .forEach((item) => {
+              item.classList.remove("active");
+              item.querySelector(
+                ".accordion-item-description"
+              ).style.maxHeight = null;
+            });
+
+          item.classList.toggle("active");
+          desc.style.maxHeight = desc.scrollHeight + "px";
+        });
+      });
+    });
+  }
 });

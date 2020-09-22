@@ -10,9 +10,6 @@ function faqAccordian() {
         if (this.classList.contains("dead")) {
           this.classList.replace("dead", "active");
 
-          // set header
-          
-
         } else {
           this.classList.replace("active", "dead");
         }

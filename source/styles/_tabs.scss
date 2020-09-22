@@ -103,6 +103,7 @@ $deadGray: 300;
 // faq
 .faq-box {
   column-count: 2;
+  column-gap: theme("spacing.12");
 
   .faq {
     -webkit-column-break-inside: avoid;
@@ -329,7 +330,7 @@ $deadGray: 300;
     .anchors {
       transition-duration: 200ms;
       // transform: translate(0, 0);
-      
+
       @apply flex flex-wrap;
 
       // restyle anchors
