@@ -32,7 +32,9 @@ $faqs = [];
 ?>
 
 <div class="max-w-6xl mx-auto px-5 py-10">
+
     <div class="mb-10">
+
         <h1 class="text-4xl mb-10 text-center">The 5 Pillars of Longevity.</h1>
         <div class="labels">
             <div class="label">
@@ -54,22 +56,24 @@ $faqs = [];
     <!-- FAQ -->
     <section>
         <!-- <h1 class="subtitle">Frequently Asked Questions</h1> -->
-        <div class="faq-box">
-            <?php foreach ($pillars as $x => $pillar) : ?>
-                <div class="faq <?= $x === 0 ? "active" : "dead" ?>">
-                    <div class="faq-header">
-                        <div class="faq-question">
-                            <div class="faq-icon">
-                                <i class="fas fa-plus-circle"></i>
+        <div class="accordion-box">
+            <div class="accordion">
+                <?php foreach ($pillars as $x => $pillar) : ?>
+                    <div class="accordion-item accordion-item-has-icon <?= $x === 0 ? "active" : "" ?>">
+                        <div class="accordion-item-header">
+                            <div class="accordion-item-question">
+                                <div class="accordion-item-icon">
+                                    <i class="fas fa-plus-circle"></i>
+                                </div>
+                                <?= $pillar['title'] ?>
                             </div>
-                            <?= $pillar['title'] ?>
+                        </div>
+                        <div class="accordion-item-content">
+                            <p class="accordion-item-answer"><?= $pillar['description'] ?></p>
                         </div>
                     </div>
-                    <div class="faq-content">
-                        <p class="faq-answer"><?= $pillar['description'] ?></p>
-                    </div>
-                </div>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
+            </div>
         </div>
     </section>
 </div>

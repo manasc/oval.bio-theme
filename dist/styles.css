@@ -1613,77 +1613,6 @@ body {
   padding: 0;
 }
 
-.faq-box {
-  -moz-column-count: 2;
-       column-count: 2;
-  -moz-column-gap: 3rem;
-       column-gap: 3rem;
-}
-
-.faq-box .faq {
-  -moz-column-break-inside: avoid;
-       break-inside: avoid;
-  page-break-inside: avoid;
-  cursor: pointer;
-}
-
-.faq-box .faq:not(:last-child) {
-  border-bottom-width: 1px;
-}
-
-.faq-box .faq .faq-header {
-  position: relative;
-  padding-left: 2rem;
-  padding-right: 0.5rem;
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-}
-
-.faq-box .faq .faq-header .faq-icon {
-  position: absolute;
-  left: 0;
-  top: 0;
-  font-size: 1rem;
-  --text-opacity: 1;
-  color: #718096;
-  color: rgba(113, 128, 150, var(--text-opacity));
-  transform: translateX(-150%) translateY(1px);
-}
-
-.faq-box .faq .faq-header .faq-icon i {
-  transition: all 200ms;
-}
-
-.faq-box .faq .faq-header .faq-question {
-  position: relative;
-  font-size: 1.125rem;
-  font-weight: 300;
-}
-
-.faq-box .faq .faq-content {
-  padding-left: 2rem;
-  padding-right: 0.5rem;
-  padding-bottom: 0;
-  overflow: hidden;
-  transition: all 200ms;
-  max-height: 0;
-}
-
-.faq-box .faq.active .faq-header .faq-icon {
-  --text-opacity: 1;
-  color: #77e0a1;
-  color: rgba(119, 224, 161, var(--text-opacity));
-}
-
-.faq-box .faq.active .faq-header .faq-icon i {
-  transform: rotate(45deg);
-}
-
-.faq-box .faq.active .faq-content {
-  max-height: 1000px;
-  padding-bottom: 1.25rem;
-}
-
 .anchor-box {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
@@ -1987,6 +1916,98 @@ body {
   margin-bottom: 1.25rem;
 }
 
+.accordion-box {
+  -moz-column-count: 2;
+       column-count: 2;
+  -moz-column-gap: 3rem;
+       column-gap: 3rem;
+}
+
+.accordion .accordion-item {
+  transition: all 200ms;
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
+  page-break-inside: avoid;
+  cursor: pointer;
+}
+
+.accordion .accordion-item:not(:last-child) {
+  border-bottom-width: 1px;
+}
+
+.accordion .accordion-item .accordion-item-header,
+  .accordion .accordion-item .accordion-item-content {
+  font-size: 1.125rem;
+}
+
+.accordion .accordion-item .accordion-item-header {
+  transition: all 200ms;
+  position: relative;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.accordion .accordion-item .accordion-item-content {
+  box-sizing: content-box;
+  padding-bottom: 0;
+  overflow: hidden;
+  max-height: 0;
+  transition: all 200ms;
+}
+
+.accordion .accordion-item.active .accordion-item-content {
+  padding-bottom: 1.25rem;
+}
+
+.accordion .accordion-item.accordion-item-has-icon {
+  padding-left: 2rem;
+  padding-right: 0.5rem;
+}
+
+.accordion .accordion-item.accordion-item-has-icon .accordion-item-header .accordion-item-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1rem;
+  --text-opacity: 1;
+  color: #718096;
+  color: rgba(113, 128, 150, var(--text-opacity));
+  transform: translateX(-150%) translateY(1px);
+}
+
+.accordion .accordion-item.accordion-item-has-icon .accordion-item-header .accordion-item-icon i {
+  transition: all 200ms;
+}
+
+.accordion .accordion-item.accordion-item-has-icon.active .accordion-item-header {
+  padding-top: 2rem;
+  padding-bottom: 0.75rem;
+}
+
+.accordion .accordion-item.accordion-item-has-icon.active .accordion-item-header .accordion-item-icon {
+  --text-opacity: 1;
+  color: #77e0a1;
+  color: rgba(119, 224, 161, var(--text-opacity));
+}
+
+.accordion .accordion-item.accordion-item-has-icon.active .accordion-item-header .accordion-item-icon i {
+  transform: rotate(45deg);
+}
+
+.accordion.accordion-small {
+  border-bottom-width: 0;
+}
+
+.accordion.accordion-small .accordion-item-header,
+  .accordion.accordion-small .accordion-item-content {
+  font-size: 0.875rem;
+}
+
+.accordion.accordion-small .accordion-item-header {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
 .filter-box {
   padding: 0;
 }
@@ -2250,21 +2271,6 @@ body {
   padding-right: 1.25rem;
   margin-left: auto;
   margin-right: auto;
-}
-
-.accordion .accordion-item .accordion-item-title,
-.accordion .accordion-item .accordion-item-description {
-  transition-duration: 300ms;
-}
-
-.accordion .accordion-item .accordion-item-description {
-  overflow: hidden;
-  max-height: 0;
-}
-
-.accordion .accordion-item.active .accordion-item-title {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
 }
 
 .space-y-0 > :not(template) ~ :not(template){

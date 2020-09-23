@@ -5168,6 +5168,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _general_gallery__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./general/gallery */ "./source/scripts/general/gallery.js");
 /* harmony import */ var _general_faq__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./general/faq */ "./source/scripts/general/faq.js");
 /* harmony import */ var _general_faq__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_general_faq__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _general_accordion__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./general/accordion */ "./source/scripts/general/accordion.js");
+/* harmony import */ var _general_accordion__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_general_accordion__WEBPACK_IMPORTED_MODULE_8__);
 
 
 
@@ -5175,6 +5177,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
  // modules
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -5220,29 +5223,62 @@ document.addEventListener("DOMContentLoaded", function () {
     document.productBox.subscription.addEventListener("change", function () {
       changeTotal();
     });
-  } // accordions
+  }
+});
 
+/***/ }),
 
+/***/ "./source/scripts/general/accordion.js":
+/*!*********************************************!*\
+  !*** ./source/scripts/general/accordion.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function openItem(item) {
+  var desc = item.querySelector(".accordion-item-content");
+  var answer = item.querySelector(".accordion-item-answer");
+  item.classList.remove("active");
+  desc.style.maxHeight = answer.scrollHeight + "px";
+}
+
+function closeItem(item) {
+  var desc = item.querySelector(".accordion-item-content");
+  item.classList.remove("active");
+  desc.style.maxHeight = null;
+}
+
+function closeAllItems(accordion) {
+  accordion.querySelectorAll(".accordion-item.active").forEach(function (item) {
+    item.classList.remove("active");
+    item.querySelector(".accordion-item-content").style.maxHeight = null;
+  });
+}
+
+function faqAccordion() {
+  // accordions
   var accordions = document.querySelectorAll(".accordion");
-  console.log(accordions);
 
   if (accordions) {
     accordions.forEach(function (accordion) {
-      var items = accordion.querySelectorAll(".accordion-item");
+      var items = accordion.querySelectorAll(".accordion-item"); // activate first one
+
+      openItem(items[0]);
       items.forEach(function (item) {
         item.addEventListener("click", function () {
-          var desc = item.querySelector(".accordion-item-description");
-          accordion.querySelectorAll(".accordion-item.active").forEach(function (item) {
-            item.classList.remove("active");
-            item.querySelector(".accordion-item-description").style.maxHeight = null;
-          });
-          item.classList.toggle("active");
-          desc.style.maxHeight = desc.scrollHeight + "px";
+          if (item.classList.contains("active")) {
+            closeItem(item);
+          } else {
+            openItem(item);
+            closeAllItems(accordion);
+          }
         });
       });
     });
   }
-});
+}
+
+document.addEventListener("DOMContentLoaded", faqAccordion);
 
 /***/ }),
 

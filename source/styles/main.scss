@@ -20,7 +20,7 @@
 @import "article";
 @import "typography";
 @import "tabs";
-
+@import "accordion";
 @import "filterGrid";
 @import "../../node_modules/node-waves/dist/waves.min.css";
 
@@ -190,36 +190,10 @@
 .container {
   @apply mx-auto;
 }
+
 .nmr-container {
   @apply px-5;
   @apply mx-auto;
-}
-
-// accordion
-.accordion {
-  .accordion-item {
-    .accordion-item-title,
-    .accordion-item-description {
-      transition-duration: 300ms;
-    }
-
-    .accordion-item-title {
-    }
-
-    .accordion-item-description {
-      overflow: hidden;
-      max-height: 0;
-    }
-
-    &.active {
-      .accordion-item-title {
-        @apply py-2;
-      }
-
-      .accordion-item-description {
-      }
-    }
-  }
 }
 
 @import "tailwindcss/utilities";
