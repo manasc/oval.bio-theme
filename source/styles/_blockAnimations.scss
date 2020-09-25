@@ -1,0 +1,69 @@
+.profiles-visual {
+  .profile.profile-main,
+  .profile.profile-extra {
+    transition-duration: $animationSpeed;
+  }
+
+  .profile.profile-extra {
+    @apply opacity-0;
+  }
+
+  &.active {
+    .profile.profile-extra {
+      @apply opacity-100;
+    }
+  }
+}
+
+.synergy {
+  .synergy-diagram {
+    .synergy-text {
+      @apply text-sm absolute bottom-0 left-0;
+      @extend .label-text;
+    }
+
+    .synergy-1,
+    .synergy-2 {
+      @apply w-64 absolute z-0;
+
+      top: 50%;
+      left: 50%;
+
+      &:hover {
+        @apply z-20;
+      }
+    }
+
+    .synergy-1 {
+      @apply opacity-0;
+
+      transform: translate(-75%, -75%);
+
+      &.synergy-text {
+        transform: translate(90%, 50px);
+      }
+    }
+
+    .synergy-2 {
+      @apply opacity-0;
+
+      transform: translate(-25%, -25%);
+
+      &.synergy-text {
+        transform: translate(-70%, -25px);
+      }
+    }
+  }
+
+  &.active {
+    .synergy-diagram {
+      .synergy-1 {
+        @apply opacity-100;
+      }
+
+      .synergy-2 {
+        @apply opacity-100;
+      }
+    }
+  }
+}

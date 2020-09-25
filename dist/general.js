@@ -5166,14 +5166,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _general_anchorBox__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./general/anchorBox */ "./source/scripts/general/anchorBox.js");
 /* harmony import */ var _general_lazyload__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./general/lazyload */ "./source/scripts/general/lazyload.js");
 /* harmony import */ var _general_gallery__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./general/gallery */ "./source/scripts/general/gallery.js");
-/* harmony import */ var _general_faq__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./general/faq */ "./source/scripts/general/faq.js");
-/* harmony import */ var _general_faq__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_general_faq__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _general_accordion__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./general/accordion */ "./source/scripts/general/accordion.js");
-/* harmony import */ var _general_accordion__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_general_accordion__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _general_checkout__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./general/checkout */ "./source/scripts/general/checkout.js");
+/* harmony import */ var _general_checkout__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_general_checkout__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _general_synergies__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./general/synergies */ "./source/scripts/general/synergies.js");
+/* harmony import */ var _general_pillars__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./general/pillars */ "./source/scripts/general/pillars.js");
+/* harmony import */ var _general_pillars__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_general_pillars__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _general_faq__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./general/faq */ "./source/scripts/general/faq.js");
+/* harmony import */ var _general_faq__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_general_faq__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _general_accordion__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./general/accordion */ "./source/scripts/general/accordion.js");
+/* harmony import */ var _general_accordion__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_general_accordion__WEBPACK_IMPORTED_MODULE_11__);
 
 
 
 
+
+
+
+ // gutenberg blocks
 
 
  // modules
@@ -5181,49 +5190,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  var testUnitPrice = 4;
-  var testDiscount = 0.2;
-  var productBox = document.querySelector("#productBox");
-
-  if (productBox) {
-    // get pack-size input
-    var changeTotal = function changeTotal() {
-      var _document$productBox = document.productBox,
-          packSize = _document$productBox.packSize,
-          subscription = _document$productBox.subscription;
-      priceValue.innerText = "$".concat(packSize.value * testUnitPrice, ".00");
-      console.log(subscription.checked);
-
-      if (subscription.checked) {
-        // value changes
-        subPriceValue.innerText = "$".concat(Math.floor(packSize.value * testUnitPrice * (1 - testDiscount)), ".00"); // visual changes
-
-        subPriceBox.classList.remove("hidden");
-        priceBox.classList.add("line-through");
-        priceBox.classList.replace("text-ovalGreen", "text-gray-400");
-      } else {
-        // visual changes
-        subPriceBox.classList.add("hidden");
-        priceBox.classList.remove("line-through");
-        priceBox.classList.replace("text-gray-400", "text-ovalGreen");
-      }
-    };
-
-    var priceBox = productBox.querySelector("#price");
-    var priceValue = productBox.querySelector("#price #priceValue");
-    var subPriceBox = productBox.querySelector("#subPrice");
-    var subPriceValue = productBox.querySelector("#subPrice #subPriceValue"); // get subscription input
-
-    document.productBox.packSize.forEach(function (size) {
-      size.addEventListener("change", function () {
-        console.log(document.productBox.packSize.value);
-        changeTotal();
-      });
-    });
-    document.productBox.subscription.addEventListener("change", function () {
-      changeTotal();
-    });
-  }
+  var profilesVisuals = document.querySelectorAll("profiles-visual");
+  profilesVisuals.forEach(function (block) {
+    setTimeout(function () {
+      block.classList.add("active");
+    }, 1000);
+  });
 });
 
 /***/ }),
@@ -5238,7 +5210,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function openItem(item) {
   var desc = item.querySelector(".accordion-item-content");
   var answer = item.querySelector(".accordion-item-answer");
-  item.classList.remove("active");
+  item.classList.add("active");
   desc.style.maxHeight = answer.scrollHeight + "px";
 }
 
@@ -5269,8 +5241,8 @@ function faqAccordion() {
           if (item.classList.contains("active")) {
             closeItem(item);
           } else {
-            openItem(item);
             closeAllItems(accordion);
+            openItem(item);
           }
         });
       });
@@ -5365,6 +5337,74 @@ document.addEventListener("DOMContentLoaded", mobileAnchorBox);
 
 /***/ }),
 
+/***/ "./source/scripts/general/checkout.js":
+/*!********************************************!*\
+  !*** ./source/scripts/general/checkout.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function changeTotal(_ref) {
+  var priceValue = _ref.priceValue,
+      subPriceValue = _ref.subPriceValue,
+      testUnitPrice = _ref.testUnitPrice,
+      testDiscount = _ref.testDiscount,
+      subPriceBox = _ref.subPriceBox,
+      priceBox = _ref.priceBox;
+  var _document$productBox = document.productBox,
+      packSize = _document$productBox.packSize,
+      subscription = _document$productBox.subscription;
+  priceValue.innerText = "$".concat(packSize.value * testUnitPrice, ".00");
+  console.log(subscription.checked);
+
+  if (subscription.checked) {
+    // value changes
+    subPriceValue.innerText = "$".concat(Math.floor(packSize.value * testUnitPrice * (1 - testDiscount)), ".00"); // visual changes
+
+    subPriceBox.classList.remove("hidden");
+    priceBox.classList.add("line-through");
+    priceBox.classList.replace("text-ovalGreen", "text-gray-400");
+  } else {
+    // visual changes
+    subPriceBox.classList.add("hidden");
+    priceBox.classList.remove("line-through");
+    priceBox.classList.replace("text-gray-400", "text-ovalGreen");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  var testUnitPrice = 4;
+  var testDiscount = 0.2;
+  var productBox = document.querySelector("#productBox");
+
+  if (productBox) {
+    var priceBox = productBox.querySelector("#price");
+    var priceValue = productBox.querySelector("#price #priceValue");
+    var subPriceBox = productBox.querySelector("#subPrice");
+    var subPriceValue = productBox.querySelector("#subPrice #subPriceValue"); // get subscription input
+
+    var formObj = {
+      priceValue: priceValue,
+      subPriceValue: subPriceValue,
+      testUnitPrice: testUnitPrice,
+      testDiscount: testDiscount,
+      subPriceBox: subPriceBox,
+      priceBox: priceBox
+    };
+    document.productBox.packSize.forEach(function (size) {
+      size.addEventListener("change", function () {
+        console.log(document.productBox.packSize.value);
+        changeTotal(formObj);
+      });
+    });
+    document.productBox.subscription.addEventListener("change", function () {
+      changeTotal(formObj);
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./source/scripts/general/faq.js":
 /*!***************************************!*\
   !*** ./source/scripts/general/faq.js ***!
@@ -5372,7 +5412,7 @@ document.addEventListener("DOMContentLoaded", mobileAnchorBox);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-function faqAccordian() {
+function faqAccordion() {
   var faqBoxes = document.querySelectorAll(".faq-box");
   faqBoxes.forEach(function (box) {
     var faqs = box.querySelectorAll(".faq");
@@ -5389,7 +5429,7 @@ function faqAccordian() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", faqAccordian);
+document.addEventListener("DOMContentLoaded", faqAccordion);
 
 /***/ }),
 
@@ -5618,6 +5658,239 @@ function navbarFunc() {
 }
 
 document.addEventListener("DOMContentLoaded", navbarFunc);
+
+/***/ }),
+
+/***/ "./source/scripts/general/pillars.js":
+/*!*******************************************!*\
+  !*** ./source/scripts/general/pillars.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function pillarsFunc() {
+  var pillarsBoxes = document.querySelectorAll(".pillars-box");
+  console.log(pillarsBoxes);
+
+  if (pillarsBoxes) {
+    pillarsBoxes.forEach(function (pillarsBox) {
+      var icons = pillarsBox.querySelectorAll(".pillar-icon-box");
+      var triggers = pillarsBox.querySelectorAll(".pillar-trigger"); // icon is clicked
+      //   icons.forEach((icon, i) => {
+      //     icon.addEventListener("click", () => {
+      //       triggers.forEach((trigger, x) => {
+      //         if (i === x) {
+      //           trigger.classList.add("active");
+      //         } else {
+      //           trigger.classList.remove("active");
+      //         }
+      //       });
+      //     });
+      //   });
+      // make first one active
+
+      icons[0].classList.add("active"); // if trigger is clicked
+
+      triggers.forEach(function (trigger, i) {
+        trigger.addEventListener("click", function () {
+          icons.forEach(function (icon, x) {
+            if (i === x) {
+              icon.classList.add("active");
+            } else {
+              icon.classList.remove("active");
+            }
+          });
+        });
+      });
+    });
+  }
+}
+
+document.addEventListener("DOMContentLoaded", pillarsFunc);
+
+/***/ }),
+
+/***/ "./source/scripts/general/synergies.js":
+/*!*********************************************!*\
+  !*** ./source/scripts/general/synergies.js ***!
+  \*********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var siema__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! siema */ "./node_modules/siema/dist/siema.min.js");
+/* harmony import */ var siema__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(siema__WEBPACK_IMPORTED_MODULE_0__);
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+}
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+
+function _iterableToArray(iter) {
+  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
+}
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+}
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
+}
+
+
+var classes = {
+  navDots: {
+    disabled: ["bg-gray-300", "cursor-pointer"],
+    active: ["bg-ovalGreen"]
+  },
+  navLinks: {
+    disabled: ["text-gray-300"],
+    active: ["text-gray-700", "hover:text-ovalGreen", "cursor-default"]
+  }
+};
+
+function disablePrev(prevLink) {
+  var _prevLink$classList, _prevLink$classList2;
+
+  (_prevLink$classList = prevLink.classList).remove.apply(_prevLink$classList, _toConsumableArray(classes.navLinks.active));
+
+  (_prevLink$classList2 = prevLink.classList).add.apply(_prevLink$classList2, _toConsumableArray(classes.navLinks.disabled));
+}
+
+function disableNext(nextLink) {
+  var _nextLink$classList, _nextLink$classList2;
+
+  (_nextLink$classList = nextLink.classList).remove.apply(_nextLink$classList, _toConsumableArray(classes.navLinks.active));
+
+  (_nextLink$classList2 = nextLink.classList).add.apply(_nextLink$classList2, _toConsumableArray(classes.navLinks.disabled));
+}
+
+function enablePrev(prevLink) {
+  var _prevLink$classList3, _prevLink$classList4;
+
+  (_prevLink$classList3 = prevLink.classList).remove.apply(_prevLink$classList3, _toConsumableArray(classes.navLinks.disabled));
+
+  (_prevLink$classList4 = prevLink.classList).add.apply(_prevLink$classList4, _toConsumableArray(classes.navLinks.active));
+}
+
+function enableNext(nextLink) {
+  var _nextLink$classList3, _nextLink$classList4;
+
+  (_nextLink$classList3 = nextLink.classList).remove.apply(_nextLink$classList3, _toConsumableArray(classes.navLinks.disabled));
+
+  (_nextLink$classList4 = nextLink.classList).add.apply(_nextLink$classList4, _toConsumableArray(classes.navLinks.active));
+}
+
+function init(dots, links) {
+  var _dots$0$classList, _dots$0$classList2, _links$prev$classList;
+
+  (_dots$0$classList = dots[0].classList).add.apply(_dots$0$classList, _toConsumableArray(classes.navDots.active));
+
+  (_dots$0$classList2 = dots[0].classList).remove.apply(_dots$0$classList2, _toConsumableArray(classes.navDots.disabled));
+
+  (_links$prev$classList = links.prev.classList).add.apply(_links$prev$classList, _toConsumableArray(classes.navLinks.disabled));
+}
+
+function synergiesGalleryFunc() {
+  var synergyBlock = document.querySelectorAll(".synergies-block");
+
+  if (synergyBlock) {
+    synergyBlock.forEach(function (block) {
+      // get nav
+      var dots = block.querySelectorAll(".synergies-nav .synergies-nav-dots .synergies-nav-dot");
+      var slidesBox = block.querySelector(".synergies-slides");
+      var slides = block.querySelectorAll(".synergies-slides .synergies-slide");
+      var links = {
+        prev: block.querySelector(".synergies-nav-prev a"),
+        next: block.querySelector(".synergies-nav-next a")
+      }; // init
+
+      init(dots, links); // set prev to disabled
+
+      var synergyGallery = new siema__WEBPACK_IMPORTED_MODULE_0___default.a({
+        selector: slidesBox,
+        duration: 200,
+        startIndex: 0,
+        draggable: true,
+        loop: false,
+        rtl: false,
+        onChange: function onChange() {
+          var currentSlide = synergyGallery.currentSlide;
+          console.log(currentSlide, slides.length - 1); // nav switch
+
+          slides[currentSlide].querySelector(".synergy-diagram").classList.add("active");
+          dots.forEach(function (dot, i) {
+            if (currentSlide === i) {
+              var _dot$classList, _dot$classList2; // if current slide
+
+
+              (_dot$classList = dot.classList).add.apply(_dot$classList, _toConsumableArray(classes.navDots.active));
+
+              (_dot$classList2 = dot.classList).remove.apply(_dot$classList2, _toConsumableArray(classes.navDots.disabled));
+            } else {
+              var _dot$classList3, _dot$classList4;
+
+              (_dot$classList3 = dot.classList).add.apply(_dot$classList3, _toConsumableArray(classes.navDots.disabled));
+
+              (_dot$classList4 = dot.classList).remove.apply(_dot$classList4, _toConsumableArray(classes.navDots.active));
+            }
+          });
+
+          switch (currentSlide) {
+            case 0:
+              disablePrev(links.prev);
+              enableNext(links.next);
+              break;
+
+            case slides.length - 1:
+              disableNext(links.next);
+              enablePrev(links.prev);
+              break;
+
+            default:
+              enablePrev(links.prev);
+              enableNext(links.next);
+          }
+        }
+      });
+      dots.forEach(function (dot, i) {
+        dot.addEventListener("click", function (e) {
+          synergyGallery.goTo(i);
+        });
+      }); // links
+
+      links.prev.addEventListener("click", function (e) {
+        e.preventDefault();
+        synergyGallery.prev();
+      });
+      links.next.addEventListener("click", function (e) {
+        e.preventDefault();
+        synergyGallery.next();
+      });
+    });
+  }
+}
+
+document.addEventListener("DOMContentLoaded", synergiesGalleryFunc);
 
 /***/ }),
 

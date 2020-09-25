@@ -52,11 +52,11 @@
 
       .accordion-item-header {
         .accordion-item-icon {
-          @apply absolute left-0 top-0;
+          @apply absolute left-0;
           @apply text-base;
           @apply text-gray-600;
 
-          transform: translateX(-150%) translateY(1px);
+          transform: translateX(-155%) translateY(1px);
 
           i {
             transition: all $animationSpeed;
@@ -83,9 +83,12 @@
   &.accordion-small {
     @apply border-b-0;
 
-    .accordion-item-header,
-    .accordion-item-content {
+    .accordion-item-header {
       @apply text-sm;
+    }
+
+    .accordion-item-content {
+      @apply text-xs;
     }
 
     .accordion-item-header {

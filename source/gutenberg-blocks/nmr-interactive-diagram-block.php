@@ -22,12 +22,15 @@
                     <div class="" style="padding-top: 100%"></div>
                 </div>
                 <div class="w-56 absolute z-0 hover:z-20" style="top: 50%; left:50%; transform: translate(-50%,-90%)">
+                    <div class="absolute label-text text-sm" style="top: 50%; left:50%; transform: translate(-50%, -50%);">Hello</div>
                     <div class="rounded-full hover:bg-blue-200 border border-gray-600" style="padding-top: 100%"></div>
                 </div>
                 <div class="w-56 absolute z-0 hover:z-20" style="top: 50%; left:50%; transform: translate(-10%,-20%)">
+                    <div class="absolute label-text text-sm" style="top: 50%; left:50%; transform: translate(-50%, -50%);">Hello</div>
                     <div class="rounded-full hover:bg-blue-200 border border-gray-600" style="padding-top: 100%"></div>
                 </div>
                 <div class="w-56 absolute z-0 hover:z-20" style="top: 50%; left:50%; transform: translate(-90%,-20%)">
+                    <div class="absolute label-text text-sm" style="top: 50%; left:50%; transform: translate(-50%, -50%);">Hello</div>
                     <div class="rounded-full hover:bg-blue-200 border border-gray-600" style="padding-top: 100%"></div>
                 </div>
             </div>

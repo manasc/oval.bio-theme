@@ -1,6 +1,5 @@
 <?php get_header(); ?>
 
-Hello
 <?php $blocks = glob(__DIR__ . "/source/gutenberg-blocks/*.php"); ?>
 
 <div class="py-20">

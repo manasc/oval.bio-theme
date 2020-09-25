@@ -1,0 +1,82 @@
+$annotationSize: 4;
+$annotationBorder: 2;
+
+.annotations {
+  @apply absolute top-0 left-0;
+  @apply h-full w-full;
+  //   @apply overflow-hidden;
+
+  .annotation-box {
+    transition-duration: $animationSpeed;
+
+    @apply absolute;
+    @apply opacity-25;
+    @apply w-#{$annotationSize} h-#{$annotationSize};
+
+    .annotation-marker {
+      transition-duration: $animationSpeed;
+
+      @apply shadow;
+      @apply cursor-pointer;
+      @apply h-#{$annotationSize} w-#{$annotationSize} bg-black;
+      @apply border-#{$annotationBorder} border-white;
+      @apply rounded-full;
+    }
+
+    .annotation-content-box {
+      @apply h-12 w-auto;
+      @apply absolute left-0;
+      @apply opacity-0;
+      @apply invisible;
+
+      bottom: theme("spacing.3");
+
+      .annotation-content {
+        transition-duration: $animationSpeed;
+        margin-left: calc(
+          theme("spacing.#{$annotationSize}") / 2 -
+            theme("borderWidth.#{$annotationBorder}") / 2
+        );
+        margin-bottom: calc(
+          theme("spacing.#{$annotationSize}") / 2 -
+            theme("borderWidth.#{$annotationSize}") / 2
+        );
+
+        @apply h-full;
+        @apply border-l;
+        @apply border-gray-900;
+      }
+
+      .annotation-text {
+        transition-duration: $animationSpeed;
+        transform: translateY(3px);
+        @apply invisible opacity-0;
+
+        @apply px-1 overflow-hidden;
+        @apply uppercase font-medium;
+        @apply text-2xs text-gray-800 leading-none;
+      }
+    }
+
+    &:hover,
+    &.active {
+      @apply opacity-100;
+
+      .annotation-marker {
+        transform: translateY(-2px);
+        @apply shadow-md;
+      }
+
+      .annotation-content-box {
+        @apply opacity-100;
+        @apply visible;
+
+        .annotation-text {
+          transition-delay: calc($animationSpeed / 2);
+          transform: translateY(0);
+          @apply visible opacity-100;
+        }
+      }
+    }
+  }
+}

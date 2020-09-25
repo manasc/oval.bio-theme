@@ -31,11 +31,11 @@ $faqs = [];
 
 ?>
 
-<div class="max-w-6xl mx-auto px-5 py-10">
+<div class="pillars-box max-w-6xl mx-auto px-5 py-10">
 
     <div class="mb-10">
 
-        <h1 class="text-4xl mb-10 text-center">The 5 Pillars of Longevity.</h1>
+        <h1 class="text-4xl mb-5 text-center">The 5 Pillars of Longevity.</h1>
         <div class="labels">
             <div class="label">
                 <span class="label-text">Pillars</span>
@@ -44,9 +44,9 @@ $faqs = [];
         <div class="content-box">
             <div class="flex flex-wrap items-start justify-around my-4">
                 <?php foreach ($pillars as $key => $pillar) : ?>
-                    <div class="w-1/2 md:w-1/6 px-2">
-                        <div class="bg-contain bg-center bg-no-repeat nmr-lazyload mb-4 rounded-full bg-ovalGreen" style="padding-top: 100%"></div>
-                        <h1 class="text-xl text-center font-light"><?= $pillar["title"] ?></h1>
+                    <div class="pillar-icon-box w-1/2 md:w-1/6 px-2">
+                        <div class="pillar-icon bg-contain bg-center bg-no-repeat nmr-lazyload mb-4 rounded-full" style="padding-top: 100%"></div>
+                        <h1 class="text-lg text-center font-light"><?= $pillar["title"] ?></h1>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -59,7 +59,7 @@ $faqs = [];
         <div class="accordion-box">
             <div class="accordion">
                 <?php foreach ($pillars as $x => $pillar) : ?>
-                    <div class="accordion-item accordion-item-has-icon <?= $x === 0 ? "active" : "" ?>">
+                    <div class="pillar-trigger accordion-item accordion-item-has-icon <?= $x === 0 ? "active" : "" ?>">
                         <div class="accordion-item-header">
                             <div class="accordion-item-question">
                                 <div class="accordion-item-icon">

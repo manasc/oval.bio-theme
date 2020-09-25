@@ -1,4 +1,4 @@
-function faqAccordian() {
+function faqAccordion() {
   const faqBoxes = document.querySelectorAll(".faq-box");
 
   faqBoxes.forEach((box) => {
@@ -18,4 +18,4 @@ function faqAccordian() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", faqAccordian);
+document.addEventListener("DOMContentLoaded", faqAccordion);

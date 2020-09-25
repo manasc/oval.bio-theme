@@ -2,7 +2,7 @@ function openItem(item) {
   const desc = item.querySelector(".accordion-item-content");
   const answer = item.querySelector(".accordion-item-answer");
 
-  item.classList.remove("active");
+  item.classList.add("active");
   desc.style.maxHeight = answer.scrollHeight + "px";
 }
 
@@ -33,11 +33,12 @@ function faqAccordion() {
 
       items.forEach((item) => {
         item.addEventListener("click", () => {
+
           if (item.classList.contains("active")) {
             closeItem(item);
           } else {
-            openItem(item);
             closeAllItems(accordion);
+            openItem(item);
           }
         });
       });

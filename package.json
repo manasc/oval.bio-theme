@@ -34,6 +34,7 @@
     "cssnano": "^4.1.10",
     "dotenv": "^8.2.0",
     "eslint-plugin-import": "^2.20.2",
+    "flickity": "^2.2.1",
     "glob": "^7.1.6",
     "isotope-layout": "^3.0.6",
     "laravel-mix": "^5.0.5",

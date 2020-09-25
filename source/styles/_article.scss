@@ -96,13 +96,11 @@
   .cat-links {
     .post-categories {
       @apply flex flex-wrap;
-      @apply ml-2;
 
       li {
-        @apply pr-px;
+        @apply pr-1;
 
         a {
-          @apply ml-1;
           @apply cursor-default;
           @apply bg-ovalGreen px-2 py-1 leading-none;
           @apply border border-ovalGreen;
@@ -122,6 +120,8 @@
       @apply border border-ovalGreen;
       @apply uppercase font-medium;
       @apply text-xs text-gray-800;
+
+      @apply mr-1 mb-1;
 
       @apply bg-skyBlue border-skyBlue;
       @apply cursor-pointer;

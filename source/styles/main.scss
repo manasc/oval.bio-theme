@@ -22,7 +22,21 @@
 @import "tabs";
 @import "accordion";
 @import "filterGrid";
+@import "blockAnimations";
+@import "annotations";
 @import "../../node_modules/node-waves/dist/waves.min.css";
+
+.pillar-icon-box {
+  .pillar-icon {
+    @apply bg-gray-400;
+  }
+
+  &.active {
+    .pillar-icon {
+      @apply bg-ovalGreen;
+    }
+  }
+}
 
 .card::after {
   content: "";
