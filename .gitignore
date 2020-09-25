@@ -7,3 +7,6 @@ yarn-error.log
 vendor/
 wp-config.php
 resources/assets/config-local.json
+
+# temp
+webpack.mix.js
