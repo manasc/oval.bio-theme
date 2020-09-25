@@ -5975,8 +5975,8 @@ document.addEventListener("DOMContentLoaded", wavesAnimation);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/source/scripts/general.js */"./source/scripts/general.js");
-module.exports = __webpack_require__(/*! /Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/source/styles/main.scss */"./source/styles/main.scss");
+__webpack_require__(/*! /Users/Fabian/code/nimaroh/oval.bio/wp-content/themes/oval.bio-theme/source/scripts/general.js */"./source/scripts/general.js");
+module.exports = __webpack_require__(/*! /Users/Fabian/code/nimaroh/oval.bio/wp-content/themes/oval.bio-theme/source/styles/main.scss */"./source/styles/main.scss");
 
 
 /***/ })

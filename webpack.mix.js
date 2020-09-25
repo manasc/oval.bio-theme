@@ -34,12 +34,12 @@ mix
   .options(mixOptions)
   .copy("source/images/**/*.*", "dist/images/")
   .browserSync({
-    proxy: "https://oval.bio.test",
-    host: "oval.bio.test",
+    proxy: "https://oval.bio.dev",
+    host: "oval.bio.dev",
     open: "external",
     https: {
-      key: "/Users/manas/.config/valet/Certificates/oval.bio.test.key",
-      cert: "/Users/manas/.config/valet/Certificates/oval.bio.test.crt",
+      key: "/Users/Fabian/.config/valet/Certificates/oval.bio.dev.key",
+      cert: "/Users/Fabian/.config/valet/Certificates/oval.bio.dev.crt",
     },
     files: ["**/*.php", "dist/*.css", "dist/*.js"],
   })

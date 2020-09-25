@@ -125,7 +125,7 @@ function my_acf_init_block_types()
             acf_register_block_type([
                 'name'              => "nmr-{$block['name']}-block",
                 'title'             => __("{$block['title']} Block"),
-                'description'       => __(!($block['description']) ? $block['description'] : $defaults["description"]),
+                // 'description'       => __(!($block['description']) ? $block['description'] : $defaults["description"]),
                 'render_template'   => "source/gutenberg-blocks/nmr-{$block['name']}-block.php",
                 'category'          => !empty($block['category']) ? $block['category'] : $defaults["category"],
                 'icon'              => !empty($block['icon']) ? $block['icon'] : $defaults["icon"],
