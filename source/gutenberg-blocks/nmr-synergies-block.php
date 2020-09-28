@@ -8,7 +8,7 @@ $synergies = [
 
 ?>
 
-<div class="container mx-auto px-5 py-10 relative">
+<div class="container mx-auto px-5 py-10 relative h-screen">
     <div class="absolute h-full w-32 left-0 top-0 z-30" style="background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);"></div>
     <div class="absolute h-full w-32 right-0 top-0 z-30" style="background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);"></div>
 

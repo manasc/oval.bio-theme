@@ -69,7 +69,7 @@ $therapeutics = [
 ?>
 
 <section>
-    <div class="max-w-6xl px-5 py-20 mx-auto">
+    <div class="max-w-6xl px-5 py-20 mx-auto h-screen">
         <div class="mb-5">
             <h1 class="text-4xl">Therapeutics</h1>
         </div>
