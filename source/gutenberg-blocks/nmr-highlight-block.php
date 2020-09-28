@@ -1,5 +1,5 @@
 <!-- outside container -->
-<div class="container bg-ovalGreenLight py-20">
+<div class=" bg-ovalGreenLight py-20">
 
     <!-- inside containere -->
     <div class="max-w-3xl mx-auto">
