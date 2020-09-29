@@ -1,4 +1,4 @@
-<div class="grid grid-cols-3  h-screen">
+<div class="grid grid-cols-3 h-full">
 
     <div class="bg-gray-300 col-span-2">
         <div class="w-full bg-gray-300" style="padding-top: 60%"></div>

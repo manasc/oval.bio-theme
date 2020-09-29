@@ -1,5 +1,5 @@
 <section>
-    <div class="grid grid-cols-3 h-screen">
+    <div class="grid grid-cols-3 h-full">
 
 
 

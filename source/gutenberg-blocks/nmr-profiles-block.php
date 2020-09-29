@@ -1,6 +1,6 @@
 <div class="max-w-6xl mx-auto px-5 py-10">
     <section>
-        <div class="flex flex-wrap items-center -mx-8 h-screen">
+        <div class="flex flex-wrap items-center -mx-8 h-full">
             <div class="profiles-visual w-full md:w-2/5 px-8 relative">
                 <div class="profile profile-main image w-full">
                     <div class="rounded-full border border-gray-300 bg-gray-200" style="padding-top: 100%"></div>
