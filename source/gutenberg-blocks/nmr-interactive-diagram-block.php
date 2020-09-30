@@ -1,9 +1,9 @@
-<div class="max-w-6xl mx-auto px-5 py-10">
+<div class="max-w-6xl mx-auto px-5 py-10  h-full">
 
     <!-- FAQ -->
     <section>
-        <div class="flex flex-wrap items-center -mx-8">
-            <div class="w-full md:w-1/2 px-8">
+        <div class="flex flex-wrap items-center -mx-8  ">
+            <div class="w-1/4 md:w-1/4 px-8">
                 <div class="text">
                     <h2 class="text-3xl mb-2">Interactive Diagram Block</h2>
                     <p>
@@ -17,7 +17,7 @@
                     <div class="label-text">Hello</div>
                 </div>
             </div>
-            <div class="w-full md:w-1/2 px-8 relative">
+            <div class="w-3/4 md:w-3/4 px-8 relative">
                 <div class="w-full">
                     <div class="" style="padding-top: 100%"></div>
                 </div>

@@ -1,33 +1,41 @@
-<div class="container py-20">
-    <div class="grid grid-cols-2">
+<div class="max-w-6xl mx-auto px-5 py-10  h-full">
+    <div class=" flex flex-wrap items-center -mx-8 ">
+        <div class=" w-3/4 md:w-3/4 px-8 relative">
 
-
-        <div class="w-full md:w-1/2 px-8 relative">
             <div class="w-full">
                 <div class="" style="padding-top: 100%"></div>
             </div>
-            <div class="absolute z-0 " style="width: 55%; top: 50%; left:50%; transform: translate(50%,-50%)">
+            <div class=" w-56 absolute z-10 " style=" top: 25%; left:30%; transform: translate(0%,0%)">
                 <div class="rounded-full bg-gray-400 border border-gray-400" style="padding-top: 100%"></div>
             </div>
-            <div class="absolute z-0 " style="width: 25%; top: 50%; left:50%; transform: translate(10%,-200%)">
+            <div class=" w-24 absolute z-10 " style="top: 25%; left:30%; transform: translate(-130%,-70%)">
                 <div class="rounded-full bg-green-200 border border-gray-400" style="padding-top: 100%"></div>
             </div>
-            <div class="absolute z-0" style="width: 30%; top: 50%; left:50%; transform: translate(300%,-200%)">
+            <div class="w-32 absolute z-10" style=" top: 25%; left:30%; transform: translate(20%,130%)">
                 <div class="rounded-full bg-green-200 border border-gray-400" style="padding-top: 100%"></div>
             </div>
-            <div class="absolute z-0" style="width: 40%; top: 50%; left:50%; transform: translate(200%,70%)">
+            <div class="w-32 absolute z-10" style=" top: 25%; left:30%; transform: translate(200%,-100%)">
                 <div class="rounded-full bg-green-200 border border-gray-400" style="padding-top: 100%"></div>
             </div>
-            <div class="absolute z-0" style="width: 35%; top: 50%; left:50%; transform: translate(90%,45%)">
+            <div class="w-48 absolute z-20" style=" top: 25%; left:30%; transform: translate(120%,100%)">
                 <div class="rounded-full bg-green-200 border border-gray-400" style="padding-top: 100%"></div>
             </div>
-            <div class="absolute z-0" style="width: 38%; top: 50%; left:50%; transform: translate(-80%,40%)">
+            <div class="w-40 absolute z-10" style="  top: 25%; left:30%; transform: translate(-120%,120%)">
                 <div class="rounded-full bg-green-200 border border-gray-400" style="padding-top: 100%"></div>
+            </div>
+
+            <div class="absolute z-0 w-px h-20 " style="top: 25%; left:30%; background-color:black; transform: translate(-500%,-30%) rotate(-60deg) ; ">
+            </div>
+            <div class="absolute z-0 w-px h-48 " style="top: 25%; left:30%; background-color:black; transform: translate(1000%,40%) rotate(55deg) ; ">
+            </div>
+            <div class="absolute z-0 w-px h-48 " style="top: 25%; left:30%; background-color:black; transform: translate(22000%,-40%) rotate(50deg) ; ">
+            </div>
+            <div class="absolute z-0 w-px h-48 " style="top: 25%; left:30%; background-color:black; transform: translate(24000%,70%) rotate(-45deg) ; ">
             </div>
         </div>
 
-        <div class="mx-10">
-            <h1 class="text-4xl py-2">
+        <div class="w-1/4 ">
+            <h1 class="text-4xl py-2 ">
                 The Pod is built for change.
             </h1>
             <p class="py-2">The pod at its measure dozens of the users health readings during every treatment session to ultimately create a detailed timeline map of the user and correlate event and life decisions/events (diet, exercise, traumatic events) to how they are represented in the data.</p>
@@ -36,4 +44,5 @@
             <p class="py-2">The Pod technologies are divided into two main categories: Therapies and Diagnostics,</p>
         </div>
     </div>
+
 </div>

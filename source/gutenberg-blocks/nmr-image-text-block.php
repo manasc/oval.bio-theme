@@ -2,7 +2,7 @@
     <div class="flex">
         <div class="w-3/4 bg-gray-300">
             <div class="w-full bg-gray-400 h-full"></div>
-        </div> 
+        </div>
         <div class="w-1/4 px-10 py-16">
             <h1 class="text-3xl py-2 ">
                 Diagnostic Synergy
