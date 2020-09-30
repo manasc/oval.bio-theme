@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container py-20">
     <div class="grid grid-cols-2">
 
 
@@ -31,11 +31,8 @@
                 The Pod is built for change.
             </h1>
             <p class="py-2">The pod at its measure dozens of the users health readings during every treatment session to ultimately create a detailed timeline map of the user and correlate event and life decisions/events (diet, exercise, traumatic events) to how they are represented in the data.</p>
-
             <p class="py-2">The first pods will not have all the diagnostics or therapies that we plan for the first gen to have, as such we have designed the pod to let the user upgrade and swap out parts with as much ease as possible. So as the new diagnostics and therapies are made we can ship them to the pod owners and have them easily integrate them into their existing pod.</p>
-
             <p class="py-2">This is part of the reason modularity is so important to us.</p>
-
             <p class="py-2">The Pod technologies are divided into two main categories: Therapies and Diagnostics,</p>
         </div>
     </div>

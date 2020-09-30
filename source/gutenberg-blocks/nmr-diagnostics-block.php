@@ -158,70 +158,72 @@ $diagnostics = [
 ];
 ?>
 
-<section>
-    <div class="max-w-6xl px-5 py-20 mx-auto">
-        <div class="mb-5">
-            <h1 class="text-4xl">Diagnostics</h1>
-        </div>
-        <div class="flex flex-wrap -mx-4">
-            <div class="w-full px-4 md:w-2/3">
-                <div class="bg-gray-400 rounded relative" style="height:100%">
-                    <div class="annotations">
-                        <?php foreach ($diagnostics['current']['items'] as $key => $diagnostic) : ?>
-                            <div class="annotation-box active" style="left: <?php echo $diagnostic['marker'][0] ?>%; top: <?php echo $diagnostic['marker'][1] ?>%">
-                                <div class="annotation-marker"></div>
-                                <div class="annotation-content-box">
-                                    <div class="annotation-content">
-                                        <div class="annotation-text"><?php echo $diagnostic["title"] ?></div>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                        <?php foreach ($diagnostics['upcoming']['items'] as $key => $diagnostic) : ?>
-                            <div class="annotation-box" style="left: <?php echo $diagnostic['marker'][0] ?>%; top: <?php echo $diagnostic['marker'][1] ?>%">
-                                <div class="annotation-marker"></div>
-                                <div class="annotation-content-box">
-                                    <div class="annotation-content">
-                                        <div class="annotation-text"><?php echo $diagnostic["title"] ?></div>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
+<section class="flex relative w-screen h-screen">
+    <div class="w-3/4">
+        <div class="bg-gray-400 relative w-full h-full">
+            <div class="annotations">
+                <div class="annotations-label">
+                    <div class="annotations-label-text">Pod Render</div>
                 </div>
-                <div class="mt-2 label-text text-xs">Pod Blueprint</div>
-            </div>
-            <div class="accordion accordion-small w-full px-4 md:w-1/3 text-sm">
-
-                <?php foreach ($diagnostics as $key => $diagnosticGroup) : ?>
-
-                    <div class="mb-5">
-
-                        <div class="label-text text-xs text-gray-600 mb-2">
-                            <?php echo $diagnosticGroup["title"] ?> <a href="#"><i class="ml-1 fas fa-question-circle"></i></a>
+                <div class="annotations-image nmr-lazyload" data-bg="<?php echo get_template_directory_uri() ?>/source/images/test/example.png"></div>
+                <?php foreach ($diagnostics['current']['items'] as $key => $diagnostic) : ?>
+                    <div class="annotation-box" style="left:<?php echo $diagnostic['marker'][0] ?>%; top:<?php echo $diagnostic['marker'][1] ?>%;">
+                        <div class="annotation-marker"></div>
+                        <div class="annotation-content-box">
+                            <div class="annotation-content">
+                                <div class="annotation-text"><?php echo $diagnostic["title"] ?></div>
+                            </div>
                         </div>
-
-                        <div class="w-full">
-                            <?php foreach ($diagnosticGroup["items"] as $key => $diagnostic) : ?>
-                                <div class="annotation-trigger accordion-item cursor-pointer w-full">
-                                    <div class="accordion-item-header">
-                                        <h6 class="font-medium"><?php echo $diagnostic["title"] ?></h6>
-                                    </div>
-                                    <div class="accordion-item-content">
-                                        <div class="accordion-item-answer">
-                                            <p><?php echo $diagnostic["description"] ?></p>
-                                            <a class="mt-2 inline-block text-ovalGreenDark label-text text-xs" href="">Read More <i class="ml-1 fas fa-caret-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
-
                     </div>
-
                 <?php endforeach; ?>
-
+                <?php foreach ($diagnostics['upcoming']['items'] as $key => $diagnostic) : ?>
+                    <div class="annotation-box" style="left:<?php echo $diagnostic['marker'][0] ?>%; top:<?php echo $diagnostic['marker'][1] ?>%;">
+                        <div class="annotation-marker"></div>
+                        <div class="annotation-content-box">
+                            <div class="annotation-content">
+                                <div class="annotation-text"><?php echo $diagnostic["title"] ?></div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
+    <div class="px-10 py-16 w-1/4">
+        <div class="mb-5">
+            <h1 class="text-3xl">Diagnostics</h1>
+        </div>
+        <div class="accordion accordion-small h-full">
+
+            <?php foreach ($diagnostics as $key => $diagnosticsStuff) : ?>
+
+                <div class="mb-5">
+
+                    <div class="label-text text-xs text-gray-600 mb-2">
+                        <?php echo $diagnosticsStuff["title"] ?> <a href="#"><i class="ml-1 fas fa-question-circle"></i></a>
+                    </div>
+
+                    <div class="w-full">
+                        <?php foreach ($diagnosticsStuff["items"] as $key => $diagnostic) : ?>
+                            <div class="accordion-item cursor-pointer w-full">
+                                <div class="accordion-item-header">
+                                    <h6 class="font-medium"><?php echo $diagnostic["title"] ?></h6>
+                                </div>
+                                <div class="accordion-item-content">
+                                    <div class="accordion-item-answer">
+                                        <p><?php echo $diagnostic["description"] ?></p>
+                                        <a class="mt-4 inline-block text-ovalGreenDark label-text text-xs" href="">Read More <i class="ml-1 fas fa-caret-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+
+                </div>
+
+            <?php endforeach; ?>
+
+        </div>
+    </div>
+
 </section>

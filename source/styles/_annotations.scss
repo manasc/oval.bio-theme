@@ -6,11 +6,27 @@ $annotationBorder: 2;
   @apply h-full w-full;
   //   @apply overflow-hidden;
 
+  .annotations-label {
+    @extend .label;
+
+    @apply absolute bottom-0 left-0;
+    @apply border border-ovalGreenDark;
+
+    .annotations-label-text {
+      @extend .label-text;
+    }
+  }
+
+  .annotations-image {
+    transition-duration: $animationSpeed;
+    @apply opacity-75;
+    @apply absolute h-full top-0 left-0 w-full bg-contain bg-center bg-no-repeat;
+  }
+
   .annotation-box {
     transition-duration: $animationSpeed;
 
     @apply absolute;
-    @apply opacity-25;
     @apply w-#{$annotationSize} h-#{$annotationSize};
 
     .annotation-marker {
@@ -77,6 +93,12 @@ $annotationBorder: 2;
           @apply visible opacity-100;
         }
       }
+    }
+  }
+
+  &:hover {
+    .annotations-image {
+      @apply opacity-25;
     }
   }
 }

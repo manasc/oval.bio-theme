@@ -2002,7 +2002,7 @@ body {
 }
 
 .accordion.accordion-small .accordion-item-content {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
 }
 
 .accordion.accordion-small .accordion-item-header {
@@ -2106,11 +2106,11 @@ body {
   transform: translate(-70%, -25px);
 }
 
-.synergy.active .synergy-diagram .synergy-1 {
+.synergy .synergy-diagram .synergy-1 {
   opacity: 1;
 }
 
-.synergy.active .synergy-diagram .synergy-2 {
+.synergy .synergy-diagram .synergy-2 {
   opacity: 1;
 }
 
@@ -2122,10 +2122,32 @@ body {
   width: 100%;
 }
 
+.annotations .annotations-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-width: 1px;
+  --border-opacity: 1;
+  border-color: #38b795;
+  border-color: rgba(56, 183, 149, var(--border-opacity));
+}
+
+.annotations .annotations-image {
+  transition-duration: 300ms;
+  opacity: 0.75;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .annotations .annotation-box {
   transition-duration: 300ms;
   position: absolute;
-  opacity: 0.25;
   width: 1rem;
   height: 1rem;
 }
@@ -2205,6 +2227,10 @@ body {
   opacity: 1;
 }
 
+.annotations:hover .annotations-image {
+  opacity: 0.25;
+}
+
 .pillar-icon-box .pillar-icon {
   --bg-opacity: 1;
   background-color: #cbd5e0;
@@ -2224,7 +2250,7 @@ body {
   border-radius: 0.25rem;
 }
 
-.label-text, .tabs-section .tabs-section-title, .synergy .synergy-diagram .synergy-text {
+.label-text, .tabs-section .tabs-section-title, .synergy .synergy-diagram .synergy-text, .annotations .annotations-label .annotations-label-text {
   text-transform: uppercase;
   font-weight: 500;
   font-size: 1rem;
@@ -2234,7 +2260,7 @@ body {
   line-height: 1;
 }
 
-.label {
+.label, .annotations .annotations-label {
   cursor: default;
   --bg-opacity: 1;
   background-color: #77e0a1;
@@ -2250,7 +2276,7 @@ body {
   border-color: rgba(119, 224, 161, var(--border-opacity));
 }
 
-.label.label-blue {
+.label.label-blue, .annotations .label-blue.annotations-label {
   --bg-opacity: 1;
   background-color: #76b9d6;
   background-color: rgba(118, 185, 214, var(--bg-opacity));
@@ -2260,7 +2286,7 @@ body {
   cursor: pointer;
 }
 
-.label.label-blue:hover {
+.label.label-blue:hover, .annotations .label-blue.annotations-label:hover {
   --bg-opacity: 1;
   background-color: #4299e1;
   background-color: rgba(66, 153, 225, var(--bg-opacity));
@@ -2269,7 +2295,7 @@ body {
   border-color: rgba(66, 153, 225, var(--border-opacity));
 }
 
-.label.clickable:hover {
+.label.clickable:hover, .annotations .clickable.annotations-label:hover {
   cursor: pointer;
   --border-opacity: 1;
   border-color: #38b795;
@@ -2279,35 +2305,35 @@ body {
   background-color: rgba(56, 183, 149, var(--bg-opacity));
 }
 
-.label .label-text, .label .tabs-section .tabs-section-title, .tabs-section .label .tabs-section-title, .label .synergy .synergy-diagram .synergy-text, .synergy .synergy-diagram .label .synergy-text {
+.label .label-text, .annotations .annotations-label .label-text, .label .tabs-section .tabs-section-title, .tabs-section .label .tabs-section-title, .annotations .annotations-label .tabs-section .tabs-section-title, .tabs-section .annotations .annotations-label .tabs-section-title, .label .synergy .synergy-diagram .synergy-text, .synergy .synergy-diagram .label .synergy-text, .annotations .annotations-label .synergy .synergy-diagram .synergy-text, .synergy .synergy-diagram .annotations .annotations-label .synergy-text, .annotations .annotations-label .annotations-label-text {
   font-size: 0.75rem !important;
 }
 
-.label.simple {
+.label.simple, .annotations .simple.annotations-label {
   --bg-opacity: 1;
   background-color: #fff;
   background-color: rgba(255, 255, 255, var(--bg-opacity));
 }
 
-.label.simple .label-text, .label.simple .tabs-section .tabs-section-title, .tabs-section .label.simple .tabs-section-title, .label.simple .synergy .synergy-diagram .synergy-text, .synergy .synergy-diagram .label.simple .synergy-text {
+.label.simple .label-text, .annotations .simple.annotations-label .label-text, .label.simple .tabs-section .tabs-section-title, .tabs-section .label.simple .tabs-section-title, .annotations .simple.annotations-label .tabs-section .tabs-section-title, .tabs-section .annotations .simple.annotations-label .tabs-section-title, .label.simple .synergy .synergy-diagram .synergy-text, .synergy .synergy-diagram .label.simple .synergy-text, .annotations .simple.annotations-label .synergy .synergy-diagram .synergy-text, .synergy .synergy-diagram .annotations .simple.annotations-label .synergy-text, .label.simple .annotations .annotations-label .annotations-label-text, .annotations .annotations-label .label.simple .annotations-label-text, .annotations .simple.annotations-label .annotations-label-text {
   --text-opacity: 1;
   color: #77e0a1;
   color: rgba(119, 224, 161, var(--text-opacity));
 }
 
-.label.simple.clickable:hover {
+.label.simple.clickable:hover, .annotations .simple.clickable.annotations-label:hover {
   --bg-opacity: 1;
   background-color: #fff;
   background-color: rgba(255, 255, 255, var(--bg-opacity));
 }
 
-.label.simple.clickable:hover .label-text, .label.simple.clickable:hover .tabs-section .tabs-section-title, .tabs-section .label.simple.clickable:hover .tabs-section-title, .label.simple.clickable:hover .synergy .synergy-diagram .synergy-text, .synergy .synergy-diagram .label.simple.clickable:hover .synergy-text {
+.label.simple.clickable:hover .label-text, .annotations .simple.clickable.annotations-label:hover .label-text, .label.simple.clickable:hover .tabs-section .tabs-section-title, .tabs-section .label.simple.clickable:hover .tabs-section-title, .annotations .simple.clickable.annotations-label:hover .tabs-section .tabs-section-title, .tabs-section .annotations .simple.clickable.annotations-label:hover .tabs-section-title, .label.simple.clickable:hover .synergy .synergy-diagram .synergy-text, .synergy .synergy-diagram .label.simple.clickable:hover .synergy-text, .annotations .simple.clickable.annotations-label:hover .synergy .synergy-diagram .synergy-text, .synergy .synergy-diagram .annotations .simple.clickable.annotations-label:hover .synergy-text, .label.simple.clickable:hover .annotations .annotations-label .annotations-label-text, .annotations .annotations-label .label.simple.clickable:hover .annotations-label-text, .annotations .simple.clickable.annotations-label:hover .annotations-label-text {
   --text-opacity: 1;
   color: #38b795;
   color: rgba(56, 183, 149, var(--text-opacity));
 }
 
-.label.plain {
+.label.plain, .annotations .plain.annotations-label {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
@@ -2321,7 +2347,7 @@ body {
   margin-bottom: -0.5rem;
 }
 
-.labels .label {
+.labels .label, .labels .annotations .annotations-label, .annotations .labels .annotations-label {
   margin-bottom: 0.5rem;
 }
 

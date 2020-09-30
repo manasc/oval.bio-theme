@@ -6,9 +6,14 @@ function navbarFunc() {
   var mobileMenu = document.querySelector("#mobile-menu");
   var closeMenu = document.querySelector("#close-mobile-menu");
   var openMenu = document.querySelector("#open-mobile-menu");
+  var fullHeightDivs = document.querySelectorAll(".h-screen");
 
-  function navbarFunc() {
+  function setHeights() {
     faux.style.height = header.clientHeight + "px";
+
+    fullHeightDivs.forEach((div) => {
+      div.style.maxHeight = window.innerHeight - header.clientHeight + "px";
+    });
   }
 
   function toggleMobileMenu() {
@@ -16,18 +21,16 @@ function navbarFunc() {
   }
 
   //  run init functions
-  navbarFunc();
+  setHeights();
 
   //  add listeners
   // TODO: animate
   closeBanner.addEventListener("click", function () {
     banner.style.display = "none";
-    navbarFunc();
+    setHeights();
   });
 
-  window.addEventListener("resize", function () {
-    navbarFunc();
-  });
+  window.addEventListener("resize", setHeights);
 
   closeMenu.addEventListener("click", toggleMobileMenu);
   openMenu.addEventListener("click", toggleMobileMenu);

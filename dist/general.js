@@ -5633,9 +5633,13 @@ function navbarFunc() {
   var mobileMenu = document.querySelector("#mobile-menu");
   var closeMenu = document.querySelector("#close-mobile-menu");
   var openMenu = document.querySelector("#open-mobile-menu");
+  var fullHeightDivs = document.querySelectorAll(".h-screen");
 
-  function navbarFunc() {
+  function setHeights() {
     faux.style.height = header.clientHeight + "px";
+    fullHeightDivs.forEach(function (div) {
+      div.style.maxHeight = window.innerHeight - header.clientHeight + "px";
+    });
   }
 
   function toggleMobileMenu() {
@@ -5643,16 +5647,14 @@ function navbarFunc() {
   } //  run init functions
 
 
-  navbarFunc(); //  add listeners
+  setHeights(); //  add listeners
   // TODO: animate
 
   closeBanner.addEventListener("click", function () {
     banner.style.display = "none";
-    navbarFunc();
+    setHeights();
   });
-  window.addEventListener("resize", function () {
-    navbarFunc();
-  });
+  window.addEventListener("resize", setHeights);
   closeMenu.addEventListener("click", toggleMobileMenu);
   openMenu.addEventListener("click", toggleMobileMenu);
 }
@@ -5975,8 +5977,8 @@ document.addEventListener("DOMContentLoaded", wavesAnimation);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/Fabian/code/nimaroh/oval.bio/wp-content/themes/oval.bio-theme/source/scripts/general.js */"./source/scripts/general.js");
-module.exports = __webpack_require__(/*! /Users/Fabian/code/nimaroh/oval.bio/wp-content/themes/oval.bio-theme/source/styles/main.scss */"./source/styles/main.scss");
+__webpack_require__(/*! /Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/source/scripts/general.js */"./source/scripts/general.js");
+module.exports = __webpack_require__(/*! /Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/source/styles/main.scss */"./source/styles/main.scss");
 
 
 /***/ })

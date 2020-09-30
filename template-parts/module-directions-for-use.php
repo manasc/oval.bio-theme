@@ -1,7 +1,5 @@
 <section>
-    <div class="mb-10">
-        <h1 class="subtitle">Directions For Use</h1>
-    </div>
+   
     <div class="mb-10">
         <div class="labels">
             <div class="label">

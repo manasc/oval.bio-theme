@@ -36087,7 +36087,7 @@ var ContextProvider = /*#__PURE__*/function (_React$Component) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/Fabian/code/nimaroh/oval.bio/wp-content/themes/oval.bio-theme/source/scripts/app.js */"./source/scripts/app.js");
+module.exports = __webpack_require__(/*! /Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/source/scripts/app.js */"./source/scripts/app.js");
 
 
 /***/ })
