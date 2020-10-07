@@ -309,13 +309,12 @@ function get_logo()
 
 class Header_Nav extends Walker_Nav_Menu
 {
-    
+
     public function start_el(&$output, $item, $depth = 0, $args = null, $id = 0)
     {
         $classes = is_page($item->post_title) ? 'text-ovalGreen' : 'opacity-75 hover:opacity-100';
         $output .= "<li class=\"px-2 truncate $classes\"><a href=\"$item->url\">$item->post_title</a></li>";
     }
-
 }
 
 class Mobile_Nav extends Walker_Nav_Menu
@@ -329,15 +328,27 @@ class Mobile_Nav extends Walker_Nav_Menu
 
 
 // limit posts to current author
-function nmr_posts_access_limit($query) {
+function nmr_posts_access_limit($query)
+{
     global $pagenow;
- 
-    if( 'edit.php' != $pagenow || !$query->is_admin )
+
+    // check if admin
+    if ('edit.php' != $pagenow || !$query->is_admin)
         return $query;
- 
-    if( !current_user_can( 'edit_others_posts' ) ) {
+
+    // check if current user can edit_other_posts
+    if (!current_user_can('edit_others_posts')) {
         global $user_ID;
-        $query->set('author', $user_ID );
+
+        // set query paramters to monologi's taxonomy
+        // _molongui_author
+        $query->set('meta_query', array(
+            array(
+                'key'     => '_molongui_author',
+                'value'   => 'user-' . $user_ID,
+                'compare' => 'IN',
+            ),
+        ));
     }
     return $query;
 }
