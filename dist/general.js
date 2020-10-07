@@ -5638,7 +5638,12 @@ function navbarFunc() {
   function setHeights() {
     faux.style.height = header.clientHeight + "px";
     fullHeightDivs.forEach(function (div) {
-      div.style.maxHeight = window.innerHeight - header.clientHeight + "px";
+      if (window.innerWidth < 768) {
+        div.style.maxHeight = 0;
+      } else {
+        div.style.maxHeight = window.innerHeight - header.clientHeight + "px";
+        console.log(window.innerHeight - header.clientHeight + "px");
+      }
     });
   }
 

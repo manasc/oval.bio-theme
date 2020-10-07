@@ -158,8 +158,8 @@ $diagnostics = [
 ];
 ?>
 
-<section class="flex relative w-screen h-screen">
-    <div class="w-3/4">
+<section class="flex flex-wrap md:flex-no-wrap relative w-screen min-h-screen">
+    <div class="annotations-box w-full md:w-3/4">
         <div class="bg-gray-400 relative w-full h-full">
             <div class="annotations">
                 <div class="annotations-label">
@@ -189,40 +189,42 @@ $diagnostics = [
             </div>
         </div>
     </div>
-    <div class="px-10 py-16 w-1/4">
-        <div class="mb-5">
-            <h1 class="text-3xl">Diagnostics</h1>
-        </div>
-        <div class="accordion accordion-small h-full">
+    <div class="w-full md:w-1/4">
+        <div class="px-10 py-16 overflow-y-scroll">
+            <div class="mb-5">
+                <h1 class="text-3xl">Diagnostics</h1>
+            </div>
+            <div class="accordion accordion-small h-full">
 
-            <?php foreach ($diagnostics as $key => $diagnosticsStuff) : ?>
+                <?php foreach ($diagnostics as $key => $diagnosticsStuff) : ?>
 
-                <div class="mb-5">
+                    <div class="mb-5">
 
-                    <div class="label-text text-xs text-gray-600 mb-2">
-                        <?php echo $diagnosticsStuff["title"] ?> <a href="#"><i class="ml-1 fas fa-question-circle"></i></a>
-                    </div>
+                        <div class="label-text text-xs text-gray-600 mb-2">
+                            <?php echo $diagnosticsStuff["title"] ?> <a href="#"><i class="ml-1 fas fa-question-circle"></i></a>
+                        </div>
 
-                    <div class="w-full">
-                        <?php foreach ($diagnosticsStuff["items"] as $key => $diagnostic) : ?>
-                            <div class="accordion-item cursor-pointer w-full">
-                                <div class="accordion-item-header">
-                                    <h6 class="font-medium"><?php echo $diagnostic["title"] ?></h6>
-                                </div>
-                                <div class="accordion-item-content">
-                                    <div class="accordion-item-answer">
-                                        <p><?php echo $diagnostic["description"] ?></p>
-                                        <a class="mt-4 inline-block text-ovalGreenDark label-text text-xs" href="">Read More <i class="ml-1 fas fa-caret-right"></i></a>
+                        <div class="w-full">
+                            <?php foreach ($diagnosticsStuff["items"] as $key => $diagnostic) : ?>
+                                <div class="accordion-item cursor-pointer w-full">
+                                    <div class="accordion-item-header">
+                                        <h6 class="font-medium"><?php echo $diagnostic["title"] ?></h6>
+                                    </div>
+                                    <div class="accordion-item-content">
+                                        <div class="accordion-item-answer">
+                                            <p><?php echo $diagnostic["description"] ?></p>
+                                            <a class="mt-4 inline-block text-ovalGreenDark label-text text-xs" href="">Read More <i class="ml-1 fas fa-caret-right"></i></a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
+                        </div>
+
                     </div>
 
-                </div>
+                <?php endforeach; ?>
 
-            <?php endforeach; ?>
-
+            </div>
         </div>
     </div>
 

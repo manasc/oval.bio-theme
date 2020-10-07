@@ -30,30 +30,33 @@ $pillars = [
 
 ?>
 
-<div class="max-w-6xl mx-auto px-5 py-10">
+<div class="flex relative w-screen h-screen">
+    <div class="max-w-6xl mx-auto px-5 py-10">
 
-    <div class="mb-10">
-        <h1 class="text-4xl mb-10 text-center">Frequently Asked Questions</h1>
-    </div>
+        <div class="mb-10">
+            <h1 class="text-4xl mb-10 text-center">Frequently Asked Questions</h1>
+        </div>
 
-    <!-- FAQ -->
-    <section class="accordion-box">
-        <div class="accordion">
-            <?php foreach ($pillars as $x => $pillar) : ?>
-                <div class="accordion-item accordion-item-has-icon">
-                    <div class="accordion-item-header">
-                        <div class="accordion-item-question">
-                            <div class="accordion-item-icon">
-                                <i class="fas fa-plus-circle"></i>
+        <!-- FAQ -->
+        <section class="accordion-box">
+            <div class="accordion">
+                <?php foreach ($pillars as $x => $pillar) : ?>
+                    <div class="accordion-item accordion-item-has-icon">
+                        <div class="accordion-item-header">
+                            <div class="accordion-item-question">
+                                <div class="accordion-item-icon">
+                                    <i class="fas fa-plus-circle"></i>
+                                </div>
+                                <?= $pillar['title'] ?>
                             </div>
-                            <?= $pillar['title'] ?>
+                        </div>
+                        <div class="accordion-item-content">
+                            <p class="accordion-item-answer"><?= $pillar['description'] ?></p>
                         </div>
                     </div>
-                    <div class="accordion-item-content">
-                        <p class="accordion-item-answer"><?= $pillar['description'] ?></p>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        </div>
-    </section>
+                <?php endforeach; ?>
+            </div>
+        </section>
+    </div>
+    
 </div>
