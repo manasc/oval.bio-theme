@@ -326,3 +326,19 @@ class Mobile_Nav extends Walker_Nav_Menu
         $output .= "<li class=\"px-2 truncate $classes\"><a href=\"$item->url\">$item->post_title</a></li>";
     }
 }
+
+
+// limit posts to current author
+function nmr_posts_access_limit($query) {
+    global $pagenow;
+ 
+    if( 'edit.php' != $pagenow || !$query->is_admin )
+        return $query;
+ 
+    if( !current_user_can( 'edit_others_posts' ) ) {
+        global $user_ID;
+        $query->set('author', $user_ID );
+    }
+    return $query;
+}
+add_filter('pre_get_posts', 'nmr_posts_access_limit');
