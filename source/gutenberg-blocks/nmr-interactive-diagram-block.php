@@ -16,6 +16,7 @@
             </div>
         </div>
     </div>
+    
     <div class="w-full md:w-3/4 relative bg-gray-200">
         <div class="w-full">
             <div class="" style="padding-top: 100%"></div>

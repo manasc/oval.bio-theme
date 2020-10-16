@@ -11,6 +11,7 @@ if (process.env.NODE_ENV === "development") {
     cssNano: false,
   };
 } else {
+  
   // if in production mode
   mixOptions = {
     processCssUrls: false,
@@ -34,12 +35,12 @@ mix
   .options(mixOptions)
   .copy("source/images/**/*.*", "dist/images/")
   .browserSync({
-    proxy: "https://oval.bio.dev",
-    host: "oval.bio.dev",
+    proxy: "https://oval.bio.test",
+    host: "oval.bio.test",
     open: "external",
     https: {
-      key: "/Users/Fabian/.config/valet/Certificates/oval.bio.dev.key",
-      cert: "/Users/Fabian/.config/valet/Certificates/oval.bio.dev.crt",
+      key: "/Users/manas/.config/valet/Certificates/oval.bio.test.key",
+      cert: "/Users/manas/.config/valet/Certificates/oval.bio.test.crt",
     },
     files: ["**/*.php", "dist/*.css", "dist/*.js"],
   })

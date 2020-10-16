@@ -9,6 +9,7 @@
     "Theme"
   ],
   "scripts": {
+    "start": "npm run watch",
     "dev": "npm run development",
     "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "watch": "npm run development -- --watch",
@@ -35,6 +36,7 @@
     "dotenv": "^8.2.0",
     "eslint-plugin-import": "^2.20.2",
     "flickity": "^2.2.1",
+    "fullpage.js": "^3.0.9",
     "glob": "^7.1.6",
     "isotope-layout": "^3.0.6",
     "laravel-mix": "^5.0.5",

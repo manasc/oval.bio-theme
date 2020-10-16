@@ -15,7 +15,11 @@ import "./general/pillars";
 import "./general/faq";
 import "./general/accordion";
 
+import fullpage from "fullpage.js";
+
 document.addEventListener("DOMContentLoaded", function () {
+  // new fullpage("#fullpage");
+
   const profilesVisuals = document.querySelectorAll("profiles-visual");
 
   profilesVisuals.forEach((block) => {
@@ -23,5 +27,4 @@ document.addEventListener("DOMContentLoaded", function () {
       block.classList.add("active");
     }, 1000);
   });
-  
 });
