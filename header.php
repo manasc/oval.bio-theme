@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-        <div id="header-navbar" class="bg-gray-800 text-sm text-sm text-white py-3 md:py-2 px-5">
+        <div id="header-navbar" class="bg-gray-800 text-sm text-white py-3 md:py-2 px-5">
             <div class="container-fluid mx-auto">
                 <div class="flex items-center">
                     <div class="w-1/3 left-menu hidden lg:block">

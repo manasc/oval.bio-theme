@@ -2,11 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 // render each component
-import Vision from "./app/components/Vision";
-// import Choices from "./app/components/Choices";
 import Customizer from "./app/components/Customizer";
-// import Header from "./app/components/Header";
-import Tabs from "./app/components/Tabs";
+import ManifestoPage from "./app/pages/ManifestoPage";
 
 // single components
 // const vision = document.querySelector("#vision");
@@ -16,16 +13,11 @@ import Tabs from "./app/components/Tabs";
 
 const productCustomizer = document.querySelector("#product-customizer");
 if (productCustomizer) {
-  ReactDOM.render(<Customizer />, productCustomizer);
+    ReactDOM.render(<Customizer />, productCustomizer);
 }
 
-// const header = document.querySelector("#main-header");
-// if (header) {
-//   console.log(header);
-//   ReactDOM.render(<Header {...header.dataset} />, header);
-// }
-
-// const tabs = document.querySelector("#tabs");
-// if (tabs) {
-//   ReactDOM.render(<Tabs {...tabs.dataset} />, tabs);
-// }
+// manifesto page
+const manifestoPage = document.querySelector("#manifesto-page");
+if (manifestoPage) {
+    ReactDOM.render(<ManifestoPage />, manifestoPage);
+}
