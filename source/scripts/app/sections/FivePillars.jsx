@@ -71,8 +71,8 @@ function FivePillars() {
             dead: {},
         },
         link: {
-            active: "text-2xl opacity-100",
-            dead: "cursor-pointer text-2xl opacity-25 hover:opacity-75",
+            active: "text-base mb-2 opacity-100",
+            dead: "cursor-pointer text-base mb-2 opacity-25 hover:opacity-75",
         },
     };
 
@@ -84,10 +84,10 @@ function FivePillars() {
         <section className="section h-screen overflow-hidden">
             <div className="flex h-full">
                 <div className="w-full max-w-md flex-none p-10">
-                    <div className="text-3xl mb-5">
+                    <div className="text-5xl leading-tight mb-5">
                         The <span className="text-ovalGreen">5 pillars</span> of Longevity
                     </div>
-                    <p>
+                    <p className="text-lg">
                         Our products, services and blog content will revolve around 5 pillars of
                         longevity. Each one of these pillars covers a piece of the puzzle to
                         position oneself for attaining life extension. Some of them are more

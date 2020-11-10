@@ -9590,6 +9590,68 @@ document.addEventListener("DOMContentLoaded", mobileAnchorBox);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+}
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+
+function _iterableToArray(iter) {
+  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
+}
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+}
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
+}
+
+function toggleMeta(type) {
+  var nonSubMeta = document.querySelectorAll(".non-subscription-meta");
+  var subMeta = document.querySelectorAll(".subscription-meta");
+
+  if (type === "subscription-meta") {
+    _toConsumableArray(nonSubMeta).map(function (item) {
+      console.log(item);
+      item.classList.add("hidden");
+    });
+
+    _toConsumableArray(subMeta).map(function (item) {
+      console.log(item);
+      item.classList.remove("hidden");
+    });
+  } else {
+    _toConsumableArray(nonSubMeta).map(function (item) {
+      console.log(item);
+      item.classList.remove("hidden");
+    });
+
+    _toConsumableArray(subMeta).map(function (item) {
+      console.log(item);
+      item.classList.add("hidden");
+    });
+  }
+}
+
 function changeTotal(_ref) {
   var priceValue = _ref.priceValue,
       subPriceValue = _ref.subPriceValue,
@@ -9601,17 +9663,18 @@ function changeTotal(_ref) {
       packSize = _document$productBox.packSize,
       subscription = _document$productBox.subscription;
   priceValue.innerText = "$".concat(packSize.value * testUnitPrice, ".00");
-  console.log(subscription.checked);
 
-  if (subscription.checked) {
+  if (subscription.value === "subscription") {
     // value changes
+    toggleMeta("subscription-meta");
     subPriceValue.innerText = "$".concat(Math.floor(packSize.value * testUnitPrice * (1 - testDiscount)), ".00"); // visual changes
 
     subPriceBox.classList.remove("hidden");
     priceBox.classList.add("line-through");
     priceBox.classList.replace("text-ovalGreen", "text-gray-400");
   } else {
-    // visual changes
+    toggleMeta("non-subscription-meta"); // visual changes
+
     subPriceBox.classList.add("hidden");
     priceBox.classList.remove("line-through");
     priceBox.classList.replace("text-gray-400", "text-ovalGreen");
@@ -9637,14 +9700,16 @@ document.addEventListener("DOMContentLoaded", function () {
       subPriceBox: subPriceBox,
       priceBox: priceBox
     };
+    toggleMeta("subscription-meta");
     document.productBox.packSize.forEach(function (size) {
       size.addEventListener("change", function () {
-        console.log(document.productBox.packSize.value);
         changeTotal(formObj);
       });
     });
-    document.productBox.subscription.addEventListener("change", function () {
-      changeTotal(formObj);
+    document.productBox.subscription.forEach(function (option) {
+      option.addEventListener("change", function () {
+        changeTotal(formObj);
+      });
     });
   }
 });

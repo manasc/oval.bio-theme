@@ -35,7 +35,7 @@ $faqs = [];
 
     <div class="mb-10">
 
-        <h1 class="text-4xl mb-5 text-center">The 5 Pillars of Longevity.</h1>
+        <h1 class="text-5xl mb-5 text-center">The 5 Pillars of Longevity.</h1>
         <div class="labels">
             <div class="label">
                 <span class="label-text">Pillars</span>

@@ -103,11 +103,42 @@ $productArr = [
 				<div class="options mb-10">
 
 					<div class="font-bold text-xs tracking-wider uppercase text-gray-800 mb-2">
-						Subscribe and save:
+						<span class="subscription-meta">You're saving <span class="text-ovalGreenDark">20%</span></span>
+						<span class="non-subscription-meta">Subscribe and save <span class="text-ovalGreenDark">20% more.</span></span>
 					</div>
-					<div class="block">
+					<div class="block sub-options">
+						<label class="sub-option">
+							<input type="radio" name="subscription" value="one-time" />
+							<div class="sub-option-box">
+								<div class="sub-option-number">One-Time</div>
+							</div>
+						</label>
+						<label class="sub-option">
+							<input type="radio" checked name="subscription" value="subscription" />
+							<div class="sub-option-box">
+								<div class="sub-option-number">Subscription</div>
+							</div>
+						</label>
+						<div class="non-subscription-meta">
+							<div class="text-2xs text-gray-500 italic leading-snug max-w-3xs">
+								Renews every 30 days.
+								Subscribe and save
+								<span id="points" class="text-ovalGreen font-bold mr-1">
+									20%
+								</span>
+							</div>
+						</div>
+						<div class="subscription-meta">
+							<div class="text-2xs text-gray-500 italic leading-snug max-w-3xs">
+								Renews every 30 days.
+								Subscribe and save
+								<span id="points" class="text-ovalGreen font-bold mr-1">
+									20%
+								</span>
+							</div>
+						</div>
 
-						<label id="subCheck" class="nmr-checkbox flex flex-wrap items-start">
+						<!-- <label id="subCheck" class="nmr-checkbox flex flex-wrap items-start">
 							<div class="nmr-checkbox-icon mr-2 flex-none">
 								<input type="checkbox" name="subscription" checked />
 								<i class="checked-icon fas fa-check-square"></i>
@@ -126,32 +157,29 @@ $productArr = [
 									.
 								</div>
 							</div>
-						</label>
+						</label> -->
 
 					</div>
 				</div>
 				<div class="options mb-10">
-					<div class="labels">
-						<div class="label">
-							<span class="label-text">Total</span>
-						</div>
+					<div class="label-text text-sm mb-2">
+						<span class="subscription-meta">Subscription Total</span>
+						<span class="non-subscription-meta">Total</span>
 					</div>
-					<div class="px-3 py-4 bg-gray-200">
-						<div class="title text-4xl leading-none">
-							<input type="text" name="total" class="hidden">
-							<div class="relative flex items-start font-normal tracking-tight">
-								<span id="price" class="line-through text-gray-400 inline-block">
-									<span id="priceValue">
-										$30.00
-									</span>
+					<div class="title text-4xl leading-none">
+						<input type="text" name="total" class="hidden">
+						<div class="relative flex items-start font-normal tracking-tight">
+							<span id="price" class="line-through text-gray-400 inline-block">
+								<span id="priceValue">
+									$30.00
 								</span>
-								<span id="subPrice" class="ml-1 text-ovalGreen relative inline-block">
-									<span id="subPriceValue">
-										$24.00
-									</span>
-									<div class="relative block text-2xs text-gray-600 uppercase text-right tracking-normal">per month</div>
+							</span>
+							<span id="subPrice" class="ml-1 text-ovalGreen relative inline-block">
+								<span id="subPriceValue">
+									$24.00
 								</span>
-							</div>
+								<div class="relative block text-2xs text-gray-600 uppercase text-right tracking-normal">per month</div>
+							</span>
 						</div>
 					</div>
 				</div>
