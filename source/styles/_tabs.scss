@@ -126,8 +126,7 @@ $deadGray: 300;
             @apply mt-10 mb-24 relative;
 
             .subtitle::before {
-              content: "#";
-
+              // content: "#";
               @apply text-ovalGreen absolute;
               @apply hidden;
 

@@ -33,14 +33,8 @@ $currentPhase = 0;
             <div class="phase-current bg-ovalGreen h-2 rounded-r-full absolute" style="width:<?= $currentPhase / ($phaseCount) * 100 ?>%"></div>
         </div>
     </div>
-    <div class="meta mt-16 max-w-md">
-        <div class="label-text mb-3">Why do I need to use this?</div>
-        <div class="tab-content"><?= $args["fields"]["pipeline_description"] ?></div>
-        <div class="cta mt-5">
-            <a href="" class="button">
-                Read More
-                <i class="button-icon fas fa-arrow-circle-right"></i>
-            </a>
-        </div>
+    <div class="meta mt-16 max-w-3xl mx-auto">
+        <!-- <div class="text-3xl mb-3">Why do I need to use this?</div> -->
+        <div class="tab-content text-lg"><?= $args["fields"]["pipeline_description"] ?></div>
     </div>
 </section>

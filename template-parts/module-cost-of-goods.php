@@ -1,5 +1,5 @@
 <section>
-    <div class="subtitle">Cost of Goods</div>
+    <div class="subtitle text-center">Cost of Goods</div>
 
     <?php if (!empty($args["fields"]["goods_tiers"])) : ?>
         <?php foreach ($args["fields"]["goods_tiers"] as $key => $tier) : ?>
@@ -56,15 +56,8 @@
     <?php endif; ?>
 
     <?php if (!empty($args["fields"]["introduction"])) : ?>
-        <div class="meta py-10 max-w-md">
-            <div class="label-text mb-3">Our Code of Transparency</div>
-            <div class="tab-content"><?= $args["fields"]["introduction"] ?></div>
-            <div class="cta mt-5">
-                <a href="" class="button">
-                    Read More
-                    <i class="button-icon fas fa-arrow-circle-right"></i>
-                </a>
-            </div>
+        <div class="meta mt-16 max-w-3xl mx-auto">
+            <div class="tab-content text-lg"><?= $args["fields"]["introduction"] ?></div>
         </div>
     <?php endif; ?>
 </section>

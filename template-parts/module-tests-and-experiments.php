@@ -1,5 +1,5 @@
 <section>
-    <h1 class="subtitle">Tests & Experiments</h1>
+    <h1 class="subtitle text-center">Tests & Experiments</h1>
 
     <div class="labels">
         <div class="label">
@@ -24,16 +24,6 @@
                 </a>
 
             <?php endforeach; ?>
-        </div>
-    </div>
-    <div class="meta py-10 max-w-md">
-        <div class="label-text mb-3">Why do I need to use this?</div>
-        <p>Ipsum ad consequatur hic fugit sed consequuntur debitis et non. Ut assumenda vero rerum dolor. Distinctio sint et pariatur consequatur. Dolor itaque doloremque ipsam beatae eos cumque.</p>
-        <div class="cta mt-5">
-            <a href="" class="button">
-                Read More
-                <i class="button-icon fas fa-arrow-circle-right"></i>
-            </a>
         </div>
     </div>
 </section>

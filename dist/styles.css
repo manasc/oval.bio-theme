@@ -1685,7 +1685,6 @@ body {
 }
 
 .anchor-box .anchor-box-wrapper .anchor-box-content .anchor-box-content-wrapper .anchor-box-sections .anchor-section .subtitle::before, .anchor-box .anchor-box-wrapper .anchor-box-content .anchor-box-content-wrapper .anchor-box-sections .anchor-section .tabs-section .tab-box-title::before, .tabs-section .anchor-box .anchor-box-wrapper .anchor-box-content .anchor-box-content-wrapper .anchor-box-sections .anchor-section .tab-box-title::before {
-  content: "#";
   --text-opacity: 1;
   color: #77e0a1;
   color: rgba(119, 224, 161, var(--text-opacity));

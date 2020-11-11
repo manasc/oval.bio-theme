@@ -30,7 +30,7 @@ $icons = [
 ?>
 <section>
     <div class="mb-10">
-        <h1 class="subtitle">Future of Product</h1>
+        <h1 class="subtitle text-center">Future of Product</h1>
     </div>
     <div class="mb-10">
         <div class="labels">

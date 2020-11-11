@@ -1,10 +1,10 @@
 <section>
-    
-    <h1 class="subtitle">Clinical Trials</h1>
+
+    <h1 class="subtitle text-center">Clinical Trials</h1>
 
     <div class="labels">
         <div class="label">
-            <span class="label-text">Tests & Experiments</span>
+            <span class="label-text">Clinical Trials</span>
         </div>
     </div>
     <div class="content-box">
@@ -26,14 +26,8 @@
             <?php endforeach; ?>
         </div>
     </div>
-    <div class="meta py-10 max-w-md">
-        <div class="label-text mb-3">Why do I need to use this?</div>
-        <p>Ipsum ad consequatur hic fugit sed consequuntur debitis et non. Ut assumenda vero rerum dolor. Distinctio sint et pariatur consequatur. Dolor itaque doloremque ipsam beatae eos cumque.</p>
-        <div class="cta mt-5">
-            <a href="" class="button">
-                Read More
-                <i class="button-icon fas fa-arrow-circle-right"></i>
-            </a>
-        </div>
+    <div class="meta mt-16 max-w-3xl mx-auto">
+        <!-- <div class="text-3xl mb-3">Why do I need to use this?</div> -->
+        <div class="tab-content text-lg"><?= $args["fields"]["description"] ?></div>
     </div>
 </section>

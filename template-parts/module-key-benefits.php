@@ -21,15 +21,17 @@
             </div>
         </div>
     </div>
-    <div class="mb-10">
+    <div class="meta mt-10 max-w-3xl mx-auto">
+        <!-- <div class="text-3xl mb-3">Why do I need to use this?</div> -->
         <?php foreach ($args["fields"]["benefits"] as $key => $benefit) : ?>
             <?php if (!empty($benefit["description"])) : ?>
-                <div class="tab-content max-w-md mx-auto">
-                    <h1 class="text-2xl font-light"><?= $benefit["title"] ?></h1>
-                    <p><?= $benefit["description"] ?></p>
-                </div>
+                <h3 class="text-2xl font-light"><?= $benefit["title"] ?></h3>
+                <div class="tab-content text-lg"><?= $benefit["description"] ?></div>
             <?php endif; ?>
         <?php endforeach; ?>
-        <div class="max-w-md"><?= $args["fields"]["description"] ?></div>
+    </div>
+    <div class="meta mt-10 max-w-3xl mx-auto">
+        <!-- <div class="text-3xl mb-3">Why do I need to use this?</div> -->
+        <div class="tab-content text-lg"><?= $args["fields"]["description"] ?></div>
     </div>
 </section>

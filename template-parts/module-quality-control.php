@@ -1,5 +1,5 @@
 <section>
-    <div class="subtitle">Quality Control</div>
+    <div class="subtitle text-center">Quality Control</div>
     <div class="flex flex-wrap -mx-5 relative overflow-hidden">
         <?php if (!empty($args["fields"]["image"])) : ?>
             <div class="w-full md:w-1/2 px-5">
@@ -9,9 +9,10 @@
                 <?= $args["fields"]["description"] ?>
             </div>
         <?php else : ?>
-            <div class="anchor-content columned w-full">
-                <?= $args["fields"]["description"] ?>
+            <div class="meta mt-2 max-w-3xl mx-auto">
+                <div class="tab-content text-lg"><?= $args["fields"]["description"] ?></div>
             </div>
         <?php endif; ?>
+
     </div>
 </section>

@@ -1,5 +1,5 @@
 <section>
-    <div class="subtitle">Instructables</div>
+    <div class="subtitle text-center">Instructables</div>
     <!-- TODO: add gradient -->
     <div class="cover absolute top-0 left-0 w-full h-full z-10 rounded overflow-hidden bg-white-gradient">
         <div class="w-full absolute bottom-0 py-12 px-5">
