@@ -6,6 +6,7 @@ import "./general/anchorBox";
 import "./general/lazyload";
 import "./general/gallery";
 import "./general/checkout";
+import "./general/tooltips";
 
 // gutenberg blocks
 import "./general/synergies";
@@ -15,16 +16,14 @@ import "./general/pillars";
 import "./general/faq";
 import "./general/accordion";
 
-import fullpage from "fullpage.js";
-
 document.addEventListener("DOMContentLoaded", function () {
-  // new fullpage("#fullpage");
+    // new fullpage("#fullpage");
 
-  const profilesVisuals = document.querySelectorAll("profiles-visual");
+    const profilesVisuals = document.querySelectorAll("profiles-visual");
 
-  profilesVisuals.forEach((block) => {
-    setTimeout(function () {
-      block.classList.add("active");
-    }, 1000);
-  });
+    profilesVisuals.forEach((block) => {
+        setTimeout(function () {
+            block.classList.add("active");
+        }, 1000);
+    });
 });
