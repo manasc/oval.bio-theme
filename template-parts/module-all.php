@@ -167,7 +167,7 @@
                 </div>
             </div>
 
-            <div class="mobile-anchor-box">
+            <!-- <div class="mobile-anchor-box">
                 <div class="anchors-wrapper">
                     <h1 class="w-full text-xs label-text px-2 mb-5">
                         <span class="text-ovalGreen">#</span>Anchors
@@ -182,7 +182,7 @@
                         ?>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
             <!-- ALL ANCHORED SECTIONS -->
@@ -205,7 +205,7 @@
                         ?>
                     </div>
 
-                    <div class="anchor-box-sidebar">
+                    <!-- <div class="anchor-box-sidebar">
                         <div class="anchors-wrapper">
                             <div class="labels">
                                 <div class="label">
@@ -222,7 +222,7 @@
                                 ?>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>

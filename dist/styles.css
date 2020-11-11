@@ -1947,13 +1947,6 @@ body {
   margin-bottom: 1.25rem;
 }
 
-.accordion-box {
-  -moz-column-count: 2;
-       column-count: 2;
-  -moz-column-gap: 3rem;
-       column-gap: 3rem;
-}
-
 .accordion .accordion-item {
   transition: all 300ms;
   -moz-column-break-inside: avoid;

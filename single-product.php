@@ -199,6 +199,16 @@ $productArr = [
 		</div>
 	</div>
 </form>
+<!-- <script type="text/javascript">
+	console.log("Hello!")
+	var xhr = new XMLHttpRequest();
+	xhr.onload = function() {
+		console.log(this.responseXML.title);
+	}
+	xhr.open("GET", "/wp-json/wp/v2/posts");
+	xhr.responseType = "document";
+	xhr.send();
+</script> -->
 <?php
 get_template_part('template-parts/module', "all", [
 	"fields" => get_fields()

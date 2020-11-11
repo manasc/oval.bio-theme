@@ -211,6 +211,19 @@ function oval_bio_scripts()
 }
 add_action('wp_enqueue_scripts', 'oval_bio_scripts');
 
+// add API endpoints
+function acf_to_rest_api($response, $post, $request)
+{
+    if (!function_exists('get_fields')) return $response;
+
+    if (isset($post)) {
+        $acf = get_fields($post->id);
+        $response->data['acf'] = $acf;
+    }
+    return $response;
+}
+add_filter('rest_prepare_post', 'acf_to_rest_api', 10, 3);
+
 add_filter('wp_check_filetype_and_ext', function ($data, $file, $filename, $mimes) {
 
     global $wp_version;
