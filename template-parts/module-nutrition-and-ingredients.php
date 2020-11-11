@@ -4,13 +4,13 @@ $ingredientsArr;
 $ingredientsList = [];
 
 // filter array
-$ingredientsArr = array_values(array_filter($args['fields']['ingredients'], function ($ingredient) {
+$ingredientsArr = !empty($args['fields']['ingredients']) ? array_values(array_filter($args['fields']['ingredients'], function ($ingredient) {
     return !empty($ingredient["image"]) && !empty($ingredient["description"]);
-}));
+})) : false;
 $arrCount = count($ingredientsArr) - 1;
-$ingredientsList = array_values(array_filter($args['fields']['ingredients'], function ($ingredient) {
+$ingredientsList = !empty($args['fields']['ingredients']) ? array_values(array_filter($args['fields']['ingredients'], function ($ingredient) {
     return empty($ingredient["image"]) || empty($ingredient["description"]);
-}));
+})) : false;
 $listCount = count($ingredientsArr) - 1;
 
 ?>
