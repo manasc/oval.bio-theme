@@ -7,7 +7,7 @@ $ingredientsList = [];
 $ingredientsArr = !empty($args['fields']['ingredients']) ? array_values(array_filter($args['fields']['ingredients'], function ($ingredient) {
     return !empty($ingredient["image"]) && !empty($ingredient["description"]);
 })) : false;
-$arrCount = count($ingredientsArr) - 1;
+$arrCount = !empty($ingredientsArr) ? count($ingredientsArr) - 1 : 0;
 $ingredientsList = !empty($args['fields']['ingredients']) ? array_values(array_filter($args['fields']['ingredients'], function ($ingredient) {
     return empty($ingredient["image"]) || empty($ingredient["description"]);
 })) : false;
