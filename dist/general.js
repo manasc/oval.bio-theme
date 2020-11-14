@@ -5238,8 +5238,8 @@ function faqAccordion() {
   if (accordions) {
     accordions.forEach(function (accordion) {
       var items = accordion.querySelectorAll(".accordion-item"); // activate first one
+      // openItem(items[0]);
 
-      openItem(items[0]);
       items.forEach(function (item) {
         item.addEventListener("click", function () {
           if (item.classList.contains("active")) {

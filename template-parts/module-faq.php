@@ -5,7 +5,7 @@
         <div class="accordion-box">
             <div class="accordion">
                 <?php foreach ($args['fields']['faqs'] as $x => $faq) : ?>
-                    <div class="accordion-item accordion-item-has-icon <?= $x === 0 && "active" ?>">
+                    <div class="accordion-item accordion-item-has-icon">
                         <div class="accordion-item-header">
                             <div class="accordion-item-question">
                                 <div class="accordion-item-icon">

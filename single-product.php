@@ -61,6 +61,12 @@ $productArr = [
 								<div data-key="<?php echo $id ?>" class="w-1/5 px-px py-px nmr-image">
 									<div class="square-image nmr-lazyload" data-bg="<?php echo wp_get_attachment_image_url($id, 'large', false) ?>"></div>
 								</div>
+								<?php
+								if ($key === 3) {
+									break;
+								} else {
+									continue;
+								} ?>
 							<?php endforeach; ?>
 						</div>
 					</div>

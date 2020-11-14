@@ -1,4 +1,6 @@
 <!-- **General -->
+<script src="https://unpkg.com/popper.js@1"></script>
+<script src="https://unpkg.com/tippy.js@5"></script>
 <?php if (!empty($args["fields"])) : ?>
 
     <?php
@@ -204,26 +206,6 @@
                         }
                         ?>
                     </div>
-
-                    <!-- <div class="anchor-box-sidebar">
-                        <div class="anchors-wrapper">
-                            <div class="labels">
-                                <div class="label">
-                                    <span class="label-text">Anchors</span>
-                                </div>
-                            </div>
-                            <div class="anchors">
-                                <?php
-                                foreach ($productTabBoxes as $key => $tabBox) {
-                                    if ($tabBox["active"]) {
-                                        echo '<a href="#' . $tabBox["slug"] . '" class="anchor">' . $tabBox["title"] . '</a>';
-                                    }
-                                }
-                                ?>
-                            </div>
-                        </div>
-                    </div> -->
-
                 </div>
             </div>
 

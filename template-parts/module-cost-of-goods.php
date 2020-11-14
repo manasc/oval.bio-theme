@@ -34,7 +34,7 @@
                                 <td class="border px-4 py-2"><?php echo $good["description"] ?></td>
                             </tr>
                             <?php
-                            $tier["sum"]["usage_per_unit"] += $good["usage_per_unit"];
+                            $tier["sum"]["bulk_cost"] += $good["bulk_cost"];
                             $tier["sum"]["cost_per_unit"] += $good["cost_per_unit"];
                             ?>
                         <?php endforeach; ?>

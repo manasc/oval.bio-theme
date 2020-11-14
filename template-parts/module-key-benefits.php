@@ -1,26 +1,31 @@
 <section>
-    <h1 class="subtitle">Key Benefits</h1>
+    <h1 class="subtitle text-center">Key Benefits</h1>
+
+    <!-- information -->
     <div class="mb-10">
-        <div class="labels">
+        <!-- <div class="labels">
             <div class="label">
                 <span class="label-text">Bullets</span>
             </div>
-        </div>
+        </div> -->
         <div class="content-box">
-            <!-- <div class="w-1/2 md:w-1/4 p-5">
-                    <img class="h-48 w-auto mx-auto" src="<?= $benefit['images']["url"] ?>" />
-                    <p class="text-center text-base mt-4"><?= $benefit['title'] ?></p>
-                </div> -->
-            <div class="flex flex-wrap items-start justify-around my-4">
-                <?php foreach ($args["fields"]["benefits"] as $key => $benefit) : ?>
-                    <div class="w-1/2 md:w-1/6 px-2">
-                        <div class="bg-contain bg-center bg-no-repeat nmr-lazyload mb-4" style="padding-top: 100%" data-bg="<?= $benefit["images"]["title"] ?>)"></div>
-                        <h1 class="text-xl text-center font-light"><?= $benefit["title"] ?></h1>
+            <?php foreach ($args["fields"]["benefits"] as $key => $benefit) : ?>
+                <div class="flex flex-wrap">
+                    <div class="w-full lg:w-1/2 flex items-center justify-center order-<?= $key % 2 ? 0 : 1 ?>">
+                        <div class="content px-10 py-16 w-full">
+                            <div class="text-2xl mb-5"><?= $benefit['title'] ?></div>
+                            <div class="text-lg mb-5"><?= $benefit['summary'] ?></div>
+                        </div>
                     </div>
-                <?php endforeach; ?>
-            </div>
+                    <div class="w-full lg:w-1/2 order-<?= $key % 2 ? 1 : 0 ?>">
+                        <div class="bg-gray-200 h-64 lg:h-full bg-cover bg-center bg-no-repeat" style="background-image:url(<?= $benefit["images"]["title"] ?>)"></div>
+                    </div>
+                </div>
+            <?php endforeach ?>
         </div>
     </div>
+
+    <!-- description -->
     <div class="meta mt-10 max-w-3xl mx-auto">
         <!-- <div class="text-3xl mb-3">Why do I need to use this?</div> -->
         <?php foreach ($args["fields"]["benefits"] as $key => $benefit) : ?>

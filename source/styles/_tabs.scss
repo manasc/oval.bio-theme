@@ -2,322 +2,328 @@ $activeGray: 500;
 $deadGray: 300;
 
 .tabs-section {
-  @apply my-10;
-  @apply relative;
-
-  @screen md {
-    @apply my-24;
-  }
-
-  .tabs-section-container {
-    @apply mx-auto relative;
-  }
-
-  .tabs-section-title {
-    @apply relative inline-block;
-    @apply cursor-default;
-    @apply bg-ovalGreen px-2 py-1 leading-none;
-    @apply border border-ovalGreen;
-    @apply text-2xs #{!important};
-
-    @extend .label-text;
-  }
-
-  .tab-box-title {
-    @extend .subtitle;
-  }
-
-  .tabs-meta,
-  .tabs {
-    @apply flex flex-wrap justify-start;
-    @apply px-0;
+    @apply my-10;
+    @apply relative;
 
     @screen md {
-      @apply px-2;
+        @apply my-24;
     }
-  }
 
-  .tabs {
-    @apply relative;
-    @apply w-full z-10 -mb-px;
+    .tabs-section-container {
+        @apply mx-auto relative;
+    }
 
-    .tab {
-      @apply cursor-pointer;
-      @apply w-full text-center leading-none;
-      @apply rounded-t border border-b-0 text-xs font-bold;
-      @apply uppercase tracking-wider px-5 py-3 -mr-px relative;
+    .tabs-section-title {
+        @apply relative inline-block;
+        @apply cursor-default;
+        @apply bg-ovalGreen px-2 py-1 leading-none;
+        @apply border border-ovalGreen;
+        @apply text-2xs #{!important};
 
-      @screen md {
-        @apply w-auto;
-      }
+        @extend .label-text;
+    }
 
-      &.active {
-        @apply bg-white border-gray-500 text-gray-800 z-10;
-      }
+    .tab-box-title {
+        @extend .subtitle;
+    }
 
-      &.dead {
-        z-index: -1;
-        @apply bg-transparent text-gray-500 border-gray-300 relative;
+    .tabs-meta,
+    .tabs {
+        @apply flex flex-wrap justify-start;
+        @apply px-0;
 
-        &:hover {
-          @apply text-gray-700;
+        @screen md {
+            @apply px-2;
         }
-      }
     }
-  }
 
-  .tabs-box {
-    @apply border border-gray-500 bg-white;
-    @apply w-full relative;
-    @apply z-0;
-    @apply p-10;
-    @apply rounded-md;
+    .tabs {
+        @apply relative;
+        @apply w-full z-10 -mb-px;
 
-    .tabs-box-content {
-      &.active {
-        @apply block;
-      }
+        .tab {
+            @apply cursor-pointer;
+            @apply w-full text-center leading-none;
+            @apply rounded-t border border-b-0 text-xs font-bold;
+            @apply uppercase tracking-wider px-5 py-3 -mr-px relative;
 
-      &.dead {
-        @apply hidden;
-      }
+            @screen md {
+                @apply w-auto;
+            }
+
+            &.active {
+                @apply bg-white border-gray-500 text-gray-800 z-10;
+            }
+
+            &.dead {
+                z-index: -1;
+                @apply bg-transparent text-gray-500 border-gray-300 relative;
+
+                &:hover {
+                    @apply text-gray-700;
+                }
+            }
+        }
     }
-  }
+
+    .tabs-box {
+        @apply border border-gray-500 bg-white;
+        @apply w-full relative;
+        @apply z-0;
+        @apply p-10;
+        @apply rounded-md;
+
+        .tabs-box-content {
+            &.active {
+                @apply block;
+            }
+
+            &.dead {
+                @apply hidden;
+            }
+        }
+    }
 }
 
 .content-box {
-  @apply bg-gray-200;
-  @apply p-5;
+    @apply bg-white;
+    @apply border border-gray-400;
+    @apply rounded;
+    @apply p-5;
 
-  &-px-none {
-    @extend .content-box;
-    @apply px-0;
-  }
+    &-px-none {
+        @extend .content-box;
+        @apply px-0;
+    }
 
-  &-p-none {
-    @extend .content-box;
-    @apply p-0;
-  }
+    &-p-none {
+        @extend .content-box;
+        @apply p-0;
+    }
+}
+
+.labels + .content-box {
+    @apply rounded-t-none #{!important};
 }
 
 .anchor-box {
-  @apply py-10;
-  @apply px-5;
-  @apply relative;
+    @apply py-10;
+    @apply px-5;
+    @apply relative;
 
-  @screen xl {
-    @apply px-0;
-  }
-
-  .anchor-box-wrapper {
-    @apply mx-auto;
-
-    .anchor-box-content {
-      // @apply py-10 relative;
-
-      .anchor-box-content-wrapper {
-        @apply flex flex-wrap -mx-2;
-
-        .anchor-box-sections {
-          @apply px-2 w-full;
-          @apply flex-1;
-
-          .anchor-section {
-            @apply mt-10 mb-24 relative;
-
-            .subtitle::before {
-              // content: "#";
-              @apply text-ovalGreen absolute;
-              @apply hidden;
-
-              &:hover {
-                @apply text-ovalGreenDark;
-              }
-
-              @screen xl {
-                @apply block;
-                transform: translateX(-110%);
-              }
-            }
-
-            &#competitive_comparison,
-            &#instructable {
-              @apply rounded;
-              @apply border p-10;
-            }
-          }
-        }
-
-        .anchor-box-sidebar {
-          @apply hidden;
-          @apply relative;
-          @apply px-2 w-64;
-          @apply flex-none;
-
-          .anchors-wrapper {
-            transition-duration: 200ms;
-
-            .anchors {
-              transition-duration: 200ms;
-              transform: translate(0, 0);
-
-              @apply py-2;
-              @apply border;
-              @apply h-auto;
-
-              // calculate px-2 from parent container into width
-              width: calc(theme("width.64") - theme("padding.2") * 2);
-
-              @apply relative;
-
-              // restyle anchors
-              .anchor {
-                @apply bg-transparent border-none;
-                @apply py-0 px-3;
-                @apply my-1;
-                @apply flex items-center;
-                @apply text-sm leading-tight;
-
-                &:hover {
-                  @apply text-ovalGreen;
-                }
-
-                &.active {
-                  @apply font-bold text-ovalGreen;
-                }
-              }
-            }
-
-            &.stuck {
-              @apply fixed left-auto;
-              @apply top-0 mt-24 pt-5;
-            }
-          }
-        }
-
-        @screen md {
-          .anchor-box-sections {
-            @apply flex-1;
-          }
-        }
-
-        @screen xl {
-          .anchor-box-sidebar {
-            @apply block;
-          }
-        }
-      }
+    @screen xl {
+        @apply px-0;
     }
-  }
+
+    .anchor-box-wrapper {
+        @apply mx-auto;
+
+        .anchor-box-content {
+            // @apply py-10 relative;
+
+            .anchor-box-content-wrapper {
+                @apply flex flex-wrap -mx-2;
+
+                .anchor-box-sections {
+                    @apply px-2 w-full;
+                    @apply flex-1;
+
+                    .anchor-section {
+                        @apply mt-10 mb-24 relative;
+
+                        .subtitle::before {
+                            // content: "#";
+                            @apply text-ovalGreen absolute;
+                            @apply hidden;
+
+                            &:hover {
+                                @apply text-ovalGreenDark;
+                            }
+
+                            @screen xl {
+                                @apply block;
+                                transform: translateX(-110%);
+                            }
+                        }
+
+                        &#competitive_comparison,
+                        &#instructable {
+                            @apply rounded;
+                            @apply border p-10;
+                        }
+                    }
+                }
+
+                .anchor-box-sidebar {
+                    @apply hidden;
+                    @apply relative;
+                    @apply px-2 w-64;
+                    @apply flex-none;
+
+                    .anchors-wrapper {
+                        transition-duration: 200ms;
+
+                        .anchors {
+                            transition-duration: 200ms;
+                            transform: translate(0, 0);
+
+                            @apply py-2;
+                            @apply border;
+                            @apply h-auto;
+
+                            // calculate px-2 from parent container into width
+                            width: calc(theme("width.64") - theme("padding.2") * 2);
+
+                            @apply relative;
+
+                            // restyle anchors
+                            .anchor {
+                                @apply bg-transparent border-none;
+                                @apply py-0 px-3;
+                                @apply my-1;
+                                @apply flex items-center;
+                                @apply text-sm leading-tight;
+
+                                &:hover {
+                                    @apply text-ovalGreen;
+                                }
+
+                                &.active {
+                                    @apply font-bold text-ovalGreen;
+                                }
+                            }
+                        }
+
+                        &.stuck {
+                            @apply fixed left-auto;
+                            @apply top-0 mt-24 pt-5;
+                        }
+                    }
+                }
+
+                @screen md {
+                    .anchor-box-sections {
+                        @apply flex-1;
+                    }
+                }
+
+                @screen xl {
+                    .anchor-box-sidebar {
+                        @apply block;
+                    }
+                }
+            }
+        }
+    }
 }
 
 .mobile-anchor-button {
-  @apply fixed bottom-0 right-0;
-  @apply m-8;
-  @apply rounded-full overflow-hidden;
-  @apply z-50;
-
-  .mobile-anchor-button-icon {
+    @apply fixed bottom-0 right-0;
+    @apply m-8;
     @apply rounded-full overflow-hidden;
-    @apply flex items-center justify-center;
-    @apply h-10 w-10;
-    @apply shadow-xl;
-    @apply border border-gray-300;
-    @apply text-sm;
-    @apply bg-ovalGreen;
-  }
+    @apply z-50;
 
-  // @screen lg {
-  //   @apply hidden;
-  // }
+    .mobile-anchor-button-icon {
+        @apply rounded-full overflow-hidden;
+        @apply flex items-center justify-center;
+        @apply h-10 w-10;
+        @apply shadow-xl;
+        @apply border border-gray-300;
+        @apply text-sm;
+        @apply bg-ovalGreen;
+    }
+
+    // @screen lg {
+    //   @apply hidden;
+    // }
 }
 
 .mobile-anchor-box {
-  @apply fixed w-full h-full z-40;
-  @apply top-0 left-0;
-  transition-duration: 300ms;
-  transform: translateY(100%);
-
-  &::before {
-    content: "";
+    @apply fixed w-full h-full z-40;
+    @apply top-0 left-0;
     transition-duration: 300ms;
-    @apply block absolute top-0 left-0;
-    @apply w-full h-full;
-    // @apply bg-gray-900;
-    @apply opacity-0;
-  }
-
-  .anchors-wrapper {
-    transition-duration: 200ms;
-
-    @apply border-0;
-    @apply absolute bottom-0 left-0 w-full h-auto;
-    @apply p-5 bg-white;
-    @apply shadow-md;
-    @apply border-t;
-
-    .anchors {
-      transition-duration: 200ms;
-      // transform: translate(0, 0);
-
-      @apply flex flex-wrap;
-
-      // restyle anchors
-      .anchor {
-        @apply cursor-default block;
-        @apply px-2 py-1 leading-none;
-        @apply border border-ovalGreen;
-        @apply mx-1 mb-2;
-
-        @apply bg-gray-300 border-gray-200;
-        @apply text-gray-600;
-
-        .anchor-text {
-          @apply text-sm;
-          @apply uppercase font-medium;
-          @apply leading-none;
-        }
-
-        &:hover {
-          @apply text-gray-700;
-        }
-
-        &.active {
-          @apply bg-ovalGreen border-ovalGreen;
-          @apply text-gray-800;
-        }
-      }
-    }
-  }
-
-  &.active {
-    transform: translateY(0);
+    transform: translateY(100%);
 
     &::before {
-      @apply opacity-75;
+        content: "";
+        transition-duration: 300ms;
+        @apply block absolute top-0 left-0;
+        @apply w-full h-full;
+        // @apply bg-gray-900;
+        @apply opacity-0;
     }
-  }
+
+    .anchors-wrapper {
+        transition-duration: 200ms;
+
+        @apply border-0;
+        @apply absolute bottom-0 left-0 w-full h-auto;
+        @apply p-5 bg-white;
+        @apply shadow-md;
+        @apply border-t;
+
+        .anchors {
+            transition-duration: 200ms;
+            // transform: translate(0, 0);
+
+            @apply flex flex-wrap;
+
+            // restyle anchors
+            .anchor {
+                @apply cursor-default block;
+                @apply px-2 py-1 leading-none;
+                @apply border border-ovalGreen;
+                @apply mx-1 mb-2;
+
+                @apply bg-gray-300 border-gray-200;
+                @apply text-gray-600;
+
+                .anchor-text {
+                    @apply text-sm;
+                    @apply uppercase font-medium;
+                    @apply leading-none;
+                }
+
+                &:hover {
+                    @apply text-gray-700;
+                }
+
+                &.active {
+                    @apply bg-ovalGreen border-ovalGreen;
+                    @apply text-gray-800;
+                }
+            }
+        }
+    }
+
+    &.active {
+        transform: translateY(0);
+
+        &::before {
+            @apply opacity-75;
+        }
+    }
 }
 
 .tab-content,
 .anchor-content {
-  &.columned {
-    column-count: 1;
+    &.columned {
+        column-count: 1;
 
-    @screen md {
-      column-count: 2;
+        @screen md {
+            column-count: 2;
+        }
+
+        @screen xl {
+            column-count: 3;
+        }
     }
 
-    @screen xl {
-      column-count: 3;
+    p {
+        -webkit-column-break-inside: avoid;
+        break-inside: avoid;
+        page-break-inside: avoid;
+
+        @apply mb-5;
     }
-  }
-
-  p {
-    -webkit-column-break-inside: avoid;
-    break-inside: avoid;
-    page-break-inside: avoid;
-
-    @apply mb-5;
-  }
 }

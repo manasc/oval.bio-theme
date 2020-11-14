@@ -16,60 +16,72 @@ $listCount = count($componentsArr) - 1;
 
 ?>
 <section>
-    <div class="flex flex-wrap -mx-10">
-        <div class="px-10 w-full md:w-1/2">
-            <h1 class="subtitle">Components</h1>
-            <div class="anchor-content text-lg">
-                <?= $args["fields"]["components_introduction"] ?>
-            </div>
+    <div class="max-w-3xl mx-auto">
+        <h1 class="subtitle text-center">Components</h1>
+        <div class="anchor-content text-lg">
+            <?= $args["fields"]["components_introduction"] ?>
         </div>
-        <div class="px-10 w-full md:w-1/2 ">
-            <?php if (!empty($componentsArr)) : ?>
-                <div class="mb-5">
+        <?php if (!empty($componentsArr)) : ?>
+            <div class="my-10">
 
-                    <div class="labels">
-                        <div class="label">
-                            <span class="label-text">Main components</span>
-                        </div>
+                <div class="labels">
+                    <div class="label">
+                        <span class="label-text">Main components</span>
                     </div>
+                </div>
 
-                    <div class="content-box">
-                        <?php foreach ($componentsArr as $i => $component) : ?>
+                <div class="content-box">
+                    <?php foreach ($componentsArr as $i => $component) : ?>
 
-                            <div class="ingredient flex flex-wrap -mx-2 mb-4">
-                                <div class="number flex-none pl-2">
-                                    <div class="round-full w-5 h-5 bg-ovalGreen text-xs flex items-center justify-center"><?= $i + 1 ?></div>
-                                </div>
-                                <div class="image-box bg-cover hidden md:block w-1/3 pr-2">
-                                    <div class="w-full bg-cover bg-center bg-no-repeat" style="padding-top: 100%; background-image: url(<?= $component["image"]["url"] ?>)"></div>
-                                </div>
-                                <div class="content flex-1 px-2 py-0 md:py-2 text-sm">
-                                    <p class="mb-1"><strong><?= $component['component'] ?></strong></p>
-                                    <p class="text-sm"><?= $component['description'] ?></p>
-                                </div>
+                        <div class="ingredient flex flex-wrap -mx-2 mb-4">
+                            <div class="number flex-none pl-2">
+                                <div class="round-full w-5 h-5 bg-ovalGreen text-xs flex items-center justify-center"><?= $i + 1 ?></div>
                             </div>
-
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-            <?php endif; ?>
-            <?php if (!empty($componentsList)) : ?>
-                <div class="mb-5">
-                    <div class="labels">
-                        <div class="label">
-                            <span class="label-text">Other components</span>
+                            <div class="image-box bg-cover hidden md:block w-1/3 pr-2">
+                                <div class="w-full bg-cover bg-center bg-no-repeat" style="padding-top: 100%; background-image: url(<?= $component["image"]["url"] ?>)"></div>
+                            </div>
+                            <div class="content flex-1 px-2 py-0 md:py-2 text-sm">
+                                <p class="mb-1"><strong><?= $component['component'] ?></strong></p>
+                                <p class="text-sm"><?= $component['description'] ?></p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="content-box">
-                        <?php foreach ($componentsList as $key => $component) : ?>
-                            <span>
-                                <?= $component["component"] . ", " ?>
-                            </span>
-                        <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        <?php endif; ?>
+        <?php if (!empty($componentsList)) : ?>
+            <div class="mb-5">
+                <div class="labels">
+                    <div class="label">
+                        <span class="label-text">Other components</span>
                     </div>
                 </div>
-            <?php endif; ?>
-        </div>
+
+                <div class="content-box">
+                    <?php foreach ($componentsList as $key => $component) : ?>
+                        <span class="general-component-label" data-description="<?php echo $component['description'] ?>"><?php echo !($key === count($componentsList) - 1) ? $component["component"] . ", " : $component["component"] ?>
+                        </span>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        <?php endif; ?>
     </div>
 </section>
+
+<script type="text/javascript">
+    function loadTippy() {
+        var labels = document.querySelectorAll(".general-component-label");
+
+        for (var i = 0; i < labels.length; i++) {
+            tippy(labels[i], {
+                content: labels[i].getAttribute("data-description"),
+                trigger: "click",
+                theme: "tomato",
+                placement: 'bottom'
+            })
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", loadTippy);
+</script>

@@ -18,10 +18,10 @@
                 <span class="label-text">Directions</span>
             </div>
         </div> -->
-        <div class="flex flex-wrap">
-            <?php foreach ($args["fields"]["instructions"] as $key => $step) : ?>
-                <div class="w-full lg:w-1/2 flex items-center justify-center order-<?= $key % 2 ? "2" : "1" ?>">
-                    <div class="content px-10 py-16">
+        <?php foreach ($args["fields"]["instructions"] as $key => $step) : ?>
+            <div class="flex flex-wrap mb-5">
+                <div class="w-full lg:w-1/2 flex items-center justify-center">
+                    <div class="content px-10 py-10">
                         <div class="flex flex-wrap -mx-2 mb-5">
                             <div class="flex-none px-2">
                                 <div class="round-full w-5 h-5 bg-ovalGreen text-xs flex items-center justify-center"><?= $key + 1 ?></div>
@@ -32,12 +32,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full lg:w-1/2 order-<?= $key % 2 ? "1" : "2" ?>">
+                <div class="w-full lg:w-1/2">
                     <div class="bg-gray-200 h-64 lg:h-full bg-cover bg-center bg-no-repeat" style="background-image:url(<?= $step["image"]["sizes"]["large"] ?>)"></div>
                 </div>
-            <?php endforeach ?>
-
-        </div>
+            </div>
+        <?php endforeach ?>
     </div>
 </section>
 <script>
