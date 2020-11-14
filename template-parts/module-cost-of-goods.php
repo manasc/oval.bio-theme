@@ -15,28 +15,23 @@
                 <table class="table-auto w-full text-sm">
                     <thead>
                         <tr>
-                            <th class="border px-4 py-2">Name</th>
-                            <th class="border px-4 py-2">Bulk Amount (<?php echo $good["units"]  ?>)</th>
-                            <th class="border px-4 py-2">Bulk Cost ($/<?php echo $good["units"] ?>)</th>
-                            <th class="border px-4 py-2">Quantity of Individual Unit (<?php echo $good["individual_units"] ?>)</th>
-                            <th class="border px-4 py-2">Individual Cost ($/<?php echo $good["individual_units"] ?>)</th>
-                            <th class="border px-4 py-2 w-1/2 text-xs">Description</th>
+                            <th class="border px-4 py-2 text-left">Name</th>
+                            <th class="border px-4 py-2 text-right">Bulk Amount</th>
+                            <th class="border px-4 py-2 text-right">Bulk Cost</th>
+                            <th class="border px-4 py-2 text-right">Single Unit</th>
+                            <th class="border px-4 py-2 text-right">Unit Cost</th>
+                            <th class="border px-4 py-2 text-left" style="width: 500px">Description</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($tier["goods"] as $key => $good) : ?>
                             <tr>
-                                <td class="border px-4 py-2"><?php echo $good["name"] ?>
-                                <td class="border font-mono px-4 py-2 text-right"><?php echo $good["bulk_amount"] ?>
-                                <td class="border font-mono px-4 py-2 text-right">
-                                    <div class="flex">
-                                        <div class="flex-1">$</div>
-                                        <div class="flex-none"><?php echo $good["bulk_cost"] ?></div>
-                                    </div>
-                                </td>
-                                <td class="border font-mono px-4 py-2 text-right"><?php echo $good["usage_per_unit"] ?>
-                                <td class="border font-mono px-4 py-2 text-right"><?php echo $good["cost_per_unit"] ?>
-                                <td class="border px-4 py-2"><?php echo $good["description"] ?>
+                                <td class="border px-4 py-2"><?php echo $good["name"] ?></td>
+                                <td class="border font-mono px-4 py-2 text-right"><?php echo $good["bulk_amount"] . " " . $good["units"] ?></td>
+                                <td class="border font-mono px-4 py-2 text-right">$<?php echo $good["bulk_cost"] . " /" . $good["units"] ?></td>
+                                <td class="border font-mono px-4 py-2 text-right"><?php echo $good["usage_per_unit"] . " " . $good["individual_units"] ?></td>
+                                <td class="border font-mono px-4 py-2 text-right"><?php echo $good["cost_per_unit"] . " /" . $good["individual_units"] ?></td>
+                                <td class="border px-4 py-2"><?php echo $good["description"] ?></td>
                             </tr>
                             <?php
                             $tier["sum"]["bulk_amount"] += $good["bulk_amount"];
@@ -49,10 +44,10 @@
                     <tfoot>
                         <tr>
                             <td class="border px-4 py-2">Sum</td>
-                            <td class="border font-mono px-4 py-2 bg-gray-200 text-right"><?= $tier["sum"]["bulk_amount"]?></td>
-                            <td class="border font-mono px-4 py-2 bg-gray-200 text-right"><?= "$" . $tier["sum"]["bulk_cost"] ?></td>
-                            <td class="border font-mono px-4 py-2 bg-gray-200 text-right"><?= $tier["sum"]["usage_per_unit"]?></td>
-                            <td class="border font-mono px-4 py-2 bg-gray-200 text-right"><?= "$" . $tier["sum"]["cost_per_unit"]  ?></td>
+                            <td class="border font-mono px-4 py-2 bg-gray-200 text-right"><?= $tier["sum"]["bulk_amount"] . " " . $good["units"] ?></td>
+                            <td class="border font-mono px-4 py-2 bg-gray-200 text-right"><?= "$" . $tier["sum"]["bulk_cost"] . " /" . $good["units"] ?></td>
+                            <td class="border font-mono px-4 py-2 bg-gray-200 text-right"><?= $tier["sum"]["usage_per_unit"] . " " . $good["individual_units"] ?></td>
+                            <td class="border font-mono px-4 py-2 bg-gray-200 text-right"><?= "$" . $tier["sum"]["cost_per_unit"] . " /" . $good["individual_units"] ?></td>
                             <td></td>
                             <td></td>
                             <td></td>
