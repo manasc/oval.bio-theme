@@ -16,10 +16,10 @@
                     <thead>
                         <tr>
                             <th class="border px-4 py-2 text-left">Name</th>
-                            <th class="border px-4 py-2">Bulk Amount</th>
-                            <th class="border px-4 py-2">Bulk Cost</th>
-                            <th class="border px-4 py-2">Single Unit</th>
-                            <th class="border px-4 py-2">Unit Cost</th>
+                            <th class="border px-4 py-2 text-left">Bulk Amount</th>
+                            <th class="border px-4 py-2 text-left">Bulk Cost</th>
+                            <th class="border px-4 py-2 text-left">Single Unit</th>
+                            <th class="border px-4 py-2 text-left">Unit Cost</th>
                             <th class="border px-4 py-2 text-left" style="width: 500px">Description</th>
                         </tr>
                     </thead>
@@ -43,14 +43,11 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td class="border px-4 py-2">Sum</td>
-                            <td class="border font-mono px-4 py-2 bg-gray-200"><?= $tier["sum"]["bulk_amount"] . " " . $good["units"] ?></td>
-                            <td class="border font-mono px-4 py-2 bg-gray-200"><?= "$" . $tier["sum"]["bulk_cost"] . " /" . $good["units"] ?></td>
-                            <td class="border font-mono px-4 py-2 bg-gray-200"><?= $tier["sum"]["usage_per_unit"] . " " . $good["individual_units"] ?></td>
-                            <td class="border font-mono px-4 py-2 bg-gray-200"><?= "$" . $tier["sum"]["cost_per_unit"] . " /" . $good["individual_units"] ?></td>
                             <td></td>
-                            <td></td>
-                            <td></td>
+                            <td class="px-4 py-2 text-right">Total for bulk</td>
+                            <td class="border font-mono px-4 py-2 bg-gray-200"><?= "$" . $tier["sum"]["bulk_cost"] ?></td>
+                            <td class="px-4 py-2 text-right">Total for a Single Unit</td>
+                            <td class="border font-mono px-4 py-2 bg-gray-200"><?= "$" . $tier["sum"]["cost_per_unit"] ?></td>
                             <td></td>
                         </tr>
                     </tfoot>
