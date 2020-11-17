@@ -60,7 +60,8 @@ $listCount = count($componentsArr) - 1;
 
                 <div class="content-box">
                     <?php foreach ($componentsList as $key => $component) : ?>
-                        <span class="general-component-label" data-description="<?php echo $component['description'] ?>"><?php echo !($key === count($componentsList) - 1) ? $component["component"] . ", " : $component["component"] ?>
+                        <span class="general-component-label" data-description="<?php echo $component['description'] ?>">
+                            <?php echo !($key === count($componentsList) - 1) ? $component["component"] . ", " : $component["component"] ?>
                         </span>
                     <?php endforeach; ?>
                 </div>
