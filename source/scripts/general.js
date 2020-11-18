@@ -16,6 +16,22 @@ import "./general/pillars";
 import "./general/faq";
 import "./general/accordion";
 
+// :start -- organize this bs
+import Drift from "drift-zoom";
+
+document.addEventListener("DOMContentLoaded", function () {
+    const zoomBoxes = document.querySelectorAll("[data-zoom]");
+
+    zoomBoxes.forEach((box) => {
+        const zoomDisplay = box.querySelector(".image-zoom");
+
+        const driftInstance = new Drift(box, {
+            paneContainer: zoomDisplay,
+        });
+    });
+});
+// :end
+
 document.addEventListener("DOMContentLoaded", function () {
     // new fullpage("#fullpage");
 

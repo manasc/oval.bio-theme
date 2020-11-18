@@ -1,6 +1,11 @@
-<!-- **General -->
+<!-- **General Scripts** -->
+<!-- Tippy -->
 <script src="https://unpkg.com/popper.js@1"></script>
 <script src="https://unpkg.com/tippy.js@5"></script>
+
+<!-- magnifier -->
+
+
 <?php if (!empty($args["fields"])) : ?>
 
     <?php
@@ -41,7 +46,7 @@
             "active" => $key_benefits,
             "slug" => "key_benefits",
             "title" => "Key Benefits",
-            "module" => "key-benefits"
+            "module" => "key-benefits2"
         ],
         [
             "active" => $nutrition_ingredients,
@@ -162,30 +167,6 @@
 
     <div class="anchor-box">
         <div class="anchor-box-wrapper container nmr-container">
-
-            <div class="mobile-anchor-button">
-                <div class="mobile-anchor-button-icon">
-                    <i class="fas fa-filter"></i>
-                </div>
-            </div>
-
-            <!-- <div class="mobile-anchor-box">
-                <div class="anchors-wrapper">
-                    <h1 class="w-full text-xs label-text px-2 mb-5">
-                        <span class="text-ovalGreen">#</span>Anchors
-                    </h1>
-                    <div class="anchors">
-                        <?php
-                        foreach ($productTabBoxes as $key => $tabBox) {
-                            if ($tabBox["active"]) {
-                                echo '<a href="#' . $tabBox["slug"] . '" class="anchor"><span class="anchor-text">' . $tabBox["title"]  . '</span></a>';
-                            }
-                        }
-                        ?>
-                    </div>
-                </div>
-            </div> -->
-
 
             <!-- ALL ANCHORED SECTIONS -->
             <div class="anchor-box-content">

@@ -42,12 +42,16 @@ $productArr = [
 				<div class="nmr-image-gallery-box">
 					<div class="nmr-image-gallery">
 						<div data-key="<?php echo $product->image_id ?>" class="nmr-image">
-							<div class="square-image nmr-lazyload" data-bg="<?php echo wp_get_attachment_image_url($product->image_id, 'large', false) ?>"></div>
+							<div class="square-image nmr-lazyload" data-bg="<?php echo wp_get_attachment_image_url($product->image_id, 'large', false) ?>" data-zoom="<?php echo wp_get_attachment_image_url($product->image_id, 'large', false) ?>">
+								<div class="image-zoom absolute top-0 left-0 w-full h-full"></div>
+							</div>
 						</div>
 
 						<?php foreach ($product->gallery_image_ids as $key => $id) : ?>
 							<div data-key="<?php echo $id ?>" class="nmr-image">
-								<div class="square-image nmr-lazyload" data-bg="<?php echo wp_get_attachment_image_url($id, 'large', false) ?>"></div>
+								<div class="square-image nmr-lazyload" data-bg="<?php echo wp_get_attachment_image_url($id, 'large', false) ?>" data-zoom="<?php echo wp_get_attachment_image_url($id, 'large', false) ?>">
+									<div class="image-zoom absolute top-0 left-0 w-full h-full"></div>
+								</div>
 							</div>
 						<?php endforeach; ?>
 					</div>

@@ -42,7 +42,7 @@ $products = [
 ];
 ?>
 
-<div class="bg-gray-700 px-5 py-10">
+<!-- <div class="bg-gray-700 px-5 py-10">
     <div class="container mx-auto py-12">
         <div class="max-w-md">
             <div class="text-4xl text-ovalGreen font-light mb-5">Product Phases</div>
@@ -89,7 +89,6 @@ $products = [
                             </div>
                         </div>
 
-                        <!-- phase style -->
                         <div class="phase-full border-b border-gray-600 w-full absolute"></div>
                         <div class="phase-current bg-slateBlue h-2 absolute" style="width: <?= $product['phase'] * 20 ?>%"></div>
                     </div>
@@ -97,5 +96,5 @@ $products = [
             </div>
         </div>
     <?php endforeach; ?>
-</div>
+</div> -->
 <?php get_footer() ?>
