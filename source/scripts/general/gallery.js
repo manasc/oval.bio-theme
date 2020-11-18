@@ -41,6 +41,8 @@ function imageGalleryFunc() {
     }
 }
 function infoGalleryFunc() {
+    const galleryBox = document.querySelector(".nmr-info-gallery-box");
+    const bg = galleryBox.querySelector(".background");
     // store nav
     const gallery = new Siema({
         selector: document.querySelector(".nmr-info-gallery"),
@@ -50,6 +52,20 @@ function infoGalleryFunc() {
         draggable: true,
         loop: false,
         rtl: false,
+    });
+
+    const triggers = document.querySelectorAll(".nmr-info-block-trigger");
+
+    triggers.forEach((x) => {
+        x.addEventListener("click", () => {
+            galleryBox.classList.remove("invisible");
+            galleryBox.classList.remove("opacity-0");
+        });
+    });
+
+    bg.addEventListener("click", () => {
+        galleryBox.classList.add("invisible");
+        galleryBox.classList.add("opacity-0");
     });
 }
 

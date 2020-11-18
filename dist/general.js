@@ -6695,7 +6695,9 @@ function imageGalleryFunc() {
 }
 
 function infoGalleryFunc() {
-  // store nav
+  var galleryBox = document.querySelector(".nmr-info-gallery-box");
+  var bg = galleryBox.querySelector(".background"); // store nav
+
   var gallery = new siema__WEBPACK_IMPORTED_MODULE_0___default.a({
     selector: document.querySelector(".nmr-info-gallery"),
     perPage: 2,
@@ -6704,6 +6706,17 @@ function infoGalleryFunc() {
     draggable: true,
     loop: false,
     rtl: false
+  });
+  var triggers = document.querySelectorAll(".nmr-info-block-trigger");
+  triggers.forEach(function (x) {
+    x.addEventListener("click", function () {
+      galleryBox.classList.remove("invisible");
+      galleryBox.classList.remove("opacity-0");
+    });
+  });
+  bg.addEventListener("click", function () {
+    galleryBox.classList.add("invisible");
+    galleryBox.classList.add("opacity-0");
   });
 }
 

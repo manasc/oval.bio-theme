@@ -8,7 +8,7 @@
         <div class="flex flex-wrap -m-3">
             <?php foreach ($args["fields"]["benefits"] as $key => $benefit) : ?>
                 <div class="w-1/3 p-3">
-                    <div class="content flex relative rounded overflow-hidden w-full bg-gray-200 hover:bg-gray-300 cursor-pointer">
+                    <div class="nmr-info-block-trigger content flex relative rounded overflow-hidden w-full bg-gray-200 hover:bg-gray-300 cursor-pointer">
                         <div class="flex-1 p-5">
                             <div class="text-2xl mb-2"><?= $benefit['title'] ?></div>
                             <div class="text-base"><?= substr($benefit['summary'], 0, 50) ?>...</div>
@@ -41,8 +41,8 @@
     </div>
 </section>
 
-<div class="overlay fixed top-0 left-0 h-full w-full z-50 flex items-center justify-center">
-    <div class="absolute top-0 left-0 w-full h-full z-0 bg-gray-900 opacity-75"></div>
+<div class="nmr-info-gallery-box overlay invisible opacity-0 fixed top-0 left-0 h-full w-full z-50 flex items-center justify-center">
+    <div class="background absolute top-0 left-0 w-full h-full z-0 bg-gray-900 opacity-75"></div>
     <div class="nmr-info-gallery relative z-10 w-full p-5">
         <?php foreach ($args["fields"]["benefits"] as $key => $benefit) : ?>
             <div class="nmr-info-block shadow-xl relative w-full max-w-xl rounded overflow-hidden bg-white p-8 pb-32">
