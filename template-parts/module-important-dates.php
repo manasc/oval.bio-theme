@@ -1,6 +1,6 @@
 <!-- <pre><?php print_r($args["fields"]) ?></pre>
 <section>
-    <div class="subtitle">Important Dates</div>
+    <div class="subtitle text-center">Important Dates</div>
     <div class="flex flex-wrap -mx-3">
         <?php foreach ($args["fields"]["technologies"] as $i => $need) : ?>
             <div class="w-full md:w-1/2 px-3 mb-6">

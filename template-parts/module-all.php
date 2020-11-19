@@ -49,6 +49,12 @@
             "module" => "key-benefits2"
         ],
         [
+            "active" => $how_it_works,
+            "slug" => "how_it_works",
+            "title" => "How it Works",
+            "module" => "how-it-works"
+        ],
+        [
             "active" => $nutrition_ingredients,
             "slug" => "nutrition_ingredients",
             "title" => "Nutrition & Ingredients",
@@ -61,11 +67,18 @@
             "module" => "components"
         ],
         [
-            "active" => $faq,
-            "slug" => "faq",
-            "title" => "FAQ",
-            "module" => "faq"
+            "active" => $cost_of_goods,
+            "slug" => "cost_of_goods",
+            "title" => "Cost of Goods",
+            "module" => "cost-of-goods"
         ],
+        [
+            "active" => $product_future,
+            "slug" => "future_of_product",
+            "title" => "Future of Product",
+            "module" => "future-of-product"
+        ],
+
         [
             "active" => $pipeline,
             "slug" => "pipeline",
@@ -73,10 +86,28 @@
             "module" => "pipeline"
         ],
         [
-            "active" => $research_and_development,
-            "slug" => "research_and_development",
-            "title" => "Research & Development",
-            "module" => "research-and-development"
+            "active" => $directions_for_use,
+            "slug" => "directions_for_use",
+            "title" => "Directions For Use",
+            "module" => "directions-for-use"
+        ],
+        [
+            "active" => $side_effects,
+            "slug" => "side_effects",
+            "title" => "Side Effects",
+            "module" => "side-effects"
+        ],
+        [
+            "active" => $faq,
+            "slug" => "faq",
+            "title" => "FAQ",
+            "module" => "faq"
+        ],
+        [
+            "active" => $competitors,
+            "slug" => "competitive_comparison",
+            "title" => "Competitive Comparison",
+            "module" => "competitive-comparison"
         ],
         [
             "active" => $testing,
@@ -91,40 +122,16 @@
             "module" => "clinical-trials"
         ],
         [
-            "active" => $how_it_works,
-            "slug" => "how_it_works",
-            "title" => "How it Works",
-            "module" => "how-it-works"
-        ],
-        [
-            "active" => $product_future,
-            "slug" => "future_of_product",
-            "title" => "Future of Product",
-            "module" => "future-of-product"
-        ],
-        [
-            "active" => $directions_for_use,
-            "slug" => "directions_for_use",
-            "title" => "Directions For Use",
-            "module" => "directions-for-use"
+            "active" => $research_and_development,
+            "slug" => "research_and_development",
+            "title" => "Research & Development",
+            "module" => "research-and-development"
         ],
         [
             "active" => $instructable,
             "slug" => "instructable",
             "title" => "Instructables",
             "module" => "instructables"
-        ],
-        [
-            "active" => $side_effects,
-            "slug" => "side_effects",
-            "title" => "Side Effects",
-            "module" => "side-effects"
-        ],
-        [
-            "active" => $cost_of_goods,
-            "slug" => "cost_of_goods",
-            "title" => "Cost of Goods",
-            "module" => "cost-of-goods"
         ],
         [
             "active" => $quality_control,
@@ -138,12 +145,7 @@
             "title" => "Manufacturing Challenges",
             "module" => "manufacturing-challenges"
         ],
-        [
-            "active" => $competitors,
-            "slug" => "competitive_comparison",
-            "title" => "Competitive Comparison",
-            "module" => "competitive-comparison"
-        ],
+        // TODO: quality control
         [
             "active" => $help_needed,
             "slug" => "help_needed",
@@ -151,16 +153,16 @@
             "module" => "help-needed"
         ],
         [
-            "active" => $important_dates,
-            "slug" => "important_dates",
-            "title" => "Important Dates",
-            "module" => "important-dates"
-        ],
-        [
             "active" => $opportunities,
             "slug" => "opportunities",
             "title" => "Opportunities",
             "module" => "opportunities"
+        ],
+        [
+            "active" => $important_dates,
+            "slug" => "important_dates",
+            "title" => "Important Dates",
+            "module" => "important-dates"
         ],
     ];
     ?>

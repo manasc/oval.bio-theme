@@ -22,7 +22,7 @@
             <div class="flex flex-wrap mb-5">
                 <div class="w-full lg:w-1/2 flex items-center justify-center">
                     <div class="content px-10 py-10">
-                        <div class="flex flex-wrap -mx-2 mb-5">
+                        <div class="flex flex-wrap w-full -mx-2 mb-5">
                             <div class="flex-none px-2">
                                 <div class="round-full w-5 h-5 bg-ovalGreen text-xs flex items-center justify-center"><?= $key + 1 ?></div>
                             </div>

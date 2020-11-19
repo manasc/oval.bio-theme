@@ -1,7 +1,7 @@
 <?php $compArticle = $args["fields"]["articles"]; ?>
 
 <section>
-    <div class="subtitle">Competitive Comparison</div>
+    <div class="subtitle text-center">Competitive Comparison</div>
 
     <?php if (!empty($compArticle)) :  ?>
         <div class="cover absolute top-0 left-0 w-full h-full z-10 rounded overflow-hidden bg-white-gradient">

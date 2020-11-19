@@ -4,6 +4,11 @@ $phaseCount = count($phases);
 $currentPhase = 0;
 
 // find current phase
+foreach ($phases as $key => $phase) {
+    if ($phase["current_phase"]) {
+        $currentPhase = $key;
+    }
+}
 ?>
 
 <section>
@@ -18,9 +23,19 @@ $currentPhase = 0;
     <div class="content-box-px-none">
         <div class="wrapper flex items-center py-8 relative">
             <?php foreach ($phases as $key => $phase) : ?>
+                <?php
+                $labelClass = "";
+                if ($key < $currentPhase) {
+                    $labelClass = "label opacity-50 hover:opacity-100";
+                } elseif ($key === $currentPhase) {
+                    $labelClass = "label";
+                } else {
+                    $labelClass = "label label-disabled opacity-75 hover:opacity-100";
+                }
+                ?>
                 <div class="phase w-1/<?= $phaseCount ?> border-r border-gray-400">
                     <div class="phase-text h-32 relative">
-                        <div data-description="<strong><?php echo $phase["name"] ?></strong><br><?php echo $phase["description"] ?>" class="label leading-none absolute right-0 bottom-0 cursor-pointer">
+                        <div data-description="<strong><?php echo $phase["name"] ?></strong><br><?php echo $phase["description"] ?>" class="<?= $labelClass ?> leading-none absolute right-0 bottom-0 cursor-pointer">
                             <span class="label-text"><?= $phase["name"] ?></span>
                         </div>
                     </div>
@@ -29,11 +44,11 @@ $currentPhase = 0;
 
             <!-- phase style -->
             <div class="phase-full border-b border-gray-400 w-full absolute"></div>
-            <div class="phase-current bg-ovalGreen h-2 rounded-r-full absolute" style="width:<?= $currentPhase / ($phaseCount) * 100 ?>%"></div>
+            <div class="phase-current bg-ovalGreen h-2 rounded-r-full absolute" style="width:<?= ($currentPhase + 1) / ($phaseCount) * 100 ?>%"></div>
         </div>
     </div>
     <div class="labels my-2">
-        <div class="text-xs italic">Click on a phase information</div>
+        <div class="text-xs italic">Click on a phase to see details.</div>
     </div>
     <div class="meta mt-16 max-w-3xl mx-auto">
         <div class="tab-content text-lg"><?= $args["fields"]["pipeline_description"] ?></div>
