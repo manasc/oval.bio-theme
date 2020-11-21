@@ -1,5 +1,5 @@
 <!-- FAQ -->
-<section>
+<section class="content-box">
     <div class="max-w-3xl mx-auto">
         <h1 class="subtitle text-center">Frequently Asked Questions</h1>
         <div class="accordion-box">
@@ -11,11 +11,13 @@
                                 <div class="accordion-item-icon">
                                     <i class="fas fa-plus-circle"></i>
                                 </div>
-                                <?= $faq['question'] ?>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis et velit, officiis at molestias praesentium assumenda.
                             </div>
                         </div>
                         <div class="accordion-item-content">
-                            <div class="accordion-item-answer"><?= $faq['answer'] ?></div>
+                            <div class="accordion-item-answer">
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita laudantium nam et, amet, ipsum quasi id, accusantium nulla error quae asperiores veritatis repudiandae quidem assumenda laboriosam laborum eum eius tempora!
+                            </div>
                         </div>
                     </div>
                 <?php endforeach; ?>

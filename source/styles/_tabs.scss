@@ -87,9 +87,9 @@ $deadGray: 300;
 
 .content-box {
     @apply bg-white;
-    @apply border border-gray-400;
-    @apply rounded;
-    @apply p-5;
+    @apply border rounded overflow-hidden;
+    @apply px-5;
+    @apply py-10;
 
     &-px-none {
         @extend .content-box;
@@ -100,10 +100,21 @@ $deadGray: 300;
         @extend .content-box;
         @apply p-0;
     }
+
+    &-secondary {
+        @extend .content-box;
+        @apply shadow;
+        @apply bg-gray-100 border-gray-300;
+    }
+
+    @screen md {
+        @apply border-gray-400;
+    }
 }
 
 .labels + .content-box {
-    @apply rounded-t-none #{!important};
+    @apply -mt-px;
+    @apply rounded-tl-none #{!important};
 }
 
 .anchor-box {

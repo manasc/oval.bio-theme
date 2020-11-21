@@ -15,7 +15,7 @@ $componentsList = array_values(array_filter($args['fields']['components'], funct
 $listCount = count($componentsArr) - 1;
 
 ?>
-<section>
+<section class="content-box">
     <div class="max-w-3xl mx-auto">
         <h1 class="subtitle text-center">Components</h1>
         <div class="anchor-content text-lg">
@@ -30,7 +30,7 @@ $listCount = count($componentsArr) - 1;
                     </div>
                 </div>
 
-                <div class="content-box">
+                <div class="content-box-secondary">
                     <?php foreach ($componentsArr as $i => $component) : ?>
 
                         <div class="ingredient flex flex-wrap -mx-2 mb-4">
@@ -58,7 +58,7 @@ $listCount = count($componentsArr) - 1;
                     </div>
                 </div>
 
-                <div class="content-box">
+                <div class="content-box-secondary">
                     <?php foreach ($componentsList as $key => $component) : ?>
                         <span class="general-component-label" data-description="<?php echo $component['description'] ?>">
                             <?php echo !($key === count($componentsList) - 1) ? $component["component"] . ", " : $component["component"] ?>

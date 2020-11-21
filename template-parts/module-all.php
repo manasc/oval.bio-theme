@@ -55,6 +55,12 @@
             "module" => "how-it-works"
         ],
         [
+            "active" => true,
+            "slug" => "life_extension",
+            "title" => "5 Pillars of Life Extension",
+            "module" => "life-extension"
+        ],
+        [
             "active" => $nutrition_ingredients,
             "slug" => "nutrition_ingredients",
             "title" => "Nutrition & Ingredients",

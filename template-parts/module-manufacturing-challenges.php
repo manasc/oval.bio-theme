@@ -1,4 +1,4 @@
-<section>
+<section class="content-box">
     <div class="subtitle text-center">Manufacturing Challenges</div>
     <div class="meta mt-2 max-w-3xl mx-auto">
         <div class="tab-content text-lg"><?= $args["fields"]["description"] ?></div>

@@ -1,4 +1,4 @@
-<section>
+<section class="content-box">
     <div class="subtitle text-center">Cost of Goods</div>
 
     <?php if (!empty($args["fields"]["goods_tiers"])) : ?>

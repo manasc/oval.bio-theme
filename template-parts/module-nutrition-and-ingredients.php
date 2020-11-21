@@ -14,7 +14,7 @@ $ingredientsList = !empty($args['fields']['ingredients']) ? array_values(array_f
 $listCount = count($ingredientsArr) - 1;
 
 ?>
-<section>
+<section class="content-box">
     <div class="max-w-3xl mx-auto">
         <h1 class="subtitle text-center">Nutrition & Ingredients</h1>
         <div class="anchor-content text-lg">
@@ -29,7 +29,7 @@ $listCount = count($ingredientsArr) - 1;
                     </div>
                 </div>
 
-                <div class="content-box">
+                <div class="content-box-secondary">
                     <?php foreach ($ingredientsArr as $i => $ingredient) : ?>
 
                         <div class="ingredient flex flex-wrap -mx-2 mb-4">
@@ -57,7 +57,7 @@ $listCount = count($ingredientsArr) - 1;
                     </div>
                 </div>
 
-                <div class="content-box">
+                <div class="content-box-secondary">
                     <?php foreach ($ingredientsList as $key => $ingredient) : ?>
                         <span class="general-ingredient-label" data-description="<?php echo $ingredient['description'] ?>">
                             <?php echo !($key === count($ingredientsList) - 1) ? $ingredient["ingredient"] . ", " : $ingredient["ingredient"] ?>

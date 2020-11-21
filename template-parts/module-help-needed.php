@@ -1,4 +1,4 @@
-<section>
+<section class="content-box">
     <div class="subtitle text-center">Help Needed</div>
     <div class="flex flex-wrap -mx-3">
         <?php if (!empty($args["fields"]["technologies"])) : ?>
@@ -7,7 +7,7 @@
                     <!-- <div class="labels">
                         <div class="label">Opp <?= $i + 1 ?></div>
                     </div> -->
-                    <div class="content-box h-full flex flex-col">
+                    <div class="content-box-secondary h-full flex flex-col">
                         <h3 class="font-light text-xl mb-3"><?= $need["title"] ?></h3>
                         <hr class="divider mb-3">
                         <div class="tab-content flex-1"><?= $need["description"] ?></div>

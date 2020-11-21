@@ -1,4 +1,4 @@
-<section>
+<section class="content-box">
     <div class="subtitle text-center">Quality Control</div>
     <div class="flex flex-wrap -mx-5 relative overflow-hidden">
         <?php if (!empty($args["fields"]["image"])) : ?>

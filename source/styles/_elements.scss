@@ -1,5 +1,6 @@
 .product-box {
   overflow: hidden;
+  @apply border rounded overflow-hidden;
 
   .cover-image {
     transition-duration: 300ms;

@@ -1,4 +1,4 @@
-<section>
+<section class="content-box">
     <h1 class="subtitle text-center">Directions for Use</h1>
     <!-- <div class="mb-10">
         <div class="labels">
@@ -12,32 +12,25 @@
             </div>
         </div>
     </div> -->
-    <div class="">
-        <!-- <div class="labels">
-            <div class="label">
-                <span class="label-text">Directions</span>
-            </div>
-        </div> -->
-        <?php foreach ($args["fields"]["instructions"] as $key => $step) : ?>
-            <div class="flex flex-wrap mb-5">
-                <div class="w-full lg:w-1/2 flex items-center justify-center">
-                    <div class="content px-10 py-10">
-                        <div class="flex flex-wrap w-full -mx-2 mb-5">
-                            <div class="flex-none px-2">
-                                <div class="round-full w-5 h-5 bg-ovalGreen text-xs flex items-center justify-center"><?= $key + 1 ?></div>
-                            </div>
-                            <div class="content flex-1 px-2">
-                                <div class="text-lg mb-5"><?= $step['description'] ?></div>
-                            </div>
+    <?php foreach ($args["fields"]["instructions"] as $key => $step) : ?>
+        <div class="flex flex-wrap mb-5">
+            <div class="w-full lg:w-1/2 flex items-center justify-center">
+                <div class="content px-10 py-10">
+                    <div class="flex flex-wrap w-full -mx-2 mb-5">
+                        <div class="flex-none px-2">
+                            <div class="round-full w-5 h-5 bg-ovalGreen text-xs flex items-center justify-center"><?= $key + 1 ?></div>
+                        </div>
+                        <div class="content flex-1 px-2">
+                            <div class="text-lg mb-5"><?= $step['description'] ?></div>
                         </div>
                     </div>
                 </div>
-                <div class="w-full lg:w-1/2">
-                    <div class="bg-gray-200 h-64 lg:h-full bg-cover bg-center bg-no-repeat" style="background-image:url(<?= $step["image"]["sizes"]["large"] ?>)"></div>
-                </div>
             </div>
-        <?php endforeach ?>
-    </div>
+            <div class="w-full lg:w-1/2">
+                <div class="bg-gray-200 h-64 lg:h-full bg-cover bg-center bg-no-repeat" style="background-image:url(<?= $step["image"]["sizes"]["large"] ?>)"></div>
+            </div>
+        </div>
+    <?php endforeach ?>
 </section>
 <script>
     function YouTubeGetID(url) {
