@@ -8,7 +8,7 @@
         <div class="flex flex-wrap -m-3">
             <?php foreach ($args["fields"]["benefits"] as $key => $benefit) : ?>
                 <div class="w-1/3 p-3">
-                    <div class="nmr-info-block-trigger content flex relative rounded overflow-hidden w-full bg-gray-200 hover:bg-gray-300 border border-gray-400 shadow cursor-pointer">
+                    <div class="nmr-info-block-trigger content flex relative rounded overflow-hidden w-full bg-gray-100 hover:bg-gray-200 border border-gray-400 shadow cursor-pointer">
                         <div class="flex-1 p-5">
                             <div class="text-2xl mb-2"><?= $benefit['title'] ?></div>
                             <div class="text-base"><?= substr($benefit['summary'], 0, 50) ?>...</div>

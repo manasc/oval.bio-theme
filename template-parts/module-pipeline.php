@@ -9,6 +9,8 @@ foreach ($phases as $key => $phase) {
         $currentPhase = $key;
     }
 }
+
+$phasesCount = count($phases)
 ?>
 
 <section class="content-box phase-box">
@@ -42,25 +44,50 @@ foreach ($phases as $key => $phase) {
     <div class="labels my-2">
         <div class="text-xs italic">Click on a phase to see details.</div>
     </div>
-    <div class="meta mt-16 max-w-3xl mx-auto">
-        <!-- <div class="tab-content text-lg"><?= $args["fields"]["pipeline_description"] ?></div> -->
-        <div class="accordion-box">
-            <div class="accordion">
-                <?php foreach ($phases as $key => $phase) : ?>
-                    <div data-key="<?= $key ?>" class="phase-details accordion-item accordion-item-has-icon <?= $key > $currentPhase && "hidden" ?>">
-                        <div class="accordion-item-header">
-                            <div class="accordion-item-question">
-                                <div class="accordion-item-icon">
-                                    <i class="fas fa-plus-circle"></i>
+    <!-- <div class="tab-content text-lg"><?= $args["fields"]["pipeline_description"] ?></div> -->
+    <div class="accordion-box mt-20">
+        <div class="accordion">
+            <div class="max-w-5xl mx-auto">
+                <div class="flex flex-wrap -mx-4">
+                    <div class="w-full md:w-1/2 px-4">
+                        <?php foreach ($phases as $key => $phase) : ?>
+                            <?php if ($key < $phasesCount / 2) : ?>
+                                <div data-key="<?= $key ?>" class="phase-details accordion-item accordion-item-has-icon <?= $key > $currentPhase && "hidden" ?>">
+                                    <div class="accordion-item-header">
+                                        <div class="accordion-item-question">
+                                            <div class="accordion-item-icon">
+                                                <i class="fas fa-plus-circle"></i>
+                                            </div>
+                                            <?= $phase["name"] ?>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item-content">
+                                        <div class="accordion-item-answer"><?= $phase["description"] ?></div>
+                                    </div>
                                 </div>
-                                <?= $phase["name"] ?>
-                            </div>
-                        </div>
-                        <div class="accordion-item-content">
-                            <div class="accordion-item-answer"><?= $phase["description"] ?></div>
-                        </div>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
                     </div>
-                <?php endforeach; ?>
+                    <div class="w-full md:w-1/2 px-4">
+                        <?php foreach ($phases as $key => $phase) : ?>
+                            <?php if ($key >= $phasesCount / 2) : ?>
+                                <div data-key="<?= $key ?>" class="phase-details accordion-item accordion-item-has-icon <?= $key > $currentPhase && "hidden" ?>">
+                                    <div class="accordion-item-header">
+                                        <div class="accordion-item-question">
+                                            <div class="accordion-item-icon">
+                                                <i class="fas fa-plus-circle"></i>
+                                            </div>
+                                            <?= $phase["name"] ?>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item-content">
+                                        <div class="accordion-item-answer"><?= $phase["description"] ?></div>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

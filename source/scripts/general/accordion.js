@@ -37,7 +37,7 @@ function faqAccordion() {
           if (item.classList.contains("active")) {
             closeItem(item);
           } else {
-            closeAllItems(accordion);
+            // closeAllItems(accordion);
             openItem(item);
           }
         });
