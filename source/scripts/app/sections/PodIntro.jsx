@@ -38,7 +38,7 @@ function PodIntro() {
 
         const loader = new GLTFLoader();
         loader.load(
-            "https://oval.bio.test:3000/wp-content/themes/oval.bio/source/renders/datsun/scene.gltf",
+            "https://dev.oval.bio/wp-content/themes/ob10/source/renders/datsun/scene.gltf",
             function (gltf) {
                 const box = new THREE.Box3().setFromObject(gltf.scene);
                 const center = box.getCenter(new THREE.Vector3());
@@ -65,12 +65,16 @@ function PodIntro() {
         controls.maxDistance = 10;
         controls.target.set(0, 0, -0.2);
         controls.update();
-    }, [windowSize]);
+    }, []);
 
     return (
         <section className="section h-screen overflow-hidden">
             <div className="h-full w-full bg-gray-200 relative">
-                <div className="absolute h-full w-full top-0 left-0" ref={canvas}></div>
+                <div
+                    id="podIntroThrees"
+                    className="absolute h-full w-full top-0 left-0"
+                    ref={canvas}
+                ></div>
                 <div className="label absolute bottom-0 left-0">
                     <div className="label-text">Pod Render</div>
                 </div>

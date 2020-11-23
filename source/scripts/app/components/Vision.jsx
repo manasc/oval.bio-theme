@@ -112,7 +112,7 @@ class Vision extends React.Component {
                 className="w-full h-full bg-cover bg-center bg-no-repeat absolute top-0 right-0"
                 style={{
                   backgroundImage:
-                    "url(https://oval.bio.test/app/themes/oval.bio-theme/source/images/Pod.png)",
+                    "url(https://dev.oval.bio/app/themes/oval.bio-theme/source/images/Pod.png)",
                 }}
               />
               <div

@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 // render each component
 import Customizer from "./app/components/Customizer";
 import ManifestoPage from "./app/pages/ManifestoPage";
+import PodPage from "./app/pages/PodPage";
 
 // single components
 // const vision = document.querySelector("#vision");
@@ -18,6 +19,7 @@ if (productCustomizer) {
 
 // manifesto page
 const manifestoPage = document.querySelector("#manifesto-page");
-if (manifestoPage) {
-    ReactDOM.render(<ManifestoPage />, manifestoPage);
-}
+if (manifestoPage) ReactDOM.render(<ManifestoPage />, manifestoPage);
+
+const podPage = document.querySelector("#pod-page");
+if (podPage) ReactDOM.render(<PodPage />, podPage);

@@ -13,12 +13,12 @@ function closeItem(item) {
   desc.style.maxHeight = null;
 }
 
-function closeAllItems(accordion) {
-  accordion.querySelectorAll(".accordion-item.active").forEach((item) => {
-    item.classList.remove("active");
-    item.querySelector(".accordion-item-content").style.maxHeight = null;
-  });
-}
+// function closeAllItems(accordion) {
+//   accordion.querySelectorAll(".accordion-item.active").forEach((item) => {
+//     item.classList.remove("active");
+//     item.querySelector(".accordion-item-content").style.maxHeight = null;
+//   });
+// }
 
 function faqAccordion() {
   // accordions
