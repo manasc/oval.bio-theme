@@ -71,8 +71,8 @@ function FivePillars() {
             dead: {},
         },
         link: {
-            active: "text-base mb-2 opacity-100",
-            dead: "cursor-pointer text-base mb-2 opacity-25 hover:opacity-75",
+            active: "opacity-100",
+            dead: "cursor-pointer opacity-25 hover:opacity-75",
         },
     };
 
@@ -95,12 +95,13 @@ function FivePillars() {
                         exercise or sex, size or defined quality of positive social circle). We will
                         write more content for each of these to give more details.{" "}
                     </p>
-                    <div className="mt-4">
+                    <div className="mt-4 text-lg">
                         {pillars.map((pillar, i) => (
                             <div
                                 key={i}
                                 className={
-                                    currentIndex === i ? classes.link.active : classes.link.dead
+                                    "text-base mb-2 " +
+                                    (currentIndex === i ? classes.link.active : classes.link.dead)
                                 }
                                 onClick={() => setCurrentIndex(i)}
                             >

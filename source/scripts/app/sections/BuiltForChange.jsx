@@ -111,40 +111,48 @@ function BuiltForChange() {
                 {renderCanvas()}
                 <div className="w-full max-w-lg flex-none flex flex-col">
                     <div className="flex-1 p-10">
-                        <div className="text-3xl">Built for change.</div>
-                        <p className="text-sm">
+                        <div className="text-3xl mb-5">Built for change.</div>
+                        <p className="text-base mb-5">
                             The NASA Apollo program is our role model. Most people associate the
                             Apollo program with the Apollo 11 mission, which landed the first humans
                             on the moon, and brought them back safely.
                         </p>
-                        <p className="text-sm">The Apollo program had the following goals:</p>
-                        <ol className="tex-sm">
-                            <li>
+                        <p className="text-base mb-2">
+                            The Apollo program had the following goals:
+                        </p>
+                        <ol className="text-base mb-10 list-decimal pl-4">
+                            <li className="mb-1">
                                 Establishing the technology to meet other national interests in
                                 space.
                             </li>
-                            <li>Achieving preeminence in space for the United States.</li>
-                            <li>Carrying out a program of scientific exploration of the Moon.</li>
-                            <li>Developing human capability to work in the lunar environment.</li>
+                            <li className="mb-1">
+                                Achieving preeminence in space for the United States.
+                            </li>
+                            <li className="mb-1">
+                                Carrying out a program of scientific exploration of the Moon.
+                            </li>
+                            <li className="mb-1">
+                                Developing human capability to work in the lunar environment.
+                            </li>
                         </ol>
-                        <p className="text-sm">
+                        <p className="text-base mb-2">
                             At oval.bio, we want people to associate life extension pods with us.
                             We’ll achieve that through the following company initiatives:
                         </p>
-                        <ol className="tex-sm">
-                            <li>
+                        <ol className="text-base list-decimal pl-4">
+                            <li className="mb-1">
                                 Create and utilize technologies which can have an impact on
                                 functionally extending the human lifespan.
                             </li>
-                            <li>
+                            <li className="mb-1">
                                 Give transparent access to these technologies to as many humans as
                                 possible.
                             </li>
-                            <li>
+                            <li className="mb-1">
                                 Test and quantify efficacy recognizing that not all people respond
                                 the same to the same technology.
                             </li>
-                            <li>Stay true to the mission.</li>
+                            <li className="mb-1">Stay true to the mission.</li>
                         </ol>
                     </div>
                     <div className="bg-ovalGreen flex-none p-10">

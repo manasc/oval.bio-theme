@@ -208,6 +208,16 @@ function oval_bio_scripts()
         date('h:i:s'),
         true
     );
+
+    // paths
+    $paths = [
+        "template" => get_template_directory(),
+        "templateDirectory" => get_template_directory(),
+        "templateDirectoryUri" => get_template_directory_uri()
+    ];
+
+    wp_localize_script("oval-bio-app", "wpPaths", $paths);
+    wp_localize_script("oval-bio-general", "wpPaths", $paths);
 }
 add_action('wp_enqueue_scripts', 'oval_bio_scripts');
 

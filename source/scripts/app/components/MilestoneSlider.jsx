@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-
-import { Slider } from "@fluentui/react";
 import NumberFormat from "react-number-format";
+import { Tooltip } from "react-tippy";
 
 function MilestoneSlider(props) {
-    const [inputValue, setInputValue] = useState(0);
+    const [inputValue, setInputValue] = useState(100);
     const [value1, setValue1] = useState(25);
     const [value2, setValue2] = useState(10);
     const [value3, setValue3] = useState(100);
 
-    const calcVal = (sliderVal) => {
+    const calcVal = (val) => {
+        const sliderVal = val / 1000;
         const defaultVal1 = 25;
         const defaultVal2 = 10;
         const defaultVal3 = 100;
@@ -24,27 +24,30 @@ function MilestoneSlider(props) {
                 val2 = defaultVal2;
                 val3 = defaultVal3;
                 break;
-            case sliderVal < 50:
-                val1 = defaultVal1 + sliderVal * 1.0625;
-                val2 = defaultVal2 + sliderVal;
+            case sliderVal < 500:
+                val1 = sliderVal * 1.0625;
+                val2 = sliderVal;
                 val3 = sliderVal * 0.25;
                 break;
-            case sliderVal < 75:
-                val1 = defaultVal1 + sliderVal * 1.005;
-                val2 = defaultVal2 + sliderVal;
+            case sliderVal < 750:
+                val1 = sliderVal * 1.005;
+                val2 = sliderVal;
                 val3 = sliderVal * 0.5;
                 break;
-            case sliderVal < 100:
+            case sliderVal < 1000:
             default:
-                val1 = defaultVal1 + sliderVal * 1.00025;
-                val2 = defaultVal2 + sliderVal;
+                val1 = sliderVal * 1.00025;
+                val2 = sliderVal;
                 val3 = sliderVal * 0.1;
                 break;
         }
 
-        setValue1(val1 < 100 ? Math.floor(val1) : 100);
-        setValue2(val2 < 100 ? Math.floor(val2) : 100);
-        setValue3(val3 < 100 ? Math.floor(val3) : 100);
+        console.log(val, val1, val2, val3);
+
+        setInputValue(val);
+        setValue1(Math.floor(val1 * 100));
+        setValue2(Math.floor(val2 * 100));
+        setValue3(Math.floor(val3 * 100));
     };
 
     return (
@@ -75,6 +78,7 @@ function MilestoneSlider(props) {
                                 className="h-12 bg-ovalGreen relative"
                                 style={{
                                     width: value1 + "%",
+                                    maxWidth: "100%",
                                     transitionDuration: "200ms",
                                 }}
                             >
@@ -91,6 +95,7 @@ function MilestoneSlider(props) {
                                 className="h-24 bg-ovalGreen relative"
                                 style={{
                                     width: value2 + "%",
+                                    maxWidth: "100%",
                                     transitionDuration: "200ms",
                                 }}
                             >
@@ -107,6 +112,7 @@ function MilestoneSlider(props) {
                                 className="h-6 bg-ovalGreen relative"
                                 style={{
                                     width: value3 + "%",
+                                    maxWidth: "100%",
                                     transitionDuration: "200ms",
                                 }}
                             >
@@ -120,17 +126,54 @@ function MilestoneSlider(props) {
                         </div>
                         <div className="mt-10">
                             <div className="max-w-lg">
-                                <Slider
+                                {/* <Slider
                                     label="Your Investment"
                                     min={0}
                                     max={100}
                                     value={inputValue}
-                                    onChange={(value) => {
-                                        setInputValue(value);
-                                        calcVal(value);
-                                    }}
+                                    onChange={(value) => calcVal(value)}
                                     // showValue
-                                />
+                                /> */}
+                                <div className="text-sm mb-2 font-bold">Your Investment</div>
+                                <div className="flex -mx-1">
+                                    <div className="px-1 flex items-center relative">
+                                        <div className="text-xl font-normal absolute left-0 pl-4">
+                                            $
+                                        </div>
+                                        <input
+                                            type="number"
+                                            className="text-xl bg-transparent border-2 border-gray-500 active:border-ovalGreenDark pl-6 pr-2 rounded h-12"
+                                            value={inputValue}
+                                            onChange={(e) => calcVal(e.target.value)}
+                                        />
+                                    </div>
+                                    <div className="px-1 flex flex-col justify-center">
+                                        <Tooltip title="+100" size="small" position="right">
+                                            <div
+                                                onClick={() =>
+                                                    inputValue < 1000 && calcVal(inputValue + 100)
+                                                }
+                                                className="waves-effect cursor-pointer rounded-full mb-1 bg-ovalGreen hover:bg-ovalGreenDark h-5 w-5 overflow-hidden flex items-center justify-center"
+                                            >
+                                                <i className="fas fa-arrow-up text-white text-xs"></i>
+                                            </div>
+                                        </Tooltip>
+                                        <Tooltip title="-100" size="small" position="right">
+                                            <div
+                                                className="waves-effect cursor-pointer rounded-full bg-ovalGreen hover:bg-ovalGreenDark h-5 w-5 overflow-hidden flex items-center justify-center"
+                                                onClick={() =>
+                                                    inputValue > 10 && calcVal(inputValue - 100)
+                                                }
+                                            >
+                                                <i className="fas fa-arrow-down text-white text-xs"></i>
+                                            </div>
+                                        </Tooltip>
+                                    </div>
+                                </div>
+                                <div className="text-2xs mt-3 max-w-2xs">
+                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum
+                                    veritatis odit.
+                                </div>
                             </div>
                         </div>
                     </div>

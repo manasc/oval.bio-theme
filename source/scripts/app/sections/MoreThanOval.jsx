@@ -9,7 +9,7 @@ function MoreThanOval() {
                         <div className="text-3xl mb-5">
                             The <span className="text-ovalGreen">POD</span> is more than oval.bio
                         </div>
-                        <p className="text-sm mb-5">
+                        <p className="mb-5">
                             We’re breaking preconceived notions of what capitalism and free market
                             economics are in the pursuit of providing extensive, ultra-transparent
                             access to functional life extension technology. In other words, we are
@@ -18,7 +18,7 @@ function MoreThanOval() {
                             ways:
                         </p>
 
-                        <ol className="text-sm list-disc pl-5">
+                        <ol className="list-disc pl-5">
                             <li className="mb-2">
                                 Our research and technology used for the pod can be and will be used
                                 for future products, similar to how NASA’s Apollo mission lead many
@@ -34,7 +34,7 @@ function MoreThanOval() {
                         </ol>
                     </div>
                     <div className="flex-none bg-ovalGreen p-10">
-                        <div className="label-text text-sm mb-2">Note:</div>
+                        <div className="label-text mb-2">Note:</div>
                         <p>
                             The pod, however, can be useful for much more than how we had initially
                             envisioned it. This is essentially a human biosensor interface. What

@@ -8,7 +8,7 @@ import FivePillars from "../sections/FivePillars";
 import PodIntro from "../sections/PodIntro";
 import MoreThanOval from "../sections/MoreThanOval";
 import DiagramSection from "../sections/DiagramSection";
-import VideoSection from "../sections/VideoSection";
+import Milestones from "../sections/Milestones";
 
 function ManifestoPage() {
     return (
@@ -20,7 +20,7 @@ function ManifestoPage() {
             <PodIntro />
             <MoreThanOval />
             <DiagramSection />
-            <VideoSection />
+            <Milestones />
         </main>
     );
 }

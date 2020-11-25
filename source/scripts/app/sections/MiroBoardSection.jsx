@@ -126,12 +126,12 @@ function MiroBoardSection() {
                                     by developing life extension technologies in the most replicable
                                     way possible.
                                 </p>
-                                <p className="mt-5">
+                                {/* <p className="mt-5">
                                     <a className="button mr-1">Hello</a>
                                     <a href="#" className="button">
                                         Goodbye
                                     </a>
-                                </p>
+                                </p> */}
                             </div>
                         </div>
 

@@ -2065,6 +2065,105 @@ body {
   padding-bottom: 0.25rem;
 }
 
+.react-accordion .react-accordion-item {
+  transition: all 300ms;
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
+  page-break-inside: avoid;
+  cursor: pointer;
+}
+
+.react-accordion .react-accordion-item:not(:last-child) {
+  border-bottom-width: 1px;
+}
+
+.react-accordion .react-accordion-item * {
+  pointer-events: none;
+}
+
+.react-accordion .react-accordion-item .react-accordion-item-header,
+  .react-accordion .react-accordion-item .react-accordion-item-content {
+  font-size: 1.125rem;
+  width: 100%;
+}
+
+.react-accordion .react-accordion-item .react-accordion-item-header .react-accordion-item-question,
+    .react-accordion .react-accordion-item .react-accordion-item-content .react-accordion-item-question {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.react-accordion .react-accordion-item .react-accordion-item-header {
+  transition: all 300ms;
+  position: relative;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.react-accordion .react-accordion-item .react-accordion-item-content {
+  box-sizing: content-box;
+  padding-bottom: 0;
+  overflow: hidden;
+  max-height: 0;
+  transition: all 300ms;
+}
+
+.react-accordion .react-accordion-item.active .react-accordion-item-content {
+  padding-bottom: 1.25rem;
+}
+
+.react-accordion .react-accordion-item.react-accordion-item-has-icon {
+  padding-left: 2rem;
+  padding-right: 0.5rem;
+}
+
+.react-accordion .react-accordion-item.react-accordion-item-has-icon .react-accordion-item-header .react-accordion-item-icon {
+  position: absolute;
+  left: 0;
+  font-size: 1rem;
+  --text-opacity: 1;
+  color: #718096;
+  color: rgba(113, 128, 150, var(--text-opacity));
+  transform: translateX(-155%);
+}
+
+.react-accordion .react-accordion-item.react-accordion-item-has-icon .react-accordion-item-header .react-accordion-item-icon i {
+  transition: all 300ms;
+}
+
+.react-accordion .react-accordion-item.react-accordion-item-has-icon.active .react-accordion-item-header {
+  padding-top: 2rem;
+  padding-bottom: 0.75rem;
+}
+
+.react-accordion .react-accordion-item.react-accordion-item-has-icon.active .react-accordion-item-header .react-accordion-item-icon {
+  --text-opacity: 1;
+  color: #77e0a1;
+  color: rgba(119, 224, 161, var(--text-opacity));
+}
+
+.react-accordion .react-accordion-item.react-accordion-item-has-icon.active .react-accordion-item-header .react-accordion-item-icon i {
+  transform: rotate(45deg);
+}
+
+.react-accordion.react-accordion-small {
+  border-bottom-width: 0;
+}
+
+.react-accordion.react-accordion-small .react-accordion-item-header {
+  font-size: 0.875rem;
+}
+
+.react-accordion.react-accordion-small .react-accordion-item-content {
+  font-size: 0.875rem;
+}
+
+.react-accordion.react-accordion-small .react-accordion-item-header {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
 .filter-box {
   padding: 0;
 }

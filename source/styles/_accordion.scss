@@ -1,98 +1,208 @@
 // faq
 .accordion-box {
-  // column-count: 2;
-  // column-gap: theme("spacing.12");
+    // column-count: 2;
+    // column-gap: theme("spacing.12");
 }
 
 .accordion {
-  .accordion-item {
-    transition: all $animationSpeed;
+    .accordion-item {
+        transition: all $animationSpeed;
 
-    -webkit-column-break-inside: avoid;
-    break-inside: avoid;
-    page-break-inside: avoid;
+        -webkit-column-break-inside: avoid;
+        break-inside: avoid;
+        page-break-inside: avoid;
 
-    @apply cursor-pointer;
+        @apply cursor-pointer;
 
-    &:not(:last-child) {
-      @apply border-b;
-    }
-
-    .accordion-item-header,
-    .accordion-item-content {
-      @apply text-lg;
-    }
-
-    .accordion-item-header {
-      transition: all $animationSpeed;
-
-      @apply relative;
-      @apply py-5;
-    }
-
-    .accordion-item-content {
-      box-sizing: content-box;
-
-      @apply pb-0;
-      @apply overflow-hidden;
-
-      max-height: 0;
-      transition: all $animationSpeed;
-    }
-
-    &.active {
-      .accordion-item-content {
-        @apply pb-5;
-      }
-    }
-
-    // for accordions with icons
-    &.accordion-item-has-icon {
-      @apply pl-8 pr-2;
-
-      .accordion-item-header {
-        .accordion-item-icon {
-          @apply absolute left-0;
-          @apply text-base;
-          @apply text-gray-600;
-
-          transform: translateX(-155%) translateY(1px);
-
-          i {
-            transition: all $animationSpeed;
-          }
+        &:not(:last-child) {
+            @apply border-b;
         }
-      }
 
-      &.active {
+        .accordion-item-header,
+        .accordion-item-content {
+            @apply text-lg;
+        }
+
         .accordion-item-header {
-          @apply pt-8 pb-3;
+            transition: all $animationSpeed;
 
-          .accordion-item-icon {
-            @apply text-ovalGreen;
-
-            i {
-              transform: rotate(45deg);
-            }
-          }
+            @apply relative;
+            @apply py-5;
         }
-      }
-    }
-  }
 
-  &.accordion-small {
-    @apply border-b-0;
+        .accordion-item-content {
+            box-sizing: content-box;
 
-    .accordion-item-header {
-      @apply text-sm;
+            @apply pb-0;
+            @apply overflow-hidden;
+
+            max-height: 0;
+            transition: all $animationSpeed;
+        }
+
+        &.active {
+            .accordion-item-content {
+                @apply pb-5;
+            }
+        }
+
+        // for accordions with icons
+        &.accordion-item-has-icon {
+            @apply pl-8 pr-2;
+
+            .accordion-item-header {
+                .accordion-item-icon {
+                    @apply absolute left-0;
+                    @apply text-base;
+                    @apply text-gray-600;
+
+                    transform: translateX(-155%) translateY(1px);
+
+                    i {
+                        transition: all $animationSpeed;
+                    }
+                }
+            }
+
+            &.active {
+                .accordion-item-header {
+                    @apply pt-8 pb-3;
+
+                    .accordion-item-icon {
+                        @apply text-ovalGreen;
+
+                        i {
+                            transform: rotate(45deg);
+                        }
+                    }
+                }
+            }
+        }
     }
 
-    .accordion-item-content {
-      @apply text-sm;
+    &.accordion-small {
+        @apply border-b-0;
+
+        .accordion-item-header {
+            @apply text-sm;
+        }
+
+        .accordion-item-content {
+            @apply text-sm;
+        }
+
+        .accordion-item-header {
+            @apply py-1;
+        }
+    }
+}
+
+// faq
+.react-accordion-box {
+    // column-count: 2;
+    // column-gap: theme("spacing.12");
+}
+
+.react-accordion {
+    .react-accordion-item {
+        transition: all $animationSpeed;
+
+        -webkit-column-break-inside: avoid;
+        break-inside: avoid;
+        page-break-inside: avoid;
+
+        @apply cursor-pointer;
+
+        &:not(:last-child) {
+            @apply border-b;
+        }
+
+        * {
+            pointer-events: none;
+        }
+
+        .react-accordion-item-header,
+        .react-accordion-item-content {
+            @apply text-lg;
+            @apply w-full;
+
+            .react-accordion-item-question {
+                @apply flex items-center;
+                @apply w-full;
+            }
+        }
+
+        .react-accordion-item-header {
+            transition: all $animationSpeed;
+
+            @apply relative;
+            @apply py-5;
+        }
+
+        .react-accordion-item-content {
+            box-sizing: content-box;
+
+            @apply pb-0;
+            @apply overflow-hidden;
+
+            max-height: 0;
+            transition: all $animationSpeed;
+        }
+
+        &.active {
+            .react-accordion-item-content {
+                @apply pb-5;
+            }
+        }
+
+        // for accordions with icons
+        &.react-accordion-item-has-icon {
+            @apply pl-8 pr-2;
+            // @apply flex items-center;
+
+            .react-accordion-item-header {
+                .react-accordion-item-icon {
+                    @apply absolute left-0;
+                    @apply text-base;
+                    @apply text-gray-600;
+
+                    transform: translateX(-155%);
+
+                    i {
+                        transition: all $animationSpeed;
+                    }
+                }
+            }
+
+            &.active {
+                .react-accordion-item-header {
+                    @apply pt-8 pb-3;
+
+                    .react-accordion-item-icon {
+                        @apply text-ovalGreen;
+
+                        i {
+                            transform: rotate(45deg);
+                        }
+                    }
+                }
+            }
+        }
     }
 
-    .accordion-item-header {
-      @apply py-1;
+    &.react-accordion-small {
+        @apply border-b-0;
+
+        .react-accordion-item-header {
+            @apply text-sm;
+        }
+
+        .react-accordion-item-content {
+            @apply text-sm;
+        }
+
+        .react-accordion-item-header {
+            @apply py-1;
+        }
     }
-  }
 }

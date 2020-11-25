@@ -88,12 +88,12 @@ function PodIntro() {
                             recognize early warning signs, learn what choices impact their health
                             and better tailor the life-extension therapies to the user.{" "}
                         </p>
-                        <p className="mt-5">
+                        {/* <p className="mt-5">
                             <a className="button mr-2">Hello</a>
                             <a href="#" className="button">
                                 Goodbye
                             </a>
-                        </p>
+                        </p> */}
                     </div>
                 </div>
             </div>

@@ -197,13 +197,10 @@ $diagnostics = [
             <div class="accordion accordion-small h-full">
 
                 <?php foreach ($diagnostics as $key => $diagnosticsStuff) : ?>
-
                     <div class="mb-5">
-
                         <div class="label-text text-xs text-gray-600 mb-2">
                             <?php echo $diagnosticsStuff["title"] ?> <a href="#"><i class="ml-1 fas fa-question-circle"></i></a>
                         </div>
-
                         <div class="w-full">
                             <?php foreach ($diagnosticsStuff["items"] as $key => $diagnostic) : ?>
                                 <div class="accordion-item cursor-pointer w-full">
@@ -219,9 +216,7 @@ $diagnostics = [
                                 </div>
                             <?php endforeach; ?>
                         </div>
-
                     </div>
-
                 <?php endforeach; ?>
 
             </div>
