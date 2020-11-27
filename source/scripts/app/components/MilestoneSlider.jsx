@@ -1,54 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NumberFormat from "react-number-format";
 import { Tooltip } from "react-tippy";
+import { Slider } from "@fluentui/react";
 
 function MilestoneSlider(props) {
     const [inputValue, setInputValue] = useState(100);
+
+    const [investment, setInvestment] = useState(100);
+
+    const [phase, setPhase] = useState(0);
+
+    const [equity, setEquity] = useState("0%");
+    const [shares, setShares] = useState(0);
+    const [pointPercent, setPointPercent] = useState("100%");
+
     const [value1, setValue1] = useState(25);
     const [value2, setValue2] = useState(10);
     const [value3, setValue3] = useState(100);
 
-    const calcVal = (val) => {
-        const sliderVal = val / 1000;
-        const defaultVal1 = 25;
-        const defaultVal2 = 10;
-        const defaultVal3 = 100;
+    const totalEquity = 1000000000;
 
-        let val1 = 0;
-        let val2 = 0;
-        let val3 = 0;
+    const phases = [
+        { cap: 1250000, points: 60 },
+        { cap: 2500000, points: 30 },
+        { cap: 5000000, points: 10 },
+        { cap: 10000000, points: 5 },
+        { cap: 50000000, points: 2 },
+        { cap: 100000000, points: 1 },
+        { cap: 100000000, points: 0 },
+    ];
 
-        switch (true) {
-            case sliderVal === 0:
-                val1 = defaultVal1;
-                val2 = defaultVal2;
-                val3 = defaultVal3;
-                break;
-            case sliderVal < 500:
-                val1 = sliderVal * 1.0625;
-                val2 = sliderVal;
-                val3 = sliderVal * 0.25;
-                break;
-            case sliderVal < 750:
-                val1 = sliderVal * 1.005;
-                val2 = sliderVal;
-                val3 = sliderVal * 0.5;
-                break;
-            case sliderVal < 1000:
-            default:
-                val1 = sliderVal * 1.00025;
-                val2 = sliderVal;
-                val3 = sliderVal * 0.1;
-                break;
-        }
+    const calcPoints = () => {
+        // get investment
+        // get phase
+        setShares(investment * phases[phase].points);
+        setEquity(((shares / totalEquity) * 100).toFixed(5) + "%");
 
-        console.log(val, val1, val2, val3);
-
-        setInputValue(val);
-        setValue1(Math.floor(val1 * 100));
-        setValue2(Math.floor(val2 * 100));
-        setValue3(Math.floor(val3 * 100));
+        // get point value
+        setPointPercent(Math.floor((phases[phase].points / phases[0].points) * 100) + "%");
     };
+
+    useEffect(() => {
+        calcPoints();
+    }, [phase, investment]);
 
     return (
         <div className="h-full w-full bg-gray-200 flex items-center justify-center">
@@ -58,101 +52,76 @@ function MilestoneSlider(props) {
                         <div className="w-full px-4 max-w-md">
                             <p className="font-bold">Milestones</p>
                             <p>
-                                We have our milestones laid for the next few years. Move the slider
-                                below to see how you can be rewarded for being an early-adopter.
+                                We have our milestones laid for the next few years. Move the slider below to see how you can be rewarded for
+                                being an early-adopter.
                             </p>
 
-                            <h2 className="text-4xl mt-10">
-                                <NumberFormat
-                                    value={Math.floor(Math.pow(inputValue, 3.5))}
-                                    displayType={"text"}
-                                    thousandSeparator={true}
-                                    prefix={"$"}
-                                />
+                            <h2 className="text-5xl mt-5">
+                                <NumberFormat value={phases[phase].cap} displayType={"text"} thousandSeparator={true} prefix={"$"} />
+                                <div className="text-xs label-text max-w-2xs">Phase Cap</div>
+                            </h2>
+                            <h2 className="text-4xl mt-5">
+                                <NumberFormat value={shares} displayType={"text"} thousandSeparator={true} suffix=" points" />
+                                <div className="text-xs label-text max-w-2xs">{phases[phase].points} Phase Points / Dollar</div>
                             </h2>
                         </div>
                     </div>
                     <div className="flex-none px-4 max-w-5xl w-full mb-4">
-                        <div className="bg-gray-400 rounded w-full mb-3 overflow-hidden">
-                            <div
-                                className="h-12 bg-ovalGreen relative"
-                                style={{
-                                    width: value1 + "%",
-                                    maxWidth: "100%",
-                                    transitionDuration: "200ms",
-                                }}
-                            >
-                                <div
-                                    className="absolute right-0"
-                                    style={{ top: "50%", transform: "translate(-50%, -50%)" }}
-                                >
-                                    {value1 + "%"}
-                                </div>
-                            </div>
-                        </div>
-                        <div className="bg-gray-400 rounded w-full mb-10 overflow-hidden">
+                        {/* equity */}
+                        <div className="bg-ovalGreenDark rounded w-full overflow-hidden">
                             <div
                                 className="h-24 bg-ovalGreen relative"
                                 style={{
-                                    width: value2 + "%",
+                                    width: equity,
                                     maxWidth: "100%",
                                     transitionDuration: "200ms",
                                 }}
                             >
-                                <div
-                                    className="absolute right-0"
-                                    style={{ top: "50%", transform: "translate(-50%, -50%)" }}
-                                >
-                                    {value2 + "%"}
+                                <div className="absolute right-0" style={{ top: "50%", transform: "translate(calc(100% + 20px), -50%)" }}>
+                                    {equity}
                                 </div>
                             </div>
                         </div>
-                        <div className="bg-gray-400 rounded w-full mb-3 overflow-hidden">
+                        <div className="text-2xs mt-3 mb-5 max-w-xs">
+                            Percentage of equity in the company you will get. This is based on 1 billion total shares that will be
+                            available.
+                        </div>
+
+                        {/* points weight */}
+                        <div className="bg-gray-600 rounded w-full mb-3 overflow-hidden">
                             <div
                                 className="h-6 bg-ovalGreen relative"
                                 style={{
-                                    width: value3 + "%",
+                                    width: pointPercent,
                                     maxWidth: "100%",
                                     transitionDuration: "200ms",
                                 }}
                             >
-                                <div
-                                    className="absolute right-0"
-                                    style={{ top: "50%", transform: "translate(-50%, -50%)" }}
-                                >
-                                    {value3 + "%"}
+                                <div className="absolute right-0" style={{ top: "50%", transform: "translate(-50%, -50%)" }}>
+                                    {pointPercent}
                                 </div>
                             </div>
                         </div>
-                        <div className="mt-10">
-                            <div className="max-w-lg">
-                                {/* <Slider
-                                    label="Your Investment"
-                                    min={0}
-                                    max={100}
-                                    value={inputValue}
-                                    onChange={(value) => calcVal(value)}
-                                    // showValue
-                                /> */}
+                        <div className="text-2xs mt-3 max-w-xs">The weight of your points since the beginning of the company.</div>
+                        <hr className="divider my-5" />
+
+                        <div className="flex flex-wrap -mx-2">
+                            <div className="w-full max-w-sm px-2">
                                 <div className="text-sm mb-2 font-bold">Your Investment</div>
                                 <div className="flex -mx-1">
                                     <div className="px-1 flex items-center relative">
-                                        <div className="text-xl font-normal absolute left-0 pl-4">
-                                            $
-                                        </div>
+                                        <div className="text-xl font-normal absolute left-0 pl-4">$</div>
                                         <input
                                             type="number"
                                             className="text-xl bg-transparent border-2 border-gray-500 active:border-ovalGreenDark pl-6 pr-2 rounded h-12"
-                                            value={inputValue}
-                                            onChange={(e) => calcVal(e.target.value)}
+                                            value={investment}
+                                            onChange={(e) => setInvestment(e.target.value)}
                                         />
                                     </div>
                                     <div className="px-1 flex flex-col justify-center">
                                         <Tooltip title="+100" size="small" position="right">
                                             <div
-                                                onClick={() =>
-                                                    inputValue < 1000 && calcVal(inputValue + 100)
-                                                }
+                                                onClick={() => setInvestment(parseInt(investment) + 100)}
                                                 className="waves-effect cursor-pointer rounded-full mb-1 bg-ovalGreen hover:bg-ovalGreenDark h-5 w-5 overflow-hidden flex items-center justify-center"
                                             >
                                                 <i className="fas fa-arrow-up text-white text-xs"></i>
@@ -161,9 +130,7 @@ function MilestoneSlider(props) {
                                         <Tooltip title="-100" size="small" position="right">
                                             <div
                                                 className="waves-effect cursor-pointer rounded-full bg-ovalGreen hover:bg-ovalGreenDark h-5 w-5 overflow-hidden flex items-center justify-center"
-                                                onClick={() =>
-                                                    inputValue > 10 && calcVal(inputValue - 100)
-                                                }
+                                                onClick={() => investment > 10 && setInvestment(parseInt(investment) - 100)}
                                             >
                                                 <i className="fas fa-arrow-down text-white text-xs"></i>
                                             </div>
@@ -171,8 +138,21 @@ function MilestoneSlider(props) {
                                     </div>
                                 </div>
                                 <div className="text-2xs mt-3 max-w-2xs">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum
-                                    veritatis odit.
+                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum veritatis odit.
+                                </div>
+                            </div>
+                            <div className="w-full max-w-sm px-2">
+                                <Slider
+                                    className="mb-2"
+                                    label={<strong className="text-sm font-brand font-bold">Phase</strong>}
+                                    min={1}
+                                    step={1}
+                                    max={7}
+                                    value={phase + 1}
+                                    onChange={(value) => setPhase(value - 1)}
+                                />
+                                <div className="text-2xs max-w-2xs">
+                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum veritatis odit.
                                 </div>
                             </div>
                         </div>
