@@ -7,9 +7,7 @@ const FaqSection = ({ data }) => {
 
     return (
         <Accordion title="Frequently Asked Questions">
-            {faqs.map((faq, i) => (
-                <AccordionItem key={i} title={faq.question} description={faq.answer} />
-            ))}
+            {faqs && faqs.map((faq, i) => <AccordionItem key={i} title={faq.question} description={faq.answer} />)}
         </Accordion>
     );
 };

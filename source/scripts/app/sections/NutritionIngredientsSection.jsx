@@ -6,9 +6,10 @@ function NutritionIngredientSection({ data }) {
     let generalArr = [];
 
     // filter data
-    data.ingredients.forEach((item) => {
-        item.image && item.description ? featuredArr.push(item) : generalArr.push(item);
-    });
+    data.ingredients &&
+        data.ingredients.forEach((item) => {
+            item.image && item.description ? featuredArr.push(item) : generalArr.push(item);
+        });
 
     return (
         <section className="content-box">
