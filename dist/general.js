@@ -6186,6 +6186,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _general_anchorBox__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./general/anchorBox */ "./source/scripts/general/anchorBox.js");
 /* harmony import */ var _general_lazyload__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./general/lazyload */ "./source/scripts/general/lazyload.js");
 /* harmony import */ var _general_gallery__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./general/gallery */ "./source/scripts/general/gallery.js");
+/* harmony import */ var _general_gallery__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_general_gallery__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _general_checkout__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./general/checkout */ "./source/scripts/general/checkout.js");
 /* harmony import */ var _general_checkout__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_general_checkout__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _general_tooltips__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./general/tooltips */ "./source/scripts/general/tooltips.js");
@@ -6645,82 +6646,71 @@ document.addEventListener("DOMContentLoaded", filterBox);
 /*!*******************************************!*\
   !*** ./source/scripts/general/gallery.js ***!
   \*******************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var siema__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! siema */ "./node_modules/siema/dist/siema.min.js");
-/* harmony import */ var siema__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(siema__WEBPACK_IMPORTED_MODULE_0__);
-
-
-function imageGalleryFunc() {
-  var galleries = document.querySelectorAll(".nmr-image-gallery-box");
-
-  if (galleries) {
-    galleries.forEach(function (galleryBox) {
-      // store nav
-      var galleryNav = galleryBox.querySelectorAll(".nmr-image-gallery-nav .nmr-image");
-      var gallery = new siema__WEBPACK_IMPORTED_MODULE_0___default.a({
-        selector: galleryBox.querySelector(".nmr-image-gallery"),
-        duration: 200,
-        startIndex: 0,
-        draggable: true,
-        loop: false,
-        rtl: false,
-        onChange: function onChange(x, y) {
-          // clear other navs
-          galleryNav.forEach(function (x) {
-            x.classList.remove("active");
-          }); // set current nav
-
-          galleryNav[gallery.currentSlide].classList.add("active");
-        }
-      }); // set first to active
-
-      galleryNav[0].classList.add("active"); // on change
-      // update gallery nav to highlight correct image
-
-      function updateNav() {} // on click of gallery image
-
-
-      galleryNav.forEach(function (imageButton, index) {
-        imageButton.addEventListener("click", function () {
-          return gallery.goTo(index);
-        });
-      });
-    });
-  }
-}
-
-function infoGalleryFunc() {
-  var galleryBox = document.querySelector(".nmr-info-gallery-box");
-  var bg = galleryBox.querySelector(".background"); // store nav
-
-  var gallery = new siema__WEBPACK_IMPORTED_MODULE_0___default.a({
-    selector: document.querySelector(".nmr-info-gallery"),
-    perPage: 2,
-    duration: 200,
-    startIndex: 0,
-    draggable: true,
-    loop: false,
-    rtl: false
-  });
-  var triggers = document.querySelectorAll(".nmr-info-block-trigger");
-  triggers.forEach(function (x) {
-    x.addEventListener("click", function () {
-      galleryBox.classList.remove("invisible");
-      galleryBox.classList.remove("opacity-0");
-    });
-  });
-  bg.addEventListener("click", function () {
-    galleryBox.classList.add("invisible");
-    galleryBox.classList.add("opacity-0");
-  });
-}
-
-document.addEventListener("DOMContentLoaded", imageGalleryFunc);
-document.addEventListener("DOMContentLoaded", infoGalleryFunc);
+// import Siema from "siema";
+// function imageGalleryFunc() {
+//     const galleries = document.querySelectorAll(".nmr-image-gallery-box");
+//     if (galleries) {
+//         galleries.forEach((galleryBox) => {
+//             // store nav
+//             const galleryNav = galleryBox.querySelectorAll(".nmr-image-gallery-nav .nmr-image");
+//             const gallery = new Siema({
+//                 selector: galleryBox.querySelector(".nmr-image-gallery"),
+//                 duration: 200,
+//                 startIndex: 0,
+//                 draggable: true,
+//                 loop: false,
+//                 rtl: false,
+//                 onChange: (x, y) => {
+//                     // clear other navs
+//                     galleryNav.forEach((x) => {
+//                         x.classList.remove("active");
+//                     });
+//                     // set current nav
+//                     galleryNav[gallery.currentSlide].classList.add("active");
+//                 },
+//             });
+//             // set first to active
+//             galleryNav[0].classList.add("active");
+//             // on change
+//             // update gallery nav to highlight correct image
+//             function updateNav() {}
+//             // on click of gallery image
+//             galleryNav.forEach((imageButton, index) => {
+//                 imageButton.addEventListener("click", () => gallery.goTo(index));
+//             });
+//         });
+//     }
+// }
+// function infoGalleryFunc() {
+//     const galleryBox = document.querySelector(".nmr-info-gallery-box");
+//     const bg = galleryBox.querySelector(".background");
+//     // store nav
+//     const gallery = new Siema({
+//         selector: document.querySelector(".nmr-info-gallery"),
+//         perPage: 2,
+//         duration: 200,
+//         startIndex: 0,
+//         draggable: true,
+//         loop: false,
+//         rtl: false,
+//     });
+//     const triggers = document.querySelectorAll(".nmr-info-block-trigger");
+//     triggers.forEach((x) => {
+//         x.addEventListener("click", () => {
+//             galleryBox.classList.remove("invisible");
+//             galleryBox.classList.remove("opacity-0");
+//         });
+//     });
+//     bg.addEventListener("click", () => {
+//         galleryBox.classList.add("invisible");
+//         galleryBox.classList.add("opacity-0");
+//     });
+// }
+// document.addEventListener("DOMContentLoaded", imageGalleryFunc);
+// document.addEventListener("DOMContentLoaded", infoGalleryFunc);
 
 /***/ }),
 

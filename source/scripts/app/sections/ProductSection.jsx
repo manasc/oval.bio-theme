@@ -24,10 +24,13 @@ function ProductSection({ productData }) {
     const [subscription, setSubscription] = useState(true);
 
     const imageDisplay = (key) => {
+        // get numeric distance between chosenImage
+        const distance = Math.abs(chosenImage - key) * 100;
+
         if (key < chosenImage) {
-            return "-100%";
+            return -1 * distance + "%";
         } else if (key > chosenImage) {
-            return "100%";
+            return distance + "%";
         } else {
             return "0";
         }

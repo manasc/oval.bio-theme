@@ -42,128 +42,129 @@
     $upcoming_info = false;
 
     $productTabBoxes = [
-        [
-            "active" => $key_benefits,
-            "slug" => "key_benefits",
-            "title" => "Key Benefits",
-            "module" => "key-benefits2"
-        ],
-        [
-            "active" => $how_it_works,
-            "slug" => "how_it_works",
-            "title" => "How it Works",
-            "module" => "how-it-works"
-        ],
-        [
-            "active" => true,
-            "slug" => "life_extension",
-            "title" => "5 Pillars of Life Extension",
-            "module" => "life-extension"
-        ],
-        [
-            "active" => $nutrition_ingredients,
-            "slug" => "nutrition_ingredients",
-            "title" => "Nutrition & Ingredients",
-            "module" => "nutrition-and-ingredients"
-        ],
-        [
-            "active" => $components,
-            "slug" => "components",
-            "title" => "Components",
-            "module" => "components"
-        ],
-        [
-            "active" => $cost_of_goods,
-            "slug" => "cost_of_goods",
-            "title" => "Cost of Goods",
-            "module" => "cost-of-goods"
-        ],
-        [
-            "active" => $product_future,
-            "slug" => "future_of_product",
-            "title" => "Future of Product",
-            "module" => "future-of-product"
-        ],
+        // [
+        //     "active" => $key_benefits,
+        //     "slug" => "key_benefits",
+        //     "title" => "Key Benefits",
+        //     "module" => "key-benefits2"
+        // ],
+        // [
+        //     "active" => $how_it_works,
+        //     "slug" => "how_it_works",
+        //     "title" => "How it Works",
+        //     "module" => "how-it-works"
+        // ],
+        // [
+        //     "active" => true,
+        //     "slug" => "life_extension",
+        //     "title" => "5 Pillars of Life Extension",
+        //     "module" => "life-extension"
+        // ],
+        // [
+        //     "active" => $nutrition_ingredients,
+        //     "slug" => "nutrition_ingredients",
+        //     "title" => "Nutrition & Ingredients",
+        //     "module" => "nutrition-and-ingredients"
+        // ],
+        // [
+        //     "active" => $components,
+        //     "slug" => "components",
+        //     "title" => "Components",
+        //     "module" => "components"
+        // ],
+        // [
+        //     "active" => $cost_of_goods,
+        //     "slug" => "cost_of_goods",
+        //     "title" => "Cost of Goods",
+        //     "module" => "cost-of-goods"
+        // ],
+        // [
+        //     "active" => $product_future,
+        //     "slug" => "future_of_product",
+        //     "title" => "Future of Product",
+        //     "module" => "future-of-product"
+        // ],
+        // [
+        //     "active" => $pipeline,
+        //     "slug" => "pipeline",
+        //     "title" => "Pipeline (Phases)",
+        //     "module" => "pipeline"
+        // ],
+        // [
+        //     "active" => $directions_for_use,
+        //     "slug" => "directions_for_use",
+        //     "title" => "Directions For Use",
+        //     "module" => "directions-for-use"
+        // ],
+        // [
+        //     "active" => $side_effects,
+        //     "slug" => "side_effects",
+        //     "title" => "Side Effects",
+        //     "module" => "side-effects"
+        // ],
+        // [
+        //     "active" => $faq,
+        //     "slug" => "faq",
+        //     "title" => "FAQ",
+        //     "module" => "faq"
+        // ],
 
-        [
-            "active" => $pipeline,
-            "slug" => "pipeline",
-            "title" => "Pipeline (Phases)",
-            "module" => "pipeline"
-        ],
-        [
-            "active" => $directions_for_use,
-            "slug" => "directions_for_use",
-            "title" => "Directions For Use",
-            "module" => "directions-for-use"
-        ],
-        [
-            "active" => $side_effects,
-            "slug" => "side_effects",
-            "title" => "Side Effects",
-            "module" => "side-effects"
-        ],
-        [
-            "active" => $faq,
-            "slug" => "faq",
-            "title" => "FAQ",
-            "module" => "faq"
-        ],
-        [
-            "active" => $competitors,
-            "slug" => "competitive_comparison",
-            "title" => "Competitive Comparison",
-            "module" => "competitive-comparison"
-        ],
-        [
-            "active" => $testing,
-            "slug" => "experiments",
-            "title" => "Tests & Experiments",
-            "module" => "tests-and-experiments"
-        ],
-        [
-            "active" => $clinical_trials,
-            "slug" => "clinical_trials",
-            "title" => "Clinical Trials",
-            "module" => "clinical-trials"
-        ],
-        [
-            "active" => $research_and_development,
-            "slug" => "research_and_development",
-            "title" => "Research & Development",
-            "module" => "research-and-development"
-        ],
-        [
-            "active" => $instructable,
-            "slug" => "instructable",
-            "title" => "Instructables",
-            "module" => "instructables"
-        ],
-        [
-            "active" => $quality_control,
-            "slug" => "quality_control",
-            "title" => "Quality Control",
-            "module" => "quality-control"
-        ],
-        [
-            "active" => $manufacturing_challenges,
-            "slug" => "manufacturing_challenges",
-            "title" => "Manufacturing Challenges",
-            "module" => "manufacturing-challenges"
-        ],
-        // TODO: quality control
-        [
-            "active" => $help_needed,
-            "slug" => "help_needed",
-            "title" => "Help Needed",
-            "module" => "help-needed"
-        ],
-        [
-            "active" => $opportunities,
-            "slug" => "opportunities",
-            "title" => "Opportunities",
-            "module" => "opportunities"
-        ],
+        // [
+        //     "active" => $competitors,
+        //     "slug" => "competitive_comparison",
+        //     "title" => "Competitive Comparison",
+        //     "module" => "competitive-comparison"
+        // ],
+        // [
+        //     "active" => $testing,
+        //     "slug" => "experiments",
+        //     "title" => "Tests & Experiments",
+        //     "module" => "tests-and-experiments"
+        // ],
+
+        // [
+        //     "active" => $clinical_trials,
+        //     "slug" => "clinical_trials",
+        //     "title" => "Clinical Trials",
+        //     "module" => "clinical-trials"
+        // ],
+
+        // [
+        //     "active" => $research_and_development,
+        //     "slug" => "research_and_development",
+        //     "title" => "Research & Development",
+        //     "module" => "research-and-development"
+        // ],
+        // [
+        //     "active" => $instructable,
+        //     "slug" => "instructable",
+        //     "title" => "Instructables",
+        //     "module" => "instructables"
+        // ],
+        // [
+        //     "active" => $quality_control,
+        //     "slug" => "quality_control",
+        //     "title" => "Quality Control",
+        //     "module" => "quality-control"
+        // ],
+        // [
+        //     "active" => $manufacturing_challenges,
+        //     "slug" => "manufacturing_challenges",
+        //     "title" => "Manufacturing Challenges",
+        //     "module" => "manufacturing-challenges"
+        // ],
+        // [
+        //     "active" => $help_needed,
+        //     "slug" => "help_needed",
+        //     "title" => "Help Needed",
+        //     "module" => "help-needed"
+        // ],
+        // [
+        //     "active" => $opportunities,
+        //     "slug" => "opportunities",
+        //     "title" => "Opportunities",
+        //     "module" => "opportunities"
+        // ],
         [
             "active" => $important_dates,
             "slug" => "important_dates",
