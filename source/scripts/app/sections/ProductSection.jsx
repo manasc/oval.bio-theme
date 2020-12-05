@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Tooltip } from "react-tippy";
+import Drift from "drift-zoom";
 
 function ProductSection({ productData }) {
     console.log(productData);
@@ -20,8 +21,10 @@ function ProductSection({ productData }) {
     ];
 
     const [chosenImage, setChosenImage] = useState(0);
-    const [chosenPackSize, setChosenPackSize] = useState(1);
+    const [chosenPackSize, setChosenPackSize] = useState(0);
     const [subscription, setSubscription] = useState(true);
+
+    const galleryBox = useRef(null);
 
     const imageDisplay = (key) => {
         // get numeric distance between chosenImage
@@ -36,18 +39,34 @@ function ProductSection({ productData }) {
         }
     };
 
+    useEffect(() => {
+        if (galleryBox) {
+            const zoomBoxes = galleryBox.current.querySelectorAll("[data-zoom]");
+            console.log(zoomBoxes);
+
+            zoomBoxes.forEach((box) => {
+                const zoomDisplay = box.querySelector(".image-zoom");
+
+                new Drift(box, {
+                    paneContainer: zoomDisplay,
+                });
+            });
+        }
+    }, [galleryBox]);
+
     return (
         <div className="py-5 md:py-10 max-w-5xl mx-auto">
             <div className="flex flex-wrap mx-0 md:-mx-5">
                 <div className="w-full md:w-2/3 px-5">
                     {
-                        <div className="nmr-image-gallery-box">
-                            <div className="nmr-image-gallery relative overflow-hidden">
+                        <div ref={galleryBox} className="nmr-image-gallery-box">
+                            <div className="nmr-image-gallery relative overflow-hidden rounded border">
                                 <div className="square-image"></div>
                                 {productData.images.map(
                                     (image, i) =>
                                         i < 5 && (
                                             <div
+                                                data-zoom={image.src}
                                                 key={i}
                                                 className="absolute top-0 left-0 h-full w-full bg-cover"
                                                 style={{
@@ -56,7 +75,7 @@ function ProductSection({ productData }) {
                                                     transform: "translateX(" + imageDisplay(i) + ")",
                                                 }}
                                             >
-                                                {/* <div className="image-zoom absolute top-0 left-0 w-full h-full"></div> */}
+                                                <div className="image-zoom absolute top-0 left-0 w-full h-full"></div>
                                             </div>
                                         )
                                 )}
@@ -102,14 +121,8 @@ function ProductSection({ productData }) {
                             <div className="font-bold text-xs tracking-wider uppercase text-gray-800 mb-2">Choose pack size:</div>
                             <div className="pack-options">
                                 {packSizes.map((size, i) => (
-                                    <label
-                                        key={i}
-                                        className={"pack-option mr-4"}
-                                        onClick={() => {
-                                            setChosenPackSize(size.quantity);
-                                        }}
-                                    >
-                                        <input type="radio" name="pack-size" defaultChecked={size.quantity === chosenPackSize} />
+                                    <label key={i} className={"pack-option mr-4"} onClick={() => setChosenPackSize(i)}>
+                                        <input type="radio" name="pack-size" value={i} defaultChecked={i === chosenPackSize} />
                                         <div className="pack-option-box">
                                             <div className="pack-option-number">{size.quantity}</div>
                                             <div className="pack-option-text">Pack</div>
@@ -123,7 +136,7 @@ function ProductSection({ productData }) {
                             <div className="font-bold text-xs tracking-wider uppercase text-gray-800 mb-2">
                                 {subscription ? (
                                     <span className="subscription-meta">
-                                        You're saving <span className="text-ovalGreenDark">20%</span>
+                                        You're <span className="text-ovalGreenDark">saving 20%</span>
                                     </span>
                                 ) : (
                                     <span className="subscription-meta">
@@ -133,22 +146,22 @@ function ProductSection({ productData }) {
                             </div>
                             <div className="block sub-options">
                                 <label onClick={() => setSubscription(false)} className="sub-option">
-                                    <input type="radio" name="subscription" value="one-time" defaultChecked={subscription} />
+                                    <input type="radio" name="subscription" defaultChecked={!subscription} />
                                     <div className="sub-option-box" style={{ transitionDuration: "200ms" }}>
-                                        <div className="sub-option-number">One-Time</div>
+                                        One-Time
                                     </div>
                                 </label>
                                 <label onClick={() => setSubscription(true)} className="sub-option">
-                                    <input type="radio" name="subscription" value="one-time" defaultChecked={!subscription} />
+                                    <input type="radio" name="subscription" defaultChecked={subscription} />
                                     <div className="sub-option-box" style={{ transitionDuration: "200ms" }}>
-                                        <div className="sub-option-number">Subscriptions</div>
+                                        Subscription
                                     </div>
                                 </label>
 
-                                <div className="text-2xs text-gray-500 italic leading-snug max-w-3xs">
-                                    Renews every 30 days. Subscribe and save{" "}
+                                <div className="text-2xs text-gray-500 italic leading-snug max-w-3xs mt-2">
+                                    Renews every 30 days. Subscribe and{" "}
                                     <span id="points" className="text-ovalGreen font-bold mr-1">
-                                        20%
+                                        save 20%
                                     </span>
                                 </div>
                             </div>
@@ -158,11 +171,15 @@ function ProductSection({ productData }) {
                             <div className="title text-4xl leading-none">
                                 <div className="relative flex items-start font-normal tracking-tight">
                                     <span id="price" className={"text-gray-400 inline-block " + (subscription && "line-through")}>
-                                        <span id="priceValue">$30.00</span>
+                                        <span id="priceValue">
+                                            ${packSizes[chosenPackSize].quantity * packSizes[chosenPackSize].cost}.00
+                                        </span>
                                     </span>
                                     {subscription && (
-                                        <span id="subPrice" className="ml-1 text-ovalGreen relative inline-block">
-                                            <span id="subPriceValue">$24.00</span>
+                                        <span id="subPrice" className="ml-2 text-ovalGreen relative inline-block">
+                                            <span id="subPriceValue">
+                                                ${Math.floor(packSizes[chosenPackSize].quantity * packSizes[chosenPackSize].cost * 0.6)}.00
+                                            </span>
                                             <div className="relative block text-2xs text-gray-600 uppercase text-right tracking-normal">
                                                 per month
                                             </div>
@@ -173,16 +190,17 @@ function ProductSection({ productData }) {
                         </div>
 
                         <div>
-                            <a className="button waves-effect w-full">
-                                <span className="label-text">Purchase</span>
-                            </a>
-                            <div className="mt-3 text-xs leading-snug max-w-2xs italic">
+                            <div className="mb-3 text-xs leading-snug max-w-2xs italic">
                                 Purchase this product now and earn{" "}
                                 <span id="points" className="text-ovalGreen font-bold mr-1">
                                     40 points toward the Pod
                                 </span>
                                 <i className="fas fa-question-circle cursor-pointer"></i>
                             </div>
+                            <a className="button waves-effect w-full">
+                                <span className="label-text">Purchase</span>
+                            </a>
+                            <div className="mt-3 text-xs leading-snug max-w-2xs italic">30 day guarantee. Cancel Anytime.</div>
                         </div>
                     </div>
                 </div>

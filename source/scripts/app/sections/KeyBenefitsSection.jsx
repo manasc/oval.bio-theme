@@ -102,7 +102,10 @@ function KeyBenefitsSection({ data }) {
                         }}
                         onClick={() => setChosenDisplay(i)}
                     >
-                        <div className="absolute bottom-0 right-0 h-64 w-64 opacity-50" style={{ transform: "translate(-10%, 60%)" }}>
+                        <div
+                            className="absolute bottom-0 right-0 h-64 w-64 opacity-50 overflow-hidden rounded-full"
+                            style={{ transform: "translate(-10%, 60%)" }}
+                        >
                             <div
                                 className="h-64 lg:h-full bg-cover bg-center bg-no-repeat"
                                 style={{ backgroundImage: "url(" + benefit.images.url + ")" }}

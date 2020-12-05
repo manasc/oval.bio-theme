@@ -1018,18 +1018,19 @@ video {
 }
 
 .sub-options .sub-option .sub-option-box {
-  position: relative;
-  cursor: pointer;
-  display: inline-block;
-  overflow: hidden;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  border-width: 1px;
-  text-align: center;
-  font-size: 0.875rem;
-  font-weight: 400;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1rem;
+  --text-opacity: 1;
+  color: #cbd5e0;
+  color: rgba(203, 213, 224, var(--text-opacity));
+  line-height: 1;
+  letter-spacing: 0.025em;
+  font-size: 0.875rem !important;
+  border-width: 2px;
+  --text-opacity: 1;
+  color: #cbd5e0;
+  color: rgba(203, 213, 224, var(--text-opacity));
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   padding-top: 0.5rem;

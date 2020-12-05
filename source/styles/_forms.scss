@@ -139,15 +139,13 @@
         @apply inline-block mr-1;
 
         .sub-option-box {
-            // base styles
-            @apply relative;
-            @apply cursor-pointer;
-            @apply inline-block;
-            @apply overflow-hidden;
-            @apply select-none;
-            @apply border;
-            @apply text-center;
-            @apply text-sm font-normal;
+            // base style
+            @apply uppercase font-medium;
+            @apply text-base text-gray-400 leading-none;
+
+            @apply tracking-wide;
+            @apply text-sm #{!important};
+            @apply border-2 text-gray-400;
 
             // button styles
             @apply px-3 py-2;
