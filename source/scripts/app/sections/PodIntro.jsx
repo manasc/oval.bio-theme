@@ -10,12 +10,7 @@ function PodIntro() {
 
     useEffect(() => {
         const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(
-            75,
-            canvas.current.clientWidth / canvas.current.clientHeight,
-            0.1,
-            1000
-        );
+        const camera = new THREE.PerspectiveCamera(75, canvas.current.clientWidth / canvas.current.clientHeight, 0.1, 1000);
         camera.position.z = 6;
         // camera.position.x = 20;
 
@@ -70,11 +65,7 @@ function PodIntro() {
     return (
         <section className="section h-screen overflow-hidden">
             <div className="h-full w-full bg-gray-200 relative">
-                <div
-                    id="podIntroThrees"
-                    className="absolute h-full w-full top-0 left-0"
-                    ref={canvas}
-                ></div>
+                <div id="podIntroThrees" className="absolute h-full w-full top-0 left-0" ref={canvas}></div>
                 <div className="label absolute bottom-0 left-0">
                     <div className="label-text">Pod Render</div>
                 </div>
@@ -82,11 +73,10 @@ function PodIntro() {
                     <div className="w-full max-w-lg p-8">
                         <div className="text-3xl">What exactly is the pod?</div>
                         <p>
-                            The pod is the integration of several therapies and diagnostics tools
-                            that measure the effects of the therapies to build a profile of the
-                            user. This helps us learn their stresses and positive life choices,
-                            recognize early warning signs, learn what choices impact their health
-                            and better tailor the life-extension therapies to the user.{" "}
+                            The pod is the integration of several <strong>therapies</strong> and <strong>diagnostics tools</strong>
+                            that measure the effects of the therapies to build a profile of the user. This helps us learn their stresses and
+                            positive life choices, recognize early warning signs, learn what choices impact their health and better tailor
+                            the <strong>life-extension therapies</strong> to the user.{" "}
                         </p>
                         {/* <p className="mt-5">
                             <a className="button mr-2">Hello</a>
