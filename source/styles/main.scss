@@ -26,6 +26,10 @@
 @import "annotations";
 @import "../../node_modules/node-waves/dist/waves.min.css";
 
+.drift-zoom-pane {
+    @apply bg-white {!important};
+}
+
 .pillar-icon-box {
     .pillar-icon {
         @apply bg-gray-400;
