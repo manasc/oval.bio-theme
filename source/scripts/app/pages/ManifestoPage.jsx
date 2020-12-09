@@ -14,12 +14,12 @@ function ManifestoPage() {
     return (
         <main>
             <HeroSection />
-            <MiroBoardSection />
-            <BuiltForChange />
+            <DiagramSection />
             <FivePillars />
+            <BuiltForChange />
             <PodIntro />
             <MoreThanOval />
-            <DiagramSection />
+            <MiroBoardSection />
             <Milestones />
         </main>
     );

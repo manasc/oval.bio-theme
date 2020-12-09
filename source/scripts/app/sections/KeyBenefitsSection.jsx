@@ -43,7 +43,7 @@ function KeyBenefitsSection({ data }) {
                     {data.benefits.map((benefit, i) => (
                         <div key={i} className="w-1/3 p-2">
                             <div
-                                className="nmr-info-block-trigger content flex relative rounded overflow-hidden w-full bg-gray-100 hover:bg-gray-200 border border-gray-400 shadow cursor-pointer"
+                                className="nmr-info-block-trigger content flex relative rounded overflow-hidden w-full h-full bg-gray-100 hover:bg-gray-200 border border-gray-400 shadow cursor-pointer"
                                 onClick={() => {
                                     setShowOverlay(true);
                                     setChosenDisplay(i);

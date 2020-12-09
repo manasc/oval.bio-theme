@@ -153,6 +153,11 @@
 
             // text styles
             @apply leading-none;
+
+            &:hover {
+                @apply cursor-pointer;
+                @apply border-ovalGreen text-ovalGreen;
+            }
         }
 
         input:checked ~ .sub-option-box {

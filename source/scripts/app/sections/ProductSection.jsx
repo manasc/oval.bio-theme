@@ -42,13 +42,11 @@ function ProductSection({ productData }) {
     useEffect(() => {
         if (galleryBox) {
             const zoomBoxes = galleryBox.current.querySelectorAll("[data-zoom]");
-            console.log(zoomBoxes);
 
             zoomBoxes.forEach((box) => {
-                const zoomDisplay = box.querySelector(".image-zoom");
-
                 new Drift(box, {
-                    paneContainer: zoomDisplay,
+                    paneContainer: box.querySelector(".image-zoom"),
+                    inlinePane: false,
                 });
             });
         }
@@ -58,50 +56,49 @@ function ProductSection({ productData }) {
         <div className="py-5 md:py-10 max-w-5xl mx-auto">
             <div className="flex flex-wrap mx-0 md:-mx-5">
                 <div className="w-full md:w-2/3 px-5">
-                    {
-                        <div ref={galleryBox} className="nmr-image-gallery-box">
-                            <div className="nmr-image-gallery relative overflow-hidden rounded border">
-                                <div className="square-image"></div>
+                    <div ref={galleryBox} className="nmr-image-gallery-box">
+                        <div className="nmr-image-gallery relative overflow-hidden rounded border">
+                            <div className="square-image"></div>
+                            {productData.images.map((image, i) => {
+                                console.log(image);
+                                if (i < 5)
+                                    return (
+                                        <div
+                                            data-zoom={image.src}
+                                            key={i}
+                                            className="absolute top-0 left-0 h-full w-full bg-cover"
+                                            style={{
+                                                backgroundImage: "url(" + image.src + ")",
+                                                transitionDuration: "400ms",
+                                                transform: "translateX(" + imageDisplay(i) + ")",
+                                            }}
+                                        >
+                                            <div className="image-zoom absolute top-0 left-0 w-full h-full"></div>
+                                        </div>
+                                    );
+                            })}
+                        </div>
+                        <div className="nmr-image-gallery-nav">
+                            <div className="flex flex-wrap -mx-px my-px py-px">
                                 {productData.images.map(
                                     (image, i) =>
                                         i < 5 && (
                                             <div
-                                                data-zoom={image.src}
                                                 key={i}
-                                                className="absolute top-0 left-0 h-full w-full bg-cover"
-                                                style={{
-                                                    backgroundImage: "url(" + image.src + ")",
-                                                    transitionDuration: "400ms",
-                                                    transform: "translateX(" + imageDisplay(i) + ")",
-                                                }}
+                                                className={"w-1/5 px-px py-px nmr-image " + (chosenImage === i && "active")}
+                                                style={{ transitionDuration: "200ms" }}
+                                                onClick={() => setChosenImage(i)}
                                             >
-                                                <div className="image-zoom absolute top-0 left-0 w-full h-full"></div>
+                                                <div
+                                                    className="square-image nmr-lazyload"
+                                                    style={{ backgroundImage: "url(" + image.src + ")" }}
+                                                />
                                             </div>
                                         )
                                 )}
                             </div>
-                            <div className="nmr-image-gallery-nav">
-                                <div className="flex flex-wrap -mx-px my-px py-px">
-                                    {productData.images.map(
-                                        (image, i) =>
-                                            i < 5 && (
-                                                <div
-                                                    key={i}
-                                                    className={"w-1/5 px-px py-px nmr-image " + (chosenImage === i && "active")}
-                                                    style={{ transitionDuration: "200ms" }}
-                                                    onClick={() => setChosenImage(i)}
-                                                >
-                                                    <div
-                                                        className="square-image nmr-lazyload"
-                                                        style={{ backgroundImage: "url(" + image.src + ")" }}
-                                                    />
-                                                </div>
-                                            )
-                                    )}
-                                </div>
-                            </div>
                         </div>
-                    }
+                    </div>
                 </div>
                 <div className="w-full md:w-1/3 px-5">
                     <div className="py-5">

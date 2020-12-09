@@ -24,6 +24,7 @@ const DirectionsForUseSection = ({ data }) => {
                     </div>
                 </div>
             )}
+            
             {data.instructions.map((instruction, i) => (
                 <div key={i} className="flex flex-wrap mb-5">
                     <div className={"w-full lg:w-1/2 flex items-center justify-center " + (i % 2 ? "order-2" : "order-1")}>
@@ -40,9 +41,11 @@ const DirectionsForUseSection = ({ data }) => {
                     </div>
                     <div className={"w-full lg:w-1/2 " + (i % 2 ? "order-1" : "order-2")}>
                         <div
-                            className="bg-gray-200 h-64 lg:h-full bg-cover bg-center bg-no-repeat"
+                            className="bg-gray-200 bg-cover bg-center bg-no-repeat"
                             style={{ backgroundImage: "url(" + instruction.image.url + ")" }}
-                        ></div>
+                        >
+                            <div style={{ paddingTop: "100%", width: "100%" }}></div>
+                        </div>
                     </div>
                 </div>
             ))}
