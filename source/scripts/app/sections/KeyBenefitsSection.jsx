@@ -10,9 +10,9 @@ function KeyBenefitsSection({ data }) {
         const distance = Math.abs(chosenDisplay - key) * 100;
 
         if (key < chosenDisplay) {
-            return `calc(-${distance}% - 75px)`;
+            return `calc(-${distance}% - 25px)`;
         } else if (key > chosenDisplay) {
-            return `calc(${distance}% + 75px)`;
+            return `calc(${distance}% + 25px)`;
         } else {
             return "0";
         }
