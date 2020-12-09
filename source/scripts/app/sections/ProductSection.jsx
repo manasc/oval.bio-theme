@@ -66,14 +66,14 @@ function ProductSection({ productData }) {
                                         <div
                                             data-zoom={image.src}
                                             key={i}
-                                            className="absolute top-0 left-0 h-full w-full bg-cover"
+                                            className="absolute top-0 left-0 h-full w-full bg-cover bg-center bg-no-repeat"
                                             style={{
                                                 backgroundImage: "url(" + image.src + ")",
                                                 transitionDuration: "400ms",
                                                 transform: "translateX(" + imageDisplay(i) + ")",
                                             }}
                                         >
-                                            <div className="image-zoom absolute top-0 left-0 w-full h-full"></div>
+                                            <div className="image-zoom absolute top-0 left-0 w-full h-full bg-white"></div>
                                         </div>
                                     );
                             })}

@@ -6080,7 +6080,7 @@ document.addEventListener("DOMContentLoaded", wavesAnimation);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/css-loader/dist/cjs.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: Invalid CSS after \"...pply bg-white {\": expected \"}\", was \"!important};\"\n        on line 30 of /Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/source/styles/main.scss\n>>     @apply bg-white {!important};\n\n   --------------------^\n\n    at /Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/node_modules/webpack/lib/NormalModule.js:316:20\n    at /Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/node_modules/loader-runner/lib/LoaderRunner.js:367:11\n    at /Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/node_modules/loader-runner/lib/LoaderRunner.js:233:18\n    at context.callback (/Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\n    at Object.callback (/Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/node_modules/sass-loader/dist/index.js:73:7)\n    at Object.done [as callback] (/Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/node_modules/neo-async/async.js:8069:18)\n    at options.error (/Users/manas/Sites/oval.bio/wp-content/themes/oval.bio/node_modules/node-sass/lib/index.js:294:32)");
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 

@@ -27,7 +27,7 @@
 @import "../../node_modules/node-waves/dist/waves.min.css";
 
 .drift-zoom-pane {
-    @apply bg-white {!important};
+    @apply bg-white #{!important};
 }
 
 .pillar-icon-box {

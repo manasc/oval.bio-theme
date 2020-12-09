@@ -2396,6 +2396,12 @@ body {
   opacity: 0.25;
 }
 
+.drift-zoom-pane {
+  --bg-opacity: 1 !important;
+  background-color: #fff !important;
+  background-color: rgba(255, 255, 255, var(--bg-opacity)) !important;
+}
+
 .pillar-icon-box .pillar-icon {
   --bg-opacity: 1;
   background-color: #cbd5e0;
