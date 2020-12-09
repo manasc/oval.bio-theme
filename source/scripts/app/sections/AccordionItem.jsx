@@ -1,12 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 
-function AccordionItem({ defaultOpen = false, title, description }) {
-    const [open, setOpen] = useState(defaultOpen);
-
+function AccordionItem({ open = false, title, description, onClick }) {
     const descriptionTag = useRef(null);
 
     return (
-        <div onClick={() => setOpen(!open)} className={"react-accordion-item react-accordion-item-has-icon " + (open && "active")}>
+        <div onClick={onClick} className={"react-accordion-item react-accordion-item-has-icon " + (open && "active")}>
             <div className="react-accordion-item-header">
                 <div className="react-accordion-item-question">
                     <div className="react-accordion-item-icon">

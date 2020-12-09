@@ -32,7 +32,7 @@ const HowItWorksSection = () => {
 
     return (
         <section className="content-box">
-            <h1 className="subtitle text-center">Directions for Use</h1>
+            <h1 className="subtitle text-center">How it Works</h1>
             {data.instructional_video && (
                 <div className="mb-10">
                     <div className="labels">
@@ -61,7 +61,9 @@ const HowItWorksSection = () => {
                         <div
                             className="bg-gray-200 h-64 lg:h-full bg-cover bg-center bg-no-repeat"
                             style={{ backgroundImage: "url(" + instruction.image.url + ")" }}
-                        ></div>
+                        >
+                            <div className="w-full" style={{ paddingTop: "100%" }}></div>
+                        </div>
                     </div>
                 </div>
             ))}

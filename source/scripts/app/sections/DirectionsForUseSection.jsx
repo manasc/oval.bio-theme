@@ -1,11 +1,34 @@
 import React from "react";
 
-const DirectionsForUseSection = ({ data }) => {
+const HowItWorksSection = () => {
     // useEffect(() => {
     //     if (data.instructional_video) {
     //         const ytId = YouTubeGetID(data.instructional_video);
     //     }
     // }, [input]);
+
+    const data = {
+        instructions: [
+            {
+                name: "Title",
+                description:
+                    "Quisquam dolores sunt deserunt laudantium cumque totam officiis eligendi. Iure velit unde consequatur nihil. Non aut sunt dolorem amet provident odio optio. Id quisquam vel voluptatem ipsa.",
+                image: { url: "" },
+            },
+            {
+                name: "Title 2",
+                description:
+                    "Dolorum nostrum ut nulla vero voluptates vitae. Animi aut mollitia ea in quis nemo nihil. Illo eaque itaque aut nesciunt ut. Qui in sint itaque incidunt fugit dolor dolorem debitis eius. Commodi dolore dolorum. Soluta alias ducimus earum similique rem magni aut.",
+                image: { url: "" },
+            },
+            {
+                name: "Title 3",
+                description:
+                    "Enim reprehenderit iste est illum ut aliquam repudiandae voluptas dicta. Quam aut incidunt harum aspernatur. Rem voluptatem doloribus consequatur. Doloremque qui quidem. Ex autem harum accusamus voluptas sapiente repudiandae quam.",
+                image: { url: "" },
+            },
+        ],
+    };
 
     return (
         <section className="content-box">
@@ -24,27 +47,22 @@ const DirectionsForUseSection = ({ data }) => {
                     </div>
                 </div>
             )}
-            
             {data.instructions.map((instruction, i) => (
-                <div key={i} className="flex flex-wrap mb-5">
+                <div key={i} className="flex flex-wrap">
                     <div className={"w-full lg:w-1/2 flex items-center justify-center " + (i % 2 ? "order-2" : "order-1")}>
                         <div className="content px-10 py-10 w-full">
-                            <div className="flex flex-wrap w-full -mx-2 mb-5">
-                                <div className="flex-none px-2">
-                                    <div className="round-full w-5 h-5 bg-ovalGreen text-xs flex items-center justify-center">{i + 1}</div>
-                                </div>
-                                <div className="content flex-1 px-2">
-                                    <div className="text-lg mb-5" dangerouslySetInnerHTML={{ __html: instruction.description }}></div>
-                                </div>
+                            <div className="content flex-1 px-2">
+                                <div className="text-2xl mb-2 font-normal">{instruction.name}</div>
+                                <div className="text-lg" dangerouslySetInnerHTML={{ __html: instruction.description }}></div>
                             </div>
                         </div>
                     </div>
                     <div className={"w-full lg:w-1/2 " + (i % 2 ? "order-1" : "order-2")}>
                         <div
-                            className="bg-gray-200 bg-cover bg-center bg-no-repeat"
+                            className="bg-gray-200 h-64 lg:h-full bg-cover bg-center bg-no-repeat"
                             style={{ backgroundImage: "url(" + instruction.image.url + ")" }}
                         >
-                            <div style={{ paddingTop: "100%", width: "100%" }}></div>
+                            <div className="w-full" style={{ paddingTop: "100%" }}></div>
                         </div>
                     </div>
                 </div>
@@ -53,4 +71,4 @@ const DirectionsForUseSection = ({ data }) => {
     );
 };
 
-export default DirectionsForUseSection;
+export default HowItWorksSection;

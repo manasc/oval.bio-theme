@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import NumberFormat from "react-number-format";
-import { Tooltip } from "react-tippy";
-import { Slider } from "@fluentui/react";
+import { Slider, Tooltip } from "@fluentui/react";
 
 function MilestoneSlider(props) {
     const [inputValue, setInputValue] = useState(100);

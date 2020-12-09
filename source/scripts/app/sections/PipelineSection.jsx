@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import AccordionItem from "./AccordionItem";
+import { TooltipHost } from "@fluentui/react";
 
 function PipelineSection({ data }) {
     const { phases } = data;
     const [newArr, setNewArr] = useState([]);
     const [currentPhase, setCurrentPhase] = useState(0);
+    const [lastChosen, setLastChosen] = useState(currentPhase);
 
     const labelClass = (key) => {
         let labelClass = "label label-disabled opacity-75 hover:opacity-100";
@@ -26,8 +28,8 @@ function PipelineSection({ data }) {
             phase["selected"] = false;
             return { ...phase };
         });
+
         setNewArr(tempNewArr);
-        console.log(tempNewArr);
     }, [phases]);
 
     return (
@@ -35,7 +37,19 @@ function PipelineSection({ data }) {
             <h1 className="subtitle text-center">Product Pipeline</h1>
             <div className="wrapper flex items-center py-8 relative">
                 {phases.map((phase, i) => (
-                    <div key={i} className={"phase w-1/" + phases.length + " border-r border-gray-400"}>
+                    <div
+                        key={i}
+                        onClick={() => {
+                            setLastChosen(i);
+                            if (i <= currentPhase) {
+                                const arr = newArr;
+
+                                arr[i].selected = !arr[i].selected;
+                                setNewArr([...arr]);
+                            }
+                        }}
+                        className={"phase w-1/" + phases.length + " border-r border-gray-400"}
+                    >
                         <div className="phase-text h-32 relative">
                             <div className={labelClass(i) + " leading-none absolute right-0 bottom-0 cursor-pointer"}>
                                 <div
@@ -44,7 +58,9 @@ function PipelineSection({ data }) {
                                 >
                                     <i className="fas fa-eye"></i>
                                 </div>
-                                <span className="label-text">{phase.name}</span>
+                                <TooltipHost content={i > currentPhase ? phase.description : ""}>
+                                    <span className="label-text">{phase.name}</span>
+                                </TooltipHost>
                             </div>
                         </div>
                     </div>
@@ -55,54 +71,45 @@ function PipelineSection({ data }) {
                     className="phase-current bg-ovalGreen h-2 rounded-r-full absolute"
                     style={{ transitionDuration: "200ms", width: currentPhase > 0 && ((currentPhase + 1) / phases.length) * 100 + "%" }}
                 ></div>
+                <div
+                    className={
+                        "phase-current opacity-50 h-2 rounded-r-full absolute " +
+                        (lastChosen <= currentPhase ? "bg-gray-600" : "bg-ovalGreenDark")
+                    }
+                    style={{ transitionDuration: "200ms", width: ((lastChosen + 1) / phases.length) * 100 + "%" }}
+                ></div>
             </div>
             <div className="labels my-2">
                 <div className="text-xs italic">Click on a phase to see details.</div>
             </div>
-            <div className="accordion-box mt-20">
-                <div className="accordion">
-                    <div className="max-w-5xl mx-auto">
-                        <div className="flex flex-wrap -mx-4">
-                            <div className="w-full md:w-1/2 px-4">
-                                <div className="react-accordion-box">
-                                    <div className="react-accordion">
-                                        {newArr.length > 0 &&
-                                            newArr.map(
-                                                (phase, i) =>
-                                                    i < newArr.length / 2 && (
-                                                        <AccordionItem
-                                                            key={i}
-                                                            defaultOpen={phase.selected}
-                                                            title={phase.name}
-                                                            description={phase.description}
-                                                        />
-                                                    )
-                                            )}
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="w-full md:w-1/2 px-4">
-                                <div className="react-accordion-box">
-                                    <div className="react-accordion">
-                                        {newArr.length > 0 &&
-                                            newArr.map(
-                                                (phase, i) =>
-                                                    i >= newArr.length / 2 && (
-                                                        <AccordionItem
-                                                            key={i}
-                                                            defaultOpen={phase.selected}
-                                                            title={phase.name}
-                                                            description={phase.description}
-                                                        />
-                                                    )
-                                            )}
-                                    </div>
-                                </div>
-                            </div>
+            {newArr.length > 0 && (
+                <div className="mx-auto mt-20 w-full max-w-2xl px-4">
+                    <div className="react-accordion-box">
+                        <div className="react-accordion">
+                            {newArr.map(
+                                (phase, i) =>
+                                    i <= currentPhase && (
+                                        <AccordionItem
+                                            onClick={() => {
+                                                setLastChosen(i);
+                                                if (i <= currentPhase) {
+                                                    const arr = newArr;
+
+                                                    arr[i].selected = !arr[i].selected;
+                                                    setNewArr([...arr]);
+                                                }
+                                            }}
+                                            key={i}
+                                            open={phase.selected}
+                                            title={phase.name}
+                                            description={phase.description}
+                                        />
+                                    )
+                            )}
                         </div>
                     </div>
                 </div>
-            </div>
+            )}
         </section>
     );
 }

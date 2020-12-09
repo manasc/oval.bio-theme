@@ -7,6 +7,7 @@ function ChosenArticlesSection({ sectionTitle, articles = [] }) {
 
     // make api calls
     useEffect(() => {
+        console.log("Chosen Articles", articles);
         const postIds = articles.map((article) => article.ID);
 
         axios.get("/wp-json/wp/v2/posts?_embed=1&include=" + postIds.toString()).then((res) => {
@@ -17,8 +18,17 @@ function ChosenArticlesSection({ sectionTitle, articles = [] }) {
 
     return (
         <section className="content-box">
-            <div className="mb-10">
-                <h1 className="subtitle text-center">{sectionTitle}</h1>
+            <div className="mb-10 mx-auto max-w-3xl">
+                <h1 className="subtitle text-center mb-5">{sectionTitle}</h1>
+                <div className="content text-lg">
+                    <p>
+                        Eveniet vitae enim deleniti provident nihil totam ipsa earum quae. Architecto ex assumenda itaque eum architecto
+                        adipisci minima ut qui. Magnam voluptatum quo optio itaque consequatur deserunt. Quo placeat harum qui. Molestias
+                        est praesentium quas ut dicta nihil ut harum. Eveniet qui aut ut eos et reiciendis. At eveniet id laudantium numquam
+                        quos sequi sint omnis. Rerum eum dolores illum delectus ut enim quae et aliquid. Dolores accusamus itaque sed. Aut
+                        et ducimus fugiat. Et quos est delectus deserunt blanditiis officia. Sunt vel perspiciatis sit aut.
+                    </p>
+                </div>
             </div>
             <div>
                 {articlesData && (

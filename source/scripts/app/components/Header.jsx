@@ -58,7 +58,7 @@ class Header extends React.Component {
   toggleBanner() {
     this.setState({ banner: { show: !this.state.banner.show } });
     // this.updateHeight();
-    console.log(this.mainHeader);
+    // console.log(this.mainHeader);
   }
 
   updateHeight() {
@@ -70,7 +70,7 @@ class Header extends React.Component {
     this.updateHeight();
 
     apiFetch({ path: "/wp/v2/posts" }).then((posts) => {
-      console.log(posts);
+      // console.log(posts);
     });
   }
 
