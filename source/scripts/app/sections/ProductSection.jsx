@@ -73,7 +73,7 @@ function ProductSection({ productData }) {
                                                 transform: "translateX(" + imageDisplay(i) + ")",
                                             }}
                                         >
-                                            <div className="image-zoom absolute top-0 left-0 w-full h-full bg-white"></div>
+                                            <div className="image-zoom absolute top-0 left-0 w-full h-full"></div>
                                         </div>
                                     );
                             })}
