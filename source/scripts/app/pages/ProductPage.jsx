@@ -87,7 +87,10 @@ function ProductPage({ productId }) {
 
                     {productMeta["future_of_product"] && (
                         <div style={{ marginBottom: marginBottom }}>
-                            <ChosenArticlesSection sectionTitle="Product Future" articles={productMeta["future_of_product"].articles} />
+                            <ChosenArticlesSection
+                                sectionTitle="Product Future"
+                                articles={productMeta["future_of_product"].articles || []}
+                            />
                         </div>
                     )}
 
@@ -126,7 +129,10 @@ function ProductPage({ productId }) {
 
                     {productMeta["experiments"] && (
                         <div style={{ marginBottom: marginBottom }}>
-                            <ChosenArticlesSection sectionTitle="Tests & Experiments" articles={productMeta["experiments"].articles} />
+                            <ChosenArticlesSection
+                                sectionTitle="Tests & Experiments"
+                                articles={productMeta["experiments"].articles || []}
+                            />
                         </div>
                     )}
 
@@ -135,7 +141,7 @@ function ProductPage({ productId }) {
                         <div style={{ marginBottom: marginBottom }}>
                             <ChosenArticlesSection
                                 sectionTitle="Clinical Trials"
-                                articles={productMeta["clinical_trials"].trial_articles}
+                                articles={productMeta["clinical_trials"].trial_articles || []}
                             />
                         </div>
                     )}
@@ -144,7 +150,7 @@ function ProductPage({ productId }) {
                         <div style={{ marginBottom: marginBottom }}>
                             <ChosenArticlesSection
                                 sectionTitle="Research & Development"
-                                articles={productMeta["research_and_development"].articles}
+                                articles={productMeta["research_and_development"].articles || []}
                             />
                         </div>
                     )}
