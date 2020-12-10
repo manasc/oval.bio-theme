@@ -118,7 +118,7 @@ function LifeExtensionSection({ data }) {
                     <div className="max-w-5xl mx-auto">
                         <div className="flex flex-wrap justify-center -mx-4">
                             {/* first column */}
-                            <div className="w-full md:w-1/2 px-4">
+                            <div className="w-full max-w-3xl px-4">
                                 {icons &&
                                     icons.map(
                                         (icon, i) =>

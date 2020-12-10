@@ -91,6 +91,8 @@ $deadGray: 300;
     @apply px-5;
     @apply py-10;
 
+    // @apply h-screen overflow-y-scroll;
+
     &-px-none {
         @extend .content-box;
         @apply px-0;
