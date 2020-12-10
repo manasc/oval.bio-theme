@@ -68,7 +68,8 @@
     "three": "^0.122.0",
     "tippy.js": "^6.2.7",
     "vanilla-lazyload": "^17.1.2",
-    "waypoints": "^4.0.1"
+    "waypoints": "^4.0.1",
+    "wordcloud": "^1.1.1"
   },
   "devDependencies": {
     "@wordpress/scripts": "^8.0.1",
