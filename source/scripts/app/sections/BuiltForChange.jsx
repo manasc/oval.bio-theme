@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import G6 from "@antv/g6";
 
-const renderCanvas = () => {
+const renderCanvas = (label, bgColor) => {
     const canvas = useRef(null);
 
     const data = {
@@ -67,11 +67,7 @@ const renderCanvas = () => {
                     return -10;
                 },
                 edgeStrength: (d) => {
-                    if (
-                        d.source.id === "node1" ||
-                        d.source.id === "node2" ||
-                        d.source.id === "node3"
-                    ) {
+                    if (d.source.id === "node1" || d.source.id === "node2" || d.source.id === "node3") {
                         return 0.7;
                     }
                     return 0.1;
@@ -95,11 +91,13 @@ const renderCanvas = () => {
     }, [canvas]);
 
     return (
-        <div className="flex-1 bg-gray-200 relative flex items-center justify-center">
+        <div className={"flex-1 relative flex items-center justify-center " + (bgColor || "bg-gray-200")}>
             <div className="absolute h-full w-full top-0 left-0" ref={canvas}></div>
-            <div className="label absolute bottom-0 left-0">
-                <div className="label-text">The 5 Pillars of Longevity</div>
-            </div>
+            {label && (
+                <div className="label absolute top-0 left-0">
+                    <div className="label-text">{label}</div>
+                </div>
+            )}
         </div>
     );
 };
@@ -108,60 +106,42 @@ function BuiltForChange() {
     return (
         <section className="section h-screen overflow-hidden">
             <div className="h-full flex">
-                {renderCanvas()}
+                {renderCanvas("NASA", "bg-indigo-100")}
+                {renderCanvas("OVAL.BIO", "bg-teal-100")}
                 <div className="w-full max-w-lg flex-none flex flex-col">
-                    <div className="flex-1 p-10">
+                    <div className="flex-1 p-10 overflow-y-scroll">
                         <div className="text-3xl mb-5">Built for change.</div>
-                        <p className="text-base mb-5">
-                            The NASA Apollo program is our role model. Most people associate the
-                            Apollo program with the Apollo 11 mission, which landed the first humans
-                            on the moon, and brought them back safely.
+                        <p className="text-sm mb-5">
+                            The NASA Apollo program is our role model. Most people associate the Apollo program with the Apollo 11 mission,
+                            which landed the first humans on the moon, and brought them back safely.
                         </p>
-                        <p className="text-base mb-2">
-                            The Apollo program had the following goals:
-                        </p>
-                        <ol className="text-base mb-10 list-decimal pl-4">
-                            <li className="mb-1">
-                                Establishing the technology to meet other national interests in
-                                space.
-                            </li>
-                            <li className="mb-1">
-                                Achieving preeminence in space for the United States.
-                            </li>
-                            <li className="mb-1">
-                                Carrying out a program of scientific exploration of the Moon.
-                            </li>
-                            <li className="mb-1">
-                                Developing human capability to work in the lunar environment.
-                            </li>
+                        <p className="text-sm mb-2">The Apollo program had the following goals:</p>
+                        <ol className="text-sm mb-10 list-decimal pl-4">
+                            <li className="mb-1">Establishing the technology to meet other national interests in space.</li>
+                            <li className="mb-1">Achieving preeminence in space for the United States.</li>
+                            <li className="mb-1">Carrying out a program of scientific exploration of the Moon.</li>
+                            <li className="mb-1">Developing human capability to work in the lunar environment.</li>
                         </ol>
-                        <p className="text-base mb-2">
-                            At oval.bio, we want people to associate life extension pods with us.
-                            We’ll achieve that through the following company initiatives:
+                        <p className="text-sm mb-2">
+                            At oval.bio, we want people to associate life extension pods with us. We’ll achieve that through the following
+                            company initiatives:
                         </p>
-                        <ol className="text-base list-decimal pl-4">
+                        <ol className="text-sm list-decimal pl-4 mb-5">
                             <li className="mb-1">
-                                Create and utilize technologies which can have an impact on
-                                functionally extending the human lifespan.
+                                Create and utilize technologies which can have an impact on functionally extending the human lifespan.
                             </li>
+                            <li className="mb-1">Give transparent access to these technologies to as many humans as possible.</li>
                             <li className="mb-1">
-                                Give transparent access to these technologies to as many humans as
-                                possible.
-                            </li>
-                            <li className="mb-1">
-                                Test and quantify efficacy recognizing that not all people respond
-                                the same to the same technology.
+                                Test and quantify efficacy recognizing that not all people respond the same to the same technology.
                             </li>
                             <li className="mb-1">Stay true to the mission.</li>
                         </ol>
-                    </div>
-                    <div className="bg-ovalGreen flex-none p-10">
-                        <p>
-                            Just as NASA used the mission of getting humans to the moon and
-                            returning them as their core, we have our mission. NASA used the Saturn
-                            rockets as the main vehicle to achieve that, our rocket equivalent is
-                            the pod.
-                        </p>
+                        <div className="bg-ovalGreen flex-none p-10">
+                            <p>
+                                Just as NASA used the mission of getting humans to the moon and returning them as their core, we have our
+                                mission. NASA used the Saturn rockets as the main vehicle to achieve that, our rocket equivalent is the pod.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

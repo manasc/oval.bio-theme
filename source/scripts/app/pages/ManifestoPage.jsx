@@ -10,19 +10,38 @@ import DiagramSection from "../sections/DiagramSection";
 import Milestones from "../sections/Milestones";
 import WordCloudSection from "../sections/WordCloudSection";
 import TextSlider from "../sections/TextSlider";
+import LazyLoad from "react-lazyload";
 
 function ManifestoPage() {
     return (
         <main>
-            <WordCloudSection />
-            <TextSlider />
-            <DiagramSection />
-            <FivePillars />
-            <BuiltForChange />
-            <PodIntro />
-            <MoreThanOval />
-            <MiroBoardSection />
-            <Milestones />
+            <LazyLoad once>
+                <TextSlider />
+            </LazyLoad>
+            <LazyLoad once>
+                <WordCloudSection />
+            </LazyLoad>
+            <LazyLoad once>
+                <DiagramSection />
+            </LazyLoad>
+            <LazyLoad once>
+                <FivePillars />
+            </LazyLoad>
+            <LazyLoad once>
+                <BuiltForChange />
+            </LazyLoad>
+            <LazyLoad once>
+                <PodIntro />
+            </LazyLoad>
+            <LazyLoad once>
+                <MoreThanOval />
+            </LazyLoad>
+            <LazyLoad once>
+                <MiroBoardSection />
+            </LazyLoad>
+            <LazyLoad once>
+                <Milestones />
+            </LazyLoad>
         </main>
     );
 }

@@ -28,6 +28,30 @@ const slides = [
     },
 ];
 
+function Slide({ onClick, slidePosition, classNameFunc, currentSlide, slide, index }) {
+    return (
+        <div
+            onClick={onClick}
+            className={"cursor-pointer flex-none max-w-xl w-full text-white absolute left-0 top-0 " + classNameFunc(index)}
+            style={{
+                transitionDuration: "500ms",
+                transform: slidePosition(index),
+            }}
+        >
+            <h1 className="text-4xl">{slide.title + index}</h1>
+            <div
+                style={{
+                    transitionDuration: "300ms",
+                    overflow: "hidden",
+                    height: index === currentSlide ? "300px" : "1px",
+                }}
+            >
+                <p className={"text-lg opacity-50"}>{slide.content + (index === currentSlide ? "true" : "false")}</p>
+            </div>
+        </div>
+    );
+}
+
 function TextSlider() {
     // useEffect(() => {
     //     WordCloud();
@@ -36,13 +60,29 @@ function TextSlider() {
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const slidePosition = (i) => {
-        let position = 0;
+        let px = 0;
+        let py = 0;
+        const multiplier = Math.abs(currentSlide - i);
+        const negativeSpacing = 50;
+        const spacing = 250;
 
-        if (i < currentSlide) position = -100 * i + "%";
-        if (i == currentSlide) position = "0px";
-        if (i > currentSlide) position = 100 * i + "%";
+        if (i < currentSlide) {
+            px = `calc(-${100 * multiplier}% - ${negativeSpacing * multiplier}px)`;
+            py = "40%";
+        }
 
-        return `translateX(${position})`;
+        if (i == currentSlide) {
+            px = "0px";
+            py = "0px";
+        }
+
+        if (i > currentSlide) {
+            px = `calc(${100 * multiplier}% + ${spacing * multiplier}px)`;
+            py = "40%";
+        }
+
+        console.log(px);
+        return `translateX(calc(${px}))`;
     };
 
     const className = (i) => {
@@ -50,7 +90,7 @@ function TextSlider() {
 
         if (i < currentSlide) position = "opacity-25";
         if (i == currentSlide) position = "opacity-100";
-        if (i > currentSlide) position = 100 * i + "opacity-25";
+        if (i > currentSlide) position = "opacity-25";
 
         return position;
     };
@@ -58,23 +98,20 @@ function TextSlider() {
     return (
         <section className="section h-screen overflow-hidden bg-gray-900">
             <div className="flex pb-10 items-center justify-center h-full w-full">
-                <div className="max-w-5xl w-full flex relative h-64">
+                <div className="max-w-5xl w-full flex items-center justify-center relative h-64">
                     {slides.map((slide, i) => (
-                        <div
+                        <Slide
                             key={i}
                             onClick={() => setCurrentSlide(i)}
-                            className={"cursor-pointer flex-none max-w-xl w-full text-white absolute left-0 top-0 " + className(i)}
-                            style={{
-                                transitionDuration: "500ms",
-                                transform: slidePosition(i),
-                            }}
-                        >
-                            <h1 className="text-4xl">{slide.title + i}</h1>
-                            <p className="text-lg opacity-50">{slide.content}</p>
-                        </div>
+                            index={i}
+                            setCurrentSlide={setCurrentSlide}
+                            slidePosition={slidePosition}
+                            classNameFunc={className}
+                            currentSlide={currentSlide}
+                            slide={slide}
+                        />
                     ))}
                 </div>
-                {/* <h1 className="text-4xl text-white">Current Slide: {currentSlide}</h1> */}
             </div>
         </section>
     );

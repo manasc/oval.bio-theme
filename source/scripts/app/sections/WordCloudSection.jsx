@@ -6,9 +6,9 @@ function HeroSection() {
 
     const wordSize = {
         title: 100,
-        large: 75,
-        medium: 50,
-        small: 25,
+        large: 55,
+        medium: 30,
+        small: 15,
     };
 
     const randomWords = [
@@ -16,22 +16,22 @@ function HeroSection() {
         ["voluptas", wordSize.small],
         ["et", wordSize.small],
         ["nesciunt", wordSize.small],
-        ["veniam", wordSize.small],
+        ["veniam", wordSize.medium],
         ["aperiam", wordSize.small],
-        ["odit", wordSize.small],
+        ["odit", wordSize.medium],
         ["quo", wordSize.small],
         ["rerum", wordSize.small],
-        ["sint", wordSize.small],
-        ["debitis", wordSize.small],
+        ["sint", wordSize.medium],
+        ["debitis", wordSize.medium],
         ["quae", wordSize.small],
         ["suscipit", wordSize.small],
-        ["sint", wordSize.small],
+        ["sint", wordSize.medium],
         ["iste", wordSize.small],
-        ["animi", wordSize.small],
+        ["animi", wordSize.medium],
         ["in", wordSize.small],
         ["aut", wordSize.small],
         ["inventore", wordSize.small],
-        ["dolores", wordSize.small],
+        ["dolores", wordSize.medium],
         ["molestiae", wordSize.small],
         ["magnam", wordSize.small],
         ["enim", wordSize.small],
@@ -42,10 +42,20 @@ function HeroSection() {
     useEffect(() => {
         console.log(sectionRef);
         WordCloud(sectionRef.current, {
-            list: [["Our Mission", wordSize.title], ...randomWords, ...randomWords, ...randomWords, ...randomWords, ...randomWords],
+            list: [
+                ["Our Mission", wordSize.title],
+                ...randomWords,
+                ...randomWords,
+                ...randomWords,
+                ...randomWords,
+                ...randomWords,
+                ...randomWords,
+                ...randomWords,
+                ...randomWords,
+            ],
             fontFamily: "Rubik",
-            // fontWeight: "bold",
-            color: (word) => (word === "Our Mission" ? "#77e0a1" : "#cbd5e0"),
+            weightFactor: 1.5,
+            color: (word) => (word === "Our Mission" ? "#77e0a1" : "rgba(225,225,225, 0.2)"),
             backgroundColor: false,
             gridSize: 20,
         });
