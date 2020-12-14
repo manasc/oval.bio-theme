@@ -121,7 +121,7 @@ function DiagramSection() {
     ];
 
     return (
-        <section className="section h-screen overflow-hidden">
+        <section className="h-full overflow-hidden">
             <div className="h-full flex flex-wrap md:flex-no-wrap relative">
                 <div className="flex-1 flex flex-col items-center justify-center relative bg-gray-200">
                     <div className="w-full max-w-xl relative mx-auto">

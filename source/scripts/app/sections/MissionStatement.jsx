@@ -10,7 +10,7 @@ function HeroSection() {
     // }, [])
 
     return (
-        <section className="section h-screen overflow-hidden bg-gray-500">
+        <section className="h-full overflow-hidden bg-gray-500">
         </section>
     );
 }

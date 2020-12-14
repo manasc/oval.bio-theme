@@ -1,6 +1,7 @@
 function navbarFunc() {
     var header = document.querySelector("#main-header");
     var faux = document.querySelector("#faux-header");
+    var page = document.querySelector("#page");
     var banner = document.querySelector("#header-banner");
     var closeBanner = document.querySelector("#close-header-banner");
     var mobileMenu = document.querySelector("#mobile-menu");
@@ -10,6 +11,7 @@ function navbarFunc() {
 
     function setHeights() {
         faux.style.height = header.clientHeight + "px";
+        page.style.height = window.innerHeight - header.clientHeight + "px";
 
         fullHeightDivs.forEach((div) => {
             if (window.innerWidth < 768) {

@@ -104,7 +104,7 @@ const renderCanvas = (label, bgColor) => {
 
 function BuiltForChange() {
     return (
-        <section className="section h-screen overflow-hidden">
+        <section className="h-full overflow-hidden">
             <div className="h-full flex">
                 {renderCanvas("NASA", "bg-indigo-100")}
                 {renderCanvas("OVAL.BIO", "bg-teal-100")}

@@ -90,7 +90,7 @@ function FivePillars() {
     // }, [currentIndex])
 
     return (
-        <section className="section h-screen overflow-hidden">
+        <section className="h-full overflow-hidden">
             <div className="flex h-full">
                 <div className="w-full max-w-md flex-none p-10">
                     <div className="text-3xl leading-tight mb-5">

@@ -135,7 +135,7 @@ function FivePillars() {
     }, []);
 
     return (
-        <section className="flex relative w-screen h-screen">
+        <section className="flex relative w-screen h-full">
             <div className="w-3/4">
                 <div className="bg-gray-400 relative w-full h-full">
                     <div

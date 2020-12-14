@@ -96,7 +96,7 @@ function TextSlider() {
     };
 
     return (
-        <section className="section h-screen overflow-hidden bg-gray-900">
+        <section className="h-full overflow-hidden bg-gray-900">
             <div className="flex pb-10 items-center justify-center h-full w-full">
                 <div className="max-w-5xl w-full flex items-center justify-center relative h-64">
                     {slides.map((slide, i) => (

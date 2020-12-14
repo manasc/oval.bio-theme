@@ -26,6 +26,10 @@
 @import "annotations";
 @import "../../node_modules/node-waves/dist/waves.min.css";
 
+.lazyload-wrapper {
+    @apply h-full;
+}
+
 .drift-zoom-pane {
     @apply bg-white #{!important};
 }

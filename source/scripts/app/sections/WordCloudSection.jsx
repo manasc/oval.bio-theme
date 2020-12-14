@@ -62,7 +62,7 @@ function HeroSection() {
     }, [sectionRef]);
 
     return (
-        <section ref={sectionRef} className="section h-screen overflow-hidden bg-gray-800">
+        <section ref={sectionRef} className="h-full overflow-hidden bg-gray-800">
             Hello
         </section>
     );

@@ -2,10 +2,10 @@ import React, { useState } from "react";
 
 function MoreThanOval() {
     return (
-        <section className="section h-screen overflow-hidden">
+        <section className="h-full overflow-hidden">
             <div className="h-full flex">
                 <div className="w-full max-w-lg flex-none flex flex-col">
-                    <div className="flex-1 p-10 overflow-y-scroll max-h-screen">
+                    <div className="flex-1 p-10 overflow-y-scroll max-h-full">
                         <div className="text-3xl mb-5">Modular and Open Source</div>
                         <p className="mb-5">
                             Like a car or smartphone, it is meant to have constant upgrades and additions. Unlike almost all other things,
@@ -25,17 +25,21 @@ function MoreThanOval() {
                             diagnostics and therapies are made we can ship them to the pod owners and have them easily integrate them into
                             their existing pod. This is part of the reason modularity is so important to us.
                         </p>
-                    </div>
-                    <div className="flex-none bg-ovalGreen p-10">
-                        <p className="text-sm">
-                            We do fully expect however that this first gen pod will in whole be made obsolete within a few short years, as
-                            we gain capital, build our team and learn more as we focus with the community on how to improve it. We expect
-                            our second generation pod to have more staying power and be the one that gets mass adoption. This is why we are
-                            rewarding the early adopters with larger equity stakes for buying our early pods.
-                        </p>
+                        <div className="mt-5 bg-ovalGreen">
+                            <div className="w-full max-w-lg p-5 text-base">
+                                <p>
+                                    There is no silver bullet for life extension, instead it will require an orchestra of technologies
+                                    working in concert to achieve the desired result. We want to be the conductor in this symphony. Our
+                                    baton to achieve this is the life extension pod.
+                                </p>
+                                <p className="mt-3">
+                                    <span className="label-text text-sm">Mike Kiamanesh</span>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div className="flex-1 bg-ovalGreen pr-16 pb-16">
+                <div className="flex-1">
                     <div className="bg-gray-100 w-full h-full flex items-center justify-center">
                         <h1 className="text-xl">Image</h1>
                     </div>

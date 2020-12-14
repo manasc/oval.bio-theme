@@ -63,7 +63,7 @@ function PodIntro() {
     }, []);
 
     return (
-        <section className="section h-screen overflow-hidden">
+        <section className="h-full overflow-hidden">
             <div className="h-full w-full bg-gray-200 relative">
                 <div id="podIntroThrees" className="absolute h-full w-full top-0 left-0" ref={canvas}></div>
                 <div className="label absolute bottom-0 left-0">
@@ -78,6 +78,18 @@ function PodIntro() {
                             positive life choices, recognize early warning signs, learn what choices impact their health and better tailor
                             the <strong>life-extension therapies</strong> to the user.{" "}
                         </p>
+                        <div className="mt-5 bg-ovalGreen">
+                            <div className="w-full max-w-lg p-5 text-base">
+                                <p>
+                                    There is no silver bullet for life extension, instead it will require an orchestra of technologies
+                                    working in concert to achieve the desired result. We want to be the conductor in this symphony. Our
+                                    baton to achieve this is the life extension pod.
+                                </p>
+                                <p className="mt-3">
+                                    <span className="label-text text-sm">Mike Kiamanesh</span>
+                                </p>
+                            </div>
+                        </div>
                         {/* <p className="mt-5">
                             <a className="button mr-2">Hello</a>
                             <a href="#" className="button">

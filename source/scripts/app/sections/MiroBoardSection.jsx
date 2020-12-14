@@ -110,7 +110,7 @@ const renderCanvas = () => {
 
 function MiroBoardSection() {
     return (
-        <section className="section h-screen overflow-hidden">
+        <section className="h-full overflow-hidden">
             <div className="h-full flex flex-col">
                 {renderCanvas()}
                 <div className="flex-none">
@@ -132,20 +132,6 @@ function MiroBoardSection() {
                                         Goodbye
                                     </a>
                                 </p> */}
-                            </div>
-                        </div>
-
-                        <div className="flex-none bg-ovalGreen">
-                            <div className="w-full max-w-lg p-8">
-                                <p>
-                                    There is no silver bullet for life extension, instead it will
-                                    require an orchestra of technologies working in concert to
-                                    achieve the desired result. We want to be the conductor in this
-                                    symphony. Our baton to achieve this is the life extension pod.
-                                </p>
-                                <p className="mt-5">
-                                    <span className="label-text text-sm">Mike Kiamanesh</span>
-                                </p>
                             </div>
                         </div>
                     </div>
