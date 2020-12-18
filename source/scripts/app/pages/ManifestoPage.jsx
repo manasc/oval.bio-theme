@@ -20,15 +20,16 @@ function ManifestoPage() {
         <ReactFullpage
             licenseKey="E70AAD3B-F4774CC5-864728AE-C7DBB3D8"
             scrollingSpeed={1000}
+            navigation={true}
             render={({ state, fullpageApi }) => (
                 <ReactFullpage.Wrapper>
-                    <div className="section">
+                    <div className="section h-full">
                         <LazyLoad once>
                             <TextSlider />
                         </LazyLoad>
                     </div>
 
-                    <div className="section">
+                    <div className="section h-full">
                         <LazyLoad once>
                             <TableOfContents
                                 title="Table of Contents"
@@ -47,49 +48,49 @@ function ManifestoPage() {
                         </LazyLoad>
                     </div>
 
-                    <div className="section">
+                    <div className="section h-full">
                         <LazyLoad once>
                             <WordCloudSection />
                         </LazyLoad>
                     </div>
 
-                    <div className="section">
+                    <div className="section h-full">
                         <LazyLoad once>
                             <DiagramSection />
                         </LazyLoad>
                     </div>
 
-                    <div className="section">
+                    <div className="section h-full">
                         <LazyLoad once>
                             <FivePillars />
                         </LazyLoad>
                     </div>
 
-                    <div className="section">
+                    <div className="section h-full">
                         <LazyLoad once>
                             <BuiltForChange />
                         </LazyLoad>
                     </div>
 
-                    <div className="section">
+                    <div className="section h-full">
                         <LazyLoad once>
                             <PodIntro />
                         </LazyLoad>
                     </div>
 
-                    <div className="section">
+                    <div className="section h-full">
                         <LazyLoad once>
                             <MoreThanOval />
                         </LazyLoad>
                     </div>
 
-                    <div className="section">
+                    <div className="section h-full">
                         <LazyLoad once>
                             <MiroBoardSection />
                         </LazyLoad>
                     </div>
 
-                    <div className="section">
+                    <div className="section h-full">
                         <LazyLoad once>
                             <Milestones />
                         </LazyLoad>
