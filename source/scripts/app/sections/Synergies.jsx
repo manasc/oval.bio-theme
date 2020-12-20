@@ -98,7 +98,7 @@ function FivePillars() {
 
     return (
         <React.Fragment>
-            <section className="h-full overflow-hidden">
+            <section className="h-screen overflow-hidden">
                 <div className="flex h-full">
                     <div className="w-full max-w-md flex-none p-10">
                         <div className="text-3xl leading-tight mb-5">Diagnostic Synergy</div>
@@ -143,7 +143,7 @@ function FivePillars() {
                     </div>
                 </div>
             </section>
-            <section className="h-full overflow-hidden flex">
+            <section className="h-screen overflow-hidden flex">
                 <div className="flex-1 bg-gray-300 relative flex flex-col items-center justify-center">
                     <h2 className="text-4xl">Synergies of Therepeutics</h2>
                     <div className="w-64 h-64 relative my-24">

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 function HeroSection() {
     return (
-        <section className="h-full overflow-hidden">
+        <section className="h-screen overflow-hidden">
             <div className="h-full flex items-end relative">
                 <div
                     className="absolute top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat"

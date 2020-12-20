@@ -4,27 +4,12 @@ const slides = [
     {
         title: "Mission Statement",
         content:
-            "Quo magnam sunt alias tempora. Laboriosam aut alias ut rerum maiores. Officia aperiam expedita voluptatem est voluptatum. Eum voluptatem est vel illo pariatur ut. Qui adipisci nihil distinctio corporis autem. Et totam qui soluta numquam cumque qui. Sint similique temporibus nostrum porro libero tenetur. Optio ex debitis voluptates. Impedit at vel adipisci.",
+            "Breaking preconceived notions of what capitalism and free market economics are in the pursuit of providing extensive, ultra-transparent access to functional life extension technology.",
     },
     {
         title: "Vision Statement",
         content:
-            "Quo magnam sunt alias tempora. Laboriosam aut alias ut rerum maiores. Officia aperiam expedita voluptatem est voluptatum. Eum voluptatem est vel illo pariatur ut. Qui adipisci nihil distinctio corporis autem. Et totam qui soluta numquam cumque qui. Sint similique temporibus nostrum porro libero tenetur. Optio ex debitis voluptates. Impedit at vel adipisci.",
-    },
-    {
-        title: "Vision Statement 2",
-        content:
-            "Quo magnam sunt alias tempora. Laboriosam aut alias ut rerum maiores. Officia aperiam expedita voluptatem est voluptatum. Eum voluptatem est vel illo pariatur ut. Qui adipisci nihil distinctio corporis autem. Et totam qui soluta numquam cumque qui. Sint similique temporibus nostrum porro libero tenetur. Optio ex debitis voluptates. Impedit at vel adipisci.",
-    },
-    {
-        title: "Vision Statement 5",
-        content:
-            "Quo magnam sunt alias tempora. Laboriosam aut alias ut rerum maiores. Officia aperiam expedita voluptatem est voluptatum. Eum voluptatem est vel illo pariatur ut. Qui adipisci nihil distinctio corporis autem. Et totam qui soluta numquam cumque qui. Sint similique temporibus nostrum porro libero tenetur. Optio ex debitis voluptates. Impedit at vel adipisci.",
-    },
-    {
-        title: "Vision Statement 6",
-        content:
-            "Quo magnam sunt alias tempora. Laboriosam aut alias ut rerum maiores. Officia aperiam expedita voluptatem est voluptatum. Eum voluptatem est vel illo pariatur ut. Qui adipisci nihil distinctio corporis autem. Et totam qui soluta numquam cumque qui. Sint similique temporibus nostrum porro libero tenetur. Optio ex debitis voluptates. Impedit at vel adipisci.",
+            "A global syndicate of collaborators working to make life extension technology available for, thus creating a world where more individuals can pursue their ambitions and rising the tide for everyone.",
     },
 ];
 
@@ -38,7 +23,7 @@ function Slide({ onClick, slidePosition, classNameFunc, currentSlide, slide, ind
                 transform: slidePosition(index),
             }}
         >
-            <h1 className="text-4xl">{slide.title + index}</h1>
+            <h1 className="text-4xl">{slide.title}</h1>
             <div
                 style={{
                     transitionDuration: "300ms",
@@ -96,7 +81,7 @@ function TextSlider() {
     };
 
     return (
-        <section className="h-full overflow-hidden bg-gray-900">
+        <section className="h-screen overflow-hidden bg-gray-900">
             <div className="flex pb-10 items-center justify-center h-full w-full">
                 <div className="max-w-5xl w-full flex items-center justify-center relative h-64">
                     {slides.map((slide, i) => (

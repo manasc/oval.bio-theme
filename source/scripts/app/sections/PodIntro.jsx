@@ -63,7 +63,7 @@ function PodIntro() {
     }, []);
 
     return (
-        <section className="h-full overflow-hidden">
+        <section className="h-screen overflow-hidden">
             <div className="h-full w-full bg-gray-200 relative">
                 <div id="podIntroThrees" className="absolute h-full w-full top-0 left-0" ref={canvas}></div>
                 <div className="label absolute bottom-0 left-0">

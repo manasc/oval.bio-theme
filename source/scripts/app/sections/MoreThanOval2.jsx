@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 function MoreThanOval() {
     return (
-        <section className="h-full overflow-hidden">
+        <section className="h-screen overflow-hidden">
             <div className="h-full flex">
                 <div className="w-full max-w-lg flex-none flex flex-col">
                     <div className="flex-1 p-10 overflow-y-scroll max-h-full">

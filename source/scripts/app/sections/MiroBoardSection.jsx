@@ -110,7 +110,7 @@ const renderCanvas = () => {
 
 function MiroBoardSection() {
     return (
-        <section className="h-full overflow-hidden">
+        <section className="h-screen overflow-hidden">
             <div className="h-full flex flex-col">
                 {renderCanvas()}
                 <div className="flex-none">

@@ -102,4 +102,4 @@
             ?>
         </div>
     </div>
-    <div id="page" class="site overflow-hidden">
+    <div id="page">

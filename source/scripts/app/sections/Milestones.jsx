@@ -4,7 +4,7 @@ import MilestoneSlider from "../components/MilestoneSlider";
 
 function VideoSection() {
     return (
-        <section className="h-full overflow-hidden">
+        <section className="h-screen overflow-hidden">
             <div className="h-full flex flex-col">
                 <div className="flex-1 .bg-gray-200 relative flex items-center justify-center">
                     <MilestoneSlider />
