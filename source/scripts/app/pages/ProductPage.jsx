@@ -23,7 +23,7 @@ function ProductPage({ productId }) {
     const [productData, setProductData] = useState("");
     const [productMeta, setProductMeta] = useState("");
 
-    const marginBottom = "2rem";
+    const marginBottom = "md:mb-5";
 
     useEffect(() => {
         console.log(productId);
@@ -50,43 +50,43 @@ function ProductPage({ productId }) {
         <React.Fragment>
             {productData && <ProductSection productData={productData} />}
             {productMeta && (
-                <div className="nmr-container container">
+                <div className="mx-auto max-w-6xl md:px-3">
                     {productMeta["key_benefits"] && (
-                        <div style={{ marginBottom: marginBottom }}>
+                        <div className={marginBottom}>
                             <KeyBenefitsSection data={productMeta["key_benefits"]} />
                         </div>
                     )}
 
                     {productMeta["how_it_works"] && (
-                        <div style={{ marginBottom: marginBottom }}>
+                        <div className={marginBottom}>
                             <HowItWorksSection data={productMeta["how_it_works"]} />
                         </div>
                     )}
 
-                    <div style={{ marginBottom: marginBottom }}>
+                    <div className={marginBottom}>
                         <LifeExtensionSection />
                     </div>
 
                     {productMeta["nutrition_ingredients"] && (
-                        <div style={{ marginBottom: marginBottom }}>
+                        <div className={marginBottom}>
                             <NutritionIngredientsSection data={productMeta["nutrition_ingredients"]} />
                         </div>
                     )}
 
                     {productMeta["components"] && (
-                        <div style={{ marginBottom: marginBottom }}>
+                        <div className={marginBottom}>
                             <ComponentsSection data={productMeta["components"]} />
                         </div>
                     )}
 
                     {productMeta["cost_of_goods"] && (
-                        <div style={{ marginBottom: marginBottom }}>
+                        <div className={marginBottom}>
                             <CostOfGoodsSection data={productMeta["cost_of_goods"]} />
                         </div>
                     )}
 
                     {productMeta["future_of_product"] && (
-                        <div style={{ marginBottom: marginBottom }}>
+                        <div className={marginBottom}>
                             <ChosenArticlesSection
                                 sectionTitle="Product Future"
                                 articles={productMeta["future_of_product"].articles || []}
@@ -95,31 +95,31 @@ function ProductPage({ productId }) {
                     )}
 
                     {productMeta["pipeline"] && (
-                        <div style={{ marginBottom: marginBottom }}>
+                        <div className={marginBottom}>
                             <PipelineSection data={productMeta["pipeline"]} />
                         </div>
                     )}
 
                     {productMeta["directions_for_use"] && (
-                        <div style={{ marginBottom: marginBottom }}>
+                        <div className={marginBottom}>
                             <DirectionsForUseSection data={productMeta["directions_for_use"]} />
                         </div>
                     )}
 
                     {productMeta["side_effects"] && (
-                        <div style={{ marginBottom: marginBottom }}>
+                        <div className={marginBottom}>
                             <TextSection title="Side Effects" description={productMeta["side_effects"].risks_concerns} />
                         </div>
                     )}
 
                     {productMeta["faq"] && (
-                        <div style={{ marginBottom: marginBottom }}>
+                        <div className={marginBottom}>
                             <FaqSection data={productMeta["faq"]} />
                         </div>
                     )}
 
                     {productMeta["competitive_comparison"] && (
-                        <div style={{ marginBottom: marginBottom }}>
+                        <div className={marginBottom}>
                             <ArticleTeaserSection
                                 sectionTitle="Competitive Comparison"
                                 articleId={productMeta["competitive_comparison"].articles.ID}
@@ -128,7 +128,7 @@ function ProductPage({ productId }) {
                     )}
 
                     {productMeta["experiments"] && (
-                        <div style={{ marginBottom: marginBottom }}>
+                        <div className={marginBottom}>
                             <ChosenArticlesSection
                                 sectionTitle="Tests & Experiments"
                                 articles={productMeta["experiments"].articles || []}
@@ -138,7 +138,7 @@ function ProductPage({ productId }) {
 
                     {/* clinical trials */}
                     {productMeta["clinical_trials"] && (
-                        <div style={{ marginBottom: marginBottom }}>
+                        <div className={marginBottom}>
                             <ChosenArticlesSection
                                 sectionTitle="Clinical Trials"
                                 articles={productMeta["clinical_trials"].trial_articles || []}
@@ -147,7 +147,7 @@ function ProductPage({ productId }) {
                     )}
 
                     {productMeta["research_and_development"] && (
-                        <div style={{ marginBottom: marginBottom }}>
+                        <div className={marginBottom}>
                             <ChosenArticlesSection
                                 sectionTitle="Research & Development"
                                 articles={productMeta["research_and_development"].articles || []}
@@ -157,19 +157,19 @@ function ProductPage({ productId }) {
 
                     {productMeta["intsructables"] &&
                         productMeta["intsructables"].articles.map((article, i) => (
-                            <div key={i} style={{ marginBottom: marginBottom }}>
+                            <div key={i} className={marginBottom}>
                                 <ArticleTeaserSection sectionTitle="Instructable" articleId={article.ID} />
                             </div>
                         ))}
 
                     {productMeta["quality_control"] && (
-                        <div style={{ marginBottom: marginBottom }}>
+                        <div className={marginBottom}>
                             <TextSection title="Quality Control" description={productMeta["quality_control"].description} />
                         </div>
                     )}
 
                     {productMeta["manufacturing_challenges"] && (
-                        <div style={{ marginBottom: marginBottom }}>
+                        <div className={marginBottom}>
                             <TextSection
                                 title="Manufacturing Challenges"
                                 description={productMeta["manufacturing_challenges"].description}
@@ -178,13 +178,13 @@ function ProductPage({ productId }) {
                     )}
 
                     {productMeta["help_needed"] && (
-                        <div style={{ marginBottom: marginBottom }}>
+                        <div className={marginBottom}>
                             <CardPostingSection title="Help Needed" cards={productMeta["help_needed"].technologies} />
                         </div>
                     )}
 
                     {productMeta["opportunities"] && (
-                        <div style={{ marginBottom: marginBottom }}>
+                        <div className={marginBottom}>
                             <CardPostingSection title="Opportunities" cards={productMeta["opportunities"].opportunity} />
                         </div>
                     )}

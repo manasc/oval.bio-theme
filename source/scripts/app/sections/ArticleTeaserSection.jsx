@@ -30,7 +30,7 @@ function CompetitorsSection({ sectionTitle, articleId }) {
 
     return (
         <section key={article.id} className="content-box relative">
-            <div className="subtitle text-center">{sectionTitle}</div>
+            <div className="subtitle md:text-center">{sectionTitle}</div>
             {Object.keys(article).length > 0 && (
                 <React.Fragment>
                     <div className="cover absolute top-0 left-0 w-full h-full z-10 rounded overflow-hidden bg-white-gradient">
@@ -39,7 +39,7 @@ function CompetitorsSection({ sectionTitle, articleId }) {
                                 <div className="message px-4">
                                     <p>The full article is available on our Blogs.</p>
                                 </div>
-                                <div className="cta flex-none px-4">
+                                <div className="cta flex-none mt-3 md:mt-0 px-4">
                                     <a href={article.link} className="button">
                                         Full Article
                                         <i className="button-icon fas fa-glasses ml-2"></i>

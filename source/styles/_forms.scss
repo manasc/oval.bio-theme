@@ -67,7 +67,7 @@
     @apply flex flex-wrap;
 
     .pack-option {
-        @apply w-16;
+        @apply w-20;
         @apply text-gray-400;
         @apply flex flex-col items-center justify-start;
         @apply font-bold text-center uppercase;
@@ -78,7 +78,7 @@
             @apply rounded;
             @apply cursor-pointer;
             @apply border-2 border-gray-400;
-            @apply w-full h-16;
+            @apply w-full h-20;
             @apply flex flex-col justify-center;
         }
 

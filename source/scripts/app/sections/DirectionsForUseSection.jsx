@@ -32,7 +32,7 @@ const HowItWorksSection = () => {
 
     return (
         <section className="content-box">
-            <h1 className="subtitle text-center">Directions for Use</h1>
+            <h1 className="subtitle md:text-center">Directions for Use</h1>
             {data.instructional_video && (
                 <div className="mb-10">
                     <div className="labels">
@@ -49,15 +49,15 @@ const HowItWorksSection = () => {
             )}
             {data.instructions.map((instruction, i) => (
                 <div key={i} className="flex flex-wrap">
-                    <div className={"w-full lg:w-1/2 flex items-center justify-center " + (i % 2 ? "order-2" : "order-1")}>
-                        <div className="content px-10 py-10 w-full">
+                    <div className={"w-full lg:w-1/2 flex items-center justify-center " + (i % 2 ? "order-1 md:order-2" : "order-1 md:order-1")}>
+                        <div className="content md:px-10 py-10 w-full">
                             <div className="content flex-1 px-2">
                                 <div className="text-2xl mb-2 font-normal">{instruction.name}</div>
                                 <div className="text-lg" dangerouslySetInnerHTML={{ __html: instruction.description }}></div>
                             </div>
                         </div>
                     </div>
-                    <div className={"w-full lg:w-1/2 " + (i % 2 ? "order-1" : "order-2")}>
+                    <div className={"w-full lg:w-1/2 " + (i % 2 ? "order-1 md:order-1" : "order-1 md:order-2")}>
                         <div
                             className="bg-gray-200 h-64 lg:h-full bg-cover bg-center bg-no-repeat"
                             style={{ backgroundImage: "url(" + instruction.image.url + ")" }}

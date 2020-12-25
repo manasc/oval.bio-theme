@@ -13,7 +13,7 @@ function ComponentsSection({ data }) {
     return (
         <section className="content-box">
             <div className="max-w-3xl mx-auto">
-                <h1 className="subtitle text-center">Components</h1>
+                <h1 className="subtitle md:text-center">Components</h1>
                 <div className="anchor-content text-lg" dangerouslySetInnerHTML={{ __html: data.components_introduction }} />
 
                 {featuredArr.length > 0 && (

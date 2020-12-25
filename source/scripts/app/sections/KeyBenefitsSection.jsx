@@ -33,7 +33,7 @@ function KeyBenefitsSection({ data }) {
     return (
         <div className="content-box">
             <div className="max-w-lg mx-auto mb-10">
-                <h1 className="subtitle text-center mb-2">Key Benefits</h1>
+                <h1 className="subtitle md:text-center mb-2">Key Benefits</h1>
                 <p className="text-xl text-center">
                     Check out our quick tid-bits about this product. Click on a Key Benefit to see more details
                 </p>
@@ -41,7 +41,7 @@ function KeyBenefitsSection({ data }) {
             <div className="max-w-6xl mx-auto mb-10">
                 <div className="flex flex-wrap -m-2">
                     {data.benefits.map((benefit, i) => (
-                        <div key={i} className="w-1/3 p-2">
+                        <div key={i} className="w-full md:w-1/3 p-2">
                             <div
                                 className="nmr-info-block-trigger content flex relative rounded overflow-hidden w-full h-full bg-gray-100 hover:bg-gray-200 border border-gray-400 shadow cursor-pointer"
                                 onClick={() => {

@@ -19,7 +19,7 @@ function ChosenArticlesSection({ sectionTitle, articles = [] }) {
     return (
         <section className="content-box">
             <div className="mb-10 mx-auto max-w-3xl">
-                <h1 className="subtitle text-center mb-5">{sectionTitle}</h1>
+                <h1 className="subtitle md:text-center mb-5">{sectionTitle}</h1>
                 <div className="content text-lg">
                     <p>
                         Eveniet vitae enim deleniti provident nihil totam ipsa earum quae. Architecto ex assumenda itaque eum architecto
@@ -39,7 +39,7 @@ function ChosenArticlesSection({ sectionTitle, articles = [] }) {
                                 href={article.link}
                                 className="blog-item cursor-pointer mb-5 md:mb-0 w-full md:w-1/3 px-2 flex flex-wrap items-center"
                             >
-                                <div className="image-box product-box overflow-hidden relative w-1/3 md:w-full">
+                                <div className="image-box product-box overflow-hidden relative w-full">
                                     <div
                                         className="image absolute w-full h-full top-0 left-0 bg-cover bg-center bg-no-repeat"
                                         style={{
@@ -50,7 +50,7 @@ function ChosenArticlesSection({ sectionTitle, articles = [] }) {
                                                 ")",
                                         }}
                                     ></div>
-                                    <div className="label hidden md:block absolute top-0 right-0">
+                                    <div className="label  absolute top-0 right-0">
                                         <span className="label-text">
                                             {article._embedded["wp:term"][0] &&
                                                 article._embedded["wp:term"][0][0] &&
@@ -58,14 +58,7 @@ function ChosenArticlesSection({ sectionTitle, articles = [] }) {
                                         </span>
                                     </div>
                                 </div>
-                                <div className="content w-2/3 md:w-full pl-2 md:pl-0">
-                                    <div className="label inline-block md:hidden">
-                                        <span className="label-text">
-                                            {article._embedded["wp:term"][0] &&
-                                                article._embedded["wp:term"][0][0] &&
-                                                article._embedded["wp:term"][0][0].name}
-                                        </span>
-                                    </div>
+                                <div className="content w-full">
                                     <div className="title text-lg leading-snug mt-2 mb-3 pr-1">{article.title.rendered}</div>
                                     <div className="meta text-xs font-bold uppercase tracking-wider text-ovalGreen">
                                         <Moment format="YYYY/MM/DD" date={article.date} />

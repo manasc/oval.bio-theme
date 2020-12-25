@@ -14,7 +14,7 @@ function NutritionIngredientSection({ data }) {
     return (
         <section className="content-box">
             <div className="max-w-3xl mx-auto">
-                <h1 className="subtitle text-center">Nutrition & Ingredients</h1>
+                <h1 className="subtitle md:text-center">Nutrition & Ingredients</h1>
                 <div className="anchor-content text-lg" dangerouslySetInnerHTML={{ __html: data.nutrition_explanation }} />
 
                 {featuredArr.length > 0 && (

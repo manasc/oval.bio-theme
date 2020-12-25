@@ -8,55 +8,62 @@ function CostOfGoodsSection({ data }) {
 
     return (
         <section className="content-box">
-            <div className="subtitle text-center">Cost of Goods</div>
+            <div className="subtitle md:text-center">Cost of Goods</div>
 
             {data.goods_tiers &&
                 data.goods_tiers.map((tier, i) => (
-                    <div key={i} className="mb-10">
-                        <div className="labels">
-                            <div className="label">
-                                <span className="label-text">{tier.tier_title}</span>
+                    <div key={i} className="mb-5">
+                        <div className="overflow-x-scroll">
+                            <div className="mb-10" style={{ minWidth: 1440 }}>
+                                <div className="labels">
+                                    <div className="label">
+                                        <span className="label-text">{tier.tier_title}</span>
+                                    </div>
+                                </div>
+                                <table className="table-auto w-full text-sm">
+                                    <thead>
+                                        <tr>
+                                            <th className="border px-4 py-2 text-left">Name</th>
+                                            <th className="border px-4 py-2 text-left">Bulk Amount</th>
+                                            <th className="border px-4 py-2 text-left">Bulk Cost</th>
+                                            <th className="border px-4 py-2 text-left">Single Unit</th>
+                                            <th className="border px-4 py-2 text-left">Unit Cost</th>
+                                            <th className="border px-4 py-2 text-left" style={{ width: 500 }}>
+                                                Description
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {tier.goods &&
+                                            tier.goods.map((good, i) => (
+                                                <tr key={i}>
+                                                    <td className="border px-4 py-2">{`${good.name}`}</td>
+                                                    <td className="border font-mono px-4 py-2">{`${good.bulk_amount} ${good.units}`}</td>
+                                                    <td className="border font-mono px-4 py-2">${`${good.bulk_cost} /${good.units}`}</td>
+                                                    <td className="border font-mono px-4 py-2">{`${good.usage_per_unit} ${good.individual_units}`}</td>
+                                                    <td className="border font-mono px-4 py-2">
+                                                        ${`${good.cost_per_unit} /${good.individual_units}`}
+                                                    </td>
+                                                    <td className="border px-4 py-2">{`${good.description}`}</td>
+                                                </tr>
+                                            ))}
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td></td>
+                                            <td className="px-4 py-2 text-right">Total for bulk</td>
+                                            <td className="border font-mono px-4 py-2 bg-gray-200">${bulkSum(tier)}</td>
+                                            <td className="px-4 py-2 text-right">Total for a Single Unit</td>
+                                            <td className="border font-mono px-4 py-2 bg-gray-200">${singleUnitSum(tier)}</td>
+                                            <td></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
                             </div>
                         </div>
-                        <table className="table-auto w-full text-sm">
-                            <thead>
-                                <tr>
-                                    <th className="border px-4 py-2 text-left">Name</th>
-                                    <th className="border px-4 py-2 text-left">Bulk Amount</th>
-                                    <th className="border px-4 py-2 text-left">Bulk Cost</th>
-                                    <th className="border px-4 py-2 text-left">Single Unit</th>
-                                    <th className="border px-4 py-2 text-left">Unit Cost</th>
-                                    <th className="border px-4 py-2 text-left" style={{ width: 500 }}>
-                                        Description
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {tier.goods &&
-                                    tier.goods.map((good, i) => (
-                                        <tr key={i}>
-                                            <td className="border px-4 py-2">{`${good.name}`}</td>
-                                            <td className="border font-mono px-4 py-2">{`${good.bulk_amount} ${good.units}`}</td>
-                                            <td className="border font-mono px-4 py-2">${`${good.bulk_cost} /${good.units}`}</td>
-                                            <td className="border font-mono px-4 py-2">{`${good.usage_per_unit} ${good.individual_units}`}</td>
-                                            <td className="border font-mono px-4 py-2">
-                                                ${`${good.cost_per_unit} /${good.individual_units}`}
-                                            </td>
-                                            <td className="border px-4 py-2">{`${good.description}`}</td>
-                                        </tr>
-                                    ))}
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td></td>
-                                    <td className="px-4 py-2 text-right">Total for bulk</td>
-                                    <td className="border font-mono px-4 py-2 bg-gray-200">${bulkSum(tier)}</td>
-                                    <td className="px-4 py-2 text-right">Total for a Single Unit</td>
-                                    <td className="border font-mono px-4 py-2 bg-gray-200">${singleUnitSum(tier)}</td>
-                                    <td></td>
-                                </tr>
-                            </tfoot>
-                        </table>
+                        <div className="md:hidden mt-3 text-xs">
+                            Scroll Right <i className="ml-2 fas fa-arrow-right"></i>
+                        </div>
                     </div>
                 ))}
 

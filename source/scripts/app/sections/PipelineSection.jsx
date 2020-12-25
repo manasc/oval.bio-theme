@@ -34,50 +34,52 @@ function PipelineSection({ data }) {
 
     return (
         <section className="content-box phase-box">
-            <h1 className="subtitle text-center">Product Pipeline</h1>
-            <div className="wrapper flex items-center py-8 relative">
-                {phases.map((phase, i) => (
-                    <div
-                        key={i}
-                        onClick={() => {
-                            setLastChosen(i);
-                            if (i <= currentPhase) {
-                                const arr = newArr;
+            <h1 className="subtitle md:text-center">Product Pipeline</h1>
+            <div className="overflow-x-scroll md:overflow-auto">
+                <div className="wrapper bg-gray-100 md:bg-transparent flex items-center py-8 relative" style={{ minWidth: 980 }}>
+                    {phases.map((phase, i) => (
+                        <div
+                            key={i}
+                            onClick={() => {
+                                setLastChosen(i);
+                                if (i <= currentPhase) {
+                                    const arr = newArr;
 
-                                arr[i].selected = !arr[i].selected;
-                                setNewArr([...arr]);
-                            }
-                        }}
-                        className={"phase w-1/" + phases.length + " border-r border-gray-400"}
-                    >
-                        <div className="phase-text h-32 relative">
-                            <div className={labelClass(i) + " leading-none absolute right-0 bottom-0 cursor-pointer"}>
-                                <div
-                                    className="phase-view-icon invisible absolute left-0 pr-3 opacity-25"
-                                    style={{ top: "50%", transform: "translate(-100%, -50%)" }}
-                                >
-                                    <i className="fas fa-eye"></i>
+                                    arr[i].selected = !arr[i].selected;
+                                    setNewArr([...arr]);
+                                }
+                            }}
+                            className={"phase w-1/" + phases.length + " border-r border-gray-400"}
+                        >
+                            <div className="phase-text h-32 relative">
+                                <div className={labelClass(i) + " leading-none absolute right-0 bottom-0 cursor-pointer"}>
+                                    <div
+                                        className="phase-view-icon invisible absolute left-0 pr-3 opacity-25"
+                                        style={{ top: "50%", transform: "translate(-100%, -50%)" }}
+                                    >
+                                        <i className="fas fa-eye"></i>
+                                    </div>
+                                    <TooltipHost content={i > currentPhase ? phase.description : ""}>
+                                        <span className="label-text">{phase.name}</span>
+                                    </TooltipHost>
                                 </div>
-                                <TooltipHost content={i > currentPhase ? phase.description : ""}>
-                                    <span className="label-text">{phase.name}</span>
-                                </TooltipHost>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
 
-                <div className="phase-full border-b border-gray-400 w-full absolute"></div>
-                <div
-                    className="phase-current bg-ovalGreen h-2 rounded-r-full absolute"
-                    style={{ transitionDuration: "200ms", width: currentPhase > 0 && ((currentPhase + 1) / phases.length) * 100 + "%" }}
-                ></div>
-                <div
-                    className={
-                        "phase-current opacity-50 h-2 rounded-r-full absolute " +
-                        (lastChosen <= currentPhase ? "bg-gray-600" : "bg-ovalGreenDark")
-                    }
-                    style={{ transitionDuration: "200ms", width: ((lastChosen + 1) / phases.length) * 100 + "%" }}
-                ></div>
+                    <div className="phase-full border-b border-gray-400 w-full absolute"></div>
+                    <div
+                        className="phase-current bg-ovalGreen h-2 rounded-r-full absolute"
+                        style={{ transitionDuration: "200ms", width: currentPhase > 0 && ((currentPhase + 1) / phases.length) * 100 + "%" }}
+                    ></div>
+                    <div
+                        className={
+                            "phase-current opacity-50 h-2 rounded-r-full absolute " +
+                            (lastChosen <= currentPhase ? "bg-gray-600" : "bg-ovalGreenDark")
+                        }
+                        style={{ transitionDuration: "200ms", width: ((lastChosen + 1) / phases.length) * 100 + "%" }}
+                    ></div>
+                </div>
             </div>
             <div className="labels my-2">
                 <div className="text-xs italic">Click on a phase to see details.</div>

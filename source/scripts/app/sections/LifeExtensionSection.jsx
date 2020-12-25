@@ -68,7 +68,7 @@ function LifeExtensionSection({ data }) {
     return (
         <section className="content-box life-extension-box">
             <div className="mb-10">
-                <h1 className="subtitle text-center">5 Pillars of Life Extension</h1>
+                <h1 className="subtitle md:text-center">5 Pillars of Life Extension</h1>
             </div>
             <div className="mb-10">
                 <div className="flex-1 flex flex-wrap">
@@ -76,28 +76,36 @@ function LifeExtensionSection({ data }) {
                         icons.map((icon, i) => (
                             <div
                                 key={i}
-                                className="pillar relative w-1/2 md:w-1/5 px-10 py-5"
+                                className="pillar relative w-full md:w-1/5 px-0 md:px-10 py-5"
                                 onClick={() => {
                                     console.log(i);
                                     dispatch({ type: "toggleIcon", payload: i });
                                 }}
                             >
-                                <div
-                                    className={
-                                        "rounded-full w-full mx-auto cursor-pointer " +
-                                        (icon.available ? "bg-ovalGreen hover:bg-ovalGreenDark" : "bg-gray-300 hover:bg-gray-400")
-                                    }
-                                    style={{ paddingTop: "100%" }}
-                                ></div>
-                                <p className="text-center text-sm mt-4">
-                                    {icon.name}
-                                    <TooltipHost content={icon.description}>
-                                        <i className="far fa-question-circle cursor-pointer ml-1"></i>{" "}
-                                    </TooltipHost>
-                                </p>
+                                <div className="flex -mx-2">
+                                    <div className="px-2 w-1/4 md:w-full mx-auto cursor-pointer">
+                                        <div
+                                            className={
+                                                "w-full rounded-full " +
+                                                (icon.available ? "bg-ovalGreen hover:bg-ovalGreenDark" : "bg-gray-300 hover:bg-gray-400")
+                                            }
+                                            style={{ paddingTop: "100%" }}
+                                        ></div>
+                                    </div>
+                                    <div className="px-2 w-3/4 md:w-full">
+                                        <p className="text-left md:text-center text-sm mt-4">
+                                            {icon.name}
+                                            <TooltipHost content={icon.description}>
+                                                <i className="far fa-question-circle cursor-pointer ml-1"></i>{" "}
+                                            </TooltipHost>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* view icon */}
                                 {icon.available && (
                                     <div
-                                        className="phase-view-icon h-8 w-8 flex items-center justify-center border border-gray-300 bg-white shadow rounded-full absolute right-0 top-0 mr-10 mt-10"
+                                        className="phase-view-icon h-8 w-8 flex items-center justify-center border border-gray-300 bg-white shadow rounded-full absolute right-0 top-0 mr-10 md:mt-10"
                                         style={{
                                             transitionDuration: "300ms",
                                             transform: icon.selected ? "translateY(0)" : "translateY(5px)",

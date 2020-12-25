@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 function ChosenArticlesSection({ title, cards = [] }) {
     return (
         <section className="content-box">
-            <div className="subtitle text-center">{title}</div>
+            <div className="subtitle md:text-center">{title}</div>
             <div className="flex flex-wrap -mx-3">
                 {cards.map((card, i) => (
                     <div key={i} className="w-full md:w-1/2 px-3 mb-6">

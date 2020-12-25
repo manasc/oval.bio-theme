@@ -13,7 +13,7 @@ function CompetitorsSection({ data }) {
 
     return (
         <section className="content-box relative">
-            <div className="subtitle text-center">Competitive Comparison</div>
+            <div className="subtitle md:text-center">Competitive Comparison</div>
             {Object.keys(article).length > 0 && (
                 <>
                     <div className="cover absolute top-0 left-0 w-full h-full z-10 rounded overflow-hidden bg-white-gradient">
