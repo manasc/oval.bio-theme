@@ -54,7 +54,7 @@ function Header({ menu }) {
                                 </ul>
                             </div>
                             <div className="w-1/3 text-center">
-                                <span className="text-ovalGreen font-bold text-2xl">oval.bio</span>
+                                <span className="text-ovalGreen font-brand font-bold text-2xl">oval.bio</span>
                             </div>
                             <div className="w-1/3 right-menu text-right hidden lg:block">
                                 <ul className="flex items-center justify-end -mx-1">
