@@ -1,8 +1,22 @@
 html,
 body {
-  @apply font-brand font-light;
+    @apply font-sans;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.subtitle,
+.text-3xl,
+.text-4xl,
+.text-5xl,
+.label-text {
+    @apply font-brand font-light;
 }
 
 .subtitle {
-  @apply text-4xl mb-8 font-light;
+    @apply text-4xl mb-8 font-light;
 }

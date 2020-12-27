@@ -177,6 +177,15 @@ function oval_bio_scripts()
         null
     );
 
+    wp_enqueue_style(
+        'lato-google-font-styles',
+        'https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap',
+        [], // no deps for css
+        // $styles_assets['version'],
+        date('h:i:s'),
+        null
+    );
+
     wp_enqueue_script(
         'font-awesome',
         'https://kit.fontawesome.com/2f39459834.js',

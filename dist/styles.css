@@ -533,7 +533,7 @@ ul {
  */
 
 html {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
+  font-family: Lato, sans-serif; /* 1 */
   line-height: 1.5; /* 2 */
 }
 
@@ -1489,11 +1489,30 @@ label.active .button-input {
 
 html,
 body {
+  font-family: Lato, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.subtitle,
+.tabs-section .tab-box-title,
+.text-3xl,
+.text-4xl,
+.text-5xl,
+.label-text,
+.tabs-section .tabs-section-title,
+.synergy .synergy-diagram .synergy-text,
+.annotations .annotations-label .annotations-label-text {
   font-family: Rubik, sans-serif;
   font-weight: 300;
 }
 
-.subtitle, .tabs-section .tab-box-title {
+.subtitle,
+.tabs-section .tab-box-title {
   font-size: 2.25rem;
   margin-bottom: 2rem;
   font-weight: 300;
@@ -2425,7 +2444,10 @@ body {
   border-radius: 0.25rem;
 }
 
-.label-text, .tabs-section .tabs-section-title, .synergy .synergy-diagram .synergy-text, .annotations .annotations-label .annotations-label-text {
+.label-text,
+.tabs-section .tabs-section-title,
+.synergy .synergy-diagram .synergy-text,
+.annotations .annotations-label .annotations-label-text {
   text-transform: uppercase;
   font-weight: 500;
   font-size: 1rem;
@@ -12853,7 +12875,7 @@ body {
 }
 
 .font-sans{
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: Lato, sans-serif;
 }
 
 .font-serif{
@@ -34820,7 +34842,7 @@ body {
   }
 
   .sm\:font-sans{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: Lato, sans-serif;
   }
 
   .sm\:font-serif{
@@ -56666,7 +56688,7 @@ body {
   }
 
   .md\:font-sans{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: Lato, sans-serif;
   }
 
   .md\:font-serif{
@@ -78512,7 +78534,7 @@ body {
   }
 
   .lg\:font-sans{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: Lato, sans-serif;
   }
 
   .lg\:font-serif{
@@ -100358,7 +100380,7 @@ body {
   }
 
   .xl\:font-sans{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: Lato, sans-serif;
   }
 
   .xl\:font-serif{
@@ -122204,7 +122226,7 @@ body {
   }
 
   .\32xl\:font-sans{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: Lato, sans-serif;
   }
 
   .\32xl\:font-serif{
