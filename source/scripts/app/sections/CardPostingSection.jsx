@@ -8,7 +8,7 @@ function ChosenArticlesSection({ title, cards = [] }) {
                 {cards.map((card, i) => (
                     <div key={i} className="w-full md:w-1/2 px-3 mb-6">
                         <div className="content-box-secondary h-full flex flex-col">
-                            <h3 className="font-light text-xl mb-3">{card.title}</h3>
+                            <h3 className="font-light text-2xl mb-3">{card.title}</h3>
                             <hr className="divider mb-3" />
                             <div className="tab-content flex-1" dangerouslySetInnerHTML={{ __html: card.description }}></div>
                             <div className="buttons">

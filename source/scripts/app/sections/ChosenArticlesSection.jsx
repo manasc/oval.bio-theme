@@ -20,7 +20,7 @@ function ChosenArticlesSection({ sectionTitle, articles = [] }) {
         <section className="content-box">
             <div className="mb-10 mx-auto max-w-3xl">
                 <h1 className="subtitle md:text-center mb-5">{sectionTitle}</h1>
-                <div className="content text-lg">
+                <div className="content text-base">
                     <p>
                         Eveniet vitae enim deleniti provident nihil totam ipsa earum quae. Architecto ex assumenda itaque eum architecto
                         adipisci minima ut qui. Magnam voluptatum quo optio itaque consequatur deserunt. Quo placeat harum qui. Molestias
@@ -59,7 +59,7 @@ function ChosenArticlesSection({ sectionTitle, articles = [] }) {
                                     </div>
                                 </div>
                                 <div className="content w-full">
-                                    <div className="title text-lg leading-snug mt-2 mb-3 pr-1">{article.title.rendered}</div>
+                                    <div className="title text-base leading-snug mt-2 mb-3 pr-1">{article.title.rendered}</div>
                                     <div className="meta text-xs font-bold uppercase tracking-wider text-ovalGreen">
                                         <Moment format="YYYY/MM/DD" date={article.date} />
                                     </div>

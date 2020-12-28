@@ -68,7 +68,7 @@ function CostOfGoodsSection({ data }) {
                 ))}
 
             <div className="meta mt-16 max-w-3xl mx-auto">
-                <div className="tab-content text-lg" dangerouslySetInnerHTML={{ __html: data.introduction }} />
+                <div className="tab-content text-base" dangerouslySetInnerHTML={{ __html: data.introduction }} />
             </div>
         </section>
     );
