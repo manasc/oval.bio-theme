@@ -1,38 +1,17 @@
 import React, { useState } from "react";
 
-function Header({ menu }) {
+function Header({ menu, menuMobile }) {
     const headerMenu = JSON.parse(menu);
+
     const [openBanner, setOpenBanner] = useState(true);
     const [mobileOpen, setMobileOpen] = useState(false);
 
     return (
         <>
             <header className="fixed top-0 left-0 w-full z-50">
-                {openBanner && (
-                    <div
-                        id="header-banner"
-                        className="banner bg-ovalGreen hover:bg-ovalGreenLight cursor-pointer text-sm text-gray-800 py-3 text md:py-2 px-5"
-                    >
-                        <div className="container mx-auto">
-                            <div className="flex items-center">
-                                <span className="w-full truncate">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate sequi error reiciendis magnam
-                                    eligendi, repudiandae dolor perspiciatis. Deserunt cum sequi veritatis labore cumque, modi qui.
-                                </span>
-                                <div
-                                    id="close-header-banner"
-                                    onClick={() => setOpenBanner(false)}
-                                    className="close pl-2 text-gray-700 hover:text-gray-800"
-                                >
-                                    <div className="fas fa-times-circle"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                )}
-                <div id="header-navbar" className="bg-gray-800 text-sm text-white py-3 md:py-2 px-5">
-                    <div className="container-fluid mx-auto">
-                        <div className="flex items-center">
+                <div id="header-navbar" className="h-15 bg-gray-800 text-sm text-white py-3 md:py-2 px-5">
+                    <div className="container-fluid h-full mx-auto">
+                        <div className="flex h-full items-center">
                             <div className="w-1/3 left-menu hidden lg:block">
                                 <div className="flex">
                                     {headerMenu &&
@@ -98,8 +77,30 @@ function Header({ menu }) {
                         </div>
                     </div>
                 </div>
+                {openBanner && (
+                    <div
+                        id="header-banner"
+                        className="banner bg-ovalGreen hover:bg-ovalGreenLight cursor-pointer text-sm text-gray-800 top-0 py-3 text md:py-2 px-5"
+                    >
+                        <div className="container h-full mx-auto">
+                            <div className="flex h-full items-center">
+                                <span className="w-full truncate">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate sequi error reiciendis magnam
+                                    eligendi, repudiandae dolor perspiciatis. Deserunt cum sequi veritatis labore cumque, modi qui.
+                                </span>
+                                <div
+                                    id="close-header-banner"
+                                    onClick={() => setOpenBanner(false)}
+                                    className="close pl-2 text-gray-700 hover:text-gray-800"
+                                >
+                                    <div className="fas fa-times-circle"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
             </header>
-            <div id="faux-header"></div>
+            <div id="faux-header" className="h-15 bg-blue-200"></div>
             <div
                 id="mobile-menu"
                 className="fixed h-screen w-full top-0 left-0 flex cursor-pointer bg-white z-50"

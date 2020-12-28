@@ -2,15 +2,13 @@ import React from "react";
 import { Link } from "react-scroll";
 
 const TableOfContents = ({ title, description, links = [] }) => (
-    <section className="h-full flex items-center justify-center">
-        <div className="w-full h-auto max-w-5xl flex justify-center -mx-2">
-            <div className="w-full max-w-xl flex-none flex flex-col px-2">
-                <div className="flex-1 px-10 overflow-y-scroll max-h-full">
-                    <div className="text-5xl">{title}</div>
-                    <div className="text-base mt-5" dangerouslySetInnerHTML={{ __html: description }} />
-                </div>
+    <section className="min-h-full py-10 px-5 flex items-center justify-center">
+        <div className="w-full h-auto max-w-5xl flex flex-wrap md:flex-no-wrap justify-center md:-mx-4">
+            <div className="w-full md:w-1/2 mb-10 md:px-4">
+                <div className="text-4xl md:text-5xl">{title}</div>
+                <div className="text-base mt-5" dangerouslySetInnerHTML={{ __html: description }} />
             </div>
-            <div className="flex-1  px-2">
+            <div className="w-full md:w-1/3 md:px-4">
                 <ul className="">
                     {links &&
                         links.map((link) => (

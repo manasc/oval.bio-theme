@@ -34,7 +34,7 @@ function KeyBenefitsSection({ data }) {
         <div className="content-box">
             <div className="max-w-lg mx-auto mb-10">
                 <h1 className="subtitle md:text-center mb-2">Key Benefits</h1>
-                <p className="text-xl text-center">
+                <p className="text-base md:text-xl md:text-center">
                     Check out our quick tid-bits about this product. Click on a Key Benefit to see more details
                 </p>
             </div>
@@ -50,7 +50,7 @@ function KeyBenefitsSection({ data }) {
                                 }}
                             >
                                 <div className="flex-1 p-5">
-                                    <div className="text-2xl mb-2">{benefit.title.replace(/(<([^>]+)>)/gi, "")}</div>
+                                    <div className="text-xl md:text-2xl mb-2">{benefit.title.replace(/(<([^>]+)>)/gi, "")}</div>
                                     <div className="text-base">
                                         <Truncate lines={2} ellipsis="...">
                                             {benefit.summary.replace(/(<([^>]+)>)/gi, "")}
@@ -75,7 +75,7 @@ function KeyBenefitsSection({ data }) {
             </div>
 
             <div className="meta mt-10 max-w-3xl mx-auto">
-                <div className="tab-content text-lg" dangerouslySetInnerHTML={{ __html: data.description }} />
+                <div className="tab-content text-base" dangerouslySetInnerHTML={{ __html: data.description }} />
             </div>
 
             <div

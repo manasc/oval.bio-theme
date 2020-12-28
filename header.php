@@ -12,6 +12,6 @@
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
 
-    <header id="main-header" data-menu='<?php echo wp_json_encode(wp_get_nav_menu_items("main-menu")) ?>'></header>
+    <header id="main-header" data-menu='<?php echo wp_json_encode(get_nav_menu_items_by_location("main-menu")) ?>'></header>
 
     <div id="page">

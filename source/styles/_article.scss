@@ -2,129 +2,129 @@
 .entry-meta,
 .entry-content,
 .entry-footer {
-  @apply text-lg;
-  @apply max-w-3xl my-5 px-5 mx-auto;
+    @apply text-base leading-relaxed;
+    @apply max-w-3xl my-5 px-5 mx-auto;
 }
 
 .entry-title {
-  @apply text-4xl leading-none mb-3 font-medium;
-  @apply capitalize;
-  @apply my-20;
+    @apply text-4xl leading-none mb-3 font-medium;
+    @apply capitalize;
+    @apply my-20;
 }
 
 .entry-footer {
-  @apply mb-20;
+    @apply mb-20;
 }
 
 .post-thumbnail {
-  @apply my-5;
-  @apply max-w-6xl mx-64;
+    @apply my-5;
+    @apply max-w-6xl mx-64;
 
-  img {
-    @apply w-full mb-10 mt-5;
-  }
+    img {
+        @apply w-full mb-10 mt-5;
+    }
 }
 
 .entry-content {
-  h1 {
-    @apply mb-5 font-medium;
-  }
-
-  h2 {
-    @apply text-xl;
-    @apply font-light leading-tight;
-    @apply my-5;
-  }
-
-  h3 {
-    @apply font-normal;
-  }
-  h4 {
-    @apply font-normal;
-  }
-  h5 {
-    @apply font-normal;
-    @apply text-lg;
-    @apply leading-normal;
-    @apply my-5;
-  }
-
-  p {
-    @apply text-lg;
-    @apply leading-normal;
-    @apply my-5;
-    @apply pl-0;
-  }
-
-  blockquote {
-    @apply font-light;
-    @apply border-t border-b;
-    @apply py-5 my-10;
-    @apply text-2xl;
-
-    @screen md {
-      @apply px-10;
+    h1 {
+        @apply mb-5 font-medium;
     }
 
-    blockquote + blockquote {
-      @apply border-t-0;
+    h2 {
+        @apply text-xl;
+        @apply font-light leading-tight;
+        @apply my-5;
     }
-  }
 
-  hr {
-    @apply my-5;
-  }
+    h3 {
+        @apply font-normal;
+    }
+    h4 {
+        @apply font-normal;
+    }
+    h5 {
+        @apply font-normal;
+        @apply text-lg;
+        @apply leading-normal;
+        @apply my-5;
+    }
 
-  ol,
-  ul {
-    list-style-type: disc;
-    @apply pl-5;
-    @apply my-10;
-    @apply list-inside;
-  }
-  img {
-    @apply w-full my-20;
-  }
+    p {
+        @apply text-lg;
+        @apply leading-normal;
+        @apply my-5;
+        @apply pl-0;
+    }
+
+    blockquote {
+        @apply font-light;
+        @apply border-t border-b;
+        @apply py-5 my-10;
+        @apply text-2xl;
+
+        @screen md {
+            @apply px-10;
+        }
+
+        blockquote + blockquote {
+            @apply border-t-0;
+        }
+    }
+
+    hr {
+        @apply my-5;
+    }
+
+    ol,
+    ul {
+        list-style-type: disc;
+        @apply pl-5;
+        @apply my-10;
+        @apply list-inside;
+    }
+    img {
+        @apply w-full my-20;
+    }
 }
 
 .entry-footer {
-  .cat-links,
-  .tags-links {
-    @apply my-5;
-  }
+    .cat-links,
+    .tags-links {
+        @apply my-5;
+    }
 
-  .cat-links {
-    .post-categories {
-      @apply flex flex-wrap;
+    .cat-links {
+        .post-categories {
+            @apply flex flex-wrap;
 
-      li {
-        @apply pr-1;
+            li {
+                @apply pr-1;
 
-        a {
-          @apply cursor-default;
-          @apply bg-ovalGreen px-2 py-1 leading-none;
-          @apply border border-ovalGreen;
-          @apply uppercase font-medium;
-          @apply text-xs text-gray-800 leading-none;
+                a {
+                    @apply cursor-default;
+                    @apply bg-ovalGreen px-2 py-1 leading-none;
+                    @apply border border-ovalGreen;
+                    @apply uppercase font-medium;
+                    @apply text-xs text-gray-800 leading-none;
+                }
+            }
         }
-      }
     }
-  }
 
-  .tags-links {
-    @apply flex flex-wrap;
+    .tags-links {
+        @apply flex flex-wrap;
 
-    a[rel="tag"] {
-      @apply cursor-default;
-      @apply bg-ovalGreen px-2 py-1 leading-none;
-      @apply border border-ovalGreen;
-      @apply uppercase font-medium;
-      @apply text-xs text-gray-800;
+        a[rel="tag"] {
+            @apply cursor-default;
+            @apply bg-ovalGreen px-2 py-1 leading-none;
+            @apply border border-ovalGreen;
+            @apply uppercase font-medium;
+            @apply text-xs text-gray-800;
 
-      @apply mr-1 mb-1;
+            @apply mr-1 mb-1;
 
-      @apply bg-skyBlue border-skyBlue;
-      @apply cursor-pointer;
+            @apply bg-skyBlue border-skyBlue;
+            @apply cursor-pointer;
+        }
     }
-  }
 }

@@ -2,10 +2,10 @@ import React, { useState } from "react";
 
 function MoreThanOval() {
     return (
-        <section className="h-screen overflow-hidden">
+        <section className="min-h-screen overflow-hidden">
             <div className="h-full flex">
                 <div className="w-full max-w-lg flex-none flex flex-col">
-                    <div className="flex-1 p-10">
+                    <div className="flex-1 px-5 md:p-10">
                         <div className="text-3xl mb-5">
                             The <span className="text-ovalGreen">POD</span> is more than oval.bio
                         </div>

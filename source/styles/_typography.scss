@@ -18,5 +18,9 @@ h6,
 }
 
 .subtitle {
-    @apply text-4xl mb-8 font-light;
+    @apply text-3xl mb-8 font-light;
+
+    @screen md {
+        @apply text-4xl;
+    }
 }

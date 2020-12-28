@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 
 const slides = [
     {
@@ -85,8 +85,8 @@ function TextSlider() {
     };
 
     return (
-        <section className="h-screen overflow-hidden bg-gray-900">
-            <div className="flex flex-col pb-10 items-center justify-center h-full w-full">
+        <section className="min-h-screen sm:overflow-hidden bg-gray-900">
+            <div className="flex flex-col px-5 pb-10 items-center justify-center h-full w-full">
                 <div className="max-w-5xl w-full flex items-center justify-center relative h-64">
                     {slides.length > 0 &&
                         slides.map((slide, i) => (

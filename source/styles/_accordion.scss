@@ -20,7 +20,7 @@
 
         .accordion-item-header,
         .accordion-item-content {
-            @apply text-lg;
+            @apply text-base;
         }
 
         .accordion-item-header {
@@ -48,7 +48,7 @@
 
         // for accordions with icons
         &.accordion-item-has-icon {
-            @apply pl-8 pr-2;
+            @apply pl-8;
 
             .accordion-item-header {
                 .accordion-item-icon {
@@ -66,7 +66,7 @@
 
             &.active {
                 .accordion-item-header {
-                    @apply pt-8 pb-3;
+                    @apply pt-5 pb-3;
 
                     .accordion-item-icon {
                         @apply text-ovalGreen;
@@ -123,7 +123,7 @@
 
         .react-accordion-item-header,
         .react-accordion-item-content {
-            @apply text-lg;
+            @apply text-base;
             @apply w-full;
 
             .react-accordion-item-question {

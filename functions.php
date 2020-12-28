@@ -314,6 +314,15 @@ if (defined('JETPACK__VERSION')) {
 }
 
 
+function get_nav_menu_items_by_location($location, $args = [])
+{
+    $locations  = get_nav_menu_locations();
+    $object     = wp_get_nav_menu_object($locations[$location]);
+    $menu_items = wp_get_nav_menu_items($object->name, $args);
+
+    return $menu_items;
+}
+
 
 // custom html for oval.bio
 function get_fake_images()

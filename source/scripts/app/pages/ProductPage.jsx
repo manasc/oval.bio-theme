@@ -189,10 +189,6 @@ function ProductPage({ productId }) {
                         </div>
                     )}
 
-                    {/* <QualityControlSection data={productMeta["quality_control"]} /> */}
-                    {/* 
-                        <InstructableSection data={productMeta["instructable"]} />
-                    */}
                 </div>
             )}
         </React.Fragment>

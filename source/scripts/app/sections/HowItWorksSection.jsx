@@ -49,11 +49,15 @@ const HowItWorksSection = () => {
             )}
             {data.instructions.map((instruction, i) => (
                 <div key={i} className="flex flex-wrap">
-                    <div className={"w-full lg:w-1/2 flex items-center justify-center " + (i % 2 ? "order-1 md:order-2" : "order-1 md:order-1")}>
+                    <div
+                        className={
+                            "w-full lg:w-1/2 flex items-center justify-center " + (i % 2 ? "order-1 md:order-2" : "order-1 md:order-1")
+                        }
+                    >
                         <div className="content px-0 md:px-10 py-10 w-full">
-                            <div className="content flex-1 px-2">
-                                <div className="text-2xl mb-2 font-normal">{instruction.name}</div>
-                                <div className="text-lg" dangerouslySetInnerHTML={{ __html: instruction.description }}></div>
+                            <div className="content flex-1">
+                                <div className="text-xl mb-2 font-normal">{instruction.name}</div>
+                                <div className="text-base" dangerouslySetInnerHTML={{ __html: instruction.description }}></div>
                             </div>
                         </div>
                     </div>

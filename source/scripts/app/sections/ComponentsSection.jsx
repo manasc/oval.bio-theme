@@ -14,7 +14,7 @@ function ComponentsSection({ data }) {
         <section className="content-box">
             <div className="max-w-3xl mx-auto">
                 <h1 className="subtitle md:text-center">Components</h1>
-                <div className="anchor-content text-lg" dangerouslySetInnerHTML={{ __html: data.components_introduction }} />
+                <div className="anchor-content text-base" dangerouslySetInnerHTML={{ __html: data.components_introduction }} />
 
                 {featuredArr.length > 0 && (
                     <div className="my-10">
@@ -40,7 +40,7 @@ function ComponentsSection({ data }) {
                                     </div>
                                     <div className="content flex-1 px-2 py-0 md:py-2">
                                         <h5 className="font-bold">{item.component}</h5>
-                                        <div className="text-base" dangerouslySetInnerHTML={{ __html: item.description }} />
+                                        <div className="text-sm" dangerouslySetInnerHTML={{ __html: item.description }} />
                                     </div>
                                 </div>
                             ))}

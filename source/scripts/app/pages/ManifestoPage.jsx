@@ -110,7 +110,7 @@ function ManifestoPage() {
             />
             {sections.length > 0 &&
                 sections.map((section) => (
-                    <Element key={section.id} className="min-h-screen" name={section.slug}>
+                    <Element key={section.id} className="min-h-full" name={section.slug}>
                         <LazyLoad once>{section.component(section.props())}</LazyLoad>
                     </Element>
                 ))}

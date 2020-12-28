@@ -71,19 +71,19 @@ function LifeExtensionSection({ data }) {
                 <h1 className="subtitle md:text-center">5 Pillars of Life Extension</h1>
             </div>
             <div className="mb-10">
-                <div className="flex-1 flex flex-wrap">
+                <div className="flex-1 flex flex-wrap -mx-2 justify-center">
                     {icons &&
                         icons.map((icon, i) => (
                             <div
                                 key={i}
-                                className="pillar relative w-full md:w-1/5 px-0 md:px-10 py-5"
+                                className="pillar relative w-1/2 md:w-1/5 px-2 md:px-10 py-5"
                                 onClick={() => {
                                     console.log(i);
                                     dispatch({ type: "toggleIcon", payload: i });
                                 }}
                             >
-                                <div className="flex -mx-2">
-                                    <div className="px-2 w-1/4 md:w-full mx-auto cursor-pointer">
+                                <div className="flex flex-col items-center -mx-2">
+                                    <div className="px-2 w-full mx-auto cursor-pointer">
                                         <div
                                             className={
                                                 "w-full rounded-full " +
@@ -93,7 +93,7 @@ function LifeExtensionSection({ data }) {
                                         ></div>
                                     </div>
                                     <div className="px-2 w-3/4 md:w-full">
-                                        <p className="text-left md:text-center text-sm mt-4">
+                                        <p className="text-center text-base mt-4">
                                             {icon.name}
                                             <TooltipHost content={icon.description}>
                                                 <i className="far fa-question-circle cursor-pointer ml-1"></i>{" "}
