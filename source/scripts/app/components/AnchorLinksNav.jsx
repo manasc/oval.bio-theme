@@ -10,7 +10,7 @@ function AnchorLinksNav({ sections }) {
                 key="menu-bg"
                 onClick={() => setMenuOpen(false)}
                 className="fixed h-full w-full bg-white z-40"
-                style={{ transitionDuration: "200ms", visibility: menuOpen ? "visible" : "hidden", opacity: menuOpen ? "1" : "0" }}
+                style={{ transitionDuration: "200ms", visibility: menuOpen ? "visible" : "hidden", opacity: menuOpen ? "0.9" : "0" }}
             />
             <nav
                 key="menu"
@@ -20,14 +20,17 @@ function AnchorLinksNav({ sections }) {
                     transform: menuOpen ? "translateY(0)" : "translateX(100%)",
                 }}
             >
-                <div className="text-xs tracking-widest label-text block py-px px-8 mb-5">Page Sections</div>
+                <div className="text-xs tracking-widest label-text block py-px px-8 mb-5">
+                    <span className="text-ovalGreenDark">#</span>
+                    Sections
+                </div>
                 {sections.length > 0 &&
                     sections.map((section, i) => (
                         <Link
                             key={i}
                             to={section.slug}
-                            className="text-base cursor-pointer block py-1 px-8 text-gray-800 hover:text-gray-800"
-                            activeClass="cursor-auto text-ovalGreenDark"
+                            className="text-xl cursor-pointer block px-8 text-gray-600 hover:text-gray-900"
+                            activeClass="cursor-auto text-ovalGreenDark hover:text-ovalGreenDark"
                             smooth={true}
                             spy={true}
                         >
@@ -38,11 +41,11 @@ function AnchorLinksNav({ sections }) {
             <div
                 key="menu-open"
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="h-10 w-10 z-50 shadow-xl my-10 fixed cursor-pointer bottom-0 right-0 bg-white hover:bg-gray-200 border rounded-full flex items-center justify-center"
+                className="h-10 w-10 z-50 shadow-lg my-10 fixed cursor-pointer bottom-0 right-0 bg-ovalGreen hover:bg-ovalGreenLight rounded-full flex items-center justify-center"
                 style={{ transform: "translateX(-100%)" }}
             >
                 <i
-                    className="fas fa-plus text-gray-500"
+                    className="fas fa-plus text-gray-900 opacity-75"
                     style={{ transitionDuration: "200ms", transform: menuOpen ? "rotate(45deg)" : "rotate(0deg)" }}
                 ></i>
             </div>

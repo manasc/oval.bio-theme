@@ -5,8 +5,8 @@ const TableOfContents = ({ title, description, links = [] }) => (
     <section className="min-h-full py-10 px-5 flex items-center justify-center">
         <div className="w-full h-auto max-w-5xl flex flex-wrap md:flex-no-wrap justify-center md:-mx-4">
             <div className="w-full md:w-1/2 mb-10 md:px-4">
-                <div className="text-4xl md:text-5xl">{title}</div>
-                <div className="text-base mt-5" dangerouslySetInnerHTML={{ __html: description }} />
+                <div className="text-3xl md:text-4xl">{title}</div>
+                <div className="text-base mt-3" dangerouslySetInnerHTML={{ __html: description }} />
             </div>
             <div className="w-full md:w-1/3 md:px-4">
                 <ul className="">
