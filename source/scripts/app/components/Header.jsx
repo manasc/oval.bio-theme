@@ -42,7 +42,7 @@ function Header({ menu, menuMobile }) {
                                     </li>
                                 </ul>
                             </div>
-                            <div ref={logoRef} className="w-1/5 flex items-center text-center">
+                            <div ref={logoRef} className="w-1/3 flex items-center justify-center">
                                 {/* <span ref={logoRef} /> */}
                                 {/* <span className="text-ovalGreen font-brand font-bold text-2xl">oval.bio</span> */}
                                 <Lottie options={defaultOptions} height={60} width={200} />
