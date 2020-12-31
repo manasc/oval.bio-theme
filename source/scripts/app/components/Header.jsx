@@ -1,10 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import Lottie from "react-lottie";
+import animationData from "../lottie/oval-logo.json";
 
 function Header({ menu, menuMobile }) {
     const headerMenu = JSON.parse(menu);
 
     const [openBanner, setOpenBanner] = useState(true);
     const [mobileOpen, setMobileOpen] = useState(false);
+
+    const logoRef = useRef(null);
+
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData
+    };
 
     return (
         <>
@@ -32,8 +42,10 @@ function Header({ menu, menuMobile }) {
                                     </li>
                                 </ul>
                             </div>
-                            <div className="w-1/3 text-center">
-                                <span className="text-ovalGreen font-brand font-bold text-2xl">oval.bio</span>
+                            <div ref={logoRef} className="w-1/5 flex items-center text-center">
+                                {/* <span ref={logoRef} /> */}
+                                {/* <span className="text-ovalGreen font-brand font-bold text-2xl">oval.bio</span> */}
+                                <Lottie options={defaultOptions} height={60} width={200} />
                             </div>
                             <div className="w-1/3 right-menu text-right hidden lg:block">
                                 <ul className="flex items-center justify-end -mx-1">
