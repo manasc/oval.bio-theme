@@ -143,7 +143,7 @@ function ProductPage({ productId }) {
         },
         {
             id: 18489,
-            title: "Faq",
+            title: "FAQ",
             slug: "faq",
             component: (props) => <FaqSection {...props} />,
             props: {
