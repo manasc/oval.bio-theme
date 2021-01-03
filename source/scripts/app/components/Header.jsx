@@ -8,18 +8,33 @@ function Header({ menu, menuMobile }) {
     const [openBanner, setOpenBanner] = useState(true);
     const [mobileOpen, setMobileOpen] = useState(false);
 
-    const logoRef = useRef(null);
+    const headerHeight = 60;
+    const bannerHeight = 45;
+
+    const logoBox = useRef(null);
+    const logoAnimation = useRef(null);
 
     const defaultOptions = {
-        loop: true,
+        loop: false,
         autoplay: true,
         animationData: animationData,
     };
 
+    useEffect(() => {
+        // if (logoAnimation) {
+        console.log("logoBox", logoBox);
+        console.log("logo", logoAnimation);
+
+        logoBox.current.addEventListener("mouseenter", () => {
+            logoAnimation.current.play();
+        });
+        // }
+    }, [logoBox, logoAnimation]);
+
     return (
         <>
             <header className="fixed top-0 left-0 w-full z-50">
-                <div id="header-navbar" className="h-15 bg-gray-800 text-sm text-white py-3 md:py-2 px-5">
+                <div id="header-navbar" className="bg-gray-800 text-sm text-white py-3 md:py-2 px-5" style={{ height: headerHeight }}>
                     <div className="container-fluid h-full mx-auto">
                         <div className="flex h-full items-center">
                             <div className="w-1/3 left-menu hidden lg:block">
@@ -42,10 +57,9 @@ function Header({ menu, menuMobile }) {
                                     </li>
                                 </ul>
                             </div>
-                            <div ref={logoRef} className="w-1/3 flex items-center justify-center">
+                            <div ref={logoBox} className="w-1/3 flex items-center justify-center">
                                 {/* <span ref={logoRef} /> */}
-                                {/* <span className="text-ovalGreen font-brand font-bold text-2xl">oval.bio</span> */}
-                                <Lottie options={defaultOptions} height={60} width={200} />
+                                <Lottie ref={logoAnimation} options={defaultOptions} height={60} width={200} />
                             </div>
                             <div className="w-1/3 right-menu text-right hidden lg:block">
                                 <ul className="flex items-center justify-end -mx-1">
@@ -92,7 +106,8 @@ function Header({ menu, menuMobile }) {
                 {openBanner && (
                     <div
                         id="header-banner"
-                        className="banner bg-ovalGreen hover:bg-ovalGreenLight cursor-pointer text-sm text-gray-800 top-0 py-3 text md:py-2 px-5"
+                        className="banner flex items-center bg-ovalGreen hover:bg-ovalGreenLight cursor-pointer text-sm text-gray-800 top-0 py-3 text md:py-2 px-5"
+                        style={{ height: bannerHeight }}
                     >
                         <div className="container h-full mx-auto">
                             <div className="flex h-full items-center">
@@ -134,7 +149,7 @@ function Header({ menu, menuMobile }) {
                     </ul>
                 </div>
             </div>
-            <div id="faux-header" className="h-15 bg-blue-200"></div>
+            <div id="faux-header" className="bg-blue-200" style={{ height: headerHeight + (openBanner && bannerHeight) }}></div>
         </>
     );
 }

@@ -7,7 +7,7 @@ function CompetitorsSection({ data }) {
     useEffect(() => {
         axios.get("/wp-json/wp/v2/posts/" + data.articles.ID + "?_embed=1&").then((res) => {
             setArticle(res.data);
-            console.log(res.data);
+            // console.log(res.data);
         });
     }, []);
 

@@ -40,6 +40,7 @@ function AnchorLinksNav({ sections }) {
                             activeClass="cursor-auto text-ovalGreenDark hover:text-ovalGreenDark"
                             smooth={true}
                             spy={true}
+                            offset={-80}
                         >
                             {section.title}
                         </Link>

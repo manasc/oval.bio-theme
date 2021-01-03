@@ -12,7 +12,7 @@ function ChosenArticlesSection({ sectionTitle, articles = [] }) {
 
         axios.get("/wp-json/wp/v2/posts?_embed=1&include=" + postIds.toString()).then((res) => {
             setArticlesData(res.data);
-            console.log(res.data);
+            // console.log(res.data);
         });
     }, []);
 

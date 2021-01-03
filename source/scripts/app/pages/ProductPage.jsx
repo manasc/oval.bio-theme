@@ -31,6 +31,8 @@ function ProductPage({ productId }) {
     const marginBottom = "md:mb-5";
 
     useEffect(() => {
+        console.log(productId);
+
         // get product information
         axios
             .get("/wp-json/wc/store/products/" + productId)
@@ -46,8 +48,7 @@ function ProductPage({ productId }) {
     }, []);
 
     useEffect(() => {
-        console.log("productData", productData);
-        console.log("productMeta", productMeta);
+        console.log(productData, productMeta);
     }, [productData, productMeta]);
 
     const metaSections = [
@@ -80,7 +81,7 @@ function ProductPage({ productId }) {
         },
         {
             id: 44837,
-            title: "Life Extension",
+            title: "Key Benefits",
             slug: "life_extension",
             component: (props) => <LifeExtensionSection {...props} />,
             props: {},
@@ -235,27 +236,30 @@ function ProductPage({ productId }) {
     return (
         <React.Fragment>
             <AnchorLinksNav
-                sections={metaSections.map(({ title, slug }) => {
-                    return productMeta[slug] ? { title, slug } : false;
-                })}
+                sections={[
+                    { title: "Product Section", slug: "product_section" },
+                    ...metaSections.map(({ title, slug }) => {
+                        return productMeta[slug] ? { title, slug } : false;
+                    }),
+                ]}
             />
-            {productData && <ProductSection productData={productData} />}
-            {productMeta && (
-                <div className="mx-auto max-w-6xl md:px-3">
-                    {productMeta &&
-                        metaSections.length > 0 &&
-                        metaSections.map(
-                            ({ id, component, props, slug }) =>
-                                productMeta[slug] && (
-                                    <Element key={id} className="mx-auto max-w-6xl md:px-3" name={slug}>
-                                        {/* <LazyLoad once> */}
-                                        <div className={marginBottom}>{component(props)}</div>
-                                        {/* </LazyLoad> */}
-                                    </Element>
-                                )
-                        )}
-                </div>
+            {productData && (
+                <Element name="product_section">
+                    <ProductSection productData={productData} />
+                </Element>
             )}
+            {productMeta &&
+                metaSections.length > 0 &&
+                metaSections.map(
+                    ({ id, component, props, slug }) =>
+                        productMeta[slug] && (
+                            <Element key={id} className="mx-auto max-w-6xl md:px-3" name={slug}>
+                                {/* <LazyLoad once> */}
+                                <div className={marginBottom}>{component(props)}</div>
+                                {/* </LazyLoad> */}
+                            </Element>
+                        )
+                )}
         </React.Fragment>
     );
 }
