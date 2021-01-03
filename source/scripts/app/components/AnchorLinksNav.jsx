@@ -9,8 +9,15 @@ function AnchorLinksNav({ sections }) {
             <div
                 key="menu-bg"
                 onClick={() => setMenuOpen(false)}
-                className="fixed h-full w-full bg-white z-40"
-                style={{ transitionDuration: "200ms", visibility: menuOpen ? "visible" : "hidden", opacity: menuOpen ? "0.9" : "0" }}
+                className="fixed h-full right-0 top-0 z-40"
+                style={{
+                    width: 550,
+                    background: "rgb(255,255,255)",
+                    background: "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%)",
+                    transitionDuration: "200ms",
+                    visibility: menuOpen ? "visible" : "hidden",
+                    opacity: menuOpen ? "1" : "0",
+                }}
             />
             <nav
                 key="menu"
