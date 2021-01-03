@@ -31,8 +31,6 @@ function ProductPage({ productId }) {
     const marginBottom = "md:mb-5";
 
     useEffect(() => {
-        console.log(productId);
-
         // get product information
         axios
             .get("/wp-json/wc/store/products/" + productId)
@@ -48,7 +46,8 @@ function ProductPage({ productId }) {
     }, []);
 
     useEffect(() => {
-        console.log(productData, productMeta);
+        console.log("productData", productData);
+        console.log("productMeta", productMeta);
     }, [productData, productMeta]);
 
     const metaSections = [
@@ -81,7 +80,7 @@ function ProductPage({ productId }) {
         },
         {
             id: 44837,
-            title: "Key Benefits",
+            title: "Life Extension",
             slug: "life_extension",
             component: (props) => <LifeExtensionSection {...props} />,
             props: {},
@@ -237,7 +236,7 @@ function ProductPage({ productId }) {
         <React.Fragment>
             <AnchorLinksNav
                 sections={metaSections.map(({ title, slug }) => {
-                    return { title, slug };
+                    return productMeta[slug] ? { title, slug } : false;
                 })}
             />
             {productData && <ProductSection productData={productData} />}
