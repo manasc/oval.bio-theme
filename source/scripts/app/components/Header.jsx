@@ -13,7 +13,7 @@ function Header({ menu, menuMobile }) {
     const defaultOptions = {
         loop: true,
         autoplay: true,
-        animationData: animationData
+        animationData: animationData,
     };
 
     return (
@@ -112,7 +112,6 @@ function Header({ menu, menuMobile }) {
                     </div>
                 )}
             </header>
-            <div id="faux-header" className="h-15 bg-blue-200"></div>
             <div
                 id="mobile-menu"
                 className="fixed h-screen w-full top-0 left-0 flex cursor-pointer bg-white z-50"
@@ -135,6 +134,7 @@ function Header({ menu, menuMobile }) {
                     </ul>
                 </div>
             </div>
+            <div id="faux-header" className="h-15 bg-blue-200"></div>
         </>
     );
 }

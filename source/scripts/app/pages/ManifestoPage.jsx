@@ -105,7 +105,7 @@ function ManifestoPage() {
         <div className={"w-full"}>
             <AnchorLinksNav
                 sections={sections.map(({ title, slug }) => {
-                    return { title, slug };
+                    return productMeta[slug] && { title, slug };
                 })}
             />
             {sections.length > 0 &&
