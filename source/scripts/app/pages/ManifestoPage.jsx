@@ -102,7 +102,7 @@ const sections = [
 
 function ManifestoPage() {
     return (
-        <div className={"w-full"}>
+        <div className="w-full">
             <AnchorLinksNav
                 sections={sections.map(({ title, slug }) => {
                     return { title, slug };
