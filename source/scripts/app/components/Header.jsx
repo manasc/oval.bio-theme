@@ -21,14 +21,7 @@ function Header({ menu, menuMobile }) {
     };
 
     useEffect(() => {
-        // if (logoAnimation) {
-        console.log("logoBox", logoBox);
-        console.log("logo", logoAnimation);
-
-        logoBox.current.addEventListener("mouseenter", () => {
-            logoAnimation.current.play();
-        });
-        // }
+        logoBox.current.addEventListener("mouseenter", () => logoAnimation.current.anim.goToAndPlay(0));
     }, [logoBox, logoAnimation]);
 
     return (
@@ -57,7 +50,7 @@ function Header({ menu, menuMobile }) {
                                     </li>
                                 </ul>
                             </div>
-                            <div ref={logoBox} className="w-1/3 flex items-center justify-center">
+                            <div ref={logoBox} className="w-1/3 flex items-center justify-center" onClick={() => (location.href = "/")}>
                                 {/* <span ref={logoRef} /> */}
                                 <Lottie ref={logoAnimation} options={defaultOptions} height={60} width={200} />
                             </div>
