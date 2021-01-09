@@ -22,7 +22,6 @@ module.exports = {
         ecmaVersion: 2017,
         sourceType: "module",
     },
-    "react/display-name": [false],
     plugins: ["import", "react"],
     settings: {
         "import/core-modules": [],

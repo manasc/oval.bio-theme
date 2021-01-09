@@ -10,54 +10,42 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see 	    https://docs.woothemes.com/document/template-structure/
- * @author 		WooThemes
- * @package 	WooCommerce/Templates
- * @version     1.6.4
+ * @see https://docs.woocommerce.com/document/template-structure/
+ * @package WooCommerce\Templates
+ * @version 4.4.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+defined( 'ABSPATH' ) || exit;
 
-global $product, $woocommerce_loop;
-
-if ( ! $crosssells = WC()->cart->get_cross_sells() ) {
-	return;
-}
-
-$args = array(
-	'post_type'           => 'product',
-	'ignore_sticky_posts' => 1,
-	'no_found_rows'       => 1,
-	'posts_per_page'      => apply_filters( 'woocommerce_cross_sells_total', $posts_per_page ),
-	'orderby'             => $orderby,
-	'post__in'            => $crosssells,
-	'meta_query'          => WC()->query->get_meta_query()
-);
-
-$products                    = new WP_Query( $args );
-$woocommerce_loop['name']    = 'cross-sells';
-$woocommerce_loop['columns'] = apply_filters( 'woocommerce_cross_sells_columns', $columns );
-
-if ( $products->have_posts() ) : ?>
+if ( $cross_sells ) : ?>
 
 	<div class="cross-sells">
+		<?php
+		$heading = apply_filters( 'woocommerce_product_cross_sells_products_heading', __( 'You may be interested in&hellip;', 'woocommerce' ) );
 
-		<h2><?php _e( 'You may be interested in&hellip;', 'woocommerce' ) ?></h2>
+		if ( $heading ) :
+			?>
+			<h2><?php echo esc_html( $heading ); ?></h2>
+		<?php endif; ?>
 
 		<?php woocommerce_product_loop_start(); ?>
 
-			<?php while ( $products->have_posts() ) : $products->the_post(); ?>
+			<?php foreach ( $cross_sells as $cross_sell ) : ?>
 
-				<?php wc_get_template_part( 'content', 'product' ); ?>
+				<?php
+					$post_object = get_post( $cross_sell->get_id() );
 
-			<?php endwhile; // end of the loop. ?>
+					setup_postdata( $GLOBALS['post'] =& $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
+
+					wc_get_template_part( 'content', 'product' );
+				?>
+
+			<?php endforeach; ?>
 
 		<?php woocommerce_product_loop_end(); ?>
 
 	</div>
+	<?php
+endif;
 
-<?php endif;
-
-wp_reset_query();
+wp_reset_postdata();

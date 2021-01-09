@@ -41,6 +41,7 @@ if (!function_exists('oval_bio_setup')) :
              * provide it for us.
         */
         add_theme_support('title-tag');
+        add_theme_support('woocommerce');
 
         /*
              * Enable support for Post Thumbnails on posts and pages.
@@ -96,9 +97,9 @@ if (!function_exists('oval_bio_setup')) :
         add_theme_support(
             'custom-logo',
             array(
-                'height'      => 250,
-                'width'       => 250,
-                'flex-width'  => true,
+                'height' => 250,
+                'width' => 250,
+                'flex-width' => true,
                 'flex-height' => true,
             )
         );
@@ -113,6 +114,7 @@ function dequeue_styles_woo($enqueue_styles)
     unset($enqueue_styles['woocommerce-smallscreen']);    // Remove the smallscreen optimisation
     return $enqueue_styles;
 }
+
 add_filter('woocommerce_enqueue_styles', 'dequeue_styles_woo');
 
 
@@ -130,6 +132,7 @@ function oval_bio_content_width()
     // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
     $GLOBALS['content_width'] = apply_filters('oval_bio_content_width', 640);
 }
+
 add_action('after_setup_theme', 'oval_bio_content_width', 0);
 
 /**
@@ -141,16 +144,17 @@ function oval_bio_widgets_init()
 {
     register_sidebar(
         array(
-            'name'          => esc_html__('Sidebar', 'oval-bio'),
-            'id'            => 'sidebar-1',
-            'description'   => esc_html__('Add widgets here.', 'oval-bio'),
+            'name' => esc_html__('Sidebar', 'oval-bio'),
+            'id' => 'sidebar-1',
+            'description' => esc_html__('Add widgets here.', 'oval-bio'),
             'before_widget' => '<section id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</section>',
-            'before_title'  => '<h2 class="widget-title">',
-            'after_title'   => '</h2>',
+            'after_widget' => '</section>',
+            'before_title' => '<h2 class="widget-title">',
+            'after_title' => '</h2>',
         )
     );
 }
+
 add_action('widgets_init', 'oval_bio_widgets_init');
 
 /**
@@ -228,6 +232,7 @@ function oval_bio_scripts()
     wp_localize_script("oval-bio-app", "wpPaths", $paths);
     wp_localize_script("oval-bio-general", "wpPaths", $paths);
 }
+
 add_action('wp_enqueue_scripts', 'oval_bio_scripts');
 
 // add API endpoints
@@ -241,6 +246,7 @@ function acf_to_rest_api($response, $post, $request)
     }
     return $response;
 }
+
 add_filter('rest_prepare_post', 'acf_to_rest_api', 10, 3);
 
 add_filter('wp_check_filetype_and_ext', function ($data, $file, $filename, $mimes) {
@@ -253,8 +259,8 @@ add_filter('wp_check_filetype_and_ext', function ($data, $file, $filename, $mime
     $filetype = wp_check_filetype($filename, $mimes);
 
     return [
-        'ext'             => $filetype['ext'],
-        'type'            => $filetype['type'],
+        'ext' => $filetype['ext'],
+        'type' => $filetype['type'],
         'proper_filename' => $data['proper_filename']
     ];
 }, 10, 4);
@@ -264,6 +270,7 @@ function cc_mime_types($mimes)
     $mimes['svg'] = 'image/svg+xml';
     return $mimes;
 }
+
 add_filter('upload_mimes', 'cc_mime_types');
 
 // TODO: remove
@@ -276,6 +283,7 @@ function nmr_button($atts)
 
     return "<a class='button' href=" . $a["url"] . ">" . $a["text"] . "<i class='button-icon fas fa-arrow-circle-right'></i></a>";
 }
+
 add_shortcode('nmrbutton', 'nmr_button');
 
 /*
@@ -316,8 +324,8 @@ if (defined('JETPACK__VERSION')) {
 
 function get_nav_menu_items_by_location($location, $args = [])
 {
-    $locations  = get_nav_menu_locations();
-    $object     = wp_get_nav_menu_object($locations[$location]);
+    $locations = get_nav_menu_locations();
+    $object = wp_get_nav_menu_object($locations[$location]);
     $menu_items = wp_get_nav_menu_items($object->name, $args);
 
     return $menu_items;
@@ -385,12 +393,13 @@ function nmr_posts_access_limit($query)
         // _molongui_author
         $query->set('meta_query', array(
             array(
-                'key'     => '_molongui_author',
-                'value'   => 'user-' . $user_ID,
+                'key' => '_molongui_author',
+                'value' => 'user-' . $user_ID,
                 'compare' => 'IN',
             ),
         ));
     }
     return $query;
 }
+
 add_filter('pre_get_posts', 'nmr_posts_access_limit');

@@ -7,41 +7,62 @@ const renderCanvas = () => {
     const data = {
         // The array of nodes
         nodes: [
-            { id: "node0", size: 50 },
-            { id: "node1", size: 30 },
-            { id: "node2", size: 30 },
-            { id: "node3", size: 30 },
-            { id: "node4", size: 30, isLeaf: true },
-            { id: "node5", size: 30, isLeaf: true },
-            { id: "node6", size: 15, isLeaf: true },
-            { id: "node7", size: 15, isLeaf: true },
-            { id: "node8", size: 15, isLeaf: true },
-            { id: "node9", size: 15, isLeaf: true },
-            { id: "node10", size: 15, isLeaf: true },
-            { id: "node11", size: 15, isLeaf: true },
-            { id: "node12", size: 15, isLeaf: true },
-            { id: "node13", size: 15, isLeaf: true },
-            { id: "node14", size: 15, isLeaf: true },
-            { id: "node15", size: 15, isLeaf: true },
-            { id: "node16", size: 15, isLeaf: true },
+            { id: "ovalBioMission", label: "oval.bio Mission" },
+            { id: "extremeTransparency", label: "Extreme Transparency" },
+            { id: "lifeExtensionPod", label: "Life Extension Pod" },
+            { id: "therapies", label: "Therapies" },
+            { id: "diagnostics", label: "Diagnostics" },
+            { id: "buildTimeline", label: "Build a total timeline map of the user" },
+            { id: "testEfficacy", label: "Test efficacy of treatments" },
+            { id: "fullyAuditable", label: "fully auditable at any time by anyone" },
+            { id: "selfRegulate", label: "Self regulate" },
+            { id: "takeMoney", label: "Take money out of the equation" },
+            { id: "equityIs", label: "Equity is free and given away with purchases" },
+            { id: "takeMoney", label: "Take money out of the equation" },
+            { id: "productsDerived", label: "Products derived from pursuit of building the pod" },
+            { id: "totallyOpen", label: "Totally open source, so anyone can replicate or add to" },
+            { id: "only1", label: "Only 1 class of share, each worth one 1 vote" },
+            { id: "allCustomers", label: "All customers are voting partners" },
+            { id: "justFocus", label: "Just focus on the mission" },
+            { id: "risingTide", label: "Rising tide IP policy" },
+            {
+                id: "provideDetailed",
+                label: "Provide detailed instructions and create educational component to bring on more contributors",
+            },
+            { id: "globalEffort", label: "Global effort for global community" },
         ],
         edges: [
-            { source: "node0", target: "node1" },
-            { source: "node0", target: "node2" },
-            { source: "node0", target: "node3" },
-            { source: "node0", target: "node4" },
-            { source: "node0", target: "node5" },
-            { source: "node1", target: "node6" },
-            { source: "node1", target: "node7" },
-            { source: "node2", target: "node8" },
-            { source: "node2", target: "node9" },
-            { source: "node2", target: "node10" },
-            { source: "node2", target: "node11" },
-            { source: "node2", target: "node12" },
-            { source: "node2", target: "node13" },
-            { source: "node3", target: "node14" },
-            { source: "node3", target: "node15" },
-            { source: "node3", target: "node16" },
+            { source: "ovalBioMission", target: "lifeExtensionPod" },
+            { source: "ovalBioMission", target: "extremeTransparency" },
+            { source: "lifeExtensionPod", target: "therapies" },
+            { source: "lifeExtensionPod", target: "diagnostics" },
+            { source: "diagnostics", target: "buildTimeline" },
+            { source: "diagnostics", target: "testEfficacy" },
+            { source: "therapies", target: "buildTimeline" },
+            { source: "therapies", target: "testEfficacy" },
+            { source: "testEfficacy", target: "fullyAuditable" },
+            { source: "extremeTransparency", target: "fullyAuditable" },
+            { source: "fullyAuditable", target: "selfRegulate" },
+            { source: "takeMoney", target: "selfRegulate" },
+            { source: "takeMoney", target: "justFocus" },
+            { source: "extremeTransparency", target: "takeMoney" },
+            { source: "equityIs", target: "takeMoney" },
+            { source: "risingTide", target: "takeMoney" },
+            { source: "allCustomers", target: "justFocus" },
+            { source: "only1", target: "allCustomers" },
+            { source: "equityIs", target: "only1" },
+            { source: "productsDerived", target: "equityIs" },
+            { source: "lifeExtensionPod", target: "equityIs" },
+            { source: "risingTide", target: "justFocus" },
+            { source: "globalEffort", target: "justFocus" },
+            { source: "risingTide", target: "globalEffort" },
+            { source: "provideDetailed", target: "globalEffort" },
+            { source: "totallyOpen", target: "provideDetailed" },
+            { source: "totallyOpen", target: "risingTide" },
+            { source: "productsDerived", target: "totallyOpen" },
+            { source: "lifeExtensionPod", target: "totallyOpen" },
+            { source: "lifeExtensionPod", target: "totallyOpen" },
+            { source: "extremeTransparency", target: "totallyOpen" },
         ],
     };
 
@@ -57,31 +78,13 @@ const renderCanvas = () => {
             },
             layout: {
                 type: "force",
+                center: [canvas.current.clientWidth / 2, canvas.current.clientHeight / 2], // The center of the graph by default
+                linkDistance: 200, // Edge length
+                nodeStrength: 30,
                 preventOverlap: true,
-                linkDistance: (d) => {
-                    if (d.source.id === "node0") {
-                        return 100;
-                    }
-                    return 30;
-                },
-                nodeStrength: (d) => {
-                    if (d.isLeaf) {
-                        return -50;
-                    }
-                    return -10;
-                },
-                edgeStrength: (d) => {
-                    if (
-                        d.source.id === "node1" ||
-                        d.source.id === "node2" ||
-                        d.source.id === "node3"
-                    ) {
-                        return 0.7;
-                    }
-                    return 0.1;
-                },
             },
             defaultNode: {
+                type: "rect",
                 color: "#5B8FF9",
                 style: {
                     lineWidth: 2,
@@ -89,8 +92,12 @@ const renderCanvas = () => {
                 },
             },
             defaultEdge: {
-                size: 1,
-                color: "#e2e2e2",
+                type: "cubic",
+                size: 2,
+                style: {
+                    endArrow: true,
+                },
+                color: "#38b795",
             },
         });
 
@@ -119,12 +126,10 @@ function MiroBoardSection() {
                             <div className="w-full max-w-xl p-8">
                                 <div className="text-3xl">Why should people care?</div>
                                 <p>
-                                    We are making life extension technologies attainable for all who
-                                    want them. People may fear that as technology advances and “life
-                                    extension” becomes attainable, only the rich or privileged will
-                                    be able to utilize it. We are dedicated to not let that happen
-                                    by developing life extension technologies in the most replicable
-                                    way possible.
+                                    We are making life extension technologies attainable for all who want them. People may fear that as
+                                    technology advances and “life extension” becomes attainable, only the rich or privileged will be able to
+                                    utilize it. We are dedicated to not let that happen by developing life extension technologies in the
+                                    most replicable way possible.
                                 </p>
                                 {/* <p className="mt-5">
                                     <a className="button mr-1">Hello</a>

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
-import LazyLoad from "react-lazyload";
-import { Link, Element } from "react-scroll";
+import { Element } from "react-scroll";
 
 // section
 import ProductSection from "../sections/ProductSection";
@@ -27,8 +25,9 @@ import AnchorLinksNav from "../components/AnchorLinksNav";
 function ProductPage({ productId }) {
     const [productData, setProductData] = useState("");
     const [productMeta, setProductMeta] = useState("");
-
+    
     const marginBottom = "md:mb-5";
+
 
     useEffect(() => {
         console.log(productId);
@@ -47,9 +46,9 @@ function ProductPage({ productId }) {
             .finally(() => console.log(productMeta));
     }, []);
 
-    useEffect(() => {
-        console.log(productData, productMeta);
-    }, [productData, productMeta]);
+    // useEffect(() => {
+    //     console.log(productData, productMeta);
+    // }, [productData, productMeta]);
 
     const metaSections = [
         {

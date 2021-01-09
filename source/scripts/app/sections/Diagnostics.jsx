@@ -205,12 +205,6 @@ function FivePillars() {
         renderer.setSize(canvas.current.clientWidth, canvas.current.clientHeight);
         canvas.current.appendChild(renderer.domElement);
 
-        // add object
-        // const geometry = new THREE.BoxGeometry();
-        // const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-        // const cube = new THREE.Mesh(geometry, material);
-        // scene.add(cube);
-
         const loader = new GLTFLoader();
         loader.load(
             "https://dev.oval.bio/wp-content/themes/ob10/source/renders/datsun/scene.gltf",

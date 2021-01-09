@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Single Product title
  *
@@ -11,17 +10,13 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see        https://docs.woothemes.com/document/template-structure/
- * @author     WooThemes
- * @package    WooCommerce/Templates
+ * @see        https://docs.woocommerce.com/document/template-structure/
+ * @package    WooCommerce\Templates
  * @version    1.6.4
  */
 
-if (!defined('ABSPATH')) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-// the_title('<h1 itemprop="name" class="product_title entry-title">', '</h1>');
-?>
-<!-- <div id="product-customizer" title="<?php the_title() ?>" class="py-5 md:py-10"></div> -->
-Hello
+the_title( '<h1 class="product_title entry-title">', '</h1>' );

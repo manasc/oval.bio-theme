@@ -49,7 +49,7 @@ function ChosenArticlesSection({ sectionTitle, articles = [] }) {
                                                     article._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url) +
                                                 ")",
                                         }}
-                                    ></div>
+                                    />
                                     <div className="label  absolute top-0 right-0">
                                         <span className="label-text">
                                             {article._embedded["wp:term"][0] &&

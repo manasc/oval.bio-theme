@@ -1,9 +1,28 @@
-import React, { useRef, useEffect, useState } from "react";
-import { Tooltip } from "react-tippy";
+import React, { useEffect, useRef, useState } from "react";
+
+import axios from "axios";
 import Drift from "drift-zoom";
 
-function ProductSection({ productData }) {
-    console.log(productData);
+function ProductSection({ productData, nonceId }) {
+    console.log("prodData", productData, nonceId);
+
+    const [variant, setVariant] = useState(0);
+
+    const addProduct = () => {
+        axios({
+            method: "post",
+            url: "/wp-json/wc/store/cart/add-item",
+            data: {
+                id: 1,
+                quantity: 10,
+            },
+            headers: {
+                "X-WC-Store-API-Nonce": nonceId,
+            },
+        }).then((res) => {
+            console.log(res.data);
+        });
+    };
 
     const packSizes = [
         {
@@ -19,7 +38,6 @@ function ProductSection({ productData }) {
             cost: 3,
         },
     ];
-
     const [chosenImage, setChosenImage] = useState(0);
     const [chosenPackSize, setChosenPackSize] = useState(0);
     const [subscription, setSubscription] = useState(true);
@@ -194,9 +212,9 @@ function ProductSection({ productData }) {
                                 </span>
                                 <i className="fas fa-question-circle cursor-pointer"></i>
                             </div>
-                            <a className="button waves-effect w-full">
+                            <button onClick={addProduct} className="button waves-effect w-full">
                                 <span className="label-text">Purchase</span>
-                            </a>
+                            </button>
                             <div className="mt-3 text-xs leading-snug max-w-2xs italic">30 day guarantee. Cancel Anytime.</div>
                         </div>
                     </div>

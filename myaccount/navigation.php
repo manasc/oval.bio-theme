@@ -10,9 +10,8 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see     https://docs.woothemes.com/document/template-structure/
- * @author  WooThemes
- * @package WooCommerce/Templates
+ * @see     https://docs.woocommerce.com/document/template-structure/
+ * @package WooCommerce\Templates
  * @version 2.6.0
  */
 
@@ -26,8 +25,8 @@ do_action( 'woocommerce_before_account_navigation' );
 <nav class="woocommerce-MyAccount-navigation">
 	<ul>
 		<?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
-			<li class="<?= wc_get_account_menu_item_classes( $endpoint ); ?>">
-				<a href="<?= esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>"><?= esc_html( $label ); ?></a>
+			<li class="<?php echo wc_get_account_menu_item_classes( $endpoint ); ?>">
+				<a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>"><?php echo esc_html( $label ); ?></a>
 			</li>
 		<?php endforeach; ?>
 	</ul>
