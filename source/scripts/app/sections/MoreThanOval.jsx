@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 
 function MoreThanOval() {
     return (
-        <section className="min-h-screen overflow-hidden">
-            <div className="h-full flex">
+        <section className="min-h-screen overflow-hidden flex">
+            <div className="w-full flex">
                 <div className="w-full max-w-lg flex-none flex flex-col">
                     <div className="flex-1 px-5 md:p-10">
                         <div className="text-3xl mb-5">

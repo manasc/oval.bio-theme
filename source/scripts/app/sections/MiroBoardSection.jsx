@@ -115,11 +115,35 @@ const renderCanvas = () => {
     );
 };
 
+const renderMiro = () => {
+    const parent = useRef(null);
+
+    useEffect(() => {
+        console.log(parent);
+    }, [parent]);
+
+    return (
+        <div ref={parent} className="flex-1 bg-gray-200 relative flex items-center justify-center">
+            <iframe
+                width="100%"
+                height="100%"
+                src="https://miro.com/app/live-embed/o9J_lZgZqQU=/?moveToViewport=-1162,-375,1461,936"
+                frameBorder="0"
+                scrolling="no"
+                allowFullScreen
+            />
+            {/*<div className="label absolute bottom-0 left-0">*/}
+            {/*    <div className="label-text">The 5 Pillars of Longevity</div>*/}
+            {/*</div>*/}
+        </div>
+    );
+};
+
 function MiroBoardSection() {
     return (
         <section className="h-screen overflow-hidden">
             <div className="h-full flex flex-col">
-                {renderCanvas()}
+                {renderMiro()}
                 <div className="flex-none">
                     <div className="container flex py-5 items-center flex-wrap">
                         <div className="flex-1 flex items-center">
