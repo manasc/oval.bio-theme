@@ -39,7 +39,7 @@ do_action('woocommerce_before_main_content');
 
 	<?php wc_get_template_part('content', 'single-product'); ?>
 
-<?php endwhile; // end of the loop. 
+<?php endwhile; // end of the loop.
 ?>
 
 <div id="product-page" data-product-id="<?php echo $product->id ?>" data-nonce-id="<?php echo wp_create_nonce('wc_store_api') ?>"></div>

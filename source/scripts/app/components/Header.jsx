@@ -26,7 +26,7 @@ function Header({ menu, menuMobile }) {
 
     return (
         <>
-            <header className="fixed top-0 left-0 w-full z-50">
+            <header className="w-full z-50">
                 <div id="header-navbar" className="bg-gray-800 text-sm text-white py-3 md:py-2 px-5" style={{ height: headerHeight }}>
                     <div className="container-fluid h-full mx-auto">
                         <div className="flex h-full items-center">
@@ -120,29 +120,29 @@ function Header({ menu, menuMobile }) {
                     </div>
                 )}
             </header>
-            <div
-                id="mobile-menu"
-                className="fixed h-screen w-full top-0 left-0 flex cursor-pointer bg-white z-50"
-                style={{
-                    transitionDuration: "400ms",
-                    transform: mobileOpen ? "translateX(0)" : "translateX(100%)",
-                }}
-            >
-                <div onClick={() => setMobileOpen(false)} className="absolute top-0 left-0 py-3 px-6 text-base">
-                    <i className="fas fa-times text-ovalGreen mr-2"></i> Close
-                </div>
-                <div className="px-5 pt-32 pb-5 w-full">
-                    <ul className="flex flex-col">
-                        {headerMenu.length > 0 &&
-                            headerMenu.map((item) => (
-                                <li className="px-2 truncate text-3xl" key={item.title}>
-                                    <a href={item.url}>{item.title}</a>
-                                </li>
-                            ))}
-                    </ul>
-                </div>
-            </div>
-            <div id="faux-header" className="bg-blue-200" style={{ height: headerHeight + (openBanner && bannerHeight) }}></div>
+            {/*<div*/}
+            {/*    id="mobile-menu"*/}
+            {/*    className="fixed h-screen w-full top-0 left-0 flex cursor-pointer bg-white z-50"*/}
+            {/*    style={{*/}
+            {/*        transitionDuration: "400ms",*/}
+            {/*        transform: mobileOpen ? "translateX(0)" : "translateX(100%)",*/}
+            {/*    }}*/}
+            {/*>*/}
+            {/*    <div onClick={() => setMobileOpen(false)} className="absolute top-0 left-0 py-3 px-6 text-base">*/}
+            {/*        <i className="fas fa-times text-ovalGreen mr-2"/> Close*/}
+            {/*    </div>*/}
+            {/*    <div className="px-5 pt-32 pb-5 w-full">*/}
+            {/*        <ul className="flex flex-col">*/}
+            {/*            {headerMenu.length > 0 &&*/}
+            {/*                headerMenu.map((item) => (*/}
+            {/*                    <li className="px-2 truncate text-3xl" key={item.title}>*/}
+            {/*                        <a href={item.url}>{item.title}</a>*/}
+            {/*                    </li>*/}
+            {/*                ))}*/}
+            {/*        </ul>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+            {/*<div id="faux-header" className="bg-blue-200" style={{ height: headerHeight + (openBanner && bannerHeight) }}/>*/}
         </>
     );
 }
