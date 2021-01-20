@@ -12,7 +12,6 @@ function AnchorLinksNav({ sections }) {
                 className="fixed h-full right-0 top-0 z-40"
                 style={{
                     width: 550,
-                    background: "rgb(255,255,255)",
                     background: "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%)",
                     transitionDuration: "200ms",
                     visibility: menuOpen ? "visible" : "hidden",
@@ -35,7 +34,7 @@ function AnchorLinksNav({ sections }) {
                     sections.map((section, i) => (
                         <Link
                             key={i}
-                            to={section.slug}
+                            to={section.slug || "#"}
                             className="text-xl cursor-pointer block px-8 text-gray-600 hover:text-gray-900"
                             activeClass="cursor-auto text-ovalGreenDark hover:text-ovalGreenDark"
                             smooth={true}

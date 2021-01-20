@@ -39,9 +39,11 @@
     h3 {
         @apply font-normal;
     }
+
     h4 {
         @apply font-normal;
     }
+
     h5 {
         @apply font-normal;
         @apply text-lg;
@@ -54,6 +56,7 @@
         @apply leading-normal;
         @apply my-5;
         @apply pl-0;
+        @apply text-justify;
     }
 
     blockquote {
@@ -82,6 +85,7 @@
         @apply my-10;
         @apply list-inside;
     }
+
     img {
         @apply w-full my-20;
     }

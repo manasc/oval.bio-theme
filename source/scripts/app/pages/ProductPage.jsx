@@ -22,33 +22,14 @@ import ArticleTeaserSection from "../sections/ArticleTeaserSection";
 
 import AnchorLinksNav from "../components/AnchorLinksNav";
 
-function ProductPage({ productId }) {
-    const [productData, setProductData] = useState("");
-    const [productMeta, setProductMeta] = useState("");
-    
+function ProductPage({ productId, productData, productMeta, nonceId }) {
     const marginBottom = "md:mb-5";
 
-
-    useEffect(() => {
-        console.log(productId);
-
-        // get product information
-        axios
-            .get("/wp-json/wc/store/products/" + productId)
-            .then((res) => setProductData(res.data))
-            .catch((err) => console.log(err))
-            .finally(() => console.log(productData));
-
-        axios
-            .get("/wp-json/acf/v3/product/" + productId)
-            .then((res) => setProductMeta(res.data.acf))
-            .catch((err) => console.log(err))
-            .finally(() => console.log(productMeta));
-    }, []);
-
-    // useEffect(() => {
-    //     console.log(productData, productMeta);
-    // }, [productData, productMeta]);
+    const id = productId;
+    const key = nonceId;
+    console.log("key", key);
+    const data = JSON.parse(productData);
+    const meta = JSON.parse(productMeta);
 
     const metaSections = [
         {
@@ -57,7 +38,7 @@ function ProductPage({ productId }) {
             slug: "key_benefits",
             component: (props) => <KeyBenefitsSection {...props} />,
             props: {
-                data: productMeta["key_benefits"],
+                data: meta.acf["key_benefits"],
             },
         },
         {
@@ -66,7 +47,7 @@ function ProductPage({ productId }) {
             slug: "how_it_works",
             component: (props) => <HowItWorksSection {...props} />,
             props: {
-                data: productMeta["how_it_works"],
+                data: meta.acf["how_it_works"],
             },
         },
         {
@@ -75,7 +56,7 @@ function ProductPage({ productId }) {
             slug: "nutrition_ingredients",
             component: (props) => <NutritionIngredientsSection {...props} />,
             props: {
-                data: productMeta["nutrition_ingredients"],
+                data: meta.acf["nutrition_ingredients"],
             },
         },
         {
@@ -91,7 +72,7 @@ function ProductPage({ productId }) {
             slug: "components",
             component: (props) => <ComponentsSection {...props} />,
             props: {
-                data: productMeta["components"],
+                data: meta.acf["components"],
             },
         },
         {
@@ -100,7 +81,7 @@ function ProductPage({ productId }) {
             slug: "cost_of_goods",
             component: (props) => <CostOfGoodsSection {...props} />,
             props: {
-                data: productMeta["cost_of_goods"],
+                data: meta.acf["cost_of_goods"],
             },
         },
         {
@@ -110,7 +91,7 @@ function ProductPage({ productId }) {
             component: (props) => <ChosenArticlesSection {...props} />,
             props: {
                 sectionTitle: "Product Future",
-                articles: (productMeta["future_of_product"] && productMeta["future_of_product"].articles) || [],
+                articles: (meta.acf["future_of_product"] && meta.acf["future_of_product"].articles) || [],
             },
         },
         {
@@ -119,7 +100,7 @@ function ProductPage({ productId }) {
             slug: "pipeline",
             component: (props) => <PipelineSection {...props} />,
             props: {
-                data: productMeta["pipeline"],
+                data: meta.acf["pipeline"],
             },
         },
         {
@@ -128,7 +109,7 @@ function ProductPage({ productId }) {
             slug: "directions_for_use",
             component: (props) => <DirectionsForUseSection {...props} />,
             props: {
-                data: productMeta["directions_for_use"],
+                data: meta.acf["directions_for_use"],
             },
         },
         {
@@ -138,7 +119,7 @@ function ProductPage({ productId }) {
             component: (props) => <TextSection {...props} />,
             props: {
                 title: "Side Effects",
-                description: productMeta["side_effects"] && productMeta["side_effects"].risks_concerns,
+                description: meta.acf["side_effects"] && meta.acf["side_effects"].risks_concerns,
             },
         },
         {
@@ -147,7 +128,7 @@ function ProductPage({ productId }) {
             slug: "faq",
             component: (props) => <FaqSection {...props} />,
             props: {
-                data: productMeta["faq"],
+                data: meta.acf["faq"],
             },
         },
         {
@@ -157,7 +138,7 @@ function ProductPage({ productId }) {
             component: (props) => <ArticleTeaserSection {...props} />,
             props: {
                 sectionTitle: "Product Future",
-                articleId: (productMeta["competitive_comparison"] && productMeta["competitive_comparison"].articles.ID) || [],
+                articleId: (meta.acf["competitive_comparison"] && meta.acf["competitive_comparison"].articles.ID) || [],
             },
         },
         {
@@ -167,7 +148,7 @@ function ProductPage({ productId }) {
             component: (props) => <ChosenArticlesSection {...props} />,
             props: {
                 sectionTitle: "Tests & Experiments",
-                articles: (productMeta["experiments"] && productMeta["experiments"].articles) || [],
+                articles: (meta.acf["experiments"] && meta.acf["experiments"].articles) || [],
             },
         },
         {
@@ -177,7 +158,7 @@ function ProductPage({ productId }) {
             component: (props) => <ChosenArticlesSection {...props} />,
             props: {
                 sectionTitle: "Clinical Trials",
-                articles: (productMeta["clinical_trials"] && productMeta["clinical_trials"].articles) || [],
+                articles: (meta.acf["clinical_trials"] && meta.acf["clinical_trials"].articles) || [],
             },
         },
         {
@@ -187,7 +168,7 @@ function ProductPage({ productId }) {
             component: (props) => <ChosenArticlesSection {...props} />,
             props: {
                 sectionTitle: "Research And Development",
-                articles: (productMeta["research_and_development"] && productMeta["research_and_development"].articles) || [],
+                articles: (meta.acf["research_and_development"] && meta.acf["research_and_development"].articles) || [],
             },
         },
         {
@@ -197,7 +178,7 @@ function ProductPage({ productId }) {
             component: (props) => <TextSection {...props} />,
             props: {
                 title: "Quality Control",
-                description: (productMeta["quality_control"] && productMeta["quality_control"].description) || "",
+                description: (meta.acf["quality_control"] && meta.acf["quality_control"].description) || "",
             },
         },
         {
@@ -207,7 +188,7 @@ function ProductPage({ productId }) {
             component: (props) => <TextSection {...props} />,
             props: {
                 title: "Manufacturing Challenges",
-                description: (productMeta["manufacturing_challenges"] && productMeta["manufacturing_challenges"].description) || "",
+                description: (meta.acf["manufacturing_challenges"] && meta.acf["manufacturing_challenges"].description) || "",
             },
         },
         {
@@ -217,7 +198,7 @@ function ProductPage({ productId }) {
             component: (props) => <CardPostingSection {...props} />,
             props: {
                 title: "Help Needed",
-                cards: productMeta["help_needed"] && productMeta["help_needed"].technologies,
+                cards: meta.acf["help_needed"] && meta.acf["help_needed"].technologies,
             },
         },
         {
@@ -227,39 +208,38 @@ function ProductPage({ productId }) {
             component: (props) => <CardPostingSection {...props} />,
             props: {
                 title: "Opportunities",
-                cards: productMeta["opportunities"] && productMeta["opportunities"].opportunity,
+                cards: meta.acf["opportunities"] && meta.acf["opportunities"].opportunity,
             },
         },
     ];
 
     return (
-        <React.Fragment>
+        <>
             <AnchorLinksNav
                 sections={[
                     { title: "Product Section", slug: "product_section" },
                     ...metaSections.map(({ title, slug }) => {
-                        return productMeta[slug] ? { title, slug } : false;
+                        return meta.acf[slug] ? { title, slug } : false;
                     }),
                 ]}
             />
             {productData && (
                 <Element name="product_section">
-                    <ProductSection productData={productData} />
+                    <ProductSection productId={id} productData={data} productMeta={meta.acf} nonceId={key} />
                 </Element>
             )}
-            {productMeta &&
+            {meta &&
+                meta.acf &&
                 metaSections.length > 0 &&
                 metaSections.map(
                     ({ id, component, props, slug }) =>
-                        productMeta[slug] && (
+                        meta.acf[slug] && (
                             <Element key={id} className="mx-auto max-w-6xl md:px-3" name={slug}>
-                                {/* <LazyLoad once> */}
                                 <div className={marginBottom}>{component(props)}</div>
-                                {/* </LazyLoad> */}
                             </Element>
                         )
                 )}
-        </React.Fragment>
+        </>
     );
 }
 

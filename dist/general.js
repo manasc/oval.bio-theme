@@ -5178,6 +5178,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _general_faq__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_general_faq__WEBPACK_IMPORTED_MODULE_11__);
 /* harmony import */ var _general_accordion__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./general/accordion */ "./source/scripts/general/accordion.js");
 /* harmony import */ var _general_accordion__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_general_accordion__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _woo_assets_js_frontend_cart__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../woo-assets/js/frontend/cart */ "./source/woo-assets/js/frontend/cart.js");
+/* harmony import */ var _woo_assets_js_frontend_cart__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_woo_assets_js_frontend_cart__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _woo_assets_js_frontend_add_to_cart__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../woo-assets/js/frontend/add-to-cart */ "./source/woo-assets/js/frontend/add-to-cart.js");
+/* harmony import */ var _woo_assets_js_frontend_add_to_cart__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_woo_assets_js_frontend_add_to_cart__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _woo_assets_js_frontend_single_product__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../woo-assets/js/frontend/single-product */ "./source/woo-assets/js/frontend/single-product.js");
+/* harmony import */ var _woo_assets_js_frontend_single_product__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_woo_assets_js_frontend_single_product__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _woo_assets_js_frontend_woocommerce__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../woo-assets/js/frontend/woocommerce */ "./source/woo-assets/js/frontend/woocommerce.js");
+/* harmony import */ var _woo_assets_js_frontend_woocommerce__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_woo_assets_js_frontend_woocommerce__WEBPACK_IMPORTED_MODULE_16__);
 
 
 
@@ -5192,8 +5200,11 @@ __webpack_require__.r(__webpack_exports__);
  // modules
 
 
- // import "../woo-assets/js/accounting/accounting";
-// import "../woo-assets/js/flexslider/jquery.flexslider";
+
+
+
+
+ // import "../woo-assets/js/flexslider/jquery.flexslider";
 // import "../woo-assets/js/frnot";
 // import "../woo-assets/js/";
 // import "../woo-assets/js/";
@@ -6030,6 +6041,1185 @@ document.addEventListener("DOMContentLoaded", wavesAnimation);
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./source/woo-assets/js/frontend/add-to-cart.js":
+/*!******************************************************!*\
+  !*** ./source/woo-assets/js/frontend/add-to-cart.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* global wc_add_to_cart_params */
+jQuery(function ($) {
+  if (typeof wc_add_to_cart_params === 'undefined') {
+    return false;
+  }
+  /**
+   * AddToCartHandler class.
+   */
+
+
+  var AddToCartHandler = function AddToCartHandler() {
+    this.requests = [];
+    this.addRequest = this.addRequest.bind(this);
+    this.run = this.run.bind(this);
+    $(document.body).on('click', '.add_to_cart_button', {
+      addToCartHandler: this
+    }, this.onAddToCart).on('click', '.remove_from_cart_button', {
+      addToCartHandler: this
+    }, this.onRemoveFromCart).on('added_to_cart', this.updateButton).on('ajax_request_not_sent.adding_to_cart', this.updateButton).on('added_to_cart removed_from_cart', {
+      addToCartHandler: this
+    }, this.updateFragments);
+  };
+  /**
+   * Add add to cart event.
+   */
+
+
+  AddToCartHandler.prototype.addRequest = function (request) {
+    this.requests.push(request);
+
+    if (1 === this.requests.length) {
+      this.run();
+    }
+  };
+  /**
+   * Run add to cart events.
+   */
+
+
+  AddToCartHandler.prototype.run = function () {
+    var requestManager = this,
+        originalCallback = requestManager.requests[0].complete;
+
+    requestManager.requests[0].complete = function () {
+      if (typeof originalCallback === 'function') {
+        originalCallback();
+      }
+
+      requestManager.requests.shift();
+
+      if (requestManager.requests.length > 0) {
+        requestManager.run();
+      }
+    };
+
+    $.ajax(this.requests[0]);
+  };
+  /**
+   * Handle the add to cart event.
+   */
+
+
+  AddToCartHandler.prototype.onAddToCart = function (e) {
+    var $thisbutton = $(this);
+
+    if ($thisbutton.is('.ajax_add_to_cart')) {
+      if (!$thisbutton.attr('data-product_id')) {
+        return true;
+      }
+
+      e.preventDefault();
+      $thisbutton.removeClass('added');
+      $thisbutton.addClass('loading'); // Allow 3rd parties to validate and quit early.
+
+      if (false === $(document.body).triggerHandler('should_send_ajax_request.adding_to_cart', [$thisbutton])) {
+        $(document.body).trigger('ajax_request_not_sent.adding_to_cart', [false, false, $thisbutton]);
+        return true;
+      }
+
+      var data = {}; // Fetch changes that are directly added by calling $thisbutton.data( key, value )
+
+      $.each($thisbutton.data(), function (key, value) {
+        data[key] = value;
+      }); // Fetch data attributes in $thisbutton. Give preference to data-attributes because they can be directly modified by javascript
+      // while `.data` are jquery specific memory stores.
+
+      $.each($thisbutton[0].dataset, function (key, value) {
+        data[key] = value;
+      }); // Trigger event.
+
+      $(document.body).trigger('adding_to_cart', [$thisbutton, data]);
+      e.data.addToCartHandler.addRequest({
+        type: 'POST',
+        url: wc_add_to_cart_params.wc_ajax_url.toString().replace('%%endpoint%%', 'add_to_cart'),
+        data: data,
+        success: function success(response) {
+          if (!response) {
+            return;
+          }
+
+          if (response.error && response.product_url) {
+            window.location = response.product_url;
+            return;
+          } // Redirect to cart option
+
+
+          if (wc_add_to_cart_params.cart_redirect_after_add === 'yes') {
+            window.location = wc_add_to_cart_params.cart_url;
+            return;
+          } // Trigger event so themes can refresh other areas.
+
+
+          $(document.body).trigger('added_to_cart', [response.fragments, response.cart_hash, $thisbutton]);
+        },
+        dataType: 'json'
+      });
+    }
+  };
+  /**
+   * Update fragments after remove from cart event in mini-cart.
+   */
+
+
+  AddToCartHandler.prototype.onRemoveFromCart = function (e) {
+    var $thisbutton = $(this),
+        $row = $thisbutton.closest('.woocommerce-mini-cart-item');
+    e.preventDefault();
+    $row.block({
+      message: null,
+      overlayCSS: {
+        opacity: 0.6
+      }
+    });
+    e.data.addToCartHandler.addRequest({
+      type: 'POST',
+      url: wc_add_to_cart_params.wc_ajax_url.toString().replace('%%endpoint%%', 'remove_from_cart'),
+      data: {
+        cart_item_key: $thisbutton.data('cart_item_key')
+      },
+      success: function success(response) {
+        if (!response || !response.fragments) {
+          window.location = $thisbutton.attr('href');
+          return;
+        }
+
+        $(document.body).trigger('removed_from_cart', [response.fragments, response.cart_hash, $thisbutton]);
+      },
+      error: function error() {
+        window.location = $thisbutton.attr('href');
+        return;
+      },
+      dataType: 'json'
+    });
+  };
+  /**
+   * Update cart page elements after add to cart events.
+   */
+
+
+  AddToCartHandler.prototype.updateButton = function (e, fragments, cart_hash, $button) {
+    $button = typeof $button === 'undefined' ? false : $button;
+
+    if ($button) {
+      $button.removeClass('loading');
+
+      if (fragments) {
+        $button.addClass('added');
+      } // View cart text.
+
+
+      if (fragments && !wc_add_to_cart_params.is_cart && $button.parent().find('.added_to_cart').length === 0) {
+        $button.after('<a href="' + wc_add_to_cart_params.cart_url + '" class="added_to_cart wc-forward" title="' + wc_add_to_cart_params.i18n_view_cart + '">' + wc_add_to_cart_params.i18n_view_cart + '</a>');
+      }
+
+      $(document.body).trigger('wc_cart_button_updated', [$button]);
+    }
+  };
+  /**
+   * Update fragments after add to cart events.
+   */
+
+
+  AddToCartHandler.prototype.updateFragments = function (e, fragments) {
+    if (fragments) {
+      $.each(fragments, function (key) {
+        $(key).addClass('updating').fadeTo('400', '0.6').block({
+          message: null,
+          overlayCSS: {
+            opacity: 0.6
+          }
+        });
+      });
+      $.each(fragments, function (key, value) {
+        $(key).replaceWith(value);
+        $(key).stop(true).css('opacity', '1').unblock();
+      });
+      $(document.body).trigger('wc_fragments_loaded');
+    }
+  };
+  /**
+   * Init AddToCartHandler.
+   */
+
+
+  new AddToCartHandler();
+});
+
+/***/ }),
+
+/***/ "./source/woo-assets/js/frontend/cart.js":
+/*!***********************************************!*\
+  !*** ./source/woo-assets/js/frontend/cart.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* global wc_cart_params */
+jQuery(function ($) {
+  // wc_cart_params is required to continue, ensure the object exists
+  if (typeof wc_cart_params === 'undefined') {
+    return false;
+  } // Utility functions for the file.
+
+  /**
+   * Gets a url for a given AJAX endpoint.
+   *
+   * @param {String} endpoint The AJAX Endpoint
+   * @return {String} The URL to use for the request
+   */
+
+
+  var get_url = function get_url(endpoint) {
+    return wc_cart_params.wc_ajax_url.toString().replace('%%endpoint%%', endpoint);
+  };
+  /**
+   * Check if a node is blocked for processing.
+   *
+   * @param {JQuery Object} $node
+   * @return {bool} True if the DOM Element is UI Blocked, false if not.
+   */
+
+
+  var is_blocked = function is_blocked($node) {
+    return $node.is('.processing') || $node.parents('.processing').length;
+  };
+  /**
+   * Block a node visually for processing.
+   *
+   * @param {JQuery Object} $node
+   */
+
+
+  var block = function block($node) {
+    if (!is_blocked($node)) {
+      $node.addClass('processing').block({
+        message: null,
+        overlayCSS: {
+          background: '#fff',
+          opacity: 0.6
+        }
+      });
+    }
+  };
+  /**
+   * Unblock a node after processing is complete.
+   *
+   * @param {JQuery Object} $node
+   */
+
+
+  var unblock = function unblock($node) {
+    $node.removeClass('processing').unblock();
+  };
+  /**
+   * Update the .woocommerce div with a string of html.
+   *
+   * @param {String} html_str The HTML string with which to replace the div.
+   * @param {bool} preserve_notices Should notices be kept? False by default.
+   */
+
+
+  var update_wc_div = function update_wc_div(html_str, preserve_notices) {
+    var $html = $.parseHTML(html_str);
+    var $new_form = $('.woocommerce-cart-form', $html);
+    var $new_totals = $('.cart_totals', $html);
+    var $notices = $('.woocommerce-error, .woocommerce-message, .woocommerce-info', $html); // No form, cannot do this.
+
+    if ($('.woocommerce-cart-form').length === 0) {
+      window.location.reload();
+      return;
+    } // Remove errors
+
+
+    if (!preserve_notices) {
+      $('.woocommerce-error, .woocommerce-message, .woocommerce-info').remove();
+    }
+
+    if ($new_form.length === 0) {
+      // If the checkout is also displayed on this page, trigger reload instead.
+      if ($('.woocommerce-checkout').length) {
+        window.location.reload();
+        return;
+      } // No items to display now! Replace all cart content.
+
+
+      var $cart_html = $('.cart-empty', $html).closest('.woocommerce');
+      $('.woocommerce-cart-form__contents').closest('.woocommerce').replaceWith($cart_html); // Display errors
+
+      if ($notices.length > 0) {
+        show_notice($notices);
+      } // Notify plugins that the cart was emptied.
+
+
+      $(document.body).trigger('wc_cart_emptied');
+    } else {
+      // If the checkout is also displayed on this page, trigger update event.
+      if ($('.woocommerce-checkout').length) {
+        $(document.body).trigger('update_checkout');
+      }
+
+      $('.woocommerce-cart-form').replaceWith($new_form);
+      $('.woocommerce-cart-form').find(':input[name="update_cart"]').prop('disabled', true).attr('aria-disabled', true);
+
+      if ($notices.length > 0) {
+        show_notice($notices);
+      }
+
+      update_cart_totals_div($new_totals);
+    }
+
+    $(document.body).trigger('updated_wc_div');
+  };
+  /**
+   * Update the .cart_totals div with a string of html.
+   *
+   * @param {String} html_str The HTML string with which to replace the div.
+   */
+
+
+  var update_cart_totals_div = function update_cart_totals_div(html_str) {
+    $('.cart_totals').replaceWith(html_str);
+    $(document.body).trigger('updated_cart_totals');
+  };
+  /**
+   * Shows new notices on the page.
+   *
+   * @param {Object} The Notice HTML Element in string or object form.
+   */
+
+
+  var show_notice = function show_notice(html_element, $target) {
+    if (!$target) {
+      $target = $('.woocommerce-notices-wrapper:first') || $('.cart-empty').closest('.woocommerce') || $('.woocommerce-cart-form');
+    }
+
+    $target.prepend(html_element);
+  };
+  /**
+   * Object to handle AJAX calls for cart shipping changes.
+   */
+
+
+  var cart_shipping = {
+    /**
+     * Initialize event handlers and UI state.
+     */
+    init: function init(cart) {
+      this.cart = cart;
+      this.toggle_shipping = this.toggle_shipping.bind(this);
+      this.shipping_method_selected = this.shipping_method_selected.bind(this);
+      this.shipping_calculator_submit = this.shipping_calculator_submit.bind(this);
+      $(document).on('click', '.shipping-calculator-button', this.toggle_shipping);
+      $(document).on('change', 'select.shipping_method, :input[name^=shipping_method]', this.shipping_method_selected);
+      $(document).on('submit', 'form.woocommerce-shipping-calculator', this.shipping_calculator_submit);
+      $('.shipping-calculator-form').hide();
+    },
+
+    /**
+     * Toggle Shipping Calculator panel
+     */
+    toggle_shipping: function toggle_shipping() {
+      $('.shipping-calculator-form').slideToggle('slow');
+      $(document.body).trigger('country_to_state_changed'); // Trigger select2 to load.
+
+      return false;
+    },
+
+    /**
+     * Handles when a shipping method is selected.
+     */
+    shipping_method_selected: function shipping_method_selected() {
+      var shipping_methods = {}; // eslint-disable-next-line max-len
+
+      $('select.shipping_method, :input[name^=shipping_method][type=radio]:checked, :input[name^=shipping_method][type=hidden]').each(function () {
+        shipping_methods[$(this).data('index')] = $(this).val();
+      });
+      block($('div.cart_totals'));
+      var data = {
+        security: wc_cart_params.update_shipping_method_nonce,
+        shipping_method: shipping_methods
+      };
+      $.ajax({
+        type: 'post',
+        url: get_url('update_shipping_method'),
+        data: data,
+        dataType: 'html',
+        success: function success(response) {
+          update_cart_totals_div(response);
+        },
+        complete: function complete() {
+          unblock($('div.cart_totals'));
+          $(document.body).trigger('updated_shipping_method');
+        }
+      });
+    },
+
+    /**
+     * Handles a shipping calculator form submit.
+     *
+     * @param {Object} evt The JQuery event.
+     */
+    shipping_calculator_submit: function shipping_calculator_submit(evt) {
+      evt.preventDefault();
+      var $form = $(evt.currentTarget);
+      block($('div.cart_totals'));
+      block($form); // Provide the submit button value because wc-form-handler expects it.
+
+      $('<input />').attr('type', 'hidden').attr('name', 'calc_shipping').attr('value', 'x').appendTo($form); // Make call to actual form post URL.
+
+      $.ajax({
+        type: $form.attr('method'),
+        url: $form.attr('action'),
+        data: $form.serialize(),
+        dataType: 'html',
+        success: function success(response) {
+          update_wc_div(response);
+        },
+        complete: function complete() {
+          unblock($form);
+          unblock($('div.cart_totals'));
+        }
+      });
+    }
+  };
+  /**
+   * Object to handle cart UI.
+   */
+
+  var cart = {
+    /**
+     * Initialize cart UI events.
+     */
+    init: function init() {
+      this.update_cart_totals = this.update_cart_totals.bind(this);
+      this.input_keypress = this.input_keypress.bind(this);
+      this.cart_submit = this.cart_submit.bind(this);
+      this.submit_click = this.submit_click.bind(this);
+      this.apply_coupon = this.apply_coupon.bind(this);
+      this.remove_coupon_clicked = this.remove_coupon_clicked.bind(this);
+      this.quantity_update = this.quantity_update.bind(this);
+      this.item_remove_clicked = this.item_remove_clicked.bind(this);
+      this.item_restore_clicked = this.item_restore_clicked.bind(this);
+      this.update_cart = this.update_cart.bind(this);
+      $(document).on('wc_update_cart added_to_cart', function () {
+        cart.update_cart.apply(cart, [].slice.call(arguments, 1));
+      });
+      $(document).on('click', '.woocommerce-cart-form :input[type=submit]', this.submit_click);
+      $(document).on('keypress', '.woocommerce-cart-form :input[type=number]', this.input_keypress);
+      $(document).on('submit', '.woocommerce-cart-form', this.cart_submit);
+      $(document).on('click', 'a.woocommerce-remove-coupon', this.remove_coupon_clicked);
+      $(document).on('click', '.woocommerce-cart-form .product-remove > a', this.item_remove_clicked);
+      $(document).on('click', '.woocommerce-cart .restore-item', this.item_restore_clicked);
+      $(document).on('change input', '.woocommerce-cart-form .cart_item :input', this.input_changed);
+      $('.woocommerce-cart-form :input[name="update_cart"]').prop('disabled', true).attr('aria-disabled', true);
+    },
+
+    /**
+     * After an input is changed, enable the update cart button.
+     */
+    input_changed: function input_changed() {
+      $('.woocommerce-cart-form :input[name="update_cart"]').prop('disabled', false).attr('aria-disabled', false);
+    },
+
+    /**
+     * Update entire cart via ajax.
+     */
+    update_cart: function update_cart(preserve_notices) {
+      var $form = $('.woocommerce-cart-form');
+      block($form);
+      block($('div.cart_totals')); // Make call to actual form post URL.
+
+      $.ajax({
+        type: $form.attr('method'),
+        url: $form.attr('action'),
+        data: $form.serialize(),
+        dataType: 'html',
+        success: function success(response) {
+          update_wc_div(response, preserve_notices);
+        },
+        complete: function complete() {
+          unblock($form);
+          unblock($('div.cart_totals'));
+          $.scroll_to_notices($('[role="alert"]'));
+        }
+      });
+    },
+
+    /**
+     * Update the cart after something has changed.
+     */
+    update_cart_totals: function update_cart_totals() {
+      block($('div.cart_totals'));
+      $.ajax({
+        url: get_url('get_cart_totals'),
+        dataType: 'html',
+        success: function success(response) {
+          update_cart_totals_div(response);
+        },
+        complete: function complete() {
+          unblock($('div.cart_totals'));
+        }
+      });
+    },
+
+    /**
+     * Handle the <ENTER> key for quantity fields.
+     *
+     * @param {Object} evt The JQuery event
+     *
+     * For IE, if you hit enter on a quantity field, it makes the
+     * document.activeElement the first submit button it finds.
+     * For us, that is the Apply Coupon button. This is required
+     * to catch the event before that happens.
+     */
+    input_keypress: function input_keypress(evt) {
+      // Catch the enter key and don't let it submit the form.
+      if (13 === evt.keyCode) {
+        var $form = $(evt.currentTarget).parents('form');
+
+        try {
+          // If there are no validation errors, handle the submit.
+          if ($form[0].checkValidity()) {
+            evt.preventDefault();
+            this.cart_submit(evt);
+          }
+        } catch (err) {
+          evt.preventDefault();
+          this.cart_submit(evt);
+        }
+      }
+    },
+
+    /**
+     * Handle cart form submit and route to correct logic.
+     *
+     * @param {Object} evt The JQuery event
+     */
+    cart_submit: function cart_submit(evt) {
+      var $submit = $(document.activeElement),
+          $clicked = $(':input[type=submit][clicked=true]'),
+          $form = $(evt.currentTarget); // For submit events, currentTarget is form.
+      // For keypress events, currentTarget is input.
+
+      if (!$form.is('form')) {
+        $form = $(evt.currentTarget).parents('form');
+      }
+
+      if (0 === $form.find('.woocommerce-cart-form__contents').length) {
+        return;
+      }
+
+      if (is_blocked($form)) {
+        return false;
+      }
+
+      if ($clicked.is(':input[name="update_cart"]') || $submit.is('input.qty')) {
+        evt.preventDefault();
+        this.quantity_update($form);
+      } else if ($clicked.is(':input[name="apply_coupon"]') || $submit.is('#coupon_code')) {
+        evt.preventDefault();
+        this.apply_coupon($form);
+      }
+    },
+
+    /**
+     * Special handling to identify which submit button was clicked.
+     *
+     * @param {Object} evt The JQuery event
+     */
+    submit_click: function submit_click(evt) {
+      $(':input[type=submit]', $(evt.target).parents('form')).removeAttr('clicked');
+      $(evt.target).attr('clicked', 'true');
+    },
+
+    /**
+     * Apply Coupon code
+     *
+     * @param {JQuery Object} $form The cart form.
+     */
+    apply_coupon: function apply_coupon($form) {
+      block($form);
+      var cart = this;
+      var $text_field = $('#coupon_code');
+      var coupon_code = $text_field.val();
+      var data = {
+        security: wc_cart_params.apply_coupon_nonce,
+        coupon_code: coupon_code
+      };
+      $.ajax({
+        type: 'POST',
+        url: get_url('apply_coupon'),
+        data: data,
+        dataType: 'html',
+        success: function success(response) {
+          $('.woocommerce-error, .woocommerce-message, .woocommerce-info').remove();
+          show_notice(response);
+          $(document.body).trigger('applied_coupon', [coupon_code]);
+        },
+        complete: function complete() {
+          unblock($form);
+          $text_field.val('');
+          cart.update_cart(true);
+        }
+      });
+    },
+
+    /**
+     * Handle when a remove coupon link is clicked.
+     *
+     * @param {Object} evt The JQuery event
+     */
+    remove_coupon_clicked: function remove_coupon_clicked(evt) {
+      evt.preventDefault();
+      var cart = this;
+      var $wrapper = $(evt.currentTarget).closest('.cart_totals');
+      var coupon = $(evt.currentTarget).attr('data-coupon');
+      block($wrapper);
+      var data = {
+        security: wc_cart_params.remove_coupon_nonce,
+        coupon: coupon
+      };
+      $.ajax({
+        type: 'POST',
+        url: get_url('remove_coupon'),
+        data: data,
+        dataType: 'html',
+        success: function success(response) {
+          $('.woocommerce-error, .woocommerce-message, .woocommerce-info').remove();
+          show_notice(response);
+          $(document.body).trigger('removed_coupon', [coupon]);
+          unblock($wrapper);
+        },
+        complete: function complete() {
+          cart.update_cart(true);
+        }
+      });
+    },
+
+    /**
+     * Handle a cart Quantity Update
+     *
+     * @param {JQuery Object} $form The cart form.
+     */
+    quantity_update: function quantity_update($form) {
+      block($form);
+      block($('div.cart_totals')); // Provide the submit button value because wc-form-handler expects it.
+
+      $('<input />').attr('type', 'hidden').attr('name', 'update_cart').attr('value', 'Update Cart').appendTo($form); // Make call to actual form post URL.
+
+      $.ajax({
+        type: $form.attr('method'),
+        url: $form.attr('action'),
+        data: $form.serialize(),
+        dataType: 'html',
+        success: function success(response) {
+          update_wc_div(response);
+        },
+        complete: function complete() {
+          unblock($form);
+          unblock($('div.cart_totals'));
+          $.scroll_to_notices($('[role="alert"]'));
+        }
+      });
+    },
+
+    /**
+     * Handle when a remove item link is clicked.
+     *
+     * @param {Object} evt The JQuery event
+     */
+    item_remove_clicked: function item_remove_clicked(evt) {
+      evt.preventDefault();
+      var $a = $(evt.currentTarget);
+      var $form = $a.parents('form');
+      block($form);
+      block($('div.cart_totals'));
+      $.ajax({
+        type: 'GET',
+        url: $a.attr('href'),
+        dataType: 'html',
+        success: function success(response) {
+          update_wc_div(response);
+        },
+        complete: function complete() {
+          unblock($form);
+          unblock($('div.cart_totals'));
+          $.scroll_to_notices($('[role="alert"]'));
+        }
+      });
+    },
+
+    /**
+     * Handle when a restore item link is clicked.
+     *
+     * @param {Object} evt The JQuery event
+     */
+    item_restore_clicked: function item_restore_clicked(evt) {
+      evt.preventDefault();
+      var $a = $(evt.currentTarget);
+      var $form = $('form.woocommerce-cart-form');
+      block($form);
+      block($('div.cart_totals'));
+      $.ajax({
+        type: 'GET',
+        url: $a.attr('href'),
+        dataType: 'html',
+        success: function success(response) {
+          update_wc_div(response);
+        },
+        complete: function complete() {
+          unblock($form);
+          unblock($('div.cart_totals'));
+        }
+      });
+    }
+  };
+  cart_shipping.init(cart);
+  cart.init();
+});
+
+/***/ }),
+
+/***/ "./source/woo-assets/js/frontend/single-product.js":
+/*!*********************************************************!*\
+  !*** ./source/woo-assets/js/frontend/single-product.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/*global wc_single_product_params, PhotoSwipe, PhotoSwipeUI_Default */
+jQuery(function ($) {
+  // wc_single_product_params is required to continue.
+  if (typeof wc_single_product_params === 'undefined') {
+    return false;
+  }
+
+  $('body') // Tabs
+  .on('init', '.wc-tabs-wrapper, .woocommerce-tabs', function () {
+    $(this).find('.wc-tab, .woocommerce-tabs .panel:not(.panel .panel)').hide();
+    var hash = window.location.hash;
+    var url = window.location.href;
+    var $tabs = $(this).find('.wc-tabs, ul.tabs').first();
+
+    if (hash.toLowerCase().indexOf('comment-') >= 0 || hash === '#reviews' || hash === '#tab-reviews') {
+      $tabs.find('li.reviews_tab a').click();
+    } else if (url.indexOf('comment-page-') > 0 || url.indexOf('cpage=') > 0) {
+      $tabs.find('li.reviews_tab a').click();
+    } else if (hash === '#tab-additional_information') {
+      $tabs.find('li.additional_information_tab a').click();
+    } else {
+      $tabs.find('li:first a').click();
+    }
+  }).on('click', '.wc-tabs li a, ul.tabs li a', function (e) {
+    e.preventDefault();
+    var $tab = $(this);
+    var $tabs_wrapper = $tab.closest('.wc-tabs-wrapper, .woocommerce-tabs');
+    var $tabs = $tabs_wrapper.find('.wc-tabs, ul.tabs');
+    $tabs.find('li').removeClass('active');
+    $tabs_wrapper.find('.wc-tab, .panel:not(.panel .panel)').hide();
+    $tab.closest('li').addClass('active');
+    $tabs_wrapper.find($tab.attr('href')).show();
+  }) // Review link
+  .on('click', 'a.woocommerce-review-link', function () {
+    $('.reviews_tab a').click();
+    return true;
+  }) // Star ratings for comments
+  .on('init', '#rating', function () {
+    $('#rating').hide().before('<p class="stars">\
+						<span>\
+							<a class="star-1" href="#">1</a>\
+							<a class="star-2" href="#">2</a>\
+							<a class="star-3" href="#">3</a>\
+							<a class="star-4" href="#">4</a>\
+							<a class="star-5" href="#">5</a>\
+						</span>\
+					</p>');
+  }).on('click', '#respond p.stars a', function () {
+    var $star = $(this),
+        $rating = $(this).closest('#respond').find('#rating'),
+        $container = $(this).closest('.stars');
+    $rating.val($star.text());
+    $star.siblings('a').removeClass('active');
+    $star.addClass('active');
+    $container.addClass('selected');
+    return false;
+  }).on('click', '#respond #submit', function () {
+    var $rating = $(this).closest('#respond').find('#rating'),
+        rating = $rating.val();
+
+    if ($rating.length > 0 && !rating && wc_single_product_params.review_rating_required === 'yes') {
+      window.alert(wc_single_product_params.i18n_required_rating_text);
+      return false;
+    }
+  }); // Init Tabs and Star Ratings
+
+  $('.wc-tabs-wrapper, .woocommerce-tabs, #rating').trigger('init');
+  /**
+   * Product gallery class.
+   */
+
+  var ProductGallery = function ProductGallery($target, args) {
+    this.$target = $target;
+    this.$images = $('.woocommerce-product-gallery__image', $target); // No images? Abort.
+
+    if (0 === this.$images.length) {
+      this.$target.css('opacity', 1);
+      return;
+    } // Make this object available.
+
+
+    $target.data('product_gallery', this); // Pick functionality to initialize...
+
+    this.flexslider_enabled = $.isFunction($.fn.flexslider) && wc_single_product_params.flexslider_enabled;
+    this.zoom_enabled = $.isFunction($.fn.zoom) && wc_single_product_params.zoom_enabled;
+    this.photoswipe_enabled = typeof PhotoSwipe !== 'undefined' && wc_single_product_params.photoswipe_enabled; // ...also taking args into account.
+
+    if (args) {
+      this.flexslider_enabled = false === args.flexslider_enabled ? false : this.flexslider_enabled;
+      this.zoom_enabled = false === args.zoom_enabled ? false : this.zoom_enabled;
+      this.photoswipe_enabled = false === args.photoswipe_enabled ? false : this.photoswipe_enabled;
+    } // ...and what is in the gallery.
+
+
+    if (1 === this.$images.length) {
+      this.flexslider_enabled = false;
+    } // Bind functions to this.
+
+
+    this.initFlexslider = this.initFlexslider.bind(this);
+    this.initZoom = this.initZoom.bind(this);
+    this.initZoomForTarget = this.initZoomForTarget.bind(this);
+    this.initPhotoswipe = this.initPhotoswipe.bind(this);
+    this.onResetSlidePosition = this.onResetSlidePosition.bind(this);
+    this.getGalleryItems = this.getGalleryItems.bind(this);
+    this.openPhotoswipe = this.openPhotoswipe.bind(this);
+
+    if (this.flexslider_enabled) {
+      this.initFlexslider(args.flexslider);
+      $target.on('woocommerce_gallery_reset_slide_position', this.onResetSlidePosition);
+    } else {
+      this.$target.css('opacity', 1);
+    }
+
+    if (this.zoom_enabled) {
+      this.initZoom();
+      $target.on('woocommerce_gallery_init_zoom', this.initZoom);
+    }
+
+    if (this.photoswipe_enabled) {
+      this.initPhotoswipe();
+    }
+  };
+  /**
+   * Initialize flexSlider.
+   */
+
+
+  ProductGallery.prototype.initFlexslider = function (args) {
+    var $target = this.$target,
+        gallery = this;
+    var options = $.extend({
+      selector: '.woocommerce-product-gallery__wrapper > .woocommerce-product-gallery__image',
+      start: function start() {
+        $target.css('opacity', 1);
+      },
+      after: function after(slider) {
+        gallery.initZoomForTarget(gallery.$images.eq(slider.currentSlide));
+      }
+    }, args);
+    $target.flexslider(options); // Trigger resize after main image loads to ensure correct gallery size.
+
+    $('.woocommerce-product-gallery__wrapper .woocommerce-product-gallery__image:eq(0) .wp-post-image').one('load', function () {
+      var $image = $(this);
+
+      if ($image) {
+        setTimeout(function () {
+          var setHeight = $image.closest('.woocommerce-product-gallery__image').height();
+          var $viewport = $image.closest('.flex-viewport');
+
+          if (setHeight && $viewport) {
+            $viewport.height(setHeight);
+          }
+        }, 100);
+      }
+    }).each(function () {
+      if (this.complete) {
+        $(this).trigger('load');
+      }
+    });
+  };
+  /**
+   * Init zoom.
+   */
+
+
+  ProductGallery.prototype.initZoom = function () {
+    this.initZoomForTarget(this.$images.first());
+  };
+  /**
+   * Init zoom.
+   */
+
+
+  ProductGallery.prototype.initZoomForTarget = function (zoomTarget) {
+    if (!this.zoom_enabled) {
+      return false;
+    }
+
+    var galleryWidth = this.$target.width(),
+        zoomEnabled = false;
+    $(zoomTarget).each(function (index, target) {
+      var image = $(target).find('img');
+
+      if (image.data('large_image_width') > galleryWidth) {
+        zoomEnabled = true;
+        return false;
+      }
+    }); // But only zoom if the img is larger than its container.
+
+    if (zoomEnabled) {
+      var zoom_options = $.extend({
+        touch: false
+      }, wc_single_product_params.zoom_options);
+
+      if ('ontouchstart' in document.documentElement) {
+        zoom_options.on = 'click';
+      }
+
+      zoomTarget.trigger('zoom.destroy');
+      zoomTarget.zoom(zoom_options);
+      setTimeout(function () {
+        if (zoomTarget.find(':hover').length) {
+          zoomTarget.trigger('mouseover');
+        }
+      }, 100);
+    }
+  };
+  /**
+   * Init PhotoSwipe.
+   */
+
+
+  ProductGallery.prototype.initPhotoswipe = function () {
+    if (this.zoom_enabled && this.$images.length > 0) {
+      this.$target.prepend('<a href="#" class="woocommerce-product-gallery__trigger">🔍</a>');
+      this.$target.on('click', '.woocommerce-product-gallery__trigger', this.openPhotoswipe);
+      this.$target.on('click', '.woocommerce-product-gallery__image a', function (e) {
+        e.preventDefault();
+      }); // If flexslider is disabled, gallery images also need to trigger photoswipe on click.
+
+      if (!this.flexslider_enabled) {
+        this.$target.on('click', '.woocommerce-product-gallery__image a', this.openPhotoswipe);
+      }
+    } else {
+      this.$target.on('click', '.woocommerce-product-gallery__image a', this.openPhotoswipe);
+    }
+  };
+  /**
+   * Reset slide position to 0.
+   */
+
+
+  ProductGallery.prototype.onResetSlidePosition = function () {
+    this.$target.flexslider(0);
+  };
+  /**
+   * Get product gallery image items.
+   */
+
+
+  ProductGallery.prototype.getGalleryItems = function () {
+    var $slides = this.$images,
+        items = [];
+
+    if ($slides.length > 0) {
+      $slides.each(function (i, el) {
+        var img = $(el).find('img');
+
+        if (img.length) {
+          var large_image_src = img.attr('data-large_image'),
+              large_image_w = img.attr('data-large_image_width'),
+              large_image_h = img.attr('data-large_image_height'),
+              alt = img.attr('alt'),
+              item = {
+            alt: alt,
+            src: large_image_src,
+            w: large_image_w,
+            h: large_image_h,
+            title: img.attr('data-caption') ? img.attr('data-caption') : img.attr('title')
+          };
+          items.push(item);
+        }
+      });
+    }
+
+    return items;
+  };
+  /**
+   * Open photoswipe modal.
+   */
+
+
+  ProductGallery.prototype.openPhotoswipe = function (e) {
+    e.preventDefault();
+    var pswpElement = $('.pswp')[0],
+        items = this.getGalleryItems(),
+        eventTarget = $(e.target),
+        clicked;
+
+    if (eventTarget.is('.woocommerce-product-gallery__trigger') || eventTarget.is('.woocommerce-product-gallery__trigger img')) {
+      clicked = this.$target.find('.flex-active-slide');
+    } else {
+      clicked = eventTarget.closest('.woocommerce-product-gallery__image');
+    }
+
+    var options = $.extend({
+      index: $(clicked).index(),
+      addCaptionHTMLFn: function addCaptionHTMLFn(item, captionEl) {
+        if (!item.title) {
+          captionEl.children[0].textContent = '';
+          return false;
+        }
+
+        captionEl.children[0].textContent = item.title;
+        return true;
+      }
+    }, wc_single_product_params.photoswipe_options); // Initializes and opens PhotoSwipe.
+
+    var photoswipe = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+    photoswipe.init();
+  };
+  /**
+   * Function to call wc_product_gallery on jquery selector.
+   */
+
+
+  $.fn.wc_product_gallery = function (args) {
+    new ProductGallery(this, args || wc_single_product_params);
+    return this;
+  };
+  /*
+   * Initialize all galleries on page.
+   */
+
+
+  $('.woocommerce-product-gallery').each(function () {
+    $(this).trigger('wc-product-gallery-before-init', [this, wc_single_product_params]);
+    $(this).wc_product_gallery(wc_single_product_params);
+    $(this).trigger('wc-product-gallery-after-init', [this, wc_single_product_params]);
+  });
+});
+
+/***/ }),
+
+/***/ "./source/woo-assets/js/frontend/woocommerce.js":
+/*!******************************************************!*\
+  !*** ./source/woo-assets/js/frontend/woocommerce.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* global Cookies */
+jQuery(function ($) {
+  // Orderby
+  $('.woocommerce-ordering').on('change', 'select.orderby', function () {
+    $(this).closest('form').submit();
+  }); // Target quantity inputs on product pages
+
+  $('input.qty:not(.product-quantity input.qty)').each(function () {
+    var min = parseFloat($(this).attr('min'));
+
+    if (min >= 0 && parseFloat($(this).val()) < min) {
+      $(this).val(min);
+    }
+  });
+  var noticeID = $('.woocommerce-store-notice').data('notice-id') || '',
+      cookieName = 'store_notice' + noticeID; // Check the value of that cookie and show/hide the notice accordingly
+
+  if ('hidden' === Cookies.get(cookieName)) {
+    $('.woocommerce-store-notice').hide();
+  } else {
+    $('.woocommerce-store-notice').show();
+  } // Set a cookie and hide the store notice when the dismiss button is clicked
+
+
+  $('.woocommerce-store-notice__dismiss-link').click(function (event) {
+    Cookies.set(cookieName, 'hidden', {
+      path: '/'
+    });
+    $('.woocommerce-store-notice').hide();
+    event.preventDefault();
+  }); // Make form field descriptions toggle on focus.
+
+  if ($('.woocommerce-input-wrapper span.description').length) {
+    $(document.body).on('click', function () {
+      $('.woocommerce-input-wrapper span.description:visible').prop('aria-hidden', true).slideUp(250);
+    });
+  }
+
+  $('.woocommerce-input-wrapper').on('click', function (event) {
+    event.stopPropagation();
+  });
+  $('.woocommerce-input-wrapper :input').on('keydown', function (event) {
+    var input = $(this),
+        parent = input.parent(),
+        description = parent.find('span.description');
+
+    if (27 === event.which && description.length && description.is(':visible')) {
+      description.prop('aria-hidden', true).slideUp(250);
+      event.preventDefault();
+      return false;
+    }
+  }).on('click focus', function () {
+    var input = $(this),
+        parent = input.parent(),
+        description = parent.find('span.description');
+    parent.addClass('currentTarget');
+    $('.woocommerce-input-wrapper:not(.currentTarget) span.description:visible').prop('aria-hidden', true).slideUp(250);
+
+    if (description.length && description.is(':hidden')) {
+      description.prop('aria-hidden', false).slideDown(250);
+    }
+
+    parent.removeClass('currentTarget');
+  }); // Common scroll to element code.
+
+  $.scroll_to_notices = function (scrollElement) {
+    if (scrollElement.length) {
+      $('html, body').animate({
+        scrollTop: scrollElement.offset().top - 100
+      }, 1000);
+    }
+  }; // Show password visiblity hover icon on woocommerce forms
+
+
+  $('.woocommerce form .woocommerce-Input[type="password"]').wrap('<span class="password-input"></span>'); // Add 'password-input' class to the password wrapper in checkout page.
+
+  $('.woocommerce form input').filter(':password').parent('span').addClass('password-input');
+  $('.password-input').append('<span class="show-password-input"></span>');
+  $('.show-password-input').click(function () {
+    $(this).toggleClass('display-password');
+
+    if ($(this).hasClass('display-password')) {
+      $(this).siblings(['input[type="password"]']).prop('type', 'text');
+    } else {
+      $(this).siblings('input[type="text"]').prop('type', 'password');
+    }
+  });
+});
 
 /***/ }),
 

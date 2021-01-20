@@ -1,46 +1,152 @@
 import React, { useEffect, useRef, useState } from "react";
-
 import axios from "axios";
 import Drift from "drift-zoom";
 
-function ProductSection({ productData, nonceId }) {
-    console.log("prodData", productData, nonceId);
+import Alert from "../components/Alert";
 
-    const [variant, setVariant] = useState(0);
+const packSizes = [
+    {
+        quantity: 1,
+        cost: 5,
+    },
+    {
+        quantity: 5,
+        cost: 4,
+    },
+    {
+        quantity: 10,
+        cost: 3,
+    },
+];
+
+function VariantSelector({ name, terms, has_variations, onChange }) {
+    const [chosenOption, setChosenOption] = useState(terms[0].slug);
+
+    useEffect(() => {
+        onChange(chosenOption, name);
+    }, [chosenOption]);
+
+    const type = {
+        "Pack Size": (
+            <div className="pack-options">
+                {terms.map(({ name, slug }, i) => (
+                    <label key={i} className={"pack-option mr-4"} onClick={() => setChosenOption(name)}>
+                        <input onChange={onChange} type="radio" name={name} value={slug} checked={name === chosenOption} />
+                        <div className="pack-option-box">
+                            <div className="pack-option-number">{name}</div>
+                            {/* <div className="pack-option-text">Pack</div> */}
+                        </div>
+                        {/* <div className="pack-option-box-meta">${size.cost}/Patch</div> */}
+                    </label>
+                ))}
+            </div>
+        ),
+        Color: (
+            <div className="flex -mx-1">
+                {terms.map(({ name, slug }, i) => (
+                    <label key={i} className="px-1 cursor-pointer" onClick={() => setChosenOption(name)} style={{ marginRight: 0 }}>
+                        <input
+                            type="radio"
+                            onChange={onChange}
+                            name={type}
+                            value={name}
+                            className="hidden"
+                            checked={name === chosenOption}
+                        />
+                        <div
+                            className={
+                                "h-8 w-8 shadow rounded bg-" +
+                                name.toLowerCase() +
+                                (name === "Black" || name === "White" ? "" : "-500") +
+                                " " +
+                                (chosenOption === name && "border-2 border-ovalGreenDark")
+                            }
+                        />
+                    </label>
+                ))}
+            </div>
+        ),
+        default: (
+            <div className="relative inline-block w-full text-gray-700">
+                <select
+                    className="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none"
+                    placeholder="Regular input"
+                    name={type}
+                    onChange={(e) => setChosenOption(e.target.value)}
+                >
+                    {terms.map(({ name, slug }, i) => (
+                        <option key={i} value={name}>
+                            {name}
+                        </option>
+                    ))}
+                </select>
+                <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                    <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                        <path
+                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                            clipRule="evenodd"
+                            fillRule="evenodd"
+                        ></path>
+                    </svg>
+                </div>
+            </div>
+        ),
+    };
+
+    return (
+        has_variations && (
+            <div className="options my-8">
+                <div className="font-bold text-xs tracking-wider uppercase text-gray-800 mb-2">Choose {name}:</div>
+                {type[name] || type["default"]}
+            </div>
+        )
+    );
+}
+
+function ProductSection({ productId, productData, productMeta, nonceId }) {
+    console.log(productData, productMeta);
+
+    const [showAlert, setShowAlert] = useState(false);
+    const [addItemStatus, setAddItemStatus] = useState("success");
+    const [alertText, setAlertText] = useState("This is the alert.");
+    const [chosenImage, setChosenImage] = useState(0);
+    const [chosenPackSize, setChosenPackSize] = useState(0);
+    const [subscription, setSubscription] = useState(true);
+
+    const findVariantId = () => {
+        return 343;
+    };
 
     const addProduct = () => {
         axios({
             method: "post",
             url: "/wp-json/wc/store/cart/add-item",
             data: {
-                id: 1,
+                id: productId,
                 quantity: 10,
+                variant: findVariantId(),
             },
             headers: {
                 "X-WC-Store-API-Nonce": nonceId,
             },
-        }).then((res) => {
-            console.log(res.data);
-        });
+        })
+            .then((res) => {
+                console.log(res);
+                setShowAlert(true);
+                setAddItemStatus("success");
+                setAlertText(productData.name + " has been added to your cart!");
+            })
+            .catch((err, msg) => {
+                setShowAlert(true);
+                setAddItemStatus("error");
+                setAlertText(err.response.data.message);
+            })
+            .then(() => {
+                setTimeout(() => {
+                    setShowAlert(false);
+                }, 6000);
+            });
     };
-
-    const packSizes = [
-        {
-            quantity: 1,
-            cost: 5,
-        },
-        {
-            quantity: 5,
-            cost: 4,
-        },
-        {
-            quantity: 10,
-            cost: 3,
-        },
-    ];
-    const [chosenImage, setChosenImage] = useState(0);
-    const [chosenPackSize, setChosenPackSize] = useState(0);
-    const [subscription, setSubscription] = useState(true);
 
     const galleryBox = useRef(null);
 
@@ -71,14 +177,14 @@ function ProductSection({ productData, nonceId }) {
     }, [galleryBox]);
 
     return (
-        <div className="py-5 md:py-10 max-w-5xl mx-auto">
+        <div className="pb-5 md:py-8">
+            {showAlert && <Alert text={alertText} status={addItemStatus} showAlertFunc={setShowAlert} />}
             <div className="flex flex-wrap mx-0 md:-mx-5">
                 <div className="w-full md:w-2/3 px-5">
                     <div ref={galleryBox} className="nmr-image-gallery-box">
                         <div className="nmr-image-gallery relative overflow-hidden rounded border">
                             <div className="square-image"></div>
                             {productData.images.map((image, i) => {
-                                console.log(image);
                                 if (i < 5)
                                     return (
                                         <div
@@ -121,44 +227,31 @@ function ProductSection({ productData, nonceId }) {
                 <div className="w-full md:w-1/3 px-5">
                     <div className="py-5">
                         <div className="hidden md:block title font-bold text-3xl mb-1">{productData.name}</div>
-                        <div className="labels mb-2">
-                            {productData.categories.map((cat, i) => (
-                                <div key={i} className="label">
-                                    <span className="label-text">{cat.name}</span>
-                                </div>
-                            ))}
-                        </div>
                         <div
-                            className="hidden md:block desc text-sm font-light leading-tight"
+                            className="hidden md:block desc text-sm font-light leading-tight my-2"
                             dangerouslySetInnerHTML={{ __html: productData.description }}
                         />
-                        <div className="options my-5">
-                            <div className="font-bold text-xs tracking-wider uppercase text-gray-800 mb-2">Choose pack size:</div>
-                            <div className="pack-options">
-                                {packSizes.map((size, i) => (
-                                    <label key={i} className={"pack-option mr-4"} onClick={() => setChosenPackSize(i)}>
-                                        <input type="radio" name="pack-size" value={i} defaultChecked={i === chosenPackSize} />
-                                        <div className="pack-option-box">
-                                            <div className="pack-option-number">{size.quantity}</div>
-                                            <div className="pack-option-text">Pack</div>
-                                        </div>
-                                        <div className="pack-option-box-meta">${size.cost}/Patch</div>
-                                    </label>
+                        <div className="flex flex-wrap my-2">
+                            {productData.categories &&
+                                productData.categories.length > 0 &&
+                                productData.categories.map((cat) => (
+                                    <div id={cat.slug} key={cat.name} className="text-2xs px-2 py-1 uppercase bg-ovalGreen mr-1 mb-1">
+                                        <span className="label-text text-2xs">{cat.name}</span>
+                                    </div>
                                 ))}
-                            </div>
+                            {productData.tags &&
+                                productData.tags.length > 0 &&
+                                productData.tags.map((tag) => (
+                                    <div id={tag.slug} key={tag.name} className="text-2xs px-2 py-1 uppercase bg-slateBlueLight mr-1 mb-1">
+                                        <span className="label-text text-2xs">{tag.name}</span>
+                                    </div>
+                                ))}
                         </div>
+                        {productData.attributes.map((attribute, i) => (
+                            <VariantSelector key={i} onChange={(e) => console.log(e)} {...attribute} />
+                        ))}
                         <div className="options my-10">
-                            <div className="font-bold text-xs tracking-wider uppercase text-gray-800 mb-2">
-                                {subscription ? (
-                                    <span className="subscription-meta">
-                                        You're <span className="text-ovalGreenDark">saving 20%</span>
-                                    </span>
-                                ) : (
-                                    <span className="subscription-meta">
-                                        Subscribe and save <span className="text-ovalGreenDark">20% more.</span>
-                                    </span>
-                                )}
-                            </div>
+                            <div className="font-bold text-xs tracking-wider uppercase text-gray-800 mb-2">Subscription</div>
                             <div className="block sub-options">
                                 <label onClick={() => setSubscription(false)} className="sub-option">
                                     <input type="radio" name="subscription" defaultChecked={!subscription} />
@@ -172,13 +265,18 @@ function ProductSection({ productData, nonceId }) {
                                         Subscription
                                     </div>
                                 </label>
-
-                                <div className="text-2xs text-gray-500 italic leading-snug max-w-3xs mt-2">
-                                    Renews every 30 days. Subscribe and{" "}
-                                    <span id="points" className="text-ovalGreen font-bold mr-1">
-                                        save 20%
+                            </div>
+                            <div className="font-bold text-2xs tracking-wider text-gray-800 mb-2">
+                                {subscription ? (
+                                    <span>
+                                        You're <span className="text-ovalGreenDark">saving 20%</span>
                                     </span>
-                                </div>
+                                ) : (
+                                    <span>
+                                        Subscribe and save <span className="text-ovalGreenDark">20% more.</span>
+                                    </span>
+                                )}
+                                <span>Renews every 30 days.</span>
                             </div>
                         </div>
                         <div className="options my-10">
@@ -193,7 +291,8 @@ function ProductSection({ productData, nonceId }) {
                                     {subscription && (
                                         <span id="subPrice" className="ml-2 text-ovalGreen relative inline-block">
                                             <span id="subPriceValue">
-                                                ${Math.floor(packSizes[chosenPackSize].quantity * packSizes[chosenPackSize].cost * 0.6)}.00
+                                                ${Math.floor(packSizes[chosenPackSize].quantity * packSizes[chosenPackSize].cost * 0.6)}
+                                                .00
                                             </span>
                                             <div className="relative block text-2xs text-gray-600 uppercase text-right tracking-normal">
                                                 per month

@@ -65,9 +65,11 @@
 // pack selectors
 .pack-options {
     @apply flex flex-wrap;
+    
 
     .pack-option {
-        @apply w-20;
+        
+        @apply w-16;
         @apply text-gray-400;
         @apply flex flex-col items-center justify-start;
         @apply font-bold text-center uppercase;
@@ -76,9 +78,10 @@
             transition-duration: 200ms;
 
             @apply rounded;
+            @apply bg-white;
             @apply cursor-pointer;
             @apply border-2 border-gray-400;
-            @apply w-full h-20;
+            @apply w-full h-16;
             @apply flex flex-col justify-center;
         }
 
@@ -140,6 +143,7 @@
 
         .sub-option-box {
             // base style
+            @apply bg-white;
             @apply uppercase font-medium;
             @apply text-base text-gray-400 leading-none;
 

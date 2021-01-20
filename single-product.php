@@ -22,7 +22,8 @@ if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly
 }
 
-get_header('shop'); ?>
+get_header('shop');
+?>
 
 <?php
 /**
@@ -34,15 +35,23 @@ get_header('shop'); ?>
 do_action('woocommerce_before_main_content');
 ?>
 
-<?php while (have_posts()) : ?>
-	<?php the_post(); ?>
-
-	<?php wc_get_template_part('content', 'single-product'); ?>
-
-<?php endwhile; // end of the loop.
+<?php
+// get product data in json
+$client = new GuzzleHttp\Client([
+	'base_uri' => get_permalink()
+]);
+$productData = $client->get("/wp-json/wc/store/products/" . $product->id, ['verify' => false]);
+$productMeta = $client->get("/wp-json/acf/v3/product/" . $product->id, ['verify' => false]);
 ?>
 
-<div id="product-page" data-product-id="<?php echo $product->id ?>" data-nonce-id="<?php echo wp_create_nonce('wc_store_api') ?>"></div>
+<!-- <?php while (have_posts()) : ?> -->
+<!-- <?php the_post();  ?> -->
+
+<div id="product-page" data-product-id='<?php echo $product->id ?>' data-product-data='<?php echo esc_html($productData->getBody()->getContents()) ?>' data-product-meta='<?php echo esc_html($productMeta->getBody()->getContents()) ?>' data-nonce-id="<?php echo wp_create_nonce('wc_store_api') ?>"></div>
+<!-- <?php endwhile; ?>  -->
+
+
+
 
 <?php
 /**

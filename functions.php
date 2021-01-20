@@ -13,6 +13,8 @@ if (!defined('_S_VERSION')) {
     define('_S_VERSION', '1.0.0');
 }
 
+require_once(__DIR__ . '/vendor/autoload.php');
+
 if (!function_exists('oval_bio_setup')) :
     /**
      * Sets up theme defaults and registers support for various WordPress features.
@@ -42,9 +44,9 @@ if (!function_exists('oval_bio_setup')) :
         */
         add_theme_support('title-tag');
         add_theme_support('woocommerce');
-        add_theme_support( 'wc-product-gallery-zoom' );
-        add_theme_support( 'wc-product-gallery-lightbox' );
-        add_theme_support( 'wc-product-gallery-slider' );
+        add_theme_support('wc-product-gallery-zoom');
+        add_theme_support('wc-product-gallery-lightbox');
+        add_theme_support('wc-product-gallery-slider');
 
         /*
              * Enable support for Post Thumbnails on posts and pages.
