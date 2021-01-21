@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import useWindowSize from "../hooks/useWindowSize";
 
@@ -31,16 +32,16 @@ function PodIntro() {
         // const cube = new THREE.Mesh(geometry, material);
         // scene.add(cube);
 
-        const loader = new GLTFLoader();
+        const loader = new DRACOLoader();
         loader.load(
-            "https://dev.oval.bio/wp-content/themes/ob10/source/renders/datsun/scene.gltf",
+            "/wp-content/themes/oval.bio/source/renders/pod/Tub-Open.gltf",
             function (gltf) {
                 const box = new THREE.Box3().setFromObject(gltf.scene);
                 const center = box.getCenter(new THREE.Vector3());
 
-                gltf.scene.position.x += gltf.scene.position.x - center.x;
-                gltf.scene.position.y += gltf.scene.position.y - center.y;
-                gltf.scene.position.z += gltf.scene.position.z - center.z;
+                // gltf.scene.position.x += gltf.scene.position.x - center.x;
+                // gltf.scene.position.y += gltf.scene.position.y - center.y;
+                // gltf.scene.position.z += gltf.scene.position.z - center.z;
 
                 scene.add(gltf.scene);
                 renderer.render(scene, camera);

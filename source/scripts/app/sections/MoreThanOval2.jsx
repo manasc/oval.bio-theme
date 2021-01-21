@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
 function MoreThanOval() {
+    const bgImage = "/wp-content/themes/oval.bio/source/images/pod/pod2.jpg";
+
     return (
         <section className="h-screen overflow-hidden">
             <div className="h-full flex">
@@ -40,8 +42,8 @@ function MoreThanOval() {
                     </div>
                 </div>
                 <div className="flex-1">
-                    <div className="bg-gray-100 w-full h-full flex items-center justify-center">
-                        <h1 className="text-xl">Image</h1>
+                    <div className="bg-gray-100 w-full h-full flex items-center justify-center bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${bgImage})`}}>
+                        {/* <h1 className="text-xl">Image</h1> */}
                     </div>
                 </div>
             </div>

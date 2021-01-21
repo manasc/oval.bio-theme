@@ -96,6 +96,8 @@ function FivePillars() {
     //     effect
     // }, [currentIndex])
 
+    const bgVideo = "/wp-content/themes/oval.bio/source/videos/video.mp4";
+
     return (
         <React.Fragment>
             <section className="h-screen overflow-hidden">
@@ -103,43 +105,50 @@ function FivePillars() {
                     <div className="w-full max-w-md flex-none p-10">
                         <div className="text-3xl leading-tight mb-5">Diagnostic Synergy</div>
                         <p className="text-sm mb-3">
-                            One of the benefits of having a total system like ours is that we can
-                            use our 3d scanner and height measurements we take of the individual to
-                            help us then determine the shape of the person about to go in the pod,
-                            doing this will let us know how far the individual is from the light
-                            panels and then we can determine the exact dosing they will get or
-                            duration of light therapy they will need to achieve a specific dosing,
-                            as distance from the light plays a major role.
+                            One of the benefits of having a total system like ours is that we can use our 3d scanner and height measurements
+                            we take of the individual to help us then determine the shape of the person about to go in the pod, doing this
+                            will let us know how far the individual is from the light panels and then we can determine the exact dosing they
+                            will get or duration of light therapy they will need to achieve a specific dosing, as distance from the light
+                            plays a major role.
                         </p>
                         <p className="text-sm mb-3">
-                            Being in a pod that will have water and the person submerged – allows
-                            for not just combinatory therapies but sensors as well. For example, our
-                            ability to measuring body fat and muscle mass will be better than even
-                            many clinics as we can do what’s called a multi-compartment analysis.
+                            Being in a pod that will have water and the person submerged – allows for not just combinatory therapies but
+                            sensors as well. For example, our ability to measuring body fat and muscle mass will be better than even many
+                            clinics as we can do what’s called a multi-compartment analysis.
                         </p>
                         <p className="text-sm mb-3">
-                            As we can take the data from the 3-d body scanner, hydrostatic weighing
-                            and bioelectrical impedance. Where each of these has limitations with
-                            accuracy based on missing information that the others can help provide.{" "}
+                            As we can take the data from the 3-d body scanner, hydrostatic weighing and bioelectrical impedance. Where each
+                            of these has limitations with accuracy based on missing information that the others can help provide.{" "}
                         </p>
                         <p className="text-sm mb-3">
-                            So the 3-d body scanner can get a measure of body volume and shape,
-                            which can be combined with the hydrostatic weighing in the pod (that is
-                            not as accurate as a real facilities hydrostatic weighing as that is
-                            difficult to do) to match each other’s data on body volume, with the use
-                            of our scale to get weight, while the bioelectrical impedance measures
-                            body water content and electrical resistance.{" "}
+                            So the 3-d body scanner can get a measure of body volume and shape, which can be combined with the hydrostatic
+                            weighing in the pod (that is not as accurate as a real facilities hydrostatic weighing as that is difficult to
+                            do) to match each other’s data on body volume, with the use of our scale to get weight, while the bioelectrical
+                            impedance measures body water content and electrical resistance.{" "}
                         </p>
                     </div>
-                    <div className="flex-1 bg-gray-300 relative">
+                    <div className="flex-1 bg-white relative">
                         <div
-                            className={
-                                "image bg-cover bg-center absolute top-0 left-0 w-full h-full"
-                            }
+                            className={"image bg-cover bg-center absolute top-0 right-0 w-full h-full flex"}
                             style={{
                                 transitionDuration: "500ms",
                             }}
-                        ></div>
+                        >
+                            <video
+                                style={{
+                                    position: "relative",
+                                    minHeight: 1080,
+                                    minWidth: 1920,
+                                    objectFit: "cover",
+                                    objectPosition: "right center",
+                                }}
+                                autoPlay
+                                loop
+                                muted
+                            >
+                                <source src={bgVideo} type="video/mp4" />
+                            </video>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -161,13 +170,10 @@ function FivePillars() {
                                     transitionDuration: "200ms",
                                     opacity: isChanging ? 0 : 1,
                                     visible: isChanging ? "invisible" : "visible",
-                                    transform: isChanging
-                                        ? "translate(0, 0)"
-                                        : "translate(150px, -120px)",
+                                    transform: isChanging ? "translate(0, 0)" : "translate(150px, -120px)",
                                 }}
                             >
-                                {diagnostics[currentIndex] &&
-                                    diagnostics[currentIndex].therapies[0].name}
+                                {diagnostics[currentIndex] && diagnostics[currentIndex].therapies[0].name}
                             </div>
                         </div>
                         <div
@@ -183,13 +189,10 @@ function FivePillars() {
                                     transitionDuration: "200ms",
                                     opacity: isChanging ? 0 : 1,
                                     visible: isChanging ? "invisible" : "visible",
-                                    transform: isChanging
-                                        ? "translate(0, 0)"
-                                        : "translate(-150px, 100px)",
+                                    transform: isChanging ? "translate(0, 0)" : "translate(-150px, 100px)",
                                 }}
                             >
-                                {diagnostics[currentIndex] &&
-                                    diagnostics[currentIndex].therapies[1].name}
+                                {diagnostics[currentIndex] && diagnostics[currentIndex].therapies[1].name}
                             </div>
                         </div>
                     </div>
@@ -206,14 +209,7 @@ function FivePillars() {
                         {diagnostics.map((diagnostic, i) => {
                             return (
                                 <div key={i} className="px-1">
-                                    <div
-                                        className={
-                                            "h-2 w-2 " +
-                                            (i === currentIndex
-                                                ? "bg-ovalGreenDark"
-                                                : "bg-gray-500")
-                                        }
-                                    ></div>
+                                    <div className={"h-2 w-2 " + (i === currentIndex ? "bg-ovalGreenDark" : "bg-gray-500")}></div>
                                 </div>
                             );
                         })}
@@ -244,8 +240,7 @@ function FivePillars() {
                                 style={{
                                     transitionDuration: "200ms",
                                     opacity: i === currentIndex ? 1 : 0,
-                                    transform:
-                                        i === currentIndex ? "translateY(0)" : "translateY(10px)",
+                                    transform: i === currentIndex ? "translateY(0)" : "translateY(10px)",
                                 }}
                             ></div>
                         ))}
