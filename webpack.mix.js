@@ -39,8 +39,8 @@ mix
     host: "oval.bio.test",
     open: "external",
     https: {
-      key: "/Users/manas/.config/valet/Certificates/oval.bio.test.key",
-      cert: "/Users/manas/.config/valet/Certificates/oval.bio.test.crt",
+      key: "/Users/manaschimpidi/.config/valet/Certificates/oval.bio.test.key",
+      cert: "/Users/manaschimpidi/.config/valet/Certificates/oval.bio.test.crt",
     },
     files: ["**/*.php", "dist/*.css", "dist/*.js"],
   })
