@@ -313,3 +313,72 @@ body {
 
 // }
 // }
+
+#page .entry-title {
+    @apply mb-0;
+}
+
+.wpcf7-form {
+    @apply w-full;
+    @apply text-sm;
+
+    .wpcf7-form-control-wrap {
+        @apply block;
+
+        input,
+        textarea {
+            @apply mt-1 block;
+            @apply px-3 py-4 text-gray-700 relative bg-white rounded text-sm shadow outline-none w-full;
+
+            &:focus {
+                @apply outline-none shadow-outline;
+            }
+        }
+    }
+
+    .wpcf7-not-valid-tip {
+        @apply text-sm mt-2 block;
+    }
+
+    .wpcf7-submit {
+        // base styles
+        @apply relative;
+        @apply cursor-pointer;
+        @apply inline-block;
+        @apply overflow-hidden;
+        @apply select-none;
+        @apply border;
+        @apply text-center;
+
+        // button styles
+        @apply px-5 py-3;
+        @apply rounded;
+
+        // text styles
+        @apply leading-none;
+
+        @apply bg-ovalGreen border-ovalGreen;
+        color: $black;
+
+        // TODO: replace with a class for the future
+        & > .button-icon,
+        & > i {
+            transition-duration: 300ms;
+            transform: translateX(0);
+            @apply ml-1;
+        }
+
+        & > .button-icon,
+        &:hover {
+            & > i {
+                transform: translateX(3px);
+            }
+        }
+    }
+
+    .wpcf7-response-output {
+        @apply text-gray-900 px-6 py-4 text-base #{!important};
+        @apply rounded relative mb-4 bg-blue-300 #{!important};
+        @apply border-0 m-0 #{!important};
+    }
+}
