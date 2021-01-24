@@ -1,39 +1,15 @@
 <?php
-$boxes = [
-	[
-		"name" => "Our Products",
-		"description" => "Milestones",
-		"coming_soon" => false,
-	],
-	[
-		"name" => "Technology",
-		"description" => "Our Vision behind the pod",
-		"coming_soon" => false,
-	],
-	[
-		"name" => "Blog",
-		"description" => "News and education",
-		"coming_soon" => true,
-	],
-	[
-		"name" => "About Us",
-		"description" => "Our team and mission",
-		"coming_soon" => false,
-	],
-	[
-		"name" => "Events",
-		"description" => "Everything we do",
-		"coming_soon" => false,
-	],
-];
 
-$images = get_fake_images();
+$defaultsArr = [
+	"maxItems" => false,
+	"isAllProducts" => is_page("all_products")
+];
 
 $products = new WP_Query([
 	"post_type" => "product"
 ]);
 
-$isAllProducts =  is_page("all-products");
+wp_parse_args($args, $defaultsArr);
 ?>
 
 <?php $cats = get_terms('product_cat'); ?>
@@ -44,8 +20,8 @@ $isAllProducts =  is_page("all-products");
 			<h1 class="text-4xl mb-2">All Products</h1>
 			<p class="mb-2">Categories: </p>
 
-
 			<?php if ($products->have_posts()) : ?>
+				<!-- filters -->
 				<div class="filters">
 					<div class="filter filter-cat" data-filter="*">All</div>
 					<?php foreach ($cats as $key => $cat) : ?>
@@ -55,10 +31,10 @@ $isAllProducts =  is_page("all-products");
 					<?php endforeach; ?>
 				</div>
 
-
+				<!-- grid -->
 				<div class="filter-grid">
 					<?php $counter = 0;
-					while ($products->have_posts()) : $products->the_post(); ?>
+					while ($products->have_posts() && $counter < $args["maxItems"]) : $products->the_post(); ?>
 						<?php
 						$cat = get_the_terms(get_the_ID(), 'product_cat')[0];
 						set_query_var("currentIndex", $counter);
@@ -73,9 +49,25 @@ $isAllProducts =  is_page("all-products");
 				</div>
 			<?php else : ?>
 				<div class="py-24">
-					<h1 class="text-4xl mb-2">Hello</h1>
+					<h1 class="text-4xl mb-2">No Posts Available</h1>
 				</div>
 			<?php endif; ?>
+
+			<?php if ($args["maxItems"] < $products->post_count) : ?>
+				<div class="pt-10 pb-24 flex items-center justify-center">
+					<div class="text-base mr-3">
+						Check out the full list of our products on our product page.
+					</div>
+					<div class="button mr-2">
+						All Products
+						<i class="fas fa-shopping-bag ml-2"></i>
+					</div>
+					<div class="button">
+						See the Pod
+						<i class="fas fa-caret-right ml-2"></i>
+					</div>
+				</div>
+			<?php endif ?>
 		</div>
 	</div>
 </section>

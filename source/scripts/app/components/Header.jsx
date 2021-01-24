@@ -9,7 +9,7 @@ function Header({ menu, menuMobile }) {
     const [mobileOpen, setMobileOpen] = useState(false);
 
     const headerHeight = 60;
-    const bannerHeight = 45;
+    const bannerHeight = 30;
 
     const logoBox = useRef(null);
     const logoAnimation = useRef(null);
@@ -26,6 +26,29 @@ function Header({ menu, menuMobile }) {
 
     return (
         <>
+            {openBanner && (
+                <div
+                    id="header-banner"
+                    className="banner flex items-center bg-ovalGreen hover:bg-ovalGreenLight cursor-pointer  text-gray-800 top-0 py-3 text md:py-1 px-5 text-xs"
+                    style={{ height: bannerHeight }}
+                >
+                    <div className="container h-full mx-auto">
+                        <div className="flex h-full items-center">
+                            <span className="w-full truncate">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate sequi error reiciendis magnam eligendi,
+                                repudiandae dolor perspiciatis. Deserunt cum sequi veritatis labore cumque, modi qui.
+                            </span>
+                            <div
+                                id="close-header-banner"
+                                onClick={() => setOpenBanner(false)}
+                                className="close pl-2 text-gray-700 hover:text-gray-800"
+                            >
+                                <div className="fas fa-times-circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
             <header className="w-full z-50">
                 <div id="header-navbar" className="bg-gray-800 text-sm text-white py-3 md:py-2 px-5" style={{ height: headerHeight }}>
                     <div className="container-fluid h-full mx-auto">
@@ -96,29 +119,6 @@ function Header({ menu, menuMobile }) {
                         </div>
                     </div>
                 </div>
-                {openBanner && (
-                    <div
-                        id="header-banner"
-                        className="banner flex items-center bg-ovalGreen hover:bg-ovalGreenLight cursor-pointer text-sm text-gray-800 top-0 py-3 text md:py-2 px-5"
-                        style={{ height: bannerHeight }}
-                    >
-                        <div className="container h-full mx-auto">
-                            <div className="flex h-full items-center">
-                                <span className="w-full truncate">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate sequi error reiciendis magnam
-                                    eligendi, repudiandae dolor perspiciatis. Deserunt cum sequi veritatis labore cumque, modi qui.
-                                </span>
-                                <div
-                                    id="close-header-banner"
-                                    onClick={() => setOpenBanner(false)}
-                                    className="close pl-2 text-gray-700 hover:text-gray-800"
-                                >
-                                    <div className="fas fa-times-circle"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                )}
             </header>
             {/*<div*/}
             {/*    id="mobile-menu"*/}

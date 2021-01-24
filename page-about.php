@@ -83,7 +83,9 @@ $leftOver = 30 - count($peopleArr);
                 <?php endforeach ?>
                 <?php foreach (range(0, 6) as $n) : ?>
                     <div class="px-2 w-1/4 mb-5">
-                        <div class=" bg-gray-500 mb-1 rounded" style="padding-top: 140%"></div>
+                        <div class=" bg-gray-500 mb-1 rounded flex items-center justify-center relative" style="padding-top: 140%">
+                            <i class="fas fa-user-plus absolute block opacity-25 text-4xl" style="top:50%; left: 50%; transform: translate(-50%, -50%)"></i>
+                        </div>
                         <div class="text-lg mb-1">No Title</div>
                         <div class="label-text text-sm">No Name</div>
                     </div>

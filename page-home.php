@@ -1,17 +1,55 @@
 <?php get_header() ?>
-<div class="hero-banner py-0 md:py-5">
+<div class="hero-banner mt-5 py-12">
     <div class="container px-2 mx-auto">
-        <div class="px-10 md:px-24 py-32 w-full rounded-none md:rounded-md overflow-hidden relative bg-cover bg-center bg-no-repeat flex flex-wrap items-center justify-start" style="background-image:url(<?= get_fake_images()[24]->urls->full ?>)">
-            <div class="bg-black opacity-50 absolute top-0 left-0 h-full w-full"></div>
-            <div class="relative content max-w-sm">
-                <h1 class="text-4xl text-white font-light leading-tight mb-3">Buy now and invest in your future.</h1>
-                <p class="mb-8 text-lg text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Luctus a amet volutpat vel.</p>
-                <a class="button">All Products</a>
+        <div class="flex flex-wrap justify-center -mx-2">
+            <div class="w-full md:w-1/3 px-2 py-20">
+                <div class="relative content text-center md:text-left max-w-sm h-64 mx-auto">
+                    <h1 class="text-4xl font-light leading-tight mb-3">Buy now and invest in your future.</h1>
+                    <p class="mb-8 text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Luctus a amet volutpat vel.</p>
+                    <a class="button">All Products</a>
+                </div>
+            </div>
+            <div class="w-full md:w-2/3 px-2">
+                <div class="w-full rounded-none md:rounded overflow-hidden relative bg-cover bg-center bg-no-repeat flex flex-wrap items-center justify-start h-full bg-white shadow" style="min-height: 300px">
+                    <iframe width="100%" height="100%" src="https://miro.com/app/live-embed/o9J_lZgZqQU=/?moveToViewport=-1162,-375,1461,936" frameBorder="0" scrolling="no" allowFullScreen></iframe>
+                </div>
             </div>
         </div>
     </div>
 </div>
-<?php get_template_part('source/blocks/icons') ?>
+
+<div class="mb-10">
+    <div class="container px-2">
+        <div class="flex -mx-3">
+            <div class="w-full md:w-1/2 px-3">
+                <a href="<?php the_permalink() ?>" class="product-box block cursor-pointer relative" style="height: 300px">
+                    <div class="cover-image" style="background-image:url(<?= get_fake_images()[0]->urls->thumb; ?>)"></div>
+                    <div class="cover"></div>
+                    <div class="absolute content p-5 h-full w-full">
+                        <div class="title absolute">
+                            <div class="text-3xl md:text-3xl lg:text-4xl font-light text-white leading-snug">Manifesto</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="w-full md:w-1/2 px-3">
+                <a href="<?php the_permalink() ?>" class="product-box block cursor-pointer relative" style="height: 300px">
+                    <div class="cover-image" style="background-image:url(<?= get_fake_images()[0]->urls->thumb; ?>)"></div>
+                    <div class="cover"></div>
+                    <div class="absolute content p-5 h-full w-full">
+                        <div class="title absolute">
+                            <div class="text-3xl md:text-3xl lg:text-4xl font-light text-white leading-snug">Pod Page</div>
+                            <!-- <div class="meta text-xs lg:text-sm"><?= !empty($category) ? $category : get_the_terms(get_the_ID(), 'product_cat')[0]->name ?></div> -->
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php get_template_part('source/blocks/product-grid', null, ["maxItems" => 6]) ?>
+
 
 <?php
 $query_args = [
@@ -106,5 +144,5 @@ $all_posts = $query->posts;
         </div>
     </div>
 </div>
-<?php get_template_part('source/blocks/product-grid') ?>
+
 <?php get_footer() ?>
