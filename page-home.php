@@ -20,8 +20,8 @@
 
 <div class="mb-10">
     <div class="container px-2">
-        <div class="flex -mx-3">
-            <div class="w-full md:w-1/2 px-3">
+        <div class="flex -mx-1">
+            <div class="w-full md:w-1/2 px-1">
                 <a href="<?php the_permalink() ?>" class="product-box block cursor-pointer relative" style="height: 300px">
                     <div class="cover-image" style="background-image:url(<?= get_fake_images()[0]->urls->thumb; ?>)"></div>
                     <div class="cover"></div>
@@ -32,7 +32,7 @@
                     </div>
                 </a>
             </div>
-            <div class="w-full md:w-1/2 px-3">
+            <div class="w-full md:w-1/2 px-1">
                 <a href="<?php the_permalink() ?>" class="product-box block cursor-pointer relative" style="height: 300px">
                     <div class="cover-image" style="background-image:url(<?= get_fake_images()[0]->urls->thumb; ?>)"></div>
                     <div class="cover"></div>
