@@ -1,87 +1,134 @@
 .product-box {
-  overflow: hidden;
-  @apply border rounded overflow-hidden;
+    overflow: hidden;
 
-  .cover-image {
-    transition-duration: 300ms;
-    background: center center/cover no-repeat;
+    @apply border rounded overflow-hidden;
 
-    @apply absolute h-full w-full top-0 left-0;
-  }
-
-  .cover {
-    transition-duration: 300ms;
-    background: rgba(0, 0, 0, 0.41);
-
-    @apply absolute w-full h-full top-0 left-0 right-0 bottom-0;
-  }
-
-  .title {
-    transition-duration: 300ms;
-    bottom: theme("spacing.5");
-    left: theme("spacing.5");
-  }
-
-  .meta {
-    font-style: normal;
-    font-weight: bold;
-    line-height: 143%;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #77e0a1;
-  }
-
-  &:hover {
     .cover-image {
-      transform: scale(1.05);
+        transition-duration: 300ms;
+        background: center center/cover no-repeat;
+
+        @apply absolute h-full w-full top-0 left-0;
     }
 
     .cover {
-      background: rgba(0, 0, 0, 0.675);
+        transition-duration: 300ms;
+        background: rgba(0, 0, 0, 0.41);
+
+        @apply absolute w-full h-full top-0 left-0 right-0 bottom-0;
     }
 
     .title {
-      bottom: theme("spacing.6");
+        transition-duration: 300ms;
+        bottom: theme("spacing.5");
+        left: theme("spacing.5");
     }
-  }
+
+    .meta {
+        font-style: normal;
+        font-weight: bold;
+        line-height: 143%;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #77e0a1;
+    }
+
+    &:hover {
+        .cover-image {
+            transform: scale(1.05);
+        }
+
+        .cover {
+            background: rgba(0, 0, 0, 0.675);
+        }
+
+        .title {
+            bottom: theme("spacing.6");
+        }
+    }
 }
 
 // product box heights
 
 .product-box {
-  &::after {
-    content: "";
-
-    @apply h-64;
-    @apply block;
-
-    @screen md {
-      @apply h-64;
-    }
-
-    @screen xl {
-      @apply h-64;
-    }
-  }
-}
-.filter-grid-feature {
-  .product-box {
     &::after {
-      content: "";
+        content: "";
 
-      @apply block;
+        @apply block;
 
-      // @apply h-64;
-
-      // @screen md {
-      //   height: calc((theme("spacing.64") + theme("spacing.px")) * 2);
-      // }
-
-      // @screen xl {
-      //   height: calc((theme("spacing.64") + theme("spacing.px")) * 2);
-      // }
+        padding-top: 75%;
     }
-  }
+}
+
+.filter-grid-feature {
+    .product-box {
+        &::after {
+            content: "";
+
+            @apply block;
+
+            // @apply h-64;
+
+            // @screen md {
+            //   height: calc((theme("spacing.64") + theme("spacing.px")) * 2);
+            // }
+
+            // @screen xl {
+            //   height: calc((theme("spacing.64") + theme("spacing.px")) * 2);
+            // }
+        }
+    }
+}
+
+.m-a-box-container {
+    @apply shadow-none border-none #{!important};
+    @apply mx-0 mt-8 #{!important};
+
+    .m-a-box-tab {
+        @apply flex flex-row p-0 #{!important};
+        @apply justify-start #{!important};
+        @apply bg-transparent #{!important};
+        @apply mx-0 #{!important};
+
+        .m-a-box-profile-multiauthor {
+            @apply flex-none w-auto #{!important};
+            @apply mr-5 mb-2 #{!important};
+        }
+
+        .m-a-box-content-top,
+        .m-a-box-content-bottom {
+            @apply hidden;
+        }
+
+        .m-a-box-content-middle {
+            @apply flex flex-wrap items-center #{!important};
+
+            .m-a-box-item {
+                @apply h-auto #{!important};
+
+                .m-a-box-bio,
+                .m-a-box-related {
+                    @apply hidden #{!important};
+                }
+            }
+        }
+
+        .m-a-box-title .molongui-font-size-22-px {
+            @apply text-base #{!important};
+        }
+
+        .m-a-box-meta {
+            @apply text-sm mt-1 #{!important};
+        }
+
+        .m-a-box-avatar {
+            @apply rounded-full overflow-hidden #{!important};
+            @apply p-0 mr-2 #{!important};
+
+            img {
+                @apply h-12 w-12;
+            }
+        }
+    }
 }

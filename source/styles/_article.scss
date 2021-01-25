@@ -86,9 +86,24 @@
         @apply list-inside;
     }
 
-    img {
+    .wp-block-image {
         @apply w-full my-20;
+
+        img {
+            @apply border rounded;
+            @apply w-full;
+        }
+
+        figcaption {
+            @apply text-sm italic;
+            @apply mt-2;
+        }
     }
+}
+
+// author plugin
+.m-a-box-tab .m-a-box-content .m-a-box-profile {
+    @apply shadow-none;
 }
 
 .entry-footer {

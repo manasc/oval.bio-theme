@@ -46,21 +46,7 @@ $all_posts = $all_blogs->posts;
                                 <div class="image absolute w-full h-full top-0 left-0 bg-cover bg-center bg-no-repeat bg-gray-200 nmr-lazyload" data-bg="<?= get_the_post_thumbnail_url($all_posts[$z]->ID, "shop_single") ?>"></div>
                                 <div class="main-everything absolute flex flex-col justify-end top-0 left-0 w-full h-full" style="background-color: rgba(0,0,0,0.5)">
                                     <div class="p-4">
-                                        <!-- <div class="label label-blue inline-block md:hidden"><span class="label-text"><?= get_the_category($all_posts[$z]->ID)[0]->name ?></span></div> -->
                                         <div class="main-title title text-base leading-tight text-white mb-2"><?= $all_posts[$z]->post_title ?></div>
-                                        <div class="flex flex-wrap mb-2 main-labels">
-                                            <!-- <?php
-                                                    $tags = get_the_tags($all_posts[$z]->ID);
-                                                    ?>
-                                            <?php if (!empty($tags)) : ?>
-                                                <?php foreach ($tags as $key => $post_tag) : ?>
-                                                    <?php if ($key < 3) : ?>
-                                                        <div class="main-label label label-blue mr-2" style="transition-delay: <?= $key * 100 ?>ms"><span class="label-text"><?= $post_tag->name ?></span></div>
-                                                    <?php endif; ?>
-                                                <?php endforeach; ?>
-                                            <?php endif; ?> -->
-                                        </div>
-
                                         <div class="meta text-xs font-bold uppercase tracking-wider text-ovalGreen"><?= date('M j', strtotime($all_posts[$z]->post_date)) ?></div>
                                     </div>
                                 </div>

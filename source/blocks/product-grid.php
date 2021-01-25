@@ -1,7 +1,7 @@
 <?php
 
 $defaultsArr = [
-	"maxItems" => false,
+	"maxItems" => 100,
 	"isAllProducts" => is_page("all_products")
 ];
 
@@ -9,10 +9,8 @@ $products = new WP_Query([
 	"post_type" => "product"
 ]);
 
-wp_parse_args($args, $defaultsArr);
-?>
-
-<?php $cats = get_terms('product_cat'); ?>
+$args = wp_parse_args($args, $defaultsArr);
+$cats = get_terms('product_cat'); ?>
 
 <section class="py-10">
 	<div class="filter-box container">
@@ -53,19 +51,19 @@ wp_parse_args($args, $defaultsArr);
 				</div>
 			<?php endif; ?>
 
-			<?php if ($args["maxItems"] < $products->post_count) : ?>
+			<?php if ($args["maxItems"] && $args["maxItems"] < $products->post_count) : ?>
 				<div class="pt-10 pb-24 flex items-center justify-center">
 					<div class="text-base mr-3">
 						Check out the full list of our products on our product page.
 					</div>
-					<div class="button mr-2">
+					<a href="<?php echo get_permalink(get_page_by_path("all-products")) ?>" class="button mr-2">
 						All Products
 						<i class="fas fa-shopping-bag ml-2"></i>
-					</div>
-					<div class="button">
+					</a>
+					<a class="button">
 						See the Pod
 						<i class="fas fa-caret-right ml-2"></i>
-					</div>
+					</a>
 				</div>
 			<?php endif ?>
 		</div>

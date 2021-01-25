@@ -4,3 +4,5 @@
 </div> -->
 
 <?php get_template_part('source/blocks/product-grid', NULL) ?>
+
+<?php get_footer() ?>

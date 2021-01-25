@@ -14,7 +14,7 @@
 
 <?php $footer_images = get_fake_images() ?>
 
-<?php if (!is_page('all-blogs')) : ?>
+<?php if (!is_page('all-blogs') AND !is_front_page() AND !is_home()) : ?>
     <div class="bg-gray-800">
         <div class="container px-5 mx-auto">
             <div class="py-24 w-full relative">
@@ -93,7 +93,7 @@
 </div>
 
 <footer class="bg-gray-900 text-white">
-    <div class="container px-5 mx-auto">
+    <!-- <div class="container px-5 mx-auto">
         <div class="flex flex-wrap -mx-5 py-10">
             <div class="w-full lg:w-2/6 px-5">
                 <?= get_logo() ?>
@@ -132,16 +132,20 @@
                 </ul>
             </div>
         </div>
-    </div>
-    <div class="container px-5 py-5 border-t border-gray-700 mx-auto flex flex-wrap">
-        <div class="w-full md:w-1/2 text-center md:text-left">
-            <i class="fas fa-copyright mr-1"></i> <?= date('Y') ?>. All rights reserved.
-        </div>
-        <div class="w-full md:w-1/2 text-center md:text-right mt-10 md:mt-0">
-            <a class="mr-2 text-gray-500 hover:text-gray-100" href=""><i class="fab fa-facebook"></i></a>
-            <a class="mr-2 text-gray-500 hover:text-gray-100" href=""><i class="fab fa-twitter"></i></a>
-            <a class="mr-2 text-gray-500 hover:text-gray-100" href=""><i class="fab fa-medium"></i></a>
-            <a class="mr-2 text-gray-500 hover:text-gray-100" href=""><i class="fab fa-instagram"></i></a>
+    </div> -->
+    <hr class="w-full bg-white">
+    <div class="container px-5 py-5 border-t border-gray-700 mx-auto">
+        <div class="flex flex-wrap items-center -mx-3">
+            <div class="px-3 flex-none"><?= get_logo() ?></div>
+            <div class="px-3 flex-1 text-center md:text-left">
+                <i class="fas fa-copyright mr-1"></i> <?= date('Y') ?>. All rights reserved.
+            </div>
+            <div class="px-3 flex-1 text-center md:text-right mt-10 md:mt-0">
+                <a class="mr-2 text-gray-500 hover:text-gray-100" href=""><i class="fab fa-facebook"></i></a>
+                <a class="mr-2 text-gray-500 hover:text-gray-100" href=""><i class="fab fa-twitter"></i></a>
+                <a class="mr-2 text-gray-500 hover:text-gray-100" href=""><i class="fab fa-medium"></i></a>
+                <a class="mr-2 text-gray-500 hover:text-gray-100" href=""><i class="fab fa-instagram"></i></a>
+            </div>
         </div>
     </div>
 </footer>

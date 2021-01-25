@@ -18,32 +18,35 @@
     </div>
 </div>
 
+<?php
+$quickLinks = [
+    [
+        "name" => "Manifesto",
+        "image" => get_fake_images()[0]->urls->thumb
+    ],
+    [
+        "name" => "Pod Page",
+        "image" => get_fake_images()[2]->urls->thumb
+    ],
+]
+?>
+
 <div class="mb-10">
     <div class="container px-2">
-        <div class="flex -mx-1">
-            <div class="w-full md:w-1/2 px-1">
-                <a href="<?php the_permalink() ?>" class="product-box block cursor-pointer relative" style="height: 300px">
-                    <div class="cover-image" style="background-image:url(<?= get_fake_images()[0]->urls->thumb; ?>)"></div>
-                    <div class="cover"></div>
-                    <div class="absolute content p-5 h-full w-full">
-                        <div class="title absolute">
-                            <div class="text-3xl md:text-3xl lg:text-4xl font-light text-white leading-snug">Manifesto</div>
+        <div class="flex -mx-px">
+            <?php foreach ($quickLinks as $i => $link) : ?>
+                <div class="w-full md:w-1/2 px-px">
+                    <a href="<?php the_permalink() ?>" class="product-box block cursor-pointer relative">
+                        <div class="cover-image" style="background-image:url(<?php echo $link["image"] ?>)"></div>
+                        <div class="cover"></div>
+                        <div class="absolute content p-5 h-full w-full">
+                            <div class="absolute" style="top: 50%; left: 50%; transform: translate(-50%, -50%)">
+                                <div class="text-5xl font-light text-white leading-snug"><?php echo $link["name"] ?></div>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
-            <div class="w-full md:w-1/2 px-1">
-                <a href="<?php the_permalink() ?>" class="product-box block cursor-pointer relative" style="height: 300px">
-                    <div class="cover-image" style="background-image:url(<?= get_fake_images()[0]->urls->thumb; ?>)"></div>
-                    <div class="cover"></div>
-                    <div class="absolute content p-5 h-full w-full">
-                        <div class="title absolute">
-                            <div class="text-3xl md:text-3xl lg:text-4xl font-light text-white leading-snug">Pod Page</div>
-                            <!-- <div class="meta text-xs lg:text-sm"><?= !empty($category) ? $category : get_the_terms(get_the_ID(), 'product_cat')[0]->name ?></div> -->
-                        </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
+            <?php endforeach ?>
         </div>
     </div>
 </div>
@@ -62,7 +65,7 @@ $query = new WP_Query($query_args);
 $all_posts = $query->posts;
 ?>
 
-<div>
+<div class="py-10">
     <div class="container px-2 mx-auto">
         <h1 class="text-4xl mb-8">Blog News</h1>
         <div class="pb-10 relative">
