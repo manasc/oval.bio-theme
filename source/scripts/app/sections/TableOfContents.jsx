@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-scroll";
 
 const TableOfContents = ({ title, description, links = [] }) => (
-    <section className="min-h-full py-10 px-5 flex items-center justify-center">
+    <section className="min-h-screen py-10 px-5 flex items-center justify-center">
         <div className="w-full h-auto max-w-5xl flex flex-wrap md:flex-no-wrap justify-center md:-mx-4">
             <div className="w-full md:w-1/2 mb-10 md:px-4">
                 <div className="text-3xl md:text-4xl">{title}</div>

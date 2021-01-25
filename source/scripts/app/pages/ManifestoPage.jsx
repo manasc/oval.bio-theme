@@ -30,16 +30,18 @@ const sections = [
         slug: "table-of-contents",
         component: (props) => <TableOfContents {...props} />,
         props: () => {
-            let arr = {
+            return {
                 title: "Table of Contents",
                 description:
-                    "Ad totam voluptatibus facere voluptatem voluptas. Voluptatum quod quia qui qui repellat sed. Architecto impedit quisquam qui dolores repellendus consectetur. Quis nemo hic officia doloremque. Distinctio quia neque modi. Rerum perferendis ipsa similique beatae et et quas. Pariatur consectetur repudiandae quis nostrum. Sequi repellat qui doloribus molestias possimus adipisci. Laboriosam eius nihil ut sit assumenda placeat facere id. Iure maxime ut quam alias nostrum quisquam molestiae. Id esse aliquid natus at doloribus ducimus. Asperiores ad minus numquam et qui praesentium quos facere vel. Beatae eum dolores eos alias. Ullam qui ut ipsam minima accusamus. Culpa dicta quis porro voluptas quia praesentium quia. Dolorum voluptas esse repellat eos dolorem.",
-                links: [],
+                    "We are making life extension technologies attainable for all with the self awareness to want them – People fear as technology advances and life extension becomes a real thing, that only the rich or privileged will be able to utilize it, the Jeff Bezos, or Nicole Kidman, or Kevin Durant. We are dedicated to focusing our efforts on not letting that happen, we want our hairstylist, mechanic, Costco greeter and others to have the same access. We will do this by developing our own and implementing others life extension technologies, in the most replicable way possible. So someone in Dhaka, Kiev, Shanghai or Buenos Aires can both see how we built and tested our technology but also to contribute to the movement. Below we outline how we will achieve this.",
+                links: [
+                    ...sections.map((section) => ({ name: section.title, link: section.slug })),
+                    {
+                        name: "Other Information",
+                        link: "other-information",
+                    },
+                ],
             };
-
-            sections.forEach((section) => arr.links.push({ name: section.title, link: section.slug }));
-
-            return arr;
         },
     },
     {
@@ -57,19 +59,19 @@ const sections = [
         props: () => {},
     },
     {
-        id: 92778,
-        title: "5 Pillars",
-        slug: "five-pillars",
-        component: (props) => <FivePillars {...props} />,
-        props: () => {},
-    },
-    {
         id: 29252,
         title: "Built for Change",
         slug: "built-for-change",
         component: (props) => <BuiltForChange {...props} />,
         props: () => {},
     },
+    // {
+    //     id: 92778,
+    //     title: "5 Pillars",
+    //     slug: "five-pillars",
+    //     component: (props) => <FivePillars {...props} />,
+    //     props: () => {},
+    // },
     {
         id: 69447,
         title: "What is the pod?",
@@ -104,9 +106,15 @@ function ManifestoPage() {
     return (
         <div className="w-full">
             <AnchorLinksNav
-                sections={sections.map(({ title, slug }) => {
-                    return { title, slug };
-                })}
+                sections={[
+                    ...sections.map(({ title, slug }) => {
+                        return { title, slug };
+                    }),
+                    {
+                        title: "Other Information",
+                        slug: "other-information",
+                    },
+                ]}
             />
             {sections.length > 0 &&
                 sections.map((section) => (

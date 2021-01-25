@@ -14,13 +14,13 @@
 
 <?php $footer_images = get_fake_images() ?>
 
-<?php if (!is_page('all-blogs') AND !is_front_page() AND !is_home()) : ?>
-    <div class="bg-gray-800">
+<?php if (!is_page('all-blogs') and !is_front_page() and !is_home()) : ?>
+    <!-- <div class="bg-gray-800">
         <div class="container px-5 mx-auto">
             <div class="py-24 w-full relative">
                 <div class="mb-10 max-w-lg">
                     <h1 class="text-4xl text-ovalGreen leading-tight font-light ">Lorem ipsum dolor sit amet.</h1>
-                    <!-- <h5 class="text-base text-gray-200">Quibusdam minus voluptates dignissimos, labore eum recusandae. Molestias iusto, magni minus non reprehenderit sint eius in inventore, cumque quos similique atque sunt!</h5> -->
+                    <h5 class="text-base text-gray-200">Quibusdam minus voluptates dignissimos, labore eum recusandae. Molestias iusto, magni minus non reprehenderit sint eius in inventore, cumque quos similique atque sunt!</h5>
                 </div>
                 <div class="blog-items flex flex-wrap -mx-2">
                     <div class="blog-item cursor-pointer mb-5 md:mb-0 w-full md:w-1/4 px-2 flex flex-wrap items-center">
@@ -70,7 +70,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 <?php endif; ?>
 
 <div class="bg-ovalGreen">

@@ -112,8 +112,11 @@ function BuiltForChange() {
                     <div className="flex-1 p-10 overflow-y-scroll">
                         <div className="text-3xl mb-5">Built for change.</div>
                         <p className="text-sm mb-5">
-                            The NASA Apollo program is our role model. Most people associate the Apollo program with the Apollo 11 mission,
-                            which landed the first humans on the moon, and brought them back safely.
+                            The NASA Apollo program is our role model. There are two ways we see ourselves following NASA. Most people
+                            associate the Apollo program with the Apollo 11 mission, which landed the first humans on the moon, and brought
+                            them back safely. This was only the visible result of what they accomplished and set out to do, NASA during the
+                            Apollo era was much more than this. Similarly At oval.bio, we want people to associate life extension pods with
+                            us, while being much more than that.
                         </p>
                         <p className="text-sm mb-2">The Apollo program had the following goals:</p>
                         <ol className="text-sm mb-10 list-decimal pl-4">
@@ -138,8 +141,11 @@ function BuiltForChange() {
                         </ol>
                         <div className="bg-ovalGreen flex-none p-10">
                             <p>
-                                Just as NASA used the mission of getting humans to the moon and returning them as their core, we have our
-                                mission. NASA used the Saturn rockets as the main vehicle to achieve that, our rocket equivalent is the pod.
+                                There is a term – <strong>NASA spinoff technologies</strong>, these are products and services commercialized
+                                that utilize something developed at or for NASA. Though we are many orders of magnitude smaller right now
+                                and our products nor us have had anywhere as much impact on society, we have also developed multiple
+                                technologies, products and even business models in our pursuit of making the life extension pod a reality
+                                while staying true to our mission.
                             </p>
                         </div>
                     </div>
