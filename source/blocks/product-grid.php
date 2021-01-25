@@ -60,7 +60,7 @@ $cats = get_terms('product_cat'); ?>
 						All Products
 						<i class="fas fa-shopping-bag ml-2"></i>
 					</a>
-					<a class="button">
+					<a href="<?php echo get_permalink(get_page_by_path("pod")) ?>"class="button">
 						See the Pod
 						<i class="fas fa-caret-right ml-2"></i>
 					</a>

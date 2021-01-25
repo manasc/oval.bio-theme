@@ -22,11 +22,13 @@
 $quickLinks = [
     [
         "name" => "Manifesto",
-        "image" => get_fake_images()[0]->urls->thumb
+        "image" => get_fake_images()[0]->urls->thumb,
+        "url" => get_permalink(get_page_by_path("manifesto"))
     ],
     [
         "name" => "Pod Page",
-        "image" => get_fake_images()[2]->urls->thumb
+        "image" => get_fake_images()[2]->urls->thumb,
+        "url" => get_permalink(get_page_by_path("pod"))
     ],
 ]
 ?>
@@ -36,7 +38,7 @@ $quickLinks = [
         <div class="flex -mx-px">
             <?php foreach ($quickLinks as $i => $link) : ?>
                 <div class="w-full md:w-1/2 px-px">
-                    <a href="<?php the_permalink() ?>" class="product-box block cursor-pointer relative">
+                    <a href="<?php echo $link["url"] ?>" class="product-box block cursor-pointer relative">
                         <div class="cover-image" style="background-image:url(<?php echo $link["image"] ?>)"></div>
                         <div class="cover"></div>
                         <div class="absolute content p-5 h-full w-full">
