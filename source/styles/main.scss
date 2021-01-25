@@ -382,3 +382,7 @@ body {
         @apply border-0 m-0 #{!important};
     }
 }
+
+body {
+    @apply bg-white #{!important};
+}

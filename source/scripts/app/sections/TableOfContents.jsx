@@ -14,7 +14,7 @@ const TableOfContents = ({ title, description, links = [] }) => (
                         links.map((link) => (
                             <li className="mb-1 " key={link.name}>
                                 <Link
-                                    className="block py-1 mb-2 text-xl border-t cursor-pointer text-gray-600 hover:text-gray-900 hover:border-gray-700"
+                                    className="block py-1 mb-2 text-lg border-t cursor-pointer text-gray-600 hover:text-gray-900 hover:border-gray-700"
                                     to={link.link}
                                     spy={true}
                                     smooth={true}
