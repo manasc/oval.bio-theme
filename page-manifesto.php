@@ -10,7 +10,6 @@
             distributed to buyers oval.bio products and services to be the external shares.
         </p>
         <p class="wp-block">Shares are only given away by oval.bio and do not carry any value.</p>
-
         <p class="wp-block">
             Internal shares are meant to be given to workers and contributors. External shares are given to anyone who buys
             product, however no individual or entity can either directly or indirectly control more than 1% of these shares.

@@ -36,6 +36,12 @@ function my_acf_init_block_types()
 
         $gBlocks = [
 
+            [
+                'name' => 'team-grid',
+                "title"  => "Team Grid",
+                "keywords" =>  "about,team,grid"
+            ],
+
             // pod page blocks 
             [
                 'name'              => 'therapeutic',
