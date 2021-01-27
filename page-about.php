@@ -46,7 +46,7 @@ get_header();
                         <p>Join us in our pursuit of the future.</p>
                     </div>
                     <div class="cta flex-none mt-3 md:mt-0 px-4">
-                        <a href={article.link} class="button">
+                        <a href="<?php echo get_permalink(get_page_by_path("contact-us")) ?>" class="button">
                             Contact Us
                             <i class="button-icon fas fa-paper-plane ml-2"></i>
                         </a>
