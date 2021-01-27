@@ -19,14 +19,14 @@ get_header();
 <main id="primary" class="site-main">
 
     <?php
-        $header = get_field('header');
-        $title = $header['title'] ?: 'Meet the team.';
-        $introduction = $header['introduction'] ?: 'Breaking preconceived notions of what capitalism and free market economics are in the pursuit of providing extensive transparent access to functional life extension technology';
-        $metaText = $header['metaText'] ?: 'Our Mission';
+    $header = get_field('header');
+    $title = $header['title'] ?: 'Meet the team.';
+    $introduction = $header['introduction'] ?: 'Breaking preconceived notions of what capitalism and free market economics are in the pursuit of providing extensive transparent access to functional life extension technology';
+    $metaText = $header['meta'] ?: 'Our Mission';
 
-        // repeater
-        $profiles = get_field('profiles');
-        $leftOver = 30 - count($profiles);
+    // repeater
+    $profiles = get_field('profiles');
+    $leftOver = 30 - count($profiles);
     ?>
 
     <div class="pt-20 pb-32 bg-gray-400">
@@ -65,12 +65,12 @@ get_header();
                         </div>
                     <?php endforeach ?>
                     <?php foreach (range(0, 6) as $n) : ?>
-                        <div class="px-2 w-1/4 mb-5">
+                        <div class="px-2 w-full md:w-1/3 lg:w-1/4 mb-5">
                             <div class=" bg-gray-500 mb-1 rounded flex items-center justify-center relative" style="padding-top: 140%">
                                 <i class="fas fa-user-plus absolute block opacity-25 text-4xl" style="top:50%; left: 50%; transform: translate(-50%, -50%)"></i>
                             </div>
-                            <div class="text-lg mb-1">No Title</div>
-                            <div class="label-text text-sm">No Name</div>
+                            <div class="text-lg mb-1 w-40 bg-gray-200" style="height: 25px"></div>
+                            <div class="label-text text-sm w-40 bg-gray-200" style="height: 12px"></div>
                         </div>
                     <?php endforeach ?>
                 </div>
