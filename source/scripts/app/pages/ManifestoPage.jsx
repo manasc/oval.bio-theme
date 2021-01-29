@@ -3,6 +3,7 @@ import React, { useState } from "react";
 // section
 import MiroBoardSection from "../sections/MiroBoardSection";
 import BuiltForChange from "../sections/BuiltForChange";
+import SpinoffTechnologies from "../sections/SpinoffTechnologies";
 import FivePillars from "../sections/FivePillars";
 import PodIntro from "../sections/PodIntro";
 import MoreThanOval from "../sections/MoreThanOval";
@@ -65,6 +66,13 @@ const sections = [
         component: (props) => <BuiltForChange {...props} />,
         props: () => {},
     },
+    {
+        id: 29252,
+        title: "Spinoff Technologies",
+        slug: "spinoff-technologies",
+        component: (props) => <SpinoffTechnologies {...props} />,
+        props: () => {},
+    },
     // {
     //     id: 92778,
     //     title: "5 Pillars",
@@ -118,7 +126,7 @@ function ManifestoPage() {
             />
             {sections.length > 0 &&
                 sections.map((section) => (
-                    <Element key={section.id} className="min-h-full" name={section.slug}>
+                    <Element key={section.slug} className="min-h-full" name={section.slug}>
                         <LazyLoad once>{section.component(section.props())}</LazyLoad>
                     </Element>
                 ))}
