@@ -147,7 +147,7 @@ function MiroBoardSection() {
                 <div className="flex-none">
                     <div className="container flex py-5 items-center flex-wrap">
                         <div className="flex-1 flex items-center">
-                            <div className="w-full max-w-xl p-8">
+                            <div className="w-full max-w-xl">
                                 <div className="text-3xl">Why should people care?</div>
                                 <p>
                                     We are making life extension technologies attainable for all who want them. People may fear that as
