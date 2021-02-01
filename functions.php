@@ -408,3 +408,11 @@ function nmr_posts_access_limit($query)
 }
 
 add_filter('pre_get_posts', 'nmr_posts_access_limit');
+
+// create nonce
+$nonceId = wp_create_nonce("wc_store_api");
+function getNonceID()
+{
+    global $nonceId;
+    return $nonceId;
+}

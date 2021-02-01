@@ -47,7 +47,7 @@ $productMeta = $client->get("/wp-json/acf/v3/product/" . $product->id, ['verify'
 <!-- <?php while (have_posts()) : ?> -->
 <!-- <?php the_post();  ?> -->
 
-<div id="product-page" data-product-id='<?php echo $product->id ?>' data-product-data='<?php echo esc_html($productData->getBody()->getContents()) ?>' data-product-meta='<?php echo esc_html($productMeta->getBody()->getContents()) ?>' data-nonce-id="<?php echo wp_create_nonce('wc_store_api') ?>"></div>
+<div id="product-page" data-product-id='<?php echo $product->id ?>' data-product-data='<?php echo esc_html($productData->getBody()->getContents()) ?>' data-product-meta='<?php echo esc_html($productMeta->getBody()->getContents()) ?>' data-nonce-id="<?php echo getNonceID() ?>"></div>
 <!-- <?php endwhile; ?>  -->
 
 
