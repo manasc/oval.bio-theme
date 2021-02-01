@@ -65,10 +65,8 @@
 // pack selectors
 .pack-options {
     @apply flex flex-wrap;
-    
 
     .pack-option {
-        
         @apply w-16;
         @apply text-gray-400;
         @apply flex flex-col items-center justify-start;
@@ -258,5 +256,29 @@ label {
         transform: translateY(10px);
         @apply opacity-100;
         @apply visible;
+    }
+}
+
+.woocommerce-additional-fields,
+.woocommerce-billing-fields,
+.woocommerce-billing-fields {
+    input,
+    select,
+    .input-text,
+    .select2-selection,
+    textarea {
+        @apply w-full h-auto pl-4 pr-6 py-3 text-base border rounded-lg appearance-none #{!important};
+    }
+
+    .select2-selection {
+
+        .select2-selection__rendered {
+            @apply p-0 h-auto #{!important};
+            line-height: normal !important;
+        }
+
+        .select2-selection__arrow {
+        }
+
     }
 }

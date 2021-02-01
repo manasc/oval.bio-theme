@@ -22,9 +22,9 @@ const packSizes = [
 function VariantSelector({ attributes, onChange }) {
     const [chosenOption, setChosenOption] = useState(attributes.terms[0].slug);
 
-    useEffect(() => {
-        onChange(chosenOption);
-    }, [chosenOption]);
+    // useEffect(() => {
+    //     onChange(chosenOption);
+    // }, [chosenOption]);
 
     // name, terms, has_variations
 
@@ -32,8 +32,14 @@ function VariantSelector({ attributes, onChange }) {
         "Pack Size": (
             <div className="pack-options">
                 {attributes.terms.map(({ name, slug }, i) => (
-                    <label key={i} className={"pack-option mr-4"} onClick={() => setChosenOption(slug)}>
-                        <input onChange={onChange} name={attributes.name} type="radio" value={slug} checked={slug === chosenOption} />
+                    <label key={i} className={"pack-option mr-4"}>
+                        <input
+                            name={attributes.name}
+                            type="radio"
+                            value={slug}
+                            checked={slug === chosenOption}
+                            onChange={() => setChosenOption(slug)}
+                        />
                         <div className="pack-option-box">
                             <div className="pack-option-number">{name}</div>
                         </div>
@@ -44,14 +50,14 @@ function VariantSelector({ attributes, onChange }) {
         Color: (
             <div className="flex -mx-1">
                 {attributes.terms.map(({ name, slug }, i) => (
-                    <label key={i} className="px-1 cursor-pointer" onClick={() => setChosenOption(name)} style={{ marginRight: 0 }}>
+                    <label key={i} className="px-1 cursor-pointer" style={{ marginRight: 0 }}>
                         <input
                             type="radio"
-                            onChange={onChange}
                             name={attributes.name}
                             value={name}
                             className="hidden"
                             checked={name === chosenOption}
+                            onChange={() => setChosenOption(name)}
                         />
                         <div
                             className={
@@ -113,7 +119,7 @@ function ProductSection({ productId, productData, nonceId }) {
 
     const getVariantID = (formInputs, fieldKeys, variations) => {
         // loop through variants
-        console.log(formInputs, fieldKeys, variations);
+        // console.log(formInputs, fieldKeys, variations);
 
         // create object
         const currentVariant = [];
@@ -124,34 +130,28 @@ function ProductSection({ productId, productData, nonceId }) {
                 value: formInputs[f].value,
             })
         );
-        
+
         // formInputs
         const variant = variations.find((v) => JSON.stringify(v.attributes) === JSON.stringify(currentVariant));
+
+        console.log(variations, variant);
 
         return variant;
     };
 
     const addProduct = (e) => {
         e.preventDefault();
-        console.log(productData.has_variations);
+
+        console.log(productData);
 
         const fieldKeys = productData.attributes.map((attr) => attr.name);
         const variant = getVariantID(document.forms.productSection.elements, fieldKeys, productData.variations);
 
         // console.log(variantId);
-        let data;
-
-        if (productData.has_options) {
-            data = {
-                variation: variant.attributes,
-                quantity: 10,
-            };
-        } else {
-            data = {
-                id: productId,
-                quantity: 10,
-            };
-        }
+        let data = {
+            id: variant.id,
+            quantity: 1,
+        };
 
         axios({
             method: "post",
@@ -162,7 +162,7 @@ function ProductSection({ productId, productData, nonceId }) {
             },
         })
             .then((res) => {
-                console.log(res);
+                // console.log(res);
                 setShowAlert(true);
                 setAddItemStatus("success");
                 setAlertText(productData.name + " has been added to your cart!");
@@ -284,7 +284,7 @@ function ProductSection({ productId, productData, nonceId }) {
                                     ))}
                             </div>
                             {productData.attributes.map((attribute, i) => (
-                                <VariantSelector key={i} attributes={attribute} onChange={(e) => console.log(e)} />
+                                <VariantSelector key={i} attributes={attribute} />
                             ))}
                             <div className="options my-10">
                                 <div className="font-bold text-xs tracking-wider uppercase text-gray-800 mb-2">Subscription</div>
