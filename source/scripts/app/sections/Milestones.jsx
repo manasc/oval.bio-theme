@@ -40,7 +40,7 @@ function VideoSection() {
                     <div className="px-5">
                         <h2 className="text-3xl mb-10">Other Information</h2>
                     </div>
-                    <div className="entry-content" style={{ margin: 0 }}>
+                    <div className="entry-content m-0">
                         <h4 className="text-2xl mb-4 italic text-ovalGreenDark">Legal & Money</h4>
                         <p className="wp-block">
                             Shares are split into 2 groups (all exactly the same), 1 group of 50% of the shares (500,000,000) is controlled
@@ -79,7 +79,7 @@ function VideoSection() {
                             cryptoshares will start once we achieve $500k in sales.
                         </p>
                     </div>
-                    <div className="entry-content mt-10">
+                    <div className="entry-content m-0">
                         <h4 className="text-2xl mb-4 italic text-ovalGreenDark">Licensing and intellectual property</h4>
                         <p>
                             Oval.bio follows what it calls – Rising Tide IP policy. This is a give and take policy where all of our IP
@@ -109,7 +109,7 @@ function VideoSection() {
                             well as the more obvious technological information please message us so we can resolve this together.
                         </p>
                     </div>
-                    <div className="entry-content mt-10">
+                    <div className="entry-content m-0">
                         <h4 className="text-2xl mb-4 italic text-ovalGreenDark">Licensing and intellectual property</h4>
                         <p>
                             Many companies take your data and sell it to others with your identifiable information attached. We do not want
