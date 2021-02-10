@@ -10,7 +10,7 @@ function FivePillars() {
 
     return (
         <section className="flex relative w-screen h-full overflow-hidden">
-            <div className="px-10 py-16 w-1/4 flex-none">
+            <div className="px-10 py-16 flex-none" style={{ width: 400 }}>
                 <div className="mb-5">
                     <h1 className="text-3xl">Diagnostics</h1>
                 </div>
@@ -30,17 +30,15 @@ function FivePillars() {
                                         <div
                                             key={i}
                                             onClick={() => {
-                                                console.log(label, diagnosticItem.name);
                                                 setType(label);
                                                 setDiagnostic(i);
                                             }}
-                                            className="mb-2 cursor-pointer flex items-center"
+                                            className="mb-2 cursor-pointer flex items-center h-4"
                                         >
-                                            <h6 className="label-text text-sm">{diagnosticItem.name} </h6>
+                                            <h6 className="label-text h-4 text-sm flex items-center">{diagnosticItem.name} </h6>
                                             {type === label && diagnostics[type][diagnostic].name === diagnosticItem.name && (
-                                                <span className="ml-2">
-                                                    >>
-                                                    {/* <i className="fas fa-arrow-right"></i> */}
+                                                <span className="ml-2 h-4 text-ovalGreen flex items-center">
+                                                    <i className="fas fa-caret-right"></i>
                                                 </span>
                                             )}
                                         </div>
@@ -56,7 +54,7 @@ function FivePillars() {
                     <div className="w-full md:w-1/2 px-5">
                         {/* <h1>Hello</h1> */}
                         {/* {diagnostics[type][diagnostic].image || <div>?</div>} */}
-                        <div className="w-full block bg-gray-200 rounded-full">
+                        <div className="w-full flex items-center justify-center bg-gray-200 rounded-full">
                             {/* <div style={{ paddingTop: "100%" }}></div> */}
                             {stuffAnimation && (
                                 <Lottie
@@ -76,7 +74,7 @@ function FivePillars() {
                     </div>
                     <div className="w-full md:w-1/2 px-5">
                         <h5 className="label-text text-sm mb-2">Explanation</h5>
-                        <p className="text-2xl leading-tight">{diagnostics[type][diagnostic].description}</p>
+                        <p className="text-2xl leading-snug text-gray-900">{diagnostics[type][diagnostic].description}</p>
                     </div>
                 </div>
             </div>

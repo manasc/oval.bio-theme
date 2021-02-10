@@ -8,7 +8,7 @@
     {
       "name": "Impedance sensor",
       "image": "Impedance.json",
-      "description": "Measures body fat%, Muscle mass and BMI – Used before every session"
+      "description": "Measures body fat %, Muscle mass and BMI – Used before every session"
     },
     {
       "name": "Spirometer",
@@ -16,7 +16,7 @@
       "description": "Lung capacity and breathe pressure, used before and after every session. "
     },
     {
-      "name": "CO2 PPM(capnograph)",
+      "name": "CO2 PPM (Capnograph)",
       "image": "CO2Sensor.json",
       "description": "This measures how much CO2 is exhaled per breath, current version is used before and after every session. We are looking to integrate the sensor to be active during the entire course of the session."
     },
