@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 function FivePillars() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isChanging, setIsChanging] = useState(false);
+
+    const videoBlock = useRef(null);
 
     const diagnostics = [
         {
@@ -61,37 +63,6 @@ function FivePillars() {
             }, 750);
         }
     };
-
-    const styles = {
-        image: {
-            active: {},
-            dead: {},
-        },
-        note: {
-            active: {},
-            dead: {},
-        },
-        link: {
-            active: {},
-            dead: {},
-        },
-    };
-
-    const classes = {
-        image: {
-            active: {},
-            dead: {},
-        },
-        note: {
-            active: {},
-            dead: {},
-        },
-        link: {
-            active: "text-base mb-2 opacity-100",
-            dead: "cursor-pointer text-base mb-2 opacity-25 hover:opacity-75",
-        },
-    };
-
     // useEffect(() => {
     //     effect
     // }, [currentIndex])
@@ -99,7 +70,7 @@ function FivePillars() {
     const bgVideo = "/wp-content/themes/oval.bio/source/videos/video.mp4";
 
     return (
-        <React.Fragment>
+        <>
             <section className="h-screen overflow-hidden">
                 <div className="flex h-full">
                     <div className="w-full max-w-md flex-none p-10">
@@ -127,27 +98,27 @@ function FivePillars() {
                             impedance measures body water content and electrical resistance.{" "}
                         </p>
                     </div>
-                    <div className="flex-1 bg-white relative">
+                    <div ref={videoBlock} className="flex-1 bg-white relative">
                         <div
                             className={"image bg-cover bg-center absolute top-0 right-0 w-full h-full flex"}
                             style={{
                                 transitionDuration: "500ms",
                             }}
                         >
-                            <video
-                                style={{
-                                    position: "relative",
-                                    minHeight: 1080,
-                                    minWidth: 1920,
-                                    objectFit: "cover",
-                                    objectPosition: "right center",
-                                }}
-                                autoPlay
-                                loop
-                                muted
-                            >
-                                <source src={bgVideo} type="video/mp4" />
-                            </video>
+                            {videoBlock && videoBlock.current && (
+                                <video
+                                    style={{
+                                        position: "relative",
+                                        objectFit: "cover",
+                                        objectPosition: "right center",
+                                    }}
+                                    autoPlay
+                                    loop
+                                    muted
+                                >
+                                    <source src={bgVideo} type="video/mp4" />
+                                </video>
+                            )}
                         </div>
                     </div>
                 </div>
@@ -247,7 +218,7 @@ function FivePillars() {
                     </div>
                 </div>
             </section>
-        </React.Fragment>
+        </>
     );
 }
 

@@ -1,0 +1,76 @@
+{
+  "current": [
+    {
+      "name": "Pulse oximeter sensor",
+      "image": "",
+      "description": "Pulse and blood oxygen levels – this is one of the finger sensors and can be used during the course of a session continuously.  "
+    },
+    {
+      "name": "Impedance sensor",
+      "image": "Impedance.json",
+      "description": "Measures body fat%, Muscle mass and BMI – Used before every session"
+    },
+    {
+      "name": "Spirometer",
+      "image": "BlowAir.json",
+      "description": "Lung capacity and breathe pressure, used before and after every session. "
+    },
+    {
+      "name": "CO2 PPM(capnograph)",
+      "image": "CO2Sensor.json",
+      "description": "This measures how much CO2 is exhaled per breath, current version is used before and after every session. We are looking to integrate the sensor to be active during the entire course of the session."
+    },
+    {
+      "name": "Weight scale",
+      "image": "",
+      "description": "Measure weight and get calculations such as BMI, this in combination with impedance sensor and hydrostatic weighing  "
+    },
+    {
+      "name": "Galvanic Skin Response sensor",
+      "image": "GSRHand.json",
+      "description": "Skin conductivity to indicate emotional arousal or stress in order to use as one measurement of how the person is responding to the pod experience. Is a finger sensor."
+    },
+    {
+      "name": "Heart Rate Variability ",
+      "image": "",
+      "description": "Pattern of Your Heart Rhythms. When your heart rhythms are rhythmic and balanced you feel great and your immune system is working great. When your heart rhythms are erratic you feel stress and frustration. Is a general measurement of well being. One of the finger sensors"
+    },
+    {
+      "name": "Blood Pressure Sensor",
+      "image": "BloodPressure.json",
+      "description": "Blood pressure – measuring the pressure in arteries during and between heart beats. We are extremely close to having a version made that can be built off of and Improved. Our Initial version can take readings during the course of the session even while the user Is In the nanobubble bath.  "
+    }
+  ],
+  "future": [
+    {
+      "name": "Thermal camera",
+      "image": "",
+      "description": "Body temperature – shows if any spots are abnormally hot or cold, sometimes associated with inflammation, can also see how the other readings are affected by changes In the skins temperature. "
+    },
+    {
+      "name": "Impedance Pneumography",
+      "image": "",
+      "description": "technique to monitor a person’s respiration rate, or breathing rate. We have it but are working to make it waterproof. "
+    },
+    {
+      "name": "ECG- Electrocardiogram",
+      "image": "ECG.json",
+      "description": "Measure the timing and strength of heartbeat, we have it but need to make the electrode contacts waterproof. There is precedent of this and we are exploring different options. "
+    },
+    {
+      "name": "3D body scan",
+      "image": "3DScanBody.json",
+      "description": "This measures changes in the body over time, showing how the bodys appearance is changing, it can also when combined with the scale and impedance sensor be another factor to use to determine body fat and muscle mass percentages.Thanks to 3d printing 3d scanning technology has become more widely available."
+    },
+    {
+      "name": "Hydrostatic weighing",
+      "image": "",
+      "description": "This is typically done by submerging a person fully underwater and they exhale the air in their lungs. We do not want to do that so instead we are looking to measure slight changes in water volume when the user is submerged in the nanobubble bath to determine if we can get meaningful data. To be determinedt."
+    },
+    {
+      "name": "Collagen sensor",
+      "image": "",
+      "description": "Measures collagen, skin firmness and elasticity, this will help determine the effect the therapies are having on collagen growth. These exist and are fairly straightforward but we are not sure about current methods accuracy."
+    }
+  ]
+}
