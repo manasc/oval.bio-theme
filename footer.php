@@ -16,7 +16,7 @@
 
 <?php if (!is_page('all-blogs') and !is_front_page() and !is_home()) : ?>
     <!-- <div class="bg-gray-800">
-        <div class="container px-5 mx-auto">
+        <div class="container mx-auto">
             <div class="py-24 w-full relative">
                 <div class="mb-10 max-w-lg">
                     <h1 class="text-4xl text-ovalGreen leading-tight font-light ">Lorem ipsum dolor sit amet.</h1>
@@ -93,7 +93,7 @@
 </div>
 
 <footer class="bg-gray-900 text-white">
-    <!-- <div class="container px-5 mx-auto">
+    <!-- <div class="container mx-auto">
         <div class="flex flex-wrap -mx-5 py-10">
             <div class="w-full lg:w-2/6 px-5">
                 <?= get_logo() ?>
@@ -134,7 +134,7 @@
         </div>
     </div> -->
     <hr class="w-full bg-white">
-    <div class="container px-5 py-5 border-t border-gray-700 mx-auto">
+    <div class="container py-5 border-t border-gray-700 mx-auto">
         <div class="flex flex-wrap items-center -mx-3">
             <div class="px-3 flex-none"><?= get_logo() ?></div>
             <div class="px-3 flex-1 text-center md:text-left">

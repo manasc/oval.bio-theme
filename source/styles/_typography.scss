@@ -24,3 +24,12 @@ h6,
         @apply text-4xl;
     }
 }
+
+.meta-text {
+    @apply text-sm max-w-xs italic leading-snug text-gray-800 mt-3 mb-3;
+
+    &-bold {
+        @extend .meta-text;
+        @apply font-bold;
+    }
+}

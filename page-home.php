@@ -1,15 +1,18 @@
 <?php get_header() ?>
 <div class="hero-banner mt-5 py-12">
-    <div class="container px-2 mx-auto">
+    <div class="container mx-auto">
         <div class="flex flex-wrap justify-center -mx-2">
-            <div class="w-full md:w-1/3 px-2 py-20">
-                <div class="relative content text-center md:text-left max-w-sm h-64 mx-auto">
-                    <h1 class="text-4xl font-light leading-tight mb-3">Buy now and invest in your future.</h1>
-                    <p class="mb-8 text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Luctus a amet volutpat vel.</p>
-                    <a class="button">All Products</a>
+            <div class="w-full md:w-2/5 px-2 py-20">
+                <div class="relative content text-center md:text-left max-w-md mx-auto">
+                    <h1 class="text-xl font-light leading-tight mb-3">Breaking preconceived notions of what capitalism and free market economics are in the pursuit of providing extensive, ultra-transparent access to functional life extension technology.</h1>
+                    <p class="label-text text-xs mt-4">
+                        <span class="text-ovalGreenDark">Oval.bio</span>
+                        Mission Statement
+                    </p>
+                    <!-- <a class="button">All Products</a> -->
                 </div>
             </div>
-            <div class="w-full md:w-2/3 px-2">
+            <div class="w-full md:w-3/5 px-2">
                 <div class="w-full rounded-none md:rounded overflow-hidden relative bg-cover bg-center bg-no-repeat flex flex-wrap items-center justify-start h-full bg-white shadow" style="min-height: 300px">
                     <iframe width="100%" height="100%" src="https://miro.com/app/live-embed/o9J_lZgZqQU=/?moveToViewport=-1162,-375,1461,936" frameBorder="0" scrolling="no" allowFullScreen></iframe>
                 </div>
@@ -21,20 +24,20 @@
 <?php
 $quickLinks = [
     [
-        "name" => "Manifesto",
-        "image" => get_fake_images()[0]->urls->thumb,
+        "name" => "Our Manifesto",
+        "image" => get_template_directory_uri() . "/source/images/saturnv.jpg",
         "url" => get_permalink(get_page_by_path("manifesto"))
     ],
     [
-        "name" => "Pod Page",
-        "image" => get_fake_images()[2]->urls->thumb,
+        "name" => "Life Extension Pod",
+        "image" => get_template_directory_uri() . "/source/images/pod/pod4.jpg",
         "url" => get_permalink(get_page_by_path("pod"))
     ],
 ]
 ?>
 
 <div class="mb-10">
-    <div class="container px-2">
+    <div class="container">
         <div class="flex -mx-px">
             <?php foreach ($quickLinks as $i => $link) : ?>
                 <div class="w-full md:w-1/2 px-px">
@@ -42,8 +45,8 @@ $quickLinks = [
                         <div class="cover-image" style="background-image:url(<?php echo $link["image"] ?>)"></div>
                         <div class="cover"></div>
                         <div class="absolute content p-5 h-full w-full">
-                            <div class="absolute" style="top: 50%; left: 50%; transform: translate(-50%, -50%)">
-                                <div class="text-5xl font-light text-white leading-snug"><?php echo $link["name"] ?></div>
+                            <div class="absolute w-full" style="top: 50%; left: 50%; transform: translate(-50%, -50%)">
+                                <div class="text-5xl text-center text-white leading-snug"><?php echo $link["name"] ?></div>
                             </div>
                         </div>
                     </a>
@@ -67,8 +70,8 @@ $query = new WP_Query($query_args);
 $all_posts = $query->posts;
 ?>
 
-<div class="py-10">
-    <div class="container px-2 mx-auto">
+<div class="pb-10">
+    <div class="container mx-auto">
         <h1 class="text-4xl mb-8">Blog News</h1>
         <div class="pb-10 relative">
             <div class="label inline-block"><span class="label-text"><i class="fas fa-map-pin mr-1"></i>Featured</span></div>
@@ -140,12 +143,18 @@ $all_posts = $query->posts;
                 </div>
             </div>
         </div>
-        <div class="cta max-w-lg">
-            <p class="mb-4">Learn more about Repellendus atque animi et aut ut accusantium. Ad neque cupiditate. Voluptates dolorum dolores omnis ipsam. Reprehenderit eius explicabo culpa. Cumque a aut velit et aut assumenda.</p>
-            <a href="<?= get_permalink(get_page_by_path("all-blogs")->ID) ?>" class="button dark">
-                All Blogs
-                <i class="fas fa-arrow-circle-right"></i>
+        <div class="pt-10 pb-24 flex items-center justify-center">
+            <div class="text-base mr-3">
+                Check our full news feed to keep up with the latest <strong class="font-brand">oval.bio</strong> news.
+            </div>
+            <a href="<?= get_permalink(get_page_by_path("all-blogs")->ID) ?>" class="button mr-2">
+                See All Blogs
+                <!-- <i class="fas fa-shopping-bag ml-2"></i> -->
             </a>
+            <!-- <a href="<?php echo get_permalink(get_page_by_path("pod")) ?>"class="button">
+						See the Pod
+						<i class="fas fa-caret-right ml-2"></i>
+					</a> -->
         </div>
     </div>
 </div>

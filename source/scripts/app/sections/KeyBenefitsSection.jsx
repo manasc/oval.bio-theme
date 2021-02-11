@@ -8,11 +8,12 @@ function KeyBenefitsSection({ data }) {
     const overlayDisplay = (key) => {
         // get numeric distance between chosenImage
         const distance = Math.abs(chosenDisplay - key) * 100;
+        const offset = 15
 
         if (key < chosenDisplay) {
-            return `calc(-${distance}% - 25px)`;
+            return `calc(-${distance}% + ${offset}px)`;
         } else if (key > chosenDisplay) {
-            return `calc(${distance}% + 25px)`;
+            return `calc(${distance}% - ${offset}px)`;
         } else {
             return "0";
         }
@@ -33,7 +34,7 @@ function KeyBenefitsSection({ data }) {
     return (
         <div className="content-box">
             <div className="max-w-lg mx-auto mb-10">
-                <h1 className="subtitle md:text-center mb-2">Key Benefits</h1>
+                <h1 className="subtitle md:text-center mb-2">Key Essentials</h1>
                 <p className="text-base md:text-xl md:text-center">
                     Check out our quick tid-bits about this product. Click on a Key Benefit to see more details
                 </p>
@@ -78,6 +79,7 @@ function KeyBenefitsSection({ data }) {
                 <div className="tab-content text-base" dangerouslySetInnerHTML={{ __html: data.description }} />
             </div>
 
+            {/* overlay */}
             <div
                 className={"nmr-info-gallery-box overlay fixed top-0 left-0 h-full w-full z-50 flex items-center justify-center"}
                 style={{
@@ -104,7 +106,7 @@ function KeyBenefitsSection({ data }) {
                     >
                         <div
                             className="absolute bottom-0 right-0 h-64 w-64 opacity-50 overflow-hidden rounded-full"
-                            style={{ transform: "translate(-10%, 60%)" }}
+                            style={{ transform: "translate(20%, 30%)" }}
                         >
                             <div
                                 className="h-64 lg:h-full bg-cover bg-center bg-no-repeat"

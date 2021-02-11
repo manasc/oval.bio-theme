@@ -201,6 +201,8 @@ function ProductSection({ productId, productData, nonceId }) {
             zoomBoxes.forEach((box) => {
                 new Drift(box, {
                     paneContainer: box.querySelector(".image-zoom"),
+                    containInline: true,
+                    showWhitespaceAtEdges: true,
                     inlinePane: false,
                 });
             });
@@ -259,11 +261,11 @@ function ProductSection({ productId, productData, nonceId }) {
                     <div className="py-5">
                         <div className="hidden md:block title font-bold text-3xl mb-1">{productData.name}</div>
                         <div
-                            className="hidden md:block desc text-sm font-light leading-tight my-2"
+                            className="hidden md:block desc text-sm font-light leading-tight my-2 text-left"
                             dangerouslySetInnerHTML={{ __html: productData.description }}
                         />
                         <form form id="productSection" onSubmit={addProduct}>
-                            <div className="flex flex-wrap my-2">
+                            {/* <div className="flex flex-wrap my-2">
                                 {productData.categories &&
                                     productData.categories.length > 0 &&
                                     productData.categories.map((cat) => (
@@ -282,7 +284,7 @@ function ProductSection({ productId, productData, nonceId }) {
                                             <span className="label-text text-2xs">{tag.name}</span>
                                         </div>
                                     ))}
-                            </div>
+                            </div> */}
                             {productData.attributes.map((attribute, i) => (
                                 <VariantSelector key={i} attributes={attribute} />
                             ))}
@@ -302,17 +304,18 @@ function ProductSection({ productId, productData, nonceId }) {
                                         </div>
                                     </label>
                                 </div>
-                                <div className="font-bold text-2xs tracking-wider text-gray-800 mb-2">
+                                <div className="meta-text">
                                     {subscription ? (
                                         <span>
-                                            You're <span className="text-ovalGreenDark">saving 20%</span>
+                                            You're <span className="text-ovalGreenDark">saving 20%.</span>
                                         </span>
                                     ) : (
                                         <span>
                                             Subscribe and save <span className="text-ovalGreenDark">20% more.</span>
                                         </span>
-                                    )}
-                                    <span>Renews every 30 days.</span>
+                                    )}{" "}
+                                    <span>Renews every 30 days. Cancel Anytime.</span>
+                                    <i className="fas fa-question-circle cursor-pointer ml-1"></i>
                                 </div>
                             </div>
                             <div className="options my-10">
@@ -340,17 +343,17 @@ function ProductSection({ productId, productData, nonceId }) {
                             </div>
 
                             <div>
-                                <div className="mb-3 text-xs leading-snug max-w-2xs italic">
+                                <div className="meta-text">
                                     Purchase this product now and earn{" "}
-                                    <span id="points" className="text-ovalGreen font-bold mr-1">
-                                        40 points toward the Pod
+                                    <span id="points" className="text-ovalGreenDark">
+                                        40 points
                                     </span>
-                                    <i className="fas fa-question-circle cursor-pointer"></i>
+                                    <i className="fas fa-question-circle cursor-pointer ml-1"></i>
                                 </div>
                                 <button type="submit" className="button waves-effect w-full">
                                     <span className="label-text">Purchase</span>
                                 </button>
-                                <div className="mt-3 text-xs leading-snug max-w-2xs italic">30 day guarantee. Cancel Anytime.</div>
+                                {/* <div className="mt-3 text-xs leading-snug max-w-2xs italic">30 day guarantee.</div> */}
                             </div>
                         </form>
                     </div>

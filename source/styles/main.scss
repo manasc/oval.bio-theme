@@ -386,3 +386,7 @@ body {
 body {
     @apply bg-white #{!important};
 }
+
+.container {
+    @apply px-5 #{!important};
+}

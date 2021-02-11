@@ -55,7 +55,7 @@ $profiles = get_field('profiles');
 ?>
 
 <div class="pt-20 pb-32 bg-gray-400">
-    <div class="container px-2 py-16 mx-auto">
+    <div class="container py-16 mx-auto">
         <div class="max-w-lg">
             <h3 class="text-5xl mb-4"><?php echo $title ?></h3>
             <div class="text-lg mb-3"><?php echo $introduction ?></div>
@@ -79,7 +79,7 @@ $profiles = get_field('profiles');
             </div>
         </div>
     </div>
-    <div class="container px-2 -mt-20 mx-auto">
+    <div class="container -mt-20 mx-auto">
         <div class="pb-10 relative">
             <div class="flex flex-wrap -mx-2">
                 <?php foreach ($profiles as $i => $p) : ?>

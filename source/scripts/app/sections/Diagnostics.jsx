@@ -9,7 +9,7 @@ function FivePillars() {
     const stuffAnimation = useRef(null);
 
     return (
-        <section className="flex relative w-screen h-full overflow-hidden">
+        <section className="flex bg-gray-100 relative w-screen overflow-hidden">
             <div className="px-10 py-16 flex-none" style={{ width: 400 }}>
                 <div className="mb-5">
                     <h1 className="text-3xl">Diagnostics</h1>
@@ -51,16 +51,18 @@ function FivePillars() {
             </div>
             <div className="flex flex-1 pr-10 py-16">
                 <div className="flex flex-wrap w-full justify-start -mx-5">
-                    <div className="w-full md:w-1/2 px-5">
-                        {/* <h1>Hello</h1> */}
-                        {/* {diagnostics[type][diagnostic].image || <div>?</div>} */}
+                    <div className="w-full md:w-3/5 px-5">
+                        <h5 className="label-text text-sm mb-2">Explanation</h5>
+                        <p className="text-2xl leading-snug text-gray-900">{diagnostics[type][diagnostic].description}</p>
+                    </div>
+                    <div className="w-full md:w-2/5 px-5">
                         <div className="w-full flex items-center justify-center bg-gray-200 rounded-full">
                             {/* <div style={{ paddingTop: "100%" }}></div> */}
                             {stuffAnimation && (
                                 <Lottie
                                     ref={stuffAnimation}
                                     options={{
-                                        loop: false,
+                                        loop: true,
                                         autoplay: true,
                                         animationData: diagnostics[type][diagnostic].image
                                             ? require("../lottie/diagnostics/" + diagnostics[type][diagnostic].image)
@@ -71,10 +73,8 @@ function FivePillars() {
                                 />
                             )}
                         </div>
-                    </div>
-                    <div className="w-full md:w-1/2 px-5">
-                        <h5 className="label-text text-sm mb-2">Explanation</h5>
-                        <p className="text-2xl leading-snug text-gray-900">{diagnostics[type][diagnostic].description}</p>
+                        {/* <h1>Hello</h1> */}
+                        {/* {diagnostics[type][diagnostic].image || <div>?</div>} */}
                     </div>
                 </div>
             </div>

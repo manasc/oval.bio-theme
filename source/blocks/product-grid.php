@@ -13,9 +13,9 @@ $args = wp_parse_args($args, $defaultsArr);
 $cats = get_terms('product_cat'); ?>
 
 <section class="py-10">
-	<div class="filter-box container">
-		<div class="container px-2">
-			<h1 class="text-4xl mb-2">All Products</h1>
+	<div class="filter-box">
+		<div class="container">
+			<h1 class="text-4xl mb-2">Products</h1>
 			<p class="mb-2">Categories: </p>
 
 			<?php if ($products->have_posts()) : ?>
@@ -57,13 +57,13 @@ $cats = get_terms('product_cat'); ?>
 						Check out the full list of our products on our product page.
 					</div>
 					<a href="<?php echo get_permalink(get_page_by_path("all-products")) ?>" class="button mr-2">
-						All Products
-						<i class="fas fa-shopping-bag ml-2"></i>
+						See All Products
+						<!-- <i class="fas fa-shopping-bag ml-2"></i> -->
 					</a>
-					<a href="<?php echo get_permalink(get_page_by_path("pod")) ?>"class="button">
+					<!-- <a href="<?php echo get_permalink(get_page_by_path("pod")) ?>"class="button">
 						See the Pod
 						<i class="fas fa-caret-right ml-2"></i>
-					</a>
+					</a> -->
 				</div>
 			<?php endif ?>
 		</div>

@@ -11,7 +11,7 @@ $all_posts = $all_blogs->posts;
 ?>
 
 <div>
-    <div class="container px-2 mx-auto">
+    <div class="container mx-auto">
         <div class="py-10 relative">
             <div class="label inline-block"><span class="label-text"><i class="fas fa-map-pin mr-1"></i>Featured</span></div>
             <div class="blog-items flex flex-wrap -mx-px">
@@ -67,7 +67,7 @@ $all_posts = $all_blogs->posts;
 <?php $tags = get_tags(array('hide_empty' => true)) ?>
 <?php $cats = get_categories(array('hide_empty' => true)) ?>
 <div class="pb-10">
-    <div class="container px-2 mx-auto relative">
+    <div class="container mx-auto relative">
         <h1 class="text-3xl">All Articles</h1>
         <hr class="mb-10">
         <!-- <p class="mb-2">Categories:</p> -->
