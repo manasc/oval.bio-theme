@@ -30,6 +30,7 @@ module.exports = {
     rules: {
         "no-console": 0,
         quotes: ["warn", "double"],
+        "react/prop-types": 0,
         // 'comma-dangle': [
         //   'error',
         //   {

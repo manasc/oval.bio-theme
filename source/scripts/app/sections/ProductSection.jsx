@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import Drift from "drift-zoom";
+// import Drift from "drift-zoom";
+import InnerImageZoom from "react-inner-image-zoom";
 
 import Alert from "../components/Alert";
 
@@ -21,12 +22,6 @@ const packSizes = [
 
 function VariantSelector({ attributes, onChange }) {
     const [chosenOption, setChosenOption] = useState(attributes.terms[0].slug);
-
-    // useEffect(() => {
-    //     onChange(chosenOption);
-    // }, [chosenOption]);
-
-    // name, terms, has_variations
 
     const type = {
         "Pack Size": (
@@ -118,10 +113,6 @@ function ProductSection({ productId, productData, nonceId }) {
     const [subscription, setSubscription] = useState(true);
 
     const getVariantID = (formInputs, fieldKeys, variations) => {
-        // loop through variants
-        // console.log(formInputs, fieldKeys, variations);
-
-        // create object
         const currentVariant = [];
 
         fieldKeys.forEach((f) =>
@@ -134,15 +125,11 @@ function ProductSection({ productId, productData, nonceId }) {
         // formInputs
         const variant = variations.find((v) => JSON.stringify(v.attributes) === JSON.stringify(currentVariant));
 
-        console.log(variations, variant);
-
         return variant;
     };
 
     const addProduct = (e) => {
         e.preventDefault();
-
-        console.log(productData);
 
         const fieldKeys = productData.attributes.map((attr) => attr.name);
         const variant = getVariantID(document.forms.productSection.elements, fieldKeys, productData.variations);
@@ -194,47 +181,12 @@ function ProductSection({ productId, productData, nonceId }) {
         }
     };
 
-    useEffect(() => {
-        if (galleryBox) {
-            const zoomBoxes = galleryBox.current.querySelectorAll("[data-zoom]");
-
-            zoomBoxes.forEach((box) => {
-                new Drift(box, {
-                    paneContainer: box.querySelector(".image-zoom"),
-                    containInline: true,
-                    showWhitespaceAtEdges: true,
-                    inlinePane: false,
-                });
-            });
-        }
-    }, [galleryBox]);
-
     return (
         <div className="pb-5 md:py-8">
             {showAlert && <Alert text={alertText} status={addItemStatus} showAlertFunc={setShowAlert} />}
             <div className="flex flex-wrap mx-0 md:-mx-5">
                 <div className="w-full md:w-2/3 px-5">
                     <div ref={galleryBox} className="nmr-image-gallery-box">
-                        <div className="nmr-image-gallery relative overflow-hidden rounded border">
-                            <div className="square-image"></div>
-                            {productData.images.map((image, i) => {
-                                if (i < 5)
-                                    return (
-                                        <div
-                                            data-zoom={image.src}
-                                            key={i}
-                                            className="absolute top-0 left-0 h-full w-full bg-cover bg-center bg-no-repeat"
-                                            style={{
-                                                backgroundImage: "url(" + image.src + ")",
-                                                transitionDuration: "400ms",
-                                                transform: "translateX(" + imageDisplay(i) + ")",
-                                            }}
-                                        >
-                                            <div className="image-zoom absolute top-0 left-0 w-full h-full"></div>
-                                        </div>
-                                    );
-                            })}
-                        </div>
                         <div className="nmr-image-gallery-nav">
                             <div className="flex flex-wrap -mx-px my-px py-px">
                                 {productData.images.map(
@@ -248,12 +200,34 @@ function ProductSection({ productId, productData, nonceId }) {
                                             >
                                                 <div
                                                     className="square-image nmr-lazyload"
-                                                    style={{ backgroundImage: "url(" + image.src + ")" }}
+                                                    style={{ backgroundImage: "url(" + image.thumbnail + ")" }}
                                                 />
                                             </div>
                                         )
                                 )}
                             </div>
+                        </div>
+
+                        <div className="nmr-image-gallery relative overflow-hidden rounded border" style={{ padding: 0 }}>
+                            {/* <div className="square-image"></div> */}
+                            {productData.images.map((image, i) => {
+                                // console.log("image", productData.images, image);
+                                if (i < 5)
+                                    return (
+                                        <div
+                                            data-zoom={image.src}
+                                            key={i}
+                                            className="w-full bg-cover bg-center bg-no-repeat relative flex items-center"
+                                            style={{
+                                                position: i != chosenImage ? "absolute" : "relative",
+                                                transitionDuration: "400ms",
+                                                transform: "translateX(" + imageDisplay(i) + ")",
+                                            }}
+                                        >
+                                            <InnerImageZoom className="w-full" src={image.src} fullscreenOnMobile={true} />
+                                        </div>
+                                    );
+                            })}
                         </div>
                     </div>
                 </div>
@@ -265,26 +239,6 @@ function ProductSection({ productId, productData, nonceId }) {
                             dangerouslySetInnerHTML={{ __html: productData.description }}
                         />
                         <form form id="productSection" onSubmit={addProduct}>
-                            {/* <div className="flex flex-wrap my-2">
-                                {productData.categories &&
-                                    productData.categories.length > 0 &&
-                                    productData.categories.map((cat) => (
-                                        <div id={cat.slug} key={cat.name} className="text-2xs px-2 py-1 uppercase bg-ovalGreen mr-1 mb-1">
-                                            <span className="label-text text-2xs">{cat.name}</span>
-                                        </div>
-                                    ))}
-                                {productData.tags &&
-                                    productData.tags.length > 0 &&
-                                    productData.tags.map((tag) => (
-                                        <div
-                                            id={tag.slug}
-                                            key={tag.name}
-                                            className="text-2xs px-2 py-1 uppercase bg-slateBlueLight mr-1 mb-1"
-                                        >
-                                            <span className="label-text text-2xs">{tag.name}</span>
-                                        </div>
-                                    ))}
-                            </div> */}
                             {productData.attributes.map((attribute, i) => (
                                 <VariantSelector key={i} attributes={attribute} />
                             ))}
