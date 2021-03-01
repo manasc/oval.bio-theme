@@ -73,7 +73,7 @@
     "style-loader": "^1.1.4",
     "stylelint-config-standard": "^20.0.0",
     "tailwindcss": "^1.7.6",
-    "three": "^0.122.0",
+    "three": "^0.125.0",
     "tippy.js": "^6.2.7",
     "vanilla-lazyload": "^17.1.2",
     "waypoints": "^4.0.1",
