@@ -182,33 +182,31 @@ function ProductSection({ productId, productData, nonceId }) {
     };
 
     return (
-        <div className="pb-5 md:py-8">
+        <div className="pb-5 md:py-8 max-w-4xl mx-auto">
             {showAlert && <Alert text={alertText} status={addItemStatus} showAlertFunc={setShowAlert} />}
             <div className="flex flex-wrap mx-0 md:-mx-5">
                 <div className="w-full md:w-2/3 px-5">
-                    <div ref={galleryBox} className="nmr-image-gallery-box">
-                        <div className="nmr-image-gallery-nav">
-                            <div className="flex flex-wrap -mx-px my-px py-px">
-                                {productData.images.map(
-                                    (image, i) =>
-                                        i < 5 && (
+                    <div ref={galleryBox} className="nmr-image-gallery-box flex flex-wrap items-start">
+                        <div className="nmr-image-gallery-nav flex-none">
+                            {productData.images.map(
+                                (image, i) =>
+                                    i < 5 && (
+                                        <div
+                                            key={i}
+                                            className={"w-24 px-px py-px nmr-image " + (chosenImage === i && "active")}
+                                            style={{ transitionDuration: "200ms" }}
+                                            onClick={() => setChosenImage(i)}
+                                        >
                                             <div
-                                                key={i}
-                                                className={"w-1/5 px-px py-px nmr-image " + (chosenImage === i && "active")}
-                                                style={{ transitionDuration: "200ms" }}
-                                                onClick={() => setChosenImage(i)}
-                                            >
-                                                <div
-                                                    className="square-image nmr-lazyload"
-                                                    style={{ backgroundImage: "url(" + image.thumbnail + ")" }}
-                                                />
-                                            </div>
-                                        )
-                                )}
-                            </div>
+                                                className="square-image nmr-lazyload"
+                                                style={{ backgroundImage: "url(" + image.thumbnail + ")" }}
+                                            />
+                                        </div>
+                                    )
+                            )}
                         </div>
 
-                        <div className="nmr-image-gallery relative overflow-hidden rounded border" style={{ padding: 0 }}>
+                        <div className="nmr-image-gallery relative overflow-hidden rounded border flex-1" style={{ padding: 0 }}>
                             {/* <div className="square-image"></div> */}
                             {productData.images.map((image, i) => {
                                 // console.log("image", productData.images, image);
